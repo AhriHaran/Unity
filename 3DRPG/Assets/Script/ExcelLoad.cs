@@ -23,7 +23,7 @@ public class ExcelLoad
         var header = Regex.Split(lines[0], SPLIT_RE);
         for(var i = 1; i < lines.Length; i++)//맨 윗줄은 제외
         {
-            var value = Regex.Split(lines[i], SPLIT_RE);
+            var value = Regex.Split(lines[i], SPLIT_RE);//맨 윗줄을 잘라와서 그것을 키 값으로 삼는다.
             if (value.Length == 0 || value[0] == "")    //라인을 한 줄씩 잘라온다.
                 continue;//없으면 컨티뉴
 
