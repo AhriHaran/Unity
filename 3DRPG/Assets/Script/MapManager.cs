@@ -60,6 +60,8 @@ public class MapManager : MonoBehaviour
          * 시간 제한 동안 살아남거나
          * 시간 제한 내에 모든 적을 제거하는 등의 컨셉
          */
+
+        //
             
     }
 
