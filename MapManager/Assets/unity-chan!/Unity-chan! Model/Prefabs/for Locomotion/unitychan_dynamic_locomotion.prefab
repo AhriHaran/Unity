@@ -1496,7 +1496,6 @@ GameObject:
   - component: {fileID: 11400024}
   - component: {fileID: 13600000}
   - component: {fileID: 5400000}
-  - component: {fileID: 11400022}
   - component: {fileID: 11400112}
   - component: {fileID: 11400114}
   m_Layer: 0
@@ -1679,26 +1678,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &11400022
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 100076}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9001bcbd91e76437cb0f52f12764f2f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animSpeed: 1.5
-  lookSmoother: 3
-  useCurves: 1
-  useCurvesHeight: 0.5
-  forwardSpeed: 5
-  backwardSpeed: 2
-  rotateSpeed: 2
-  jumpPower: 2
 --- !u!114 &11400112
 MonoBehaviour:
   m_ObjectHideFlags: 0
