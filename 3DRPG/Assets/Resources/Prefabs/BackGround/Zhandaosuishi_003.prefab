@@ -30,7 +30,8 @@ Transform:
   m_LocalRotation: {x: -0.546223, y: -0.449044, z: -0.449044, w: 0.546223}
   m_LocalPosition: {x: -49.179344, y: 11.238543, z: 5.779608}
   m_LocalScale: {x: 0.73653805, y: 1.3828217, z: 0.77733797}
-  m_Children: []
+  m_Children:
+  - {fileID: 9126130151548009823}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -113,3 +114,54 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &6816668057571577609
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9126130151548009823}
+  - component: {fileID: 5931667834273705779}
+  m_Layer: 0
+  m_Name: NavMesh Link
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9126130151548009823
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6816668057571577609}
+  m_LocalRotation: {x: -0.8559351, y: -0.4617586, z: -0.10364768, w: -0.20835398}
+  m_LocalPosition: {x: 9.02, y: -2.35, z: 2.29}
+  m_LocalScale: {x: 1.1698705, y: 1.25, z: 0.9729865}
+  m_Children: []
+  m_Father: {fileID: 5831922309830329743}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 15.127001, y: 157.473, z: -239.721}
+--- !u!114 &5931667834273705779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6816668057571577609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eeb5dc026fdf4b488bc7ae0138ab719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_StartPoint: {x: 0.29087597, y: -1.0699433, z: -1.734856}
+  m_EndPoint: {x: 0.0000013387317, y: 0.21785584, z: 4.4124546}
+  m_Width: 3
+  m_CostModifier: -1
+  m_Bidirectional: 1
+  m_AutoUpdatePosition: 0
+  m_Area: 2
