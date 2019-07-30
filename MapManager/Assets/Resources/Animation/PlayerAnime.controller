@@ -234,6 +234,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: AttackCount
     m_EventTreshold: 2
+  - m_ConditionMode: 3
+    m_ConditionEvent: AttackTime
+    m_EventTreshold: 0.1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 8565446071520418622}
   m_Solo: 0
@@ -360,6 +363,12 @@ AnimatorController:
     m_Controller: {fileID: 0}
   - m_Name: AttackCount
     m_Type: 3
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
+  - m_Name: AttackTime
+    m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
