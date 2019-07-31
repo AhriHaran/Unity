@@ -16,7 +16,7 @@ public class MapManager : MonoBehaviour
     void Start()
     {
         m_strStage = GameManager.instance.ReturnStage(); //첫시작 
-        string strFile = "Excel/" + m_strStage + "Stage_Map";
+        string strFile = "Excel/StageExcel/" + m_strStage + "Stage_Map";
 
        List<Dictionary<string, object>> tmp = ExcelLoad.Read(strFile);
         //리스트로 저장 하고 해당 리스트에 맞춰서 맵 배치

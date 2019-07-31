@@ -51,15 +51,13 @@ namespace Player
             for(int i = 0; i < tmp.Count; i++)
             {
                 //Index	Key
-                string [] Key = tmp[i]["Key"].ToString().Split(SPRIT_EXCEL);
+                string [] Key = tmp[i]["Key"].ToString().Split(SPRIT_EXCEL[0]);
                 //"Key"의 밸류를 , 로 스플릿
 
                 for(int j = 0; j < Key.Length; j++)
                 {
-                    string [] Value = Key[i].Split(SPRIT_EXCEL);
+                    string [] Value = Key[i].Split(SPRIT_EXCEL[1]);
                     //타입 단타 타입, 프레스 타입
-
-
                 }
 
                 int KeyCount = int.Parse(Key);

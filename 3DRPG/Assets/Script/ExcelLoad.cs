@@ -33,7 +33,7 @@ public class ExcelLoad
             for(var j = 0; j < header.Length && j < value.Length; j++)
             {
                 string cellValue = value[j];
-                cellValue = cellValue.TrimStart(TRIM_CHARS).TrimEnd(TRIM_CHARS).Replace("\\", "");
+                cellValue = cellValue.TrimStart(TRIM_CHARS).TrimEnd(TRIM_CHARS).Replace("\\", ""); //해당 문자열을 포함하는 문자를 제거
                 object objectValue = cellValue;
                 int n;
                 float f;
