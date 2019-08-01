@@ -48,33 +48,33 @@ namespace Player
 
             List<Dictionary<string, object>> tmp = ExcelLoad.Read(File);
 
-            for(int i = 0; i < tmp.Count; i++)
-            {
-                //Index	Key
-                string [] Key = tmp[i]["Key"].ToString().Split(SPRIT_EXCEL[0]);
-                //"Key"의 밸류를 , 로 스플릿
+            //for(int i = 0; i < tmp.Count; i++)
+            //{
+            //    //Index	Key
+            //    string [] Key = tmp[i]["Key"].ToString().Split(SPRIT_EXCEL[0]);
+            //    //"Key"의 밸류를 , 로 스플릿
 
-                for(int j = 0; j < Key.Length; j++)
-                {
-                    string [] Value = Key[i].Split(SPRIT_EXCEL[1]);
-                    //타입 단타 타입, 프레스 타입
-                }
+            //    for(int j = 0; j < Key.Length; j++)
+            //    {
+            //        string [] Value = Key[i].Split(SPRIT_EXCEL[1]);
+            //        //타입 단타 타입, 프레스 타입
+            //    }
 
-                int KeyCount = int.Parse(Key);
+            //    //int KeyCount = int.Parse(Key);
 
-                Player_Key[] Node = new Player_Key[KeyCount];//키 카운트
-                for (int j = 0; j < KeyCount; j++)
-                {
-                    string str = "Key" + j;
-                    string KeyValue = tmp[i][str].ToString(); //무슨 키/ 무슨 방식/ 얼마나
-                    string[] arrKey = KeyValue.Split(new char[] { '/' });
+            //    Player_Key[] Node = new Player_Key[KeyCount];//키 카운트
+            //    for (int j = 0; j < KeyCount; j++)
+            //    {
+            //        string str = "Key" + j;
+            //        string KeyValue = tmp[i][str].ToString(); //무슨 키/ 무슨 방식/ 얼마나
+            //        string[] arrKey = KeyValue.Split(new char[] { '/' });
 
-                    Node[j].st_Key = int.Parse(arrKey[0]);  //무슨 키
-                    Node[j].st_Key_Input = int.Parse(arrKey[1]);    //무슨 입력 방식
-                    Node[j].st_Action_Trigger = int.Parse(arrKey[2]);   //무슨 액션 트리거
-                }
-                m_KeyList.Add(Node);
-            }
+            //        Node[j].st_Key = int.Parse(arrKey[0]);  //무슨 키
+            //        Node[j].st_Key_Input = int.Parse(arrKey[1]);    //무슨 입력 방식
+            //        Node[j].st_Action_Trigger = int.Parse(arrKey[2]);   //무슨 액션 트리거
+            //    }
+            //    m_KeyList.Add(Node);
+            //}
             //선택된 캐릭터는 게임매니저가 들고 있다.
         }
 

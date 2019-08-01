@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using System;
+using UnityEngine;
 
 public class CharacterData
 {
     public enum CHAR_ENUM
     {
         CHAR_NAME,
+        CHAR_ROUTE, //캐릭터 리소스 경로
         CHAR_LEVEL,
         CHAR_MAX_HP,
         CHAR_CUR_HP,
@@ -18,10 +19,10 @@ public class CharacterData
         CHAR_ATK,
         CHAR_DEF,
         CHAR_CRI,
-        CHAR_WEAPON_INDEX,
-        CHAR_STIGMA_TOP_INDEX,
-        CHAR_STIGMA_CENTER_INDEX,
-        CHAR_STIGMA_BOTTOM_INDEX,
+        CHAR_WEAPON_INDEX,  //캐릭터가 가지고 있는 무기 인덱스 값
+        CHAR_STIGMA_TOP_INDEX,  //스티그마 상
+        CHAR_STIGMA_CENTER_INDEX,   //스티그마 중
+        CHAR_STIGMA_BOTTOM_INDEX,   //스티그마 하
     }
 
     List<Dictionary<string, object>> m_CharInfo = new List<Dictionary<string, object>>();   //위의 인덱스들을 키로 가지는 리스트값
@@ -40,4 +41,16 @@ public class CharacterData
         }
     }
     //
+
+    public string GetRoute()
+    {
+        return m_CharInfo[(int)CHAR_ENUM.CHAR_ROUTE][CHAR_ENUM.CHAR_ROUTE.ToString()].ToString(); //프리펩 경로
+    }
+
+    public string GetName()
+    {
+        return m_CharInfo[(int)CHAR_ENUM.CHAR_NAME][CHAR_ENUM.CHAR_NAME.ToString()].ToString(); //프리펩 경로
+    }
+
+
 }

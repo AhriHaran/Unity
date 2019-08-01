@@ -16,9 +16,9 @@ public class LobbyManager : MonoBehaviour
 
     private UIPanel m_LobbyPanel;
     private UIPanel m_StagePanel;
-
-    //private UI_PANEL_INDEX m_eLastUI = 0;
-
+    public GameObject m_MainChar;   //메인 캐릭터 위치
+    //위치는 고정
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +26,13 @@ public class LobbyManager : MonoBehaviour
         m_StagePanel = GameObject.Find("StagePanel").GetComponent<UIPanel>();
         m_LobbyPanel.gameObject.SetActive(true);
         m_StagePanel.gameObject.SetActive(false);
-        //m_eLastUI = UI_PANEL_INDEX.PANEL_LOBBY;   //현재 패널
+
+        GameObject Main = UserInfo.instance.GetMainChar(m_MainChar.transform);
+        //메인으로 지정된 캐릭터 불러오기
+
+        Main.GetComponent<Animator>().runtimeAnimatorController = ResourceLoader.LoadResource(UserInfo.instance.GetMainCharLobbyAnimator())as RuntimeAnimatorController;
+        //로비 애니메이터로 변경
+        //Main.transform.position = new Vector3();
     }
 
     // Update is called once per frame
@@ -47,7 +53,6 @@ public class LobbyManager : MonoBehaviour
         {
             m_LobbyPanel.gameObject.SetActive(true);
             m_StagePanel.gameObject.SetActive(false);
-
         }
         else
         {

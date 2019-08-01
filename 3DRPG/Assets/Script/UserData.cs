@@ -17,37 +17,37 @@ public class UserData
     private int m_iMaxEXP = 0;  //유저 레벨당 경험치
     private int m_iGold = 0;    //유저 재화
     private string m_strMainChar;    //유저 메인 캐릭터 인덱스
-    private static char[] SPLIT_CHAR = new char []{ ',', ';' }; //스플릿 문자열
-    List<CharacterData> m_ListChar; //내가 가진 캐릭터 리스트
-    //인벤토리
-    
-    public UserData()
+    List<CharacterData> m_ListChar = new List<CharacterData>(); //내가 가진 캐릭터 리스트
+                                    //인벤토리
+    public UserData(List<Dictionary<string, object>> UserInfo, List<Dictionary<string, object>> UserChar, List<Dictionary<string, object>> UserTable)
     {
         //생성자
-        //현재 유저 레벨에 의한 자원 재화
-        List<Dictionary<string, object>> Read = ExcelLoad.Read("Excel/UserInfo");
+        m_strNickName = UserInfo[0]["NickName"].ToString();
+        m_iLevel = int.Parse(UserInfo[0]["Level"].ToString());
+        m_iCurEnergy = int.Parse(UserInfo[0]["CurEnergy"].ToString());
+        m_iGold = int.Parse(UserInfo[0]["Gold"].ToString());
+        m_iCurEXP = int.Parse(UserInfo[0]["CurExp"].ToString());
+        m_strMainChar = UserInfo[0]["UserMainChar"].ToString(); //메인 캐릭터
 
-        m_strNickName = Read[0]["NickName"].ToString();
-        m_iLevel = int.Parse(Read[0]["Level"].ToString());
-        m_iCurEnergy = int.Parse(Read[0]["CurEnergy"].ToString());
-        m_iGold = int.Parse(Read[0]["Gold"].ToString());
-        m_iCurEXP = int.Parse(Read[0]["CurExp"].ToString());
-        m_strMainChar = Read[0]["UserMainChar"].ToString(); //메인 캐릭터
-
-        int iIndex = int.Parse(Read[0]["CharNum"].ToString());
-        List<Dictionary<string, object>> m_Read = ExcelLoad.Read("Excel/UserCharData");
-        for (int i = 0; i < iIndex; i++)
+        for (int i = 0; i < UserChar.Count; i++)//내가 가진 캐릭터 테이블
         {
-            CharacterData Node = new CharacterData(i, m_Read);
+            CharacterData Node = new CharacterData(i, UserChar);
             m_ListChar.Add(Node);   //내가 가진 캐릭터 인덱스 값
         }
-        Read = ExcelLoad.Read("Excel/UserData");    //유저의 데이터들
 
-        m_iMaxEnergy = int.Parse(Read[m_iLevel]["Energy"].ToString());
-        m_iMaxEXP = int.Parse(Read[m_iLevel]["Exp"].ToString());
+        m_iMaxEnergy = int.Parse(UserTable[m_iLevel]["Energy"].ToString());
+        m_iMaxEXP = int.Parse(UserTable[m_iLevel]["Exp"].ToString());
     }
-    
-    //정보를 반환
 
+    public string GetRoute()
+    {
+        return m_ListChar[int.Parse(m_strMainChar)].GetRoute();
+        //해당 캐릭터의 루트.
+    }
+
+    public string GetName()
+    {
+        return m_ListChar[int.Parse(m_strMainChar)].GetName();
+    }
 
 }
