@@ -25,12 +25,7 @@ public class GameScene : MonoBehaviour
             m_arrObject[i] = transform.GetChild(i).gameObject;
         }
         //모든 게임 오브젝트는 여기서 가지고 있고,
-
-        //GameObject Player = ResourceLoader.CreatePrefab("Prefabs/Player/Player", m_arrObject[(int)OBJECT_INDEX.OBJECT_PLAYER].transform);
-        //Player.transform.position = vecPos;
-        ////플레이어 캐릭터 셋팅
-        //m_MainCamera.CameraSetting(Player.transform);
-        //플레이어 관리 툴 필요
+        //게임 씬에서 관리하는 모든 게임 오브젝트
 
     }
 
