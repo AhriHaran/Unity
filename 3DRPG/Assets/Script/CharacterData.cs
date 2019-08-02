@@ -25,6 +25,12 @@ public class CharacterData
         CHAR_STIGMA_BOTTOM_INDEX,   //스티그마 하
     }
 
+    public enum CHAR_ANIMATOR
+    {
+        CHAR_LOBBY_ANIMATOR,
+        CHAR_BATTLE_ANIMATOR,
+    }
+
     List<Dictionary<string, object>> m_CharInfo = new List<Dictionary<string, object>>();   //위의 인덱스들을 키로 가지는 리스트값
 
     public CharacterData()
@@ -42,15 +48,8 @@ public class CharacterData
     }
     //
 
-    public string GetRoute()
-    {
-        return m_CharInfo[(int)CHAR_ENUM.CHAR_ROUTE][CHAR_ENUM.CHAR_ROUTE.ToString()].ToString(); //프리펩 경로
+    public object GetCharData(CHAR_ENUM eIndex)
+    {   //해당 캐릭터 정보 오브젝트 반환
+        return m_CharInfo[(int)eIndex][eIndex.ToString()];
     }
-
-    public string GetName()
-    {
-        return m_CharInfo[(int)CHAR_ENUM.CHAR_NAME][CHAR_ENUM.CHAR_NAME.ToString()].ToString(); //프리펩 경로
-    }
-
-
 }

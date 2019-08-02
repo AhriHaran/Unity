@@ -39,15 +39,21 @@ public class UserData
         m_iMaxEXP = int.Parse(UserTable[m_iLevel]["Exp"].ToString());
     }
 
-    public string GetRoute()
+    public object GetCharData(CharacterData.CHAR_ENUM eIndex, int CharIndex)
     {
-        return m_ListChar[int.Parse(m_strMainChar)].GetRoute();
+        return m_ListChar[CharIndex].GetCharData(eIndex);
         //해당 캐릭터의 루트.
     }
 
-    public string GetName()
+    public int GetMainCharIndex()
     {
-        return m_ListChar[int.Parse(m_strMainChar)].GetName();
+        return int.Parse(m_strMainChar);
     }
+
+    public List<CharacterData> GetMyCharList()
+    {
+        return m_ListChar;  //내가 가진 전체 리스트
+    }
+
 
 }

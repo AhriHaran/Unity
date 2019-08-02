@@ -5,6 +5,7 @@ using System;
 
 public class UserInfo : MonoSingleton<UserInfo>
 {
+
     private UserData m_UserData;    //유저 데이터
     // Start is called before the first frame upda te
     void Start()
@@ -21,27 +22,52 @@ public class UserInfo : MonoSingleton<UserInfo>
         
     }
 
-    public GameObject GetMainChar(Transform Parent)
+    public object GetCharData(CharacterData.CHAR_ENUM eIndex, int iIndex)
     {
-        //메인 로비 캐릭터 리턴
+        return m_UserData.GetCharData(eIndex, iIndex);
+    }
+
+    public GameObject GetCharPrefabs(Transform Parent, int iIndex)
+    {
         GameObject MainChar = new GameObject();
         try
         {
-            string strTmp = m_UserData.GetRoute() + "Prefabs/" + m_UserData.GetName();
+            string route = m_UserData.GetCharData(CharacterData.CHAR_ENUM.CHAR_ROUTE, iIndex).ToString();
+            string name = m_UserData.GetCharData(CharacterData.CHAR_ENUM.CHAR_NAME, iIndex).ToString();
+            string strTmp = route + "Prefabs/" + name;
             MainChar = ResourceLoader.CreatePrefab(strTmp, Parent);
             return MainChar;
         }
-        catch(NullReferenceException ex)
+        catch (NullReferenceException ex)
         {
-            Debug.Log("Main Char is NULL");
+            Debug.Log("Char Prefabs is NULL");
             return null;
         }
     }
 
-    public string GetMainCharLobbyAnimator()
+    public UnityEngine.Object GetCharAnimator(int iIndex, CharacterData.CHAR_ANIMATOR eIndex)
     {
-       string strTmp = m_UserData.GetRoute() + "Animators/LobbyAnimator";
-        return strTmp;
+        try
+        {
+            string route = m_UserData.GetCharData(CharacterData.CHAR_ENUM.CHAR_ROUTE, iIndex).ToString();
+            string strTmp = route + "Animators/" + eIndex.ToString();
+            return ResourceLoader.LoadResource(strTmp);
+        }
+        catch (NullReferenceException ex)
+        {
+            Debug.Log("Animator is NULL");
+            return null;
+        }
     }
 
+    public int GetMainCharIndex()
+    {
+        return m_UserData.GetMainCharIndex();
+    }
+
+
+    public List<CharacterData> GetMyCharList()
+    {
+        return m_UserData.GetMyCharList();  //내캐릭터 전체 리스트
+    }
 }
