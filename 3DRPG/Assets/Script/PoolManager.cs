@@ -3,14 +3,14 @@ using System.Collections.Generic;
 
 public class PoolManager : MonoSingleton<PoolManager>
 {
-    public List<ObjectPool> Objectpools = new List<ObjectPool>();
+    public List<ObjectPool> m_PoolManger = new List<ObjectPool>();
 
-    void Awake()
+    public void Set(string strPrefabs, int iObjectCount, Transform Parent = null)
     {
-        for(int i = 0; i < Objectpools.Count; i++)
-        {
-            Objectpools[i].Init(transform);
-        }
+        ObjectPool Node = new ObjectPool();
+        Node.Init(strPrefabs, iObjectCount, Parent); 
+        m_PoolManger.Add(Node);
+        //하나의 오브젝트를 여러개 만들 떄,
     }
 
     public bool PushToPool(string itemName, GameObject item, Transform parent = null)
@@ -37,10 +37,10 @@ public class PoolManager : MonoSingleton<PoolManager>
 
     ObjectPool GetPoolItem(string itemName)
     {
-        for(int i = 0; i < Objectpools.Count; i++)
+        for(int i = 0; i < m_PoolManger.Count; i++)
         {
-            if (Objectpools[i].poolItemName.Equals(itemName))   //해당 아이템의 이름
-                return Objectpools[i];
+            if (m_PoolManger[i].m_strPoolName.Equals(itemName))   //해당 아이템의 이름
+                return m_PoolManger[i];
         }
         return null;
     }

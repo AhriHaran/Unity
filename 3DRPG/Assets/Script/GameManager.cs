@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class GameManager : MonoSingleton<GameManager>
 {
-    private int m_iCurStage = -1;
+    private int m_iCurStage = -1;   //현재 선택한 스테이지
     private int[] m_ListCharIndex;  //내가 선택한 캐릭터 인덱스들
+    private int m_iCurChar;
 
     // Start is called before the first frame update
     void Start()
@@ -22,14 +23,24 @@ public class GameManager : MonoSingleton<GameManager>
     public void StageSelect(int iStage)
     {
         m_iCurStage = iStage;
+    }
+
+    public void GameStart()
+    {
         //현재 스테이지를 저장하고 다음 씬으로 넘어간다.LoadScene
         LoadScene.SceneLoad("GameScene");
     }
 
-    public void CharSelect(int iNum, int iIndex)    //몇 번째, 무슨 인덱스 캐릭터
+    public void CharSelect(int iCharIndex)
     {
-        m_ListCharIndex[iNum] = iIndex; //인덱스 저장
+        m_iCurChar = iCharIndex;    //캐릭터 선택
     }
+
+    public void CharSelectComplete(int iNum)    //몇 번째 패널인가
+    {
+        m_ListCharIndex[iNum] = m_iCurChar; //인덱스 저장
+    }
+
 
     public bool StageReady()
     {
@@ -54,5 +65,12 @@ public class GameManager : MonoSingleton<GameManager>
     public string ReturnStage()
     {
         return m_iCurStage.ToString(); //현재 시작 스테이지 리턴
+    }
+
+    public void ResetSelect()
+    {
+        //셀렉트 한 것들을 모두 반환
+
+
     }
 }

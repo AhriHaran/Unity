@@ -18,7 +18,6 @@ public class UserData
     private int m_iGold = 0;    //유저 재화
     private string m_strMainChar;    //유저 메인 캐릭터 인덱스
     List<CharacterData> m_ListChar = new List<CharacterData>(); //내가 가진 캐릭터 리스트
-                                    //인벤토리
     public UserData(List<Dictionary<string, object>> UserInfo, List<Dictionary<string, object>> UserChar, List<Dictionary<string, object>> UserTable)
     {
         //생성자
@@ -55,5 +54,9 @@ public class UserData
         return m_ListChar;  //내가 가진 전체 리스트
     }
 
+    public int GetMyCharCount()
+    {
+        return m_ListChar.Count;
+    }
 
 }

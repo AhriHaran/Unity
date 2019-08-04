@@ -5,17 +5,20 @@ using System.Collections.Generic;
 public class ObjectPool : MonoBehaviour
 {
     //하나의 오브젝트를 대응하는 풀
-    public string poolItemName = string.Empty;
-    public GameObject prefab = null;    //프리팹 오브젝트
-    public int ipoolCount = 0;
-    private List<GameObject> poolList = new List<GameObject>();
+    public string m_strPoolName = string.Empty; //오브젝트 풀 이름
+    private int m_iPoolCount = 0;
+    private Transform m_trParent;
+    private List<GameObject> m_ListPool = new List<GameObject>();
 
-    public void Init(Transform parent = null)
+    public void Init(string strName, int iCount, Transform parent = null)
     {
+        m_strPoolName = strName;
+        m_iPoolCount = iCount;
+        m_trParent = parent;
         //초기화
-        for(int i = 0; i < ipoolCount; i++)
+        for (int i = 0; i < m_iPoolCount; i++)
         {
-            poolList.Add(CreateItem(parent));
+            m_ListPool.Add(CreateItem(parent));
         }
     }
 
@@ -24,23 +27,23 @@ public class ObjectPool : MonoBehaviour
         //오브젝를 사용후 반환 할 때
         item.transform.SetParent(parent);
         item.SetActive(false);
-        poolList.Add(item);
+        m_ListPool.Add(item);
     }
 
     public GameObject PopFromPoll(Transform parent = null)
     {
-        if (poolList.Count == 0)
-            poolList.Add(CreateItem(parent));
-        GameObject item = poolList[0];
-        poolList.RemoveAt(0);
+        if (m_ListPool.Count == 0)
+            m_ListPool.Add(CreateItem(parent));
+        GameObject item = m_ListPool[0];
+        m_ListPool.RemoveAt(0);
         return item;
     }
 
     private GameObject CreateItem(Transform parent = null)
     {
         //크리에이트
-        GameObject Item = Object.Instantiate(prefab) as GameObject; //as는 인스턴트를 만들 때 게임 오브젝트 형식으로 GetCompanet로 한다는 소리
-        Item.name = poolItemName;
+        GameObject Item = ResourceLoader.CreatePrefab(m_strPoolName, parent);
+        Item.name = m_strPoolName;
         Item.transform.SetParent(parent);   //보무의 위치를 기준으로 설정, 뒤에 false 면 현재 값 유지
         Item.SetActive(false);
         return Item;
