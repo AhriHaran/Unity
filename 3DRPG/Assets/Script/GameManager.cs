@@ -41,6 +41,10 @@ public class GameManager : MonoSingleton<GameManager>
         m_ListCharIndex[iNum] = m_iCurChar; //인덱스 저장
     }
 
+    public int GetCharIndex(int iIndex)
+    {
+        return m_ListCharIndex[iIndex];
+    }
 
     public bool StageReady()
     {

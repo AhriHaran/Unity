@@ -57,9 +57,9 @@ public class UserInfo : MonoSingleton<UserInfo>
 
     public void ReturnCharPrefabs(int iIndex, GameObject Object)
     {
+        Object.SetActive(false);
         m_ListCharObject.Insert(iIndex, Object);
         //사용한 것들을 재삽입
-
     }
 
     public UnityEngine.Object GetCharAnimator(int iIndex, CharacterData.CHAR_ANIMATOR eIndex)

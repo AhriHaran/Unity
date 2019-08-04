@@ -35,10 +35,15 @@ public class CharInfoButton : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(ray.origin,ray.direction ,out hit))
             {
-                //
                 m_CallBack(m_iCharIndex);
             }
         }
+    }
+
+    public void ResetCallBack()
+    {
+        m_iCharIndex = -1;
+        m_CallBack = null;
     }
 
 }

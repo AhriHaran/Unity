@@ -16,7 +16,7 @@ public class PoolManager : MonoSingleton<PoolManager>
     public bool PushToPool(string itemName, GameObject item, Transform parent = null)
     {
         ObjectPool pool = GetPoolItem(itemName);
-        if (pool == null)
+        if (pool.m_strPoolName == string.Empty)
             return false;
 
         if (parent == null)
@@ -29,7 +29,7 @@ public class PoolManager : MonoSingleton<PoolManager>
     public GameObject PopFromPool(string itemName, Transform parent = null)
     {
         ObjectPool pool = GetPoolItem(itemName);
-        if (pool == null)
+        if (pool.m_strPoolName == string.Empty)
             return null;
 
         return pool.PopFromPoll(parent);

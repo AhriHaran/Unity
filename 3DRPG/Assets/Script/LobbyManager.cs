@@ -15,7 +15,8 @@ public class LobbyManager : MonoBehaviour
     }
    
     List<UIPanel> m_ListPanel;
-    public GameObject m_MainChar;   //메인 캐릭터 위치
+    private GameObject m_MainChar;   //메인 캐릭터 위치
+    public Transform m_MainCharTR;
     string m_strCharSelect;
     //위치는 고정
 
@@ -24,24 +25,23 @@ public class LobbyManager : MonoBehaviour
     {
         m_ListPanel = new List<UIPanel>();
         UIPanel Lobby = GameObject.Find("LobbyPanel").GetComponent<UIPanel>();
+        Lobby.gameObject.SetActive(false);
         m_ListPanel.Add(Lobby);
         UIPanel Stage = GameObject.Find("StagePanel").GetComponent<UIPanel>();
+        Stage.gameObject.SetActive(false);
         m_ListPanel.Add(Stage);
         UIPanel StageReady = GameObject.Find("StageReadyPanel").GetComponent<UIPanel>();
+        StageReady.gameObject.SetActive(false);
         m_ListPanel.Add(StageReady);
         UIPanel Select = GameObject.Find("CharSelectPanel").GetComponent<UIPanel>();
+        Select.gameObject.SetActive(false);
         m_ListPanel.Add(Select);
 
         var charList = UserInfo.instance.GetMyCharList();
-        PoolManager.instance.Init("Prefabs/CharInfoButton", charList.Count);    //풀 매니저로 캐릭터 선택 패널을 미리 만들어 놓는다.
+        PoolManager.instance.Set("Prefabs/CharInfoButton", charList.Count);    //풀 매니저로 캐릭터 선택 패널을 미리 만들어 놓는다.
 
         PanelOnOff(UI_PANEL_INDEX.PANEL_LOBBY);
-
-        GameObject Main = UserInfo.instance.GetCharPrefabs(m_MainChar.transform, UserInfo.instance.GetMainCharIndex());
-        //메인으로 지정된 캐릭터 불러오기
-
-        Main.GetComponent<Animator>().runtimeAnimatorController = UserInfo.instance.GetCharAnimator(UserInfo.instance.GetMainCharIndex(), 
-            CharacterData.CHAR_ANIMATOR.CHAR_LOBBY_ANIMATOR) as RuntimeAnimatorController;
+        MainCharSet(true);
     }
 
     void PanelOnOff(UI_PANEL_INDEX eindex)
@@ -61,6 +61,25 @@ public class LobbyManager : MonoBehaviour
         
     }
 
+    void MainCharSet(bool bSet)
+    {
+        if (bSet)
+        {
+            m_MainChar = UserInfo.instance.GetCharPrefabs(UserInfo.instance.GetMainCharIndex());
+            m_MainChar.transform.SetParent(m_MainCharTR); //메인 캐릭터의 하위 오브젝트로 설정
+            m_MainChar.transform.localPosition = new Vector3(0, 0, 0);
+            m_MainChar.transform.localRotation = new Quaternion();
+            m_MainChar.transform.localScale = new Vector3(1, 1, 1);
+            //메인으로 지정된 캐릭터 불러오기
+            m_MainChar.GetComponent<Animator>().runtimeAnimatorController = UserInfo.instance.GetCharAnimator(UserInfo.instance.GetMainCharIndex(),
+                CharacterData.CHAR_ANIMATOR.CHAR_LOBBY_ANIMATOR) as RuntimeAnimatorController;
+        }
+        else
+        {
+            UserInfo.instance.ReturnCharPrefabs(UserInfo.instance.GetMainCharIndex(), m_MainChar);
+        }
+    }
+
     public void OnClick()
     {
         //로비에서 사용되는 버튼들은 여기서 구분한다.
@@ -70,11 +89,12 @@ public class LobbyManager : MonoBehaviour
         if (Button == "StageButton")
         {
             PanelOnOff(UI_PANEL_INDEX.PANEL_STAGE);
+            MainCharSet(false);
         }
         else if(Button == "HomeButton")
         {
             PanelOnOff(UI_PANEL_INDEX.PANEL_LOBBY);
-            //
+            MainCharSet(true);
         }
         else if(Button.Contains("Stage_"))  //스테이지 버튼 중 하나를 클릭
         {
@@ -95,19 +115,18 @@ public class LobbyManager : MonoBehaviour
         {
             //캐릭터 선택 버튼을 눌렀으면 이전 패널로 돌아가며, 스프라이트에 해당 캐릭터의 그림과 이름이 올라간다.
             GameManager.instance.CharSelectComplete(int.Parse(m_strCharSelect));
+            //해당 패널을 제 샛팅
+            string strPanel = "SelectChar_" + m_strCharSelect;
+            m_ListPanel[(int)UI_PANEL_INDEX.PANEL_STAGE_READY].transform.FindChild(strPanel).FindChild("Name").GetComponent<UILabel>().text
+                = UserInfo.instance.GetCharData(CharacterData.CHAR_ENUM.CHAR_NAME, GameManager.instance.GetCharIndex(int.Parse(m_strCharSelect))) as string; 
             PanelOnOff(UI_PANEL_INDEX.PANEL_STAGE_READY);
-
         }
         else if(Button == "StageStart")
         {
             if(GameManager.instance.StageReady())
             {
-                GameManager.instance.Stage
+                GameManager.instance.GameStart();   //게임 시작
             }
-
-            //int index = int.Parse(m_stage[m_stage.Length - 1]);
-            //GameManager.instance.StageSelect(index);    //게임 매니저에게 스테이지를 셋팅 하라고 보내준다.   
-            //캐릭터를 하나 이상 선택 한 후 스타트 버트
         }   
     }
 }
