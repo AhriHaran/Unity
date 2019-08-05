@@ -7,10 +7,12 @@ public class PoolManager : MonoSingleton<PoolManager>
 
     public void Set(string strPrefabs, int iObjectCount, Transform Parent = null)
     {
-        ObjectPool Node = new ObjectPool();
-        Node.Init(strPrefabs, iObjectCount, Parent); 
-        m_PoolManger.Add(Node);
-        //하나의 오브젝트를 여러개 만들 떄,
+        GameObject ObjectPool = ResourceLoader.CreatePrefab("Prefabs/ObejctPool");
+        ObjectPool Pool = ObjectPool.GetComponent<ObjectPool>();
+        Pool.Init(strPrefabs, iObjectCount, Parent);
+        m_PoolManger.Add(Pool);
+        //게임 오브젝트로 생성한 뒤
+        transform.AddChild(ObjectPool); //데이터 유지를 위해서 생성한 것을 하위 차일드로 넣어둔다.
     }
 
     public bool PushToPool(string itemName, GameObject item, Transform parent = null)

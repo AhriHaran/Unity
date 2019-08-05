@@ -13,8 +13,8 @@ public class LobbyManager : MonoBehaviour
         PANEL_CHAR_SELECT,  //캐릭터 선택 패널
         PANEL_END,
     }
-   
-    List<UIPanel> m_ListPanel;
+
+    private List<UIPanel> m_ListPanel = new List<UIPanel>();
     private GameObject m_MainChar;   //메인 캐릭터 위치
     public Transform m_MainCharTR;
     string m_strCharSelect;
@@ -23,22 +23,15 @@ public class LobbyManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        m_ListPanel = new List<UIPanel>();
-        UIPanel Lobby = GameObject.Find("LobbyPanel").GetComponent<UIPanel>();
-        Lobby.gameObject.SetActive(false);
-        m_ListPanel.Add(Lobby);
-        UIPanel Stage = GameObject.Find("StagePanel").GetComponent<UIPanel>();
-        Stage.gameObject.SetActive(false);
-        m_ListPanel.Add(Stage);
-        UIPanel StageReady = GameObject.Find("StageReadyPanel").GetComponent<UIPanel>();
-        StageReady.gameObject.SetActive(false);
-        m_ListPanel.Add(StageReady);
-        UIPanel Select = GameObject.Find("CharSelectPanel").GetComponent<UIPanel>();
-        Select.gameObject.SetActive(false);
-        m_ListPanel.Add(Select);
+        for(int i = (int)UI_PANEL_INDEX.PANEL_START; i < (int)UI_PANEL_INDEX.PANEL_END; i++)
+        {
+            UIPanel Node = GameObject.Find("LobbyUI").transform.GetChild(i + 1).GetComponent<UIPanel>();
+            Node.gameObject.SetActive(false);
+            m_ListPanel.Add(Node);
+        }
 
-        var charList = UserInfo.instance.GetMyCharList();
-        PoolManager.instance.Set("Prefabs/CharInfoButton", charList.Count);    //풀 매니저로 캐릭터 선택 패널을 미리 만들어 놓는다.
+        PoolManager.instance.Set("Prefabs/CharInfoButton", UserInfo.instance.GetMyCharCount());    
+        //풀 매니저로 캐릭터 선택 패널을 미리 만들어 놓는다.
     }
 
     private void Start()
@@ -120,7 +113,7 @@ public class LobbyManager : MonoBehaviour
             GameManager.instance.CharSelectComplete(int.Parse(m_strCharSelect));
             //해당 패널을 제 샛팅
             string strPanel = "SelectChar_" + m_strCharSelect;
-            m_ListPanel[(int)UI_PANEL_INDEX.PANEL_STAGE_READY].transform.FindChild(strPanel).FindChild("Name").GetComponent<UILabel>().text
+            m_ListPanel[(int)UI_PANEL_INDEX.PANEL_STAGE_READY].transform.Find(strPanel).Find("Name").GetComponent<UILabel>().text
                 = UserInfo.instance.GetCharData(CharacterData.CHAR_ENUM.CHAR_NAME, GameManager.instance.GetCharIndex(int.Parse(m_strCharSelect))) as string; 
             PanelOnOff(UI_PANEL_INDEX.PANEL_STAGE_READY);
         }

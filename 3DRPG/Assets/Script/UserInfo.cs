@@ -6,8 +6,9 @@ using System;
 
 public class UserInfo : MonoSingleton<UserInfo>
 {
-    private UserData m_UserData;    //유저 데이터
-    private List<GameObject> m_ListCharObject = new List<GameObject>();  //유저가 가진 모든 캐릭터 오브젝트
+    private static UserData m_UserData;    //유저 데이터
+    private static List<GameObject> m_ListCharObject = new List<GameObject>();  //유저가 가진 모든 캐릭터 오브젝트
+
     // Start is called before the first frame upda te
     public void Init()
     {
@@ -21,7 +22,7 @@ public class UserInfo : MonoSingleton<UserInfo>
         var UserTable = EXCEL.ExcelLoad.Read("Excel/UserTable");
 
         m_UserData = new UserData(Userinfo, UserCharData, UserTable);
-        
+
         //리스트로 미리 게임 캐릭터 프리펩을 모두 담아놓고 필요할 때 빼서 쓰자
 
         int iCount = m_UserData.GetMyCharCount();
