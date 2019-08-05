@@ -21,7 +21,7 @@ public class LobbyManager : MonoBehaviour
     //위치는 고정
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         m_ListPanel = new List<UIPanel>();
         UIPanel Lobby = GameObject.Find("LobbyPanel").GetComponent<UIPanel>();
@@ -39,7 +39,10 @@ public class LobbyManager : MonoBehaviour
 
         var charList = UserInfo.instance.GetMyCharList();
         PoolManager.instance.Set("Prefabs/CharInfoButton", charList.Count);    //풀 매니저로 캐릭터 선택 패널을 미리 만들어 놓는다.
+    }
 
+    private void Start()
+    {
         PanelOnOff(UI_PANEL_INDEX.PANEL_LOBBY);
         MainCharSet(true);
     }

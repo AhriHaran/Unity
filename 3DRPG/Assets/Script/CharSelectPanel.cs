@@ -9,14 +9,9 @@ public class CharSelectPanel : MonoBehaviour
     private GameObject m_SelectCharMain;
     private GameObject m_SelectChar;    //내가 선택한 캐릭터의 프리팹
 
-
     private List<GameObject> m_SelectPanel = new List<GameObject>();
     // Start is called before the first frame update
     void Start()
-    {
-    }
-
-    private void OnEnable()
     {
         //하위 오브젝트인 그리드를 받아온다.
         m_GridPanel = transform.GetChild(1).GetComponent<UIPanel>(); //ui 패널

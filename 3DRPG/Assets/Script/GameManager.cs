@@ -8,15 +8,9 @@ public class GameManager : MonoSingleton<GameManager>
     private int[] m_ListCharIndex;  //내가 선택한 캐릭터 인덱스들
     private int m_iCurChar;
 
-    // Start is called before the first frame update
-    void Start()
+    public void Init()
     {
         m_ListCharIndex = new int[] { -1, -1, -1 };   //3개
-    }
-    
-    // Update is called once per frame
-    void Update()
-    {
     }
 
     //StageSelect

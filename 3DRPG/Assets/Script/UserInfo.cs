@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using System;
 
 public class UserInfo : MonoSingleton<UserInfo>
@@ -8,12 +9,19 @@ public class UserInfo : MonoSingleton<UserInfo>
     private UserData m_UserData;    //유저 데이터
     private List<GameObject> m_ListCharObject = new List<GameObject>();  //유저가 가진 모든 캐릭터 오브젝트
     // Start is called before the first frame upda te
-    void Start()
+    public void Init()
     {
+        FirstLoadScene first = GameObject.Find("FirstLoad").GetComponent<FirstLoadScene>();
+        UnityEvent Event = new UnityEvent();
+        Event.AddListener(first.UserInfoComplete);
+        //유저 데이터를 모두 셋팅 하면 호출할 이벤트 설정
+
         var Userinfo = EXCEL.ExcelLoad.Read("Excel/UserInfo");
         var UserCharData = EXCEL.ExcelLoad.Read("Excel/UserCharData");
         var UserTable = EXCEL.ExcelLoad.Read("Excel/UserTable");
+
         m_UserData = new UserData(Userinfo, UserCharData, UserTable);
+        
         //리스트로 미리 게임 캐릭터 프리펩을 모두 담아놓고 필요할 때 빼서 쓰자
 
         int iCount = m_UserData.GetMyCharCount();
@@ -33,13 +41,7 @@ public class UserInfo : MonoSingleton<UserInfo>
                 Debug.Log("Char Prefabs is NULL");
             }
         }
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Event.Invoke();
     }
 
     public object GetCharData(CharacterData.CHAR_ENUM eIndex, int iIndex)
