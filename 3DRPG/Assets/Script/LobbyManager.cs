@@ -30,7 +30,25 @@ public class LobbyManager : MonoBehaviour
             m_ListPanel.Add(Node);
         }
 
-        PoolManager.instance.Set("Prefabs/CharInfoButton", UserInfo.instance.GetMyCharCount());    
+        int iCount = UserInfo.instance.GetMyCharCount();
+        string[] strIndex = new string[iCount];
+        for (int i = 0; i < iCount; i++)
+        {
+            try
+            {
+                string route = UserInfo.instance.GetCharData(CharacterData.CHAR_ENUM.CHAR_ROUTE, i).ToString();
+                string name = UserInfo.instance.GetCharData(CharacterData.CHAR_ENUM.CHAR_NAME, i).ToString();
+                strIndex[i] = route + "Prefabs/" + name;
+            }
+            catch (System.NullReferenceException ex)
+            {
+                Debug.Log("Char Prefabs is NULL");
+            }
+        }
+        PoolManager.instance.Set(EnumClass.POOL_INDEX.USER_CHAR_POOL.ToString(), strIndex, iCount); 
+        //내가 가진 캐릭터 모델링들을 미리 셋팅
+
+        PoolManager.instance.Set(EnumClass.POOL_INDEX.CHAR_INFO_POOL.ToString(),"Prefabs/CharInfoButton", UserInfo.instance.GetMyCharCount());
         //풀 매니저로 캐릭터 선택 패널을 미리 만들어 놓는다.
     }
 
@@ -59,20 +77,21 @@ public class LobbyManager : MonoBehaviour
 
     void MainCharSet(bool bSet)
     {
+        int iMainCount = UserInfo.instance.GetMainCharIndex();
         if (bSet)
         {
-            m_MainChar = UserInfo.instance.GetCharPrefabs(UserInfo.instance.GetMainCharIndex());
-            m_MainChar.transform.SetParent(m_MainCharTR); //메인 캐릭터의 하위 오브젝트로 설정
-            m_MainChar.transform.localPosition = new Vector3(0, 0, 0);
-            m_MainChar.transform.localRotation = new Quaternion();
-            m_MainChar.transform.localScale = new Vector3(1, 1, 1);
+            m_MainChar = PoolManager.instance.PopFromPool(EnumClass.POOL_INDEX.USER_CHAR_POOL.ToString(), iMainCount);
+            m_MainChar.SetActive(true);
+            m_MainChar.transform.SetParent(m_MainCharTR, false); //메인 캐릭터의 하위 오브젝트로 설정
             //메인으로 지정된 캐릭터 불러오기
             m_MainChar.GetComponent<Animator>().runtimeAnimatorController = UserInfo.instance.GetCharAnimator(UserInfo.instance.GetMainCharIndex(),
                 CharacterData.CHAR_ANIMATOR.CHAR_LOBBY_ANIMATOR) as RuntimeAnimatorController;
+            //애니메이터 변경
         }
         else
         {
-            UserInfo.instance.ReturnCharPrefabs(UserInfo.instance.GetMainCharIndex(), m_MainChar);
+            if(m_MainChar != null)
+              PoolManager.instance.PushToPool(EnumClass.POOL_INDEX.USER_CHAR_POOL.ToString(), iMainCount, m_MainChar);
         }
     }
 

@@ -1,24 +1,51 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System;
 
 public class PoolManager : MonoSingleton<PoolManager>
 {
     public List<ObjectPool> m_PoolManger = new List<ObjectPool>();
 
-    public void Set(string strPrefabs, int iObjectCount, Transform Parent = null)
+    public void Set(string strPoolName, string strPrefabs, int iObjectCount, Transform Parent = null)
     {
-        GameObject ObjectPool = ResourceLoader.CreatePrefab("Prefabs/ObejctPool");
-        ObjectPool Pool = ObjectPool.GetComponent<ObjectPool>();
-        Pool.Init(strPrefabs, iObjectCount, Parent);
-        m_PoolManger.Add(Pool);
-        //게임 오브젝트로 생성한 뒤
-        transform.AddChild(ObjectPool); //데이터 유지를 위해서 생성한 것을 하위 차일드로 넣어둔다.
+        try
+        {
+            GameObject ObjectPool = ResourceLoader.CreatePrefab("Prefabs/ObejctPool");   //오브젝트 풀링
+            ObjectPool.name = strPoolName;
+            ObjectPool Pool = ObjectPool.GetComponent<ObjectPool>();
+            Pool.Init(strPrefabs, iObjectCount, Parent);
+            m_PoolManger.Add(Pool);
+            //게임 오브젝트로 생성한 뒤
+        }
+        catch (NullReferenceException ex)
+        {
+            Debug.Log("Object is NULL");
+        }
     }
 
-    public bool PushToPool(string itemName, GameObject item, Transform parent = null)
+    public void Set(string strPoolName, string [] strPrefabs, int iObjectCount, Transform Parent = null)
     {
-        ObjectPool pool = GetPoolItem(itemName);
-        if (pool.m_strPoolName == string.Empty)
+        //서로 다른 오브젝트를 풀링으로 관리
+        try
+        {
+            GameObject ObjectPool = ResourceLoader.CreatePrefab("Prefabs/ObejctPool");   //오브젝트 풀링
+            ObjectPool.name = strPoolName;
+            ObjectPool Pool = ObjectPool.GetComponent<ObjectPool>();
+            Pool.Init(strPrefabs, iObjectCount, Parent);
+            m_PoolManger.Add(Pool);
+            //게임 오브젝트로 생성한 뒤 하위 컴포넌트로 셋팅
+        }
+        catch (NullReferenceException ex)
+        {
+            Debug.Log("Object is NULL");
+        }
+    }
+
+    public bool PushToPool(string strPoolName, GameObject item, Transform parent = null)
+    {
+        //기본 반납
+        ObjectPool pool = GetPoolItem(strPoolName);
+        if (pool.name == string.Empty)
             return false;
 
         if (parent == null)
@@ -28,20 +55,48 @@ public class PoolManager : MonoSingleton<PoolManager>
         return true;
     }
 
-    public GameObject PopFromPool(string itemName, Transform parent = null)
+    public bool PushToPool(string strPoolName, int iIndex, GameObject item, Transform parent = null)
     {
-        ObjectPool pool = GetPoolItem(itemName);
-        if (pool.m_strPoolName == string.Empty)
+        //인덱스 기반 반납
+        ObjectPool pool = GetPoolItem(strPoolName);
+        if (pool.name == string.Empty)
+            return false;
+
+        if (parent == null)
+            parent = transform;
+
+        pool.PushToPool(item, iIndex, parent);
+        return true;
+    }
+
+
+    public GameObject PopFromPool(string strPoolName, Transform parent = null)
+    {
+        //기본 대출
+        ObjectPool pool = GetPoolItem(strPoolName);
+        if (pool == null)
             return null;
 
         return pool.PopFromPoll(parent);
     }
 
-    ObjectPool GetPoolItem(string itemName)
+    public GameObject PopFromPool(string strPoolName, int iIndex, Transform parent = null)
     {
+        //인덱스 기반 대출
+        ObjectPool pool = GetPoolItem(strPoolName);
+        if (pool == null)
+            return null;
+
+        return pool.PopFromPoll(iIndex, parent);
+    }
+
+
+    ObjectPool GetPoolItem(string strPoolName)
+    {
+        //오브젝트 풀 클래스 탐색
         for(int i = 0; i < m_PoolManger.Count; i++)
         {
-            if (m_PoolManger[i].m_strPoolName.Equals(itemName))   //해당 아이템의 이름
+            if (m_PoolManger[i].name.Equals(strPoolName))   //해당 아이템의 이름
                 return m_PoolManger[i];
         }
         return null;

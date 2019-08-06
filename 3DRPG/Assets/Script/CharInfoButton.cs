@@ -33,9 +33,10 @@ public class CharInfoButton : MonoBehaviour
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            if (Physics.Raycast(ray.origin,ray.direction ,out hit))
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
                 m_CallBack(m_iCharIndex);
+                Debug.DrawRay(ray.origin, ray.direction * 10f, Color.red, 5f);
             }
         }
     }
