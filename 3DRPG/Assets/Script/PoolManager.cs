@@ -47,7 +47,9 @@ public class PoolManager : GSingleton<PoolManager>
         //기본 반납
         ObjectPool pool = GetPoolItem(strPoolName);
         if (pool.name == string.Empty)
+        {
             return false;
+        }
 
         pool.PushToPool(item, pool.transform);
         return true;

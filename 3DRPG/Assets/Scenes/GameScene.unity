@@ -129,7 +129,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 678527735}
-  - component: {fileID: 678527737}
   - component: {fileID: 678527736}
   m_Layer: 0
   m_Name: BackGround
@@ -181,20 +180,6 @@ MonoBehaviour:
   m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &678527737
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 678527734}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8c43f93ea99c5849be1fe15dc99ca61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_surfaces: {fileID: 678527736}
-  m_ListEventPos: []
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,7 +253,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 2.9853324e-23}
+  m_BoundingSphereOverride: {x: 2.480597e+27, y: 1.1280481e+27, z: 6.271143e-39, w: 2.4023743e+20}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -315,7 +300,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a88e65c457e9f7f4a8ef8102e4988bb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MainCamera: {fileID: 963194230}
 --- !u!4 &891944561
 Transform:
   m_ObjectHideFlags: 0

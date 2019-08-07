@@ -7,8 +7,7 @@ public class PlayerScript : MonoBehaviour
     private float m_fSpeed = 10.0f;
     private Rigidbody m_Rigidbody;
     private Vector3 m_Vec3;
-
-
+    //플레이어의 조종에 따른 스크립트
     // Start is called before the first frame update
     void Start()
     {

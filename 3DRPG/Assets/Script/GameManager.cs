@@ -21,7 +21,6 @@ public class GameManager : MonoSingleton<GameManager>
 
     public void GameStart()
     {
-        //현재 스테이지를 저장하고 다음 씬으로 넘어간다.LoadScene
         LoadScene.SceneLoad("GameScene");
     }
 
@@ -76,11 +75,9 @@ public class GameManager : MonoSingleton<GameManager>
         return m_iCurStage.ToString(); //현재 시작 스테이지 리턴
     }
 
-    public void ResetSelect()
+    public int[] ReturnPlayerList()
     {
-        //셀렉트 한 것들을 모두 반환
-
-
+        return m_ListCharIndex;
     }
 }
 

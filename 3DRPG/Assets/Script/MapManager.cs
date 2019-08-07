@@ -3,17 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.AI;
 
-public class MapManager : MonoBehaviour
+public class MapManager
 {
-    //맵의 네비 매쉬를 설정하고 맵의 클리어 조건들을 설정한다.
-    public NavMeshSurface m_surfaces;
+    //맵의 오브젝트 데이터만 설정하고 맵의 시작과 끝 지점만을 가진다.
     public List<Vector3> m_ListEventPos = new List<Vector3>();
-    string m_strStage;
-    string m_strType;
-    float m_fStageTime = 0.0f;
+    public List<GameObject> m_ListMapObject = new List<GameObject>();    
+    string m_strStage;  //맵의 카운트
+    string m_strType;   //맵의 타입
+    float m_fStageTime = 0.0f;  //맵의 제한 시간
 
-    // Use this for initialization
-    void Start()
+    public MapManager(Transform Parent)
     {
         m_strStage = GameManager.instance.ReturnStage(); //첫시작 
         string strFile = "Excel/StageExcel/" + m_strStage + "Stage_Map";
@@ -31,52 +30,36 @@ public class MapManager : MonoBehaviour
             QueRot.Set(float.Parse(tmp[i]["QuaX"].ToString()), float.Parse(tmp[i]["QuaY"].ToString()), float.Parse(tmp[i]["QuaZ"].ToString()), float.Parse(tmp[i]["QuaW"].ToString()));   //회전
             vecSca.Set(float.Parse(tmp[i]["ScaleX"].ToString()), float.Parse(tmp[i]["ScaleY"].ToString()), float.Parse(tmp[i]["ScaleZ"].ToString()));   //스케일
 
-            GameObject MapObject = ResourceLoader.CreatePrefab(strText, transform);
+            GameObject MapObject = ResourceLoader.CreatePrefab(strText, Parent);
 
             MapObject.transform.SetPositionAndRotation(vecPos, QueRot);   //맵의 오브젝트
             MapObject.transform.localScale = vecSca;
+            m_ListMapObject.Add(MapObject);
         }
         //맵 셋팅 
-        m_surfaces.BuildNavMesh();
 
         //맵 타입 설정
-        strFile = "Excel/" + m_strStage + "Stage_Type";
+        strFile = "Excel/StageExcel/Stage_Type";
         tmp = EXCEL.ExcelLoad.Read(strFile);
+        int iStage = int.Parse(m_strStage);
         //맵의 타입, 시간
-        m_strType = tmp[0]["Type"].ToString();  //맵 타입
-        if (tmp[0]["Time"].ToString() == "NULL")
+        m_strType = tmp[iStage]["Type"].ToString();  //맵 타입
+        if (tmp[iStage]["Time"].ToString() == "NULL")
             m_fStageTime = 0.0f;
         else
-            m_fStageTime = float.Parse(tmp[0]["Time"].ToString());
-        
-        m_surfaces.BuildNavMesh();
+            m_fStageTime = float.Parse(tmp[iStage]["Time"].ToString());
 
-        strFile = "Excel/" + m_strStage + "Stage_Event_Pos";
+        strFile = "Excel/StageExcel/" + m_strStage + "Stage_Event_Pos";
         tmp = EXCEL.ExcelLoad.Read(strFile);
-        //맵의 이벤트 포스
-
+        //맵의 특정 이벤트 지점을 저장한 백터
         //            Index LocX    LocY LocZ
-        for (var i =0; i < tmp.Count; i++)
+        for (var i = 0; i < tmp.Count; i++)
         {
             Vector3 Node = new Vector3(float.Parse(tmp[i]["LocX"].ToString()), float.Parse(tmp[i]["LocY"].ToString()), float.Parse(tmp[i]["LocZ"].ToString()));
-
-            GameObject Object = new GameObject();
-            Object.name = (i.ToString() +"EventPos");
-            Object.transform.SetParent(transform);
-            Object.transform.position = Node;
-
             m_ListEventPos.Add(Node);
         }
-        //특정 이벤트를 위한 포지션 벡터
-        
+        //출발 지점과 끝나는 지점
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public List<Vector3> ReturnEventPos()
     {
         return m_ListEventPos;

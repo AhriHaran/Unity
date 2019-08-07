@@ -1,32 +1,42 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class GameScene : MonoBehaviour
 {
     enum OBJECT_INDEX
     {
-        OBJECT_BACKGROUND,
+        OBJECT_START,
+        OBJECT_BACKGROUND = OBJECT_START,
         OBJECT_ENEMY,
         OBJECT_PLAYER,
+        OBJECT_END,
     }
-
-    public FollowCam m_MainCamera;
-
     private GameObject[] m_arrObject; //게임 오브젝트 배열
-    // Start is called before the first frame update
+    private MapManager m_MapManager;
+    private PlayerManager m_PlayerManger;
+
     void Start()
     {
-        //게임신을 가장 마지막에 실행 시킨 후
+        //정렬할 오브젝트를 받아온뒤
         int ChildCount = transform.childCount;
-        m_arrObject = new GameObject[ChildCount];
+        m_arrObject = new GameObject[(int)OBJECT_INDEX.OBJECT_END];
         for (int i = 0; i < ChildCount; i++)
         {
             m_arrObject[i] = transform.GetChild(i).gameObject;
         }
-        //모든 게임 오브젝트는 여기서 가지고 있고,
-        //게임 씬에서 관리하는 모든 게임 오브젝트
 
+        m_MapManager = new MapManager(m_arrObject[(int)OBJECT_INDEX.OBJECT_BACKGROUND].transform);
+        //배경 오브젝트 설정
+        m_arrObject[(int)OBJECT_INDEX.OBJECT_BACKGROUND].GetComponent<NavMeshSurface>().BuildNavMesh();
+        //네비메쉬 서페이스로 런타임 베이크
+
+        m_PlayerManger = new PlayerManager(m_arrObject[(int)OBJECT_INDEX.OBJECT_PLAYER].transform);
+        //플레이어 셋팅
+        //스타트에서 처음 포지셔닝을 셋팅
+        var Pos = m_MapManager.ReturnEventPos();
+        m_PlayerManger.SetPosition(Pos[0], 0);
     }
 
     // Update is called once per frame
