@@ -27,7 +27,18 @@ public class GameManager : MonoSingleton<GameManager>
 
     public void CharSelect(int iCharIndex)
     {
-        m_iCurChar = iCharIndex;    //캐릭터 선택
+        if(CharOverLap(iCharIndex))
+            m_iCurChar = iCharIndex;    //캐릭터 선택
+    }
+
+    bool CharOverLap(int iCharIndex)
+    {
+        for(int i = 0; i < 3; i++)
+        {
+            if (m_ListCharIndex[i] == iCharIndex)
+                return false;   //중복체크
+        }
+        return true;
     }
 
     public void CharSelectComplete(int iNum)    //몇 번째 패널인가
@@ -72,3 +83,4 @@ public class GameManager : MonoSingleton<GameManager>
 
     }
 }
+

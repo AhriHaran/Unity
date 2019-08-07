@@ -20,10 +20,9 @@ public class LobbyManager : MonoBehaviour
     string m_strCharSelect;
     //위치는 고정
 
-    // Start is called before the first frame update
-    void Awake()
+    private void Start()
     {
-        for(int i = (int)UI_PANEL_INDEX.PANEL_START; i < (int)UI_PANEL_INDEX.PANEL_END; i++)
+        for (int i = (int)UI_PANEL_INDEX.PANEL_START; i < (int)UI_PANEL_INDEX.PANEL_END; i++)
         {
             UIPanel Node = GameObject.Find("LobbyUI").transform.GetChild(i + 1).GetComponent<UIPanel>();
             Node.gameObject.SetActive(false);
@@ -42,18 +41,14 @@ public class LobbyManager : MonoBehaviour
             }
             catch (System.NullReferenceException ex)
             {
-                Debug.Log("Char Prefabs is NULL");
+                Debug.Log(ex);
             }
         }
-        PoolManager.instance.Set(EnumClass.POOL_INDEX.USER_CHAR_POOL.ToString(), strIndex, iCount); 
+        PoolManager.instance.Set(EnumClass.POOL_INDEX.USER_CHAR_POOL.ToString(), strIndex, iCount);
         //내가 가진 캐릭터 모델링들을 미리 셋팅
-
-        PoolManager.instance.Set(EnumClass.POOL_INDEX.CHAR_INFO_POOL.ToString(),"Prefabs/CharInfoButton", UserInfo.instance.GetMyCharCount());
+        PoolManager.instance.Set(EnumClass.POOL_INDEX.CHAR_INFO_POOL.ToString(), "Prefabs/CharInfoButton", UserInfo.instance.GetMyCharCount());
         //풀 매니저로 캐릭터 선택 패널을 미리 만들어 놓는다.
-    }
 
-    private void Start()
-    {
         PanelOnOff(UI_PANEL_INDEX.PANEL_LOBBY);
         MainCharSet(true);
     }
@@ -91,7 +86,7 @@ public class LobbyManager : MonoBehaviour
         else
         {
             if(m_MainChar != null)
-              PoolManager.instance.PushToPool(EnumClass.POOL_INDEX.USER_CHAR_POOL.ToString(), iMainCount, m_MainChar);
+                PoolManager.instance.PushToPool(EnumClass.POOL_INDEX.USER_CHAR_POOL.ToString(), iMainCount, m_MainChar);
         }
     }
 

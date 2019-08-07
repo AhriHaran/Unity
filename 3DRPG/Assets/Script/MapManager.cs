@@ -18,7 +18,7 @@ public class MapManager : MonoBehaviour
         m_strStage = GameManager.instance.ReturnStage(); //첫시작 
         string strFile = "Excel/StageExcel/" + m_strStage + "Stage_Map";
 
-       List<Dictionary<string, object>> tmp = EXCEL.ExcelLoad.Read(strFile);
+        List<Dictionary<string, object>> tmp = EXCEL.ExcelLoad.Read(strFile);
         //리스트로 저장 하고 해당 리스트에 맞춰서 맵 배치
         Vector3 vecPos = new Vector3();
         Quaternion QueRot = new Quaternion();
@@ -37,12 +37,12 @@ public class MapManager : MonoBehaviour
             MapObject.transform.localScale = vecSca;
         }
         //맵 셋팅 
+        m_surfaces.BuildNavMesh();
 
         //맵 타입 설정
         strFile = "Excel/" + m_strStage + "Stage_Type";
         tmp = EXCEL.ExcelLoad.Read(strFile);
         //맵의 타입, 시간
-
         m_strType = tmp[0]["Type"].ToString();  //맵 타입
         if (tmp[0]["Time"].ToString() == "NULL")
             m_fStageTime = 0.0f;
