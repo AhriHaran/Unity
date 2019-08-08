@@ -18,7 +18,7 @@ public class PlayerManager
                 {
                     string route = UserInfo.instance.GetCharData(CharacterData.CHAR_ENUM.CHAR_ROUTE, iarr[i]).ToString();
                     string name = UserInfo.instance.GetCharData(CharacterData.CHAR_ENUM.CHAR_NAME, iarr[i]).ToString();
-                    string CharRoute = route + "Prefabs/" + name;
+                    string CharRoute = "Player" + route + "Prefabs/" + name;
 
                     GameObject PlayerChar = ResourceLoader.CreatePrefab(CharRoute, Parent);
                     PlayerChar.GetComponent<Animator>().runtimeAnimatorController = UserInfo.instance.GetCharAnimator(i, CharacterData.CHAR_ANIMATOR.CHAR_BATTLE_ANIMATOR) as RuntimeAnimatorController;

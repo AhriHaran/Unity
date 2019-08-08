@@ -17,9 +17,8 @@ public class GameScene : MonoBehaviour
     private MapManager m_MapManager;
     private PlayerManager m_PlayerManager;
     private EnemyManager m_EnemyMangaer;
-    public delegate void CallBack(Transform tr);
+    public delegate void CallBack(Transform tr);    //캐릭터 변경등의 상황에서 카메라 셋팅
     private CallBack m_CallBack = null;
-
 
     void Start()
     {
@@ -37,7 +36,6 @@ public class GameScene : MonoBehaviour
         //배경 오브젝트 설정
         m_arrObject[(int)OBJECT_INDEX.OBJECT_BACKGROUND].GetComponent<NavMeshSurface>().BuildNavMesh();
         //네비메쉬 서페이스로 런타임 베이크
-
         m_PlayerManager = new PlayerManager(m_arrObject[(int)OBJECT_INDEX.OBJECT_PLAYER].transform);
         //플레이어 셋팅
 
@@ -45,6 +43,8 @@ public class GameScene : MonoBehaviour
         var Pos = m_MapManager.ReturnEventPos();
         m_PlayerManager.SetPosition(0, Pos[0]);
         m_CallBack(m_PlayerManager.GetCharTR());    //카메라 콜백 함수 선언
+
+        
     }
 
     // Update is called once per frame

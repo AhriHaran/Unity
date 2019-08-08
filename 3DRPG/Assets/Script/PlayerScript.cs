@@ -10,7 +10,6 @@ public class PlayerScript : MonoBehaviour
 
     private Rigidbody m_Rigidbody;
     private Animator m_PlayerAnimator;
-    private AnimatorStateInfo m_PlayerAnimeState;
     private Vector3 m_Vec3;
     private bool m_bAttack;
     private string m_strCurAnime;
@@ -21,11 +20,11 @@ public class PlayerScript : MonoBehaviour
     {
         m_Rigidbody = GetComponent<Rigidbody>();
         m_PlayerAnimator = GetComponent<Animator>();
-        m_PlayerAnimeState = m_PlayerAnimator.GetCurrentAnimatorStateInfo(0);
         m_Rigidbody.useGravity = true;
         m_bAttack = false;
         m_strCurAnime = string.Empty;
-        //StartCoroutine("CheckAnimationState");
+        m_strCurTrigger = string.Empty;
+        StartCoroutine(CheckAnimationState());
     }
 
     // Update is called once per frame
@@ -41,29 +40,36 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             //왼쪽 키 입력
+            m_strCurAnime = "Base Layer.Jab";
+            m_strCurTrigger = "WeakAttack";
             m_PlayerAnimator.SetBool("WeakAttack", true);
         }
 
         if (Input.GetMouseButtonUp(1))
         {
             //오른쪽 키 입력
+            m_strCurAnime = "Base Layer.Hikick";
+            m_strCurTrigger = "StrongAttack";
             m_PlayerAnimator.SetBool("StrongAttack", true);
         }
     }
 
-    IEnumerable CheckAnimationState()   //애니메이션이 끝난는 가를 확인
+    IEnumerator CheckAnimationState()   //애니메이션이 끝난는 가를 확인
     {
-        if (m_PlayerAnimeState.IsName(m_strCurAnime))
+        while(true)
         {
-            while (m_PlayerAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
+            if (m_PlayerAnimator.GetCurrentAnimatorStateInfo(0).IsName(m_strCurAnime))
             {
-                //애니메이션이 안끝났다.
-                yield return null;
+                while (m_PlayerAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
+                {
+                    //애니메이션이 안끝났다.
+                    yield return null;
+                }
+                //애니메이션 종료
+                m_PlayerAnimator.SetBool(m_strCurTrigger, false);
             }
-            //애니메이션 종료
-            m_PlayerAnimator.SetBool(m_strCurAnime, false);
+            yield return null;
         }
-        yield return null;
     }
 
     private void FixedUpdate()
