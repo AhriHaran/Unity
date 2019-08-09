@@ -12,6 +12,7 @@ public class EnemyScript : MonoBehaviour
         STATE_TRACE,
         STATE_DIE,
     }
+
     private NavMeshAgent m_NavMeshAgent;    //내비메쉬 기반 플레이어 추적
     private Animator m_Animator;
     private CharacterData m_CharData;   //적의 데이터
@@ -74,15 +75,23 @@ public class EnemyScript : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
             //공격 사거리 안에 플레이어가 들어서면 스테이트를 바꾼다.
             m_eCurState = ENEMY_STATE.STATE_ATTACK;
         }
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            //공격 사거리 안에 플레이어가 들어서면 스테이트를 바꾼다.
+            m_eCurState = ENEMY_STATE.STATE_TRACE;
+        }
+    }
     public void Hit()
     {
 

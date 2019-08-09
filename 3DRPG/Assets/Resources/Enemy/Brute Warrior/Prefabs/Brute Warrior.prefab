@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1956000371042500053}
   - component: {fileID: 1701065083379976713}
   - component: {fileID: 598591961025129570}
+  - component: {fileID: 4480880072577931410}
   m_Layer: 0
   m_Name: Brute Warrior
   m_TagString: Untagged
@@ -98,11 +99,27 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 100000}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 3
   m_Center: {x: 0, y: 2, z: 0}
+--- !u!54 &4480880072577931410
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1 &159816
 GameObject:
   m_ObjectHideFlags: 0
