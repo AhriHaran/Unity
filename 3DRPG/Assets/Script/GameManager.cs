@@ -6,7 +6,9 @@ public class GameManager : MonoSingleton<GameManager>
 {
     private int m_iCurStage = -1;   //현재 선택한 스테이지
     private int[] m_ListCharIndex;  //내가 선택한 캐릭터 인덱스들
-    private int m_iCurChar;
+    private int m_iCurChar; //현재 캐릭터
+    private string m_strStageType;
+    private float m_fStageTime;
 
     public void Init()
     {
@@ -17,6 +19,12 @@ public class GameManager : MonoSingleton<GameManager>
     public void StageSelect(int iStage)
     {
         m_iCurStage = iStage;
+    }
+
+    public void StageSelect(string strType, float fTime)
+    {
+        m_strStageType = strType;
+        m_fStageTime = fTime;
     }
 
     public void GameStart()
@@ -78,6 +86,16 @@ public class GameManager : MonoSingleton<GameManager>
     public int[] ReturnPlayerList()
     {
         return m_ListCharIndex;
+    }
+
+    public string ReturnStageType()
+    {
+        return m_strStageType;
+    }
+
+    public float ReturnStageTime()
+    {
+        return m_fStageTime;
     }
 }
 

@@ -42,8 +42,10 @@ public class GameScene : MonoBehaviour
         m_PlayerManager.SetPosition(0, Pos[0]);
         //스타트에서 처음 포지셔닝을 셋팅
 
-        m_EnemyMangaer = new EnemyManager(m_arrObject[(int)OBJECT_INDEX.OBJECT_ENEMY].transform, m_PlayerManager.GetCharTR());
+        m_EnemyMangaer = new EnemyManager(m_arrObject[(int)OBJECT_INDEX.OBJECT_ENEMY].transform);
         m_CallBack(m_PlayerManager.GetCharTR());    //카메라 콜백 함수 선언
+        m_EnemyMangaer.TrSetting(m_PlayerManager.GetCharTR());
+        m_EnemyMangaer.ActiveWave();
     }
 
     // Update is called once per frame

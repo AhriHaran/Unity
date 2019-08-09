@@ -8,7 +8,7 @@ public class MapManager
     //맵의 오브젝트 데이터만 설정하고 맵의 시작과 끝 지점만을 가진다.
     public List<Vector3> m_ListEventPos = new List<Vector3>();
     public List<GameObject> m_ListMapObject = new List<GameObject>();    
-    string m_strStage;  //맵의 카운트
+    string m_strStage;  //맵의 인덱스
     string m_strType;   //맵의 타입
     float m_fStageTime = 0.0f;  //맵의 제한 시간
 
@@ -49,6 +49,7 @@ public class MapManager
         else
             m_fStageTime = float.Parse(tmp[iStage]["Time"].ToString());
 
+        GameManager.instance.StageSelect(m_strType, m_fStageTime);
         strFile = "Excel/StageExcel/" + m_strStage + "Stage_Event_Pos";
         tmp = EXCEL.ExcelLoad.Read(strFile);
         //맵의 특정 이벤트 지점을 저장한 백터

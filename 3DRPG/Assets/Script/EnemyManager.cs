@@ -9,7 +9,7 @@ public class EnemyManager
     List<GameObject> m_WaveObject = new List<GameObject>(); //웨이브 오브젝트를 관리
     List<List<GameObject>> m_ListEnemyObject = new List<List<GameObject>>();
 
-    public EnemyManager(Transform Parent, Transform Player)
+    public EnemyManager(Transform Parent)
     {
         //엑셀을 읽어와서
         string iStage = GameManager.instance.ReturnStage();
@@ -52,7 +52,7 @@ public class EnemyManager
 
                     EnemyScript script = Enemy.GetComponent<EnemyScript>();
                     script.enabled = true;
-                    script.Setting(Index, EnemyInfo, Player);       //내부에 캐릭터 데이터 셋팅
+                    script.Setting(Index, EnemyInfo);       //내부에 캐릭터 데이터 셋팅
                     Node.Add(Enemy);
                 }
             }
@@ -66,11 +66,16 @@ public class EnemyManager
     public void ActiveWave()
     {
         //현재 웨이브 오브젝트들을 모두 활성화
-
+        m_WaveObject[m_iCurWave].SetActive(true);
     }
 
-    public void Hit()
+    public void TrSetting(Transform Player)
     {
-
+        for(int i = 0; i < m_ListEnemyObject[m_iCurWave].Count; i++)
+        {
+            if(m_ListEnemyObject[m_iCurWave][i].activeSelf) //해당 오브젝트가 살아있는 상태인가
+                m_ListEnemyObject[m_iCurWave][i].GetComponent<EnemyScript>().TrSetting(Player);
+        }
     }
+
 }
