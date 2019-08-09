@@ -37,7 +37,7 @@ public class LobbyManager : MonoBehaviour
             {
                 string route = UserInfo.instance.GetCharData(CharacterData.CHAR_ENUM.CHAR_ROUTE, i).ToString();
                 string name = UserInfo.instance.GetCharData(CharacterData.CHAR_ENUM.CHAR_NAME, i).ToString();
-                strIndex[i] = "Player" +route + "Prefabs/" + name;
+                strIndex[i] = "Player/" +route + "Prefabs/" + name;
             }
             catch (System.NullReferenceException ex)
             {

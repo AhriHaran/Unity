@@ -17,7 +17,7 @@ public class UserData
     private int m_iMaxEXP = 0;  //유저 레벨당 경험치
     private int m_iGold = 0;    //유저 재화
     private string m_strMainChar;    //유저 메인 캐릭터 인덱스
-    List<CharacterData> m_ListChar = new List<CharacterData>(); //내가 가진 캐릭터 리스트
+    List<CharacterData> m_ListChar = new List<CharacterData>(); //내가 가진 캐릭터 정보 리스트
     public UserData(List<Dictionary<string, object>> UserInfo, List<Dictionary<string, object>> UserChar, List<Dictionary<string, object>> UserTable)
     {
         //생성자

@@ -24,7 +24,7 @@ public class CharacterData
         CHAR_STIGMA_CENTER_INDEX,   //스티그마 중
         CHAR_STIGMA_BOTTOM_INDEX,   //스티그마 하
     }
-
+    //캐릭터의 데이터를 관리, 적 아군 둘다 사용가능
     public enum CHAR_ANIMATOR
     {
         CHAR_LOBBY_ANIMATOR,
@@ -46,7 +46,7 @@ public class CharacterData
             m_CharInfo.Add(node);
         }
     }
-    //
+
 
     public object GetCharData(CHAR_ENUM eIndex)
     {   //해당 캐릭터 정보 오브젝트 반환

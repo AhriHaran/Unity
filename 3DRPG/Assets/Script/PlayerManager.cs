@@ -18,12 +18,13 @@ public class PlayerManager
                 {
                     string route = UserInfo.instance.GetCharData(CharacterData.CHAR_ENUM.CHAR_ROUTE, iarr[i]).ToString();
                     string name = UserInfo.instance.GetCharData(CharacterData.CHAR_ENUM.CHAR_NAME, iarr[i]).ToString();
-                    string CharRoute = "Player" + route + "Prefabs/" + name;
+                    string CharRoute = "Player/" + route + "Prefabs/" + name;
 
                     GameObject PlayerChar = ResourceLoader.CreatePrefab(CharRoute, Parent);
                     PlayerChar.GetComponent<Animator>().runtimeAnimatorController = UserInfo.instance.GetCharAnimator(i, CharacterData.CHAR_ANIMATOR.CHAR_BATTLE_ANIMATOR) as RuntimeAnimatorController;
                     //해당 캐릭터의 배틀 애니메이터 셋팅
                     PlayerChar.GetComponent<PlayerScript>().enabled = true;
+                    //플레이어 동작 스크립트
                     PlayerChar.SetActive(false);
                     m_ListChar.Add(PlayerChar);
 

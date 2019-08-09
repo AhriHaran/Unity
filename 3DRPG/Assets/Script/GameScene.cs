@@ -38,13 +38,12 @@ public class GameScene : MonoBehaviour
         //네비메쉬 서페이스로 런타임 베이크
         m_PlayerManager = new PlayerManager(m_arrObject[(int)OBJECT_INDEX.OBJECT_PLAYER].transform);
         //플레이어 셋팅
-
-        //스타트에서 처음 포지셔닝을 셋팅
         var Pos = m_MapManager.ReturnEventPos();
         m_PlayerManager.SetPosition(0, Pos[0]);
-        m_CallBack(m_PlayerManager.GetCharTR());    //카메라 콜백 함수 선언
+        //스타트에서 처음 포지셔닝을 셋팅
 
-        
+        m_EnemyMangaer = new EnemyManager(m_arrObject[(int)OBJECT_INDEX.OBJECT_ENEMY].transform, m_PlayerManager.GetCharTR());
+        m_CallBack(m_PlayerManager.GetCharTR());    //카메라 콜백 함수 선언
     }
 
     // Update is called once per frame

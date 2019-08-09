@@ -34,7 +34,7 @@ public class UserInfo : GSingleton<UserInfo>
         try
         {
             string route = m_UserData.GetCharData(CharacterData.CHAR_ENUM.CHAR_ROUTE, iIndex).ToString();
-            string strTmp = route + "Animators/" + eIndex.ToString();
+            string strTmp = "Player/" + route + "Animators/" + eIndex.ToString();
             return ResourceLoader.LoadResource(strTmp);
         }
         catch (NullReferenceException ex)

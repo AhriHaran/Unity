@@ -40,17 +40,17 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             //왼쪽 키 입력
-            m_strCurAnime = "Base Layer.Jab";
+            m_strCurAnime = "Base Layer.Attack-L1";
             m_strCurTrigger = "WeakAttack";
-            m_PlayerAnimator.SetBool("WeakAttack", true);
+            m_PlayerAnimator.SetBool(m_strCurTrigger, true);
         }
 
         if (Input.GetMouseButtonUp(1))
         {
             //오른쪽 키 입력
-            m_strCurAnime = "Base Layer.Hikick";
+            m_strCurAnime = "Base Layer.Attack-Kick-R1";
             m_strCurTrigger = "StrongAttack";
-            m_PlayerAnimator.SetBool("StrongAttack", true);
+            m_PlayerAnimator.SetBool(m_strCurTrigger, true);
         }
     }
 
@@ -60,7 +60,7 @@ public class PlayerScript : MonoBehaviour
         {
             if (m_PlayerAnimator.GetCurrentAnimatorStateInfo(0).IsName(m_strCurAnime))
             {
-                while (m_PlayerAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
+                while (m_PlayerAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.9f)
                 {
                     //애니메이션이 안끝났다.
                     yield return null;
@@ -90,10 +90,16 @@ public class PlayerScript : MonoBehaviour
         }
         //else if (v < -0.1)
         //{
-        //    m_Vec3 *= backwardSpeed;  // 移動速度を掛ける
+        //    m_Vec3 *= backwardSpeed;
         //}
 
         transform.localPosition += m_Vec3 * Time.fixedDeltaTime;
         transform.Rotate(0, h * m_fRotateSpeed, 0);
+    }
+
+    public void Hit()
+    {
+        //애니메이션 이벤트, 충돌 처리 등을 체크
+
     }
 }
