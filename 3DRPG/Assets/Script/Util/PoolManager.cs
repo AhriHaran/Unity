@@ -99,4 +99,14 @@ public class PoolManager : GSingleton<PoolManager>
         return null;
     }
 
+    public void Clear()
+    {
+        //리스트 초기화
+        foreach (var i in m_PoolManger)
+        {
+            i.Clear();
+        }
+        m_PoolManger.Clear();
+    }
+
 }

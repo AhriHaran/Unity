@@ -87,4 +87,9 @@ public class ObjectPool : MonoBehaviour
         Item.SetActive(false);
         return Item;
     }
+
+    public void Clear()
+    {
+        m_ListPool.Clear();
+    }
 }

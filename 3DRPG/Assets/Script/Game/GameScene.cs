@@ -13,6 +13,7 @@ public class GameScene : MonoBehaviour
         OBJECT_PLAYER,
         OBJECT_END,
     }
+
     private GameObject[] m_arrObject; //게임 오브젝트 배열
     private MapManager m_MapManager;
     private PlayerManager m_PlayerManager;
@@ -46,11 +47,36 @@ public class GameScene : MonoBehaviour
         m_CallBack(m_PlayerManager.GetCharTR());    //카메라 콜백 함수 선언
         m_EnemyMangaer.TrSetting(m_PlayerManager.GetCharTR());
         m_EnemyMangaer.ActiveWave();
+
+        InvokeRepeating("WaveClear", 2.0f, 1.0f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
+
+    void WaveClear()
+    {
+        EnemyManager.WAVE_STATE eStae = EnemyManager.WAVE_STATE.WAVE_NONE;
+        m_EnemyMangaer.WaveClear(ref eStae);
+        switch (eStae)
+        {
+            case EnemyManager.WAVE_STATE.WAVE_CLEAR:
+                m_EnemyMangaer.TrSetting(m_PlayerManager.GetCharTR());
+                m_EnemyMangaer.ActiveWave();
+                break;
+            case EnemyManager.WAVE_STATE.WAVE_END:
+                /*
+                 * 현재는 바로 이전 화면으로 로딩해주지만 아래와 같은 것이 필요
+                 * 스테이지를 클리어하였기에 경험치와 아이템들을 정산해줘야 하며
+                 * 캐릭터의 스테이터스 등을 상승시켜줄 필요가있다.
+                 */
+                
+                CancelInvoke("WaveClear");
+                LoadScene.SceneLoad("LobbyScene");
+                break;
+        }
+    }
+
 }

@@ -70,6 +70,12 @@ public class LobbyManager : MonoBehaviour
         
     }
 
+    private void OnDisable()
+    {
+        PoolManager.instance.Clear();
+        //해당 씬에서 생성했던 모든 풀 삭제
+    }
+
     void MainCharSet(bool bSet)
     {
         int iMainCount = UserInfo.instance.GetMainCharIndex();

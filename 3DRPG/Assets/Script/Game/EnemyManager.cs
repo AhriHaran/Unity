@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class EnemyManager
 {
+    public enum WAVE_STATE
+    {
+        WAVE_NONE,  //아직 웨이브가 남아있다.
+        WAVE_CLEAR, //현재 웨이브 클리어
+        WAVE_END,    //웨이브가 끝났다.
+    }
+    
     int m_iMaxWave;
     int m_iCurWave;
     List<GameObject> m_WaveObject = new List<GameObject>(); //웨이브 오브젝트를 관리
@@ -78,4 +85,27 @@ public class EnemyManager
         }
     }
 
+    public void WaveClear(ref WAVE_STATE eState)
+    {
+        int iCount = 0;
+        for (int i = 0; i < m_ListEnemyObject[m_iCurWave].Count; i++)
+        {
+            if (m_ListEnemyObject[m_iCurWave][i].activeSelf) //해당 오브젝트가 살아있는 상태인가
+                iCount++; //해당 오브젝트가 하나라도 살아있다면 
+        }
+        if (iCount > 0)
+        {
+            eState = WAVE_STATE.WAVE_NONE;
+        }
+        else
+        {
+            m_WaveObject[m_iCurWave].SetActive(false);
+            m_iCurWave++;
+            if (m_iCurWave <= m_iMaxWave - 1)
+                eState = WAVE_STATE.WAVE_CLEAR;
+            else
+                eState = WAVE_STATE.WAVE_END;
+            //살아있는 것이 없다면
+        }
+    }
 }

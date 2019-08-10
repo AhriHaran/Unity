@@ -160,7 +160,7 @@ MonoBehaviour:
   m_AgentTypeID: 0
   m_StartPoint: {x: 0.29087597, y: -1.0699433, z: -1.734856}
   m_EndPoint: {x: 0.0000013387317, y: 0.21785584, z: 4.4124546}
-  m_Width: 3
+  m_Width: 5
   m_CostModifier: -1
   m_Bidirectional: 0
   m_AutoUpdatePosition: 1

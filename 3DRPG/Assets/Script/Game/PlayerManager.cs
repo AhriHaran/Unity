@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerManager
 {
     private List<GameObject> m_ListChar = new List<GameObject>();
-    private int m_iCurChar = -1;
     public PlayerManager(Transform Parent)
     {
         int[] iarr = GameManager.instance.ReturnPlayerList();
@@ -40,25 +39,27 @@ public class PlayerManager
 
     public void SetPosition(int iCount, Vector3 CharPos)
     {
-        if(m_iCurChar != iCount) //현재 메인 캐릭터랑 다른 경우
+        int iCurChar = GameManager.instance.ReturnCurPlayer();
+        if(iCurChar != iCount) //현재 메인 캐릭터랑 다른 경우
         {
-            if(m_iCurChar != -1)
+            if(iCurChar != -1)
             {
-                CharPos = m_ListChar[m_iCurChar].transform.position;
-                m_ListChar[m_iCurChar].SetActive(false);
+                CharPos = m_ListChar[iCurChar].transform.position;
+                m_ListChar[iCurChar].SetActive(false);
                 //캐릭터 변경 시에는 현재 캐릭터의 좌표를 기준으로 한다.
             }
             else
             {
                 m_ListChar[iCount].SetActive(true);
                 m_ListChar[iCount].transform.position = CharPos; //포지션 셋팅
-                m_iCurChar = iCount;
+                GameManager.instance.PlayerCharChange(iCount);
             }
         }
     }
 
     public Transform GetCharTR()
     {
-        return m_ListChar[m_iCurChar].transform;
+        int iCurChar = GameManager.instance.ReturnCurPlayer();
+        return m_ListChar[iCurChar].transform;
     }
 }

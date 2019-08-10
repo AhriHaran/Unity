@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class FollowCam : MonoBehaviour
 {
-    public float m_fdist = 6.0f;  //카메라와의 거리
-    public float m_fheight = 4.0f; //카메라의 높이
+    public float m_fdist = 5.0f;  //카메라와의 거리
+    public float m_fheight = 3.0f; //카메라의 높이
     public float m_fSmoothRotate = 5.0f;    //부드러운 회전을 위해서
     private Transform m_PlayerTR = null;
 
