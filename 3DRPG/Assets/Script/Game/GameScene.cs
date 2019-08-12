@@ -80,3 +80,8 @@ public class GameScene : MonoBehaviour
     }
 
 }
+
+/*
+ * 이제 필요한 것 플레이어 유아이
+ * 
+ */

@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 125b9f6e6906d6e4897a443b3c12729c, type: 3}
-  m_Name: New Atlas
+  m_Name: ModernUI
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 19da1149c3c4ea541bf690c06c7b5b44, type: 2}
+  material: {fileID: 2100000, guid: f07ade8407dddd34ca48161dd08d2739, type: 2}
   mSprites:
   - name: button
-    x: 462
+    x: 0
     y: 65
     width: 141
     height: 59
@@ -28,8 +28,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: button_active
-    x: 606
-    y: 209
+    x: 142
+    y: 65
     width: 140
     height: 59
     borderLeft: 0
@@ -41,7 +41,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: button_hover
-    x: 462
+    x: 0
     y: 5
     width: 141
     height: 59
@@ -54,8 +54,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: dropdown
-    x: 462
-    y: 125
+    x: 457
+    y: 4
     width: 143
     height: 143
     borderLeft: 0
@@ -67,8 +67,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: info
-    x: 606
-    y: 16
+    x: 350
+    y: 59
     width: 66
     height: 65
     borderLeft: 0
@@ -80,8 +80,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: pause
-    x: 606
-    y: 82
+    x: 283
+    y: 57
     width: 66
     height: 67
     borderLeft: 0
@@ -93,8 +93,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: popup
-    x: 606
-    y: 150
+    x: 142
+    y: 6
     width: 140
     height: 58
     borderLeft: 0
@@ -107,7 +107,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: slider
     x: 0
-    y: 4
+    y: 125
     width: 456
     height: 18
     borderLeft: 0
@@ -120,7 +120,7 @@ MonoBehaviour:
     paddingBottom: 1
   - name: slider_background
     x: 0
-    y: 23
+    y: 144
     width: 456
     height: 58
     borderLeft: 0
@@ -132,8 +132,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: slider_filler
-    x: 774
-    y: 1007
+    x: 283
+    y: 39
     width: 143
     height: 17
     borderLeft: 0
@@ -145,8 +145,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: slider_filler1
-    x: 673
-    y: 6
+    x: 919
+    y: 64
     width: 17
     height: 143
     borderLeft: 0
@@ -158,8 +158,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: slider_thumb
-    x: 691
-    y: 87
+    x: 427
+    y: 30
     width: 11
     height: 30
     borderLeft: 0
@@ -171,8 +171,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 1
   - name: slider_thumb1
-    x: 606
-    y: 4
+    x: 283
+    y: 27
     width: 30
     height: 11
     borderLeft: 0
@@ -184,7 +184,7 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 1
   - name: slider_vert
-    x: 755
+    x: 920
     y: 568
     width: 18
     height: 456
@@ -197,8 +197,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 1
   - name: textfield
-    x: 0
-    y: 82
+    x: 462
+    y: 148
     width: 456
     height: 59
     borderLeft: 0
@@ -210,8 +210,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 2
   - name: textfield_active
-    x: 0
-    y: 142
+    x: 462
+    y: 208
     width: 457
     height: 60
     borderLeft: 0
@@ -236,8 +236,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: toggle
-    x: 691
-    y: 118
+    x: 417
+    y: 93
     width: 30
     height: 31
     borderLeft: 0
@@ -249,8 +249,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 0
   - name: toggle2
-    x: 722
-    y: 118
+    x: 417
+    y: 61
     width: 30
     height: 31
     borderLeft: 0

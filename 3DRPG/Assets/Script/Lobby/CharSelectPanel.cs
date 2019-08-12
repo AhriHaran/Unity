@@ -10,6 +10,7 @@ public class CharSelectPanel : MonoBehaviour
     private GameObject m_SelectChar = null;    //내가 선택한 캐릭터의 프리팹
     private int m_iCharIndex = -1;
     private List<GameObject> m_SelectPanel = new List<GameObject>();
+    private string m_strSprite = "Icon";
     // Start is called before the first frame update
     void Start()
     {
@@ -27,9 +28,13 @@ public class CharSelectPanel : MonoBehaviour
             CharInfo.SetActive(true);
             CharInfo.transform.SetParent(m_GridChar.transform, false); //부모 트랜스폼 새로 설정
             CharInfo.GetComponent<CharInfoButton>().SetCallBack(CharInfoSelect, i);
-            CharInfo.GetComponentInChildren<UILabel>().text = UserInfo.instance.GetCharData(CHAR_DATA.CHAR_NAME, i) as string;
+            string strIcon = UserInfo.instance.GetCharData(CHAR_DATA.CHAR_NAME, i) as string;
+            CharInfo.GetComponentInChildren<UILabel>().text = strIcon;
+            strIcon += m_strSprite;
+            CharInfo.GetComponentInChildren<UISprite>().spriteName = strIcon;
             m_SelectPanel.Add(CharInfo);
         }
+
         m_GridPanel.Refresh();
         m_GridChar.GetComponent<UIGrid>().Reposition(); //리 포지셔닝으로 그리드 재정렬
         CharInfoSelect(0);  //첫번째로 셋팅
@@ -41,6 +46,8 @@ public class CharSelectPanel : MonoBehaviour
 
         foreach(var v in m_SelectPanel)
         {
+            v.GetComponentInChildren<UILabel>().text = "Name";
+            v.GetComponentInChildren<UISprite>().spriteName = "EmptyIcon";
             PoolManager.instance.PushToPool(POOL_INDEX.POOL_CHAR_INFO.ToString(),v);
             //사용한 패널 반납
         }
@@ -50,6 +57,7 @@ public class CharSelectPanel : MonoBehaviour
             PoolManager.instance.PushToPool(POOL_INDEX.POOL_USER_CHAR.ToString(), m_iCharIndex, m_SelectChar);
             //사용한 캐릭터 오브젝트 반납
         }
+        m_GridPanel.Refresh();
         m_SelectPanel.Clear();
     }
 

@@ -15,8 +15,8 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: b75a82e1289f885479d0dac654ed1c4f, type: 2}
   mSprites:
   - name: Attack
-    x: 1281
-    y: 1854
+    x: 309
+    y: 146
     width: 102
     height: 110
     borderLeft: 0
@@ -28,8 +28,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Equipment
-    x: 1281
-    y: 1632
+    x: 411
+    y: 35
     width: 100
     height: 110
     borderLeft: 0
@@ -41,8 +41,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Stigmata_UI_Button
-    x: 1590
-    y: 1965
+    x: 0
+    y: 173
     width: 308
     height: 83
     borderLeft: 0
@@ -53,35 +53,9 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: UnityChan_Image00
-    x: 0
-    y: 1328
-    width: 1280
-    height: 720
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: UnityChan_Image01
-    x: 0
-    y: 191
-    width: 640
-    height: 1136
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
   - name: Valkyrja
-    x: 1281
-    y: 1743
+    x: 309
+    y: 35
     width: 101
     height: 110
     borderLeft: 0
@@ -93,8 +67,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Weapon_UI_Button
-    x: 1281
-    y: 1965
+    x: 0
+    y: 89
     width: 308
     height: 83
     borderLeft: 0

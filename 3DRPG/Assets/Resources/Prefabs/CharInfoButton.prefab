@@ -157,8 +157,8 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 2973d676c73eabc42afc1fb544a275db, type: 2}
-  mSpriteName: popup
+  mAtlas: {fileID: 11400000, guid: 6634411c1b60a8c4ea5506a9e5b043b6, type: 2}
+  mSpriteName: EmptyIcon
   mFixedAspect: 0
   mFillCenter: 1
 --- !u!1 &6415083121721276777
@@ -234,7 +234,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 11400000, guid: 16a2d4ace59bac64dbcf4085964b38eb, type: 2}
-  mText: New Label
+  mText: Name
   mFontSize: 28
   mFontStyle: 0
   mAlignment: 0

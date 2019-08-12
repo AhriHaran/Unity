@@ -20,8 +20,8 @@ public class LobbyManager : MonoBehaviour
 
     private List<UIPanel> m_ListPanel = new List<UIPanel>();
     private GameObject m_MainChar;   //메인 캐릭터 위치
-    private UIButton m_BackButton;
-    private UIButton m_HomeButton;
+    public UIButton m_BackButton;
+    public UIButton m_HomeButton;
     private string m_strCharSelect;
     private UI_PANEL_INDEX m_eCurPanel;
     //위치는 고정
@@ -60,10 +60,6 @@ public class LobbyManager : MonoBehaviour
 
         m_UserLevel.text += UserInfo.instance.GetUserData(USER_INFO.USER_INFO_LEVEL);       //유저 레벨
         m_UserNickName.text = UserInfo.instance.GetUserData(USER_INFO.USER_INFO_NICKNAME);  //유저 닉네임
-
-        m_BackButton = LobbyUI.transform?.GetChild(5).GetComponent<UIButton>();
-        m_HomeButton = LobbyUI.transform?.GetChild(6).GetComponent<UIButton>();
-        //위 두 버튼은 로비 화면이 아니면 숨겨둔다.
     }
 
     void PanelOnOff(UI_PANEL_INDEX eindex)
