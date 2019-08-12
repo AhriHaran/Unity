@@ -15,23 +15,23 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: 3f0279f69bc533543badece02dea832e, type: 2}
   mSprites:
   - name: EmptySelect
-    x: 641
-    y: 1003
-    width: 597
-    height: 1045
+    x: 201
+    y: 163
+    width: 200
+    height: 349
     borderLeft: 0
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 2
-    paddingRight: 2
-    paddingTop: 2
-    paddingBottom: 2
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: UnityChanSelect
     x: 0
-    y: 912
-    width: 640
-    height: 1136
+    y: 157
+    width: 200
+    height: 355
     borderLeft: 0
     borderRight: 0
     borderTop: 0

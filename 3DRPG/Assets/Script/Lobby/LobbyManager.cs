@@ -11,6 +11,7 @@ public class LobbyManager : MonoBehaviour
         PANEL_STAGE,    //스테이지 패널
         PANEL_STAGE_READY,  //스테이지 준비 패널
         PANEL_CHAR_SELECT,  //캐릭터 선택 패널
+        PANEL_BUTTON,
         PANEL_END,
     }
 
@@ -76,14 +77,12 @@ public class LobbyManager : MonoBehaviour
         if(eindex == UI_PANEL_INDEX.PANEL_LOBBY)
         {
             MainCharSet(true);
-            m_BackButton.gameObject.SetActive(false);
-            m_HomeButton.gameObject.SetActive(false);
+            m_ListPanel[(int)UI_PANEL_INDEX.PANEL_BUTTON].gameObject.SetActive(false);
         }
         else
         {
             MainCharSet(false);
-            m_BackButton.gameObject.SetActive(true);
-            m_HomeButton.gameObject.SetActive(true);
+            m_ListPanel[(int)UI_PANEL_INDEX.PANEL_BUTTON].gameObject.SetActive(true);
         }
     }
 

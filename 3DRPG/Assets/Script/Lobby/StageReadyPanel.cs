@@ -47,9 +47,10 @@ public class StageReadyPanel : MonoBehaviour
         ////해당 캐릭터의 이름
         strName += m_strSprite;
         ////스프라이트 바꿈
-        m_selectCharBT[iSelect].GetComponentInChildren<UISprite>().spriteName = "UnityChanSelect";
+        m_selectCharBT[iSelect].GetComponentInChildren<UISprite>().spriteName = strName;
+        m_selectCharBT[iSelect].normalSprite = strName;
         //해당 스프라이트를 바꿔준다.
-        //m_UIPanel.Refresh();
+        m_UIPanel.Refresh();
     }
     
 }
