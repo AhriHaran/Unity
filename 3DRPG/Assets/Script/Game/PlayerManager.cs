@@ -15,12 +15,12 @@ public class PlayerManager
             {
                 try
                 {
-                    string route = UserInfo.instance.GetCharData(CharacterData.CHAR_ENUM.CHAR_ROUTE, iarr[i]).ToString();
-                    string name = UserInfo.instance.GetCharData(CharacterData.CHAR_ENUM.CHAR_NAME, iarr[i]).ToString();
+                    string route = UserInfo.instance.GetCharData(CHAR_DATA.CHAR_ROUTE, iarr[i]).ToString();
+                    string name = UserInfo.instance.GetCharData(CHAR_DATA.CHAR_NAME, iarr[i]).ToString();
                     string CharRoute = "Player/" + route + "Prefabs/" + name;
 
                     GameObject PlayerChar = ResourceLoader.CreatePrefab(CharRoute, Parent);
-                    PlayerChar.GetComponent<Animator>().runtimeAnimatorController = UserInfo.instance.GetCharAnimator(i, CharacterData.CHAR_ANIMATOR.CHAR_BATTLE_ANIMATOR) as RuntimeAnimatorController;
+                    PlayerChar.GetComponent<Animator>().runtimeAnimatorController = UserInfo.instance.GetCharAnimator(i, CHAR_ANIMATOR.CHAR_BATTLE_ANIMATOR) as RuntimeAnimatorController;
                     //해당 캐릭터의 배틀 애니메이터 셋팅
                     PlayerChar.GetComponent<PlayerScript>().enabled = true;
                     //플레이어 동작 스크립트

@@ -46,8 +46,8 @@ public class EnemyManager
                 if(i == int.Parse(EnemyExcel[j]["CurWave"].ToString()))
                 {
                     int Index = int.Parse(EnemyExcel[j]["Index"].ToString());   //에너미 인덱스
-                    string Rote = "Enemy/" + EnemyInfo[Index][CharacterData.CHAR_ENUM.CHAR_ROUTE.ToString()].ToString() + "Prefabs/"
-                        + EnemyInfo[Index][CharacterData.CHAR_ENUM.CHAR_NAME.ToString()].ToString();
+                    string Rote = "Enemy/" + EnemyInfo[Index][CHAR_DATA.CHAR_ROUTE.ToString()].ToString() + "Prefabs/"
+                        + EnemyInfo[Index][CHAR_DATA.CHAR_NAME.ToString()].ToString();
 
                     GameObject Enemy = ResourceLoader.CreatePrefab(Rote, WaveObject.transform);//Wave 하위로 셋팅
                     vecPos.Set(float.Parse(EnemyExcel[j]["LocX"].ToString()), float.Parse(EnemyExcel[j]["LocY"].ToString()), float.Parse(EnemyExcel[j]["LocZ"].ToString()));   //좌표

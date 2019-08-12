@@ -47,11 +47,9 @@ public class PlayerScript : MonoBehaviour
             KeyControll();
     }
     
-
     void KeyInput()
     {
         //공격 키
-
         if (Input.GetMouseButtonUp(0))
         {
             //왼쪽 키 입력
@@ -153,8 +151,8 @@ public class PlayerScript : MonoBehaviour
         if(colliders.Length != 0)
         {
             int iCurChar = GameManager.instance.ReturnCurPlayer();
-            float fATK = float.Parse(UserInfo.instance.GetCharData(CharacterData.CHAR_ENUM.CHAR_ATK, iCurChar).ToString());
-            float fCRI = float.Parse(UserInfo.instance.GetCharData(CharacterData.CHAR_ENUM.CHAR_CRI, iCurChar).ToString());
+            float fATK = float.Parse(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_ATK, iCurChar).ToString());
+            float fCRI = float.Parse(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_CRI, iCurChar).ToString());
 
             for(int i = 0; i < colliders.Length; i++)
             {

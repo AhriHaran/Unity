@@ -157,8 +157,8 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 2f2473f73b9ca724f9080d6d76009ea2, type: 2}
-  mSpriteName: Light
+  mAtlas: {fileID: 11400000, guid: 2973d676c73eabc42afc1fb544a275db, type: 2}
+  mSpriteName: popup
   mFixedAspect: 0
   mFillCenter: 1
 --- !u!1 &6415083121721276777

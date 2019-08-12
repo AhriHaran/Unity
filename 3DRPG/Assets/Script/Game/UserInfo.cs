@@ -24,16 +24,21 @@ public class UserInfo : GSingleton<UserInfo>
         Event.Invoke();
     }
 
-    public object GetCharData(CharacterData.CHAR_ENUM eIndex, int iIndex)
+    public object GetCharData(CHAR_DATA eIndex, int iIndex)
     {
-        return m_UserData.GetCharData(eIndex, iIndex);
+        return m_UserData.GetCharData(eIndex, iIndex);//유저의 캐릭터 데이터
     }
 
-    public UnityEngine.Object GetCharAnimator(int iIndex, CharacterData.CHAR_ANIMATOR eIndex)
+    public string GetUserData(USER_INFO eIndex)
+    {
+        return m_UserData.GetUserData(eIndex);//유저의 데이터
+    }
+
+    public UnityEngine.Object GetCharAnimator(int iIndex, CHAR_ANIMATOR eIndex)
     {
         try
         {
-            string route = m_UserData.GetCharData(CharacterData.CHAR_ENUM.CHAR_ROUTE, iIndex).ToString();
+            string route = m_UserData.GetCharData(CHAR_DATA.CHAR_ROUTE, iIndex).ToString();
             string strTmp = "Player/" + route + "Animators/" + eIndex.ToString();
             return ResourceLoader.LoadResource(strTmp);
         }
@@ -43,12 +48,6 @@ public class UserInfo : GSingleton<UserInfo>
             return null;
         }
     }
-
-    public int GetMainCharIndex()
-    {
-        return m_UserData.GetMainCharIndex();
-    }
-
 
     public List<CharacterData> GetMyCharList()
     {

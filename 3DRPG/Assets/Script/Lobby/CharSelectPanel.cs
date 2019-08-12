@@ -23,11 +23,11 @@ public class CharSelectPanel : MonoBehaviour
 
         for (int i = 0; i < iCount; i++)
         {
-            GameObject CharInfo = PoolManager.instance.PopFromPool(EnumClass.POOL_INDEX.CHAR_INFO_POOL.ToString());//만들어 놓은 오브젝트를 다시 가져와서 쓴다.
+            GameObject CharInfo = PoolManager.instance.PopFromPool(POOL_INDEX.POOL_CHAR_INFO.ToString());//만들어 놓은 오브젝트를 다시 가져와서 쓴다.
             CharInfo.SetActive(true);
             CharInfo.transform.SetParent(m_GridChar.transform, false); //부모 트랜스폼 새로 설정
             CharInfo.GetComponent<CharInfoButton>().SetCallBack(CharInfoSelect, i);
-            CharInfo.GetComponentInChildren<UILabel>().text = UserInfo.instance.GetCharData(CharacterData.CHAR_ENUM.CHAR_NAME, i) as string;
+            CharInfo.GetComponentInChildren<UILabel>().text = UserInfo.instance.GetCharData(CHAR_DATA.CHAR_NAME, i) as string;
             m_SelectPanel.Add(CharInfo);
         }
         m_GridPanel.Refresh();
@@ -38,15 +38,17 @@ public class CharSelectPanel : MonoBehaviour
     private void OnDisable()
     {
         m_GridChar.transform.DetachChildren();
-        for (int i = 0; i < m_SelectPanel.Count; i++)
+
+        foreach(var v in m_SelectPanel)
         {
-            PoolManager.instance.PushToPool(EnumClass.POOL_INDEX.CHAR_INFO_POOL.ToString(), m_SelectPanel[i]);
-            //패널에 쓰였던 오브젝트를 다시 반환
+            PoolManager.instance.PushToPool(POOL_INDEX.POOL_CHAR_INFO.ToString(),v);
+            //사용한 패널 반납
         }
 
         if(m_SelectChar != null)
         {
-            PoolManager.instance.PushToPool(EnumClass.POOL_INDEX.USER_CHAR_POOL.ToString(), m_iCharIndex, m_SelectChar);
+            PoolManager.instance.PushToPool(POOL_INDEX.POOL_USER_CHAR.ToString(), m_iCharIndex, m_SelectChar);
+            //사용한 캐릭터 오브젝트 반납
         }
         m_SelectPanel.Clear();
     }
@@ -61,12 +63,12 @@ public class CharSelectPanel : MonoBehaviour
     {
         if(m_iCharIndex != iIndex)  //중복체크 방지
         {
-            m_SelectChar = PoolManager.instance.PopFromPool(EnumClass.POOL_INDEX.USER_CHAR_POOL.ToString(), iIndex); //해당 인덱스를 반환해서 크리에이트
+            m_SelectChar = PoolManager.instance.PopFromPool(POOL_INDEX.POOL_USER_CHAR.ToString(), iIndex); //해당 인덱스를 반환해서 크리에이트
                                                                                                                      //현재 지정한 캐릭터를 세팅
             m_SelectChar.SetActive(true);
             m_iCharIndex = iIndex;
             m_SelectChar.transform.SetParent(m_SelectCharMain.transform, false);
-            m_SelectChar.GetComponent<Animator>().runtimeAnimatorController = UserInfo.instance.GetCharAnimator(iIndex, CharacterData.CHAR_ANIMATOR.CHAR_LOBBY_ANIMATOR) as RuntimeAnimatorController;
+            m_SelectChar.GetComponent<Animator>().runtimeAnimatorController = UserInfo.instance.GetCharAnimator(iIndex, CHAR_ANIMATOR.CHAR_LOBBY_ANIMATOR) as RuntimeAnimatorController;
             //캐릭터 선택하면 메인 화면에 해당 캐릭터의 프리펩이 뜬다.
             GameManager.instance.CharSelect(iIndex);    //현재 선택한 캐릭터 인덱스를 저장
         }
