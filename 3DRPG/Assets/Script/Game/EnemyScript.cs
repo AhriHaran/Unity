@@ -19,7 +19,7 @@ public class EnemyScript : MonoBehaviour
     private Transform m_PlayerTR = null;   //플레이어 TR
 
     public ENEMY_STATE m_eCurState; //적의 현재 스테이트
-    public float m_fAttackArea = 7.0f;  //적과 나의 거리
+    public float m_fAttackArea = 7.5f;  //적과 나의 거리
     int m_iIndex = 0;
     //에너미 움직임을 담당하는 자체 스크립트
     // Start is called before the first frame update
@@ -86,7 +86,7 @@ public class EnemyScript : MonoBehaviour
                     m_NavMeshAgent.isStopped = true;
                     break;
                 case ENEMY_STATE.STATE_ATTACK:  
-                    //m_Animator.SetBool("Attack", true);
+                    m_Animator.SetBool("Attack", true);
                     m_Animator.SetBool("Moving", false);
                     m_NavMeshAgent.isStopped = true;
                     break;
@@ -107,7 +107,6 @@ public class EnemyScript : MonoBehaviour
     {
         //여기서 콜리더 히트 체크
         //Collider[] colliders = Physics.OverlapSphere(transform.position, 2, 1 << LayerMask.NameToLayer("PLAYER"));
-
     }
 
     public void Damege(float fATK, float fCRI)

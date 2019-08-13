@@ -11,24 +11,32 @@ public class StageReadyPanel : MonoBehaviour
     void Start()
     {
         m_UIPanel = gameObject.GetComponent<UIPanel>();
+        for(int i = 0; i < 3; i++)
+        {
+            m_selectCharBT[i] = transform.GetChild(i + 1).GetComponent<UIButton>();
+        }
     }
 
     private void OnEnable()
     {
+        int[] iarr = GameManager.instance.ReturnPlayerList();
         for (int i = 0; i < 3; i++)
         {
-            m_selectCharBT[i] = transform.GetChild(i + 1).GetComponent<UIButton>();
+            if (iarr[i] != -1)
+            {
+                SelectChar(i.ToString());
+            }
         }
     }
 
     private void OnDisable()
     {
         //해당 버튼의 라벨과 스프라이트를 리셋
-
-        for(int i = 0; i < 3; i++)
+        for (int i = 0; i < 3; i++)
         {
             m_selectCharBT[i].GetComponentInChildren<UILabel>().text = "Name";  //이름
             m_selectCharBT[i].GetComponentInChildren<UISprite>().spriteName = "EmptySelect";   //바꿔 줄 스프라이트
+            m_selectCharBT[i].normalSprite = "EmptySelect";
         }
         m_UIPanel.Refresh();
     }

@@ -1,0 +1,30 @@
+# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
+# File Created: 13.02.2012 14:02:30
+
+newmtl 13596GauntletArmorC_hand
+	Ns 0.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 1.0000 1.0000 1.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.0990 0.0990 0.0990
+	Ke 0.0000 0.0000 0.0000
+	map_Ka 13596GauntletArmorC_hand_diffuse.jpg
+	map_Kd 13596GauntletArmorC_hand_diffuse.jpg
+
+newmtl 13596GauntletArmorC_armor
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 1.0000 1.0000 1.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.5400 0.5400 0.5400
+	Ke 0.0000 0.0000 0.0000
+	map_Ka 13596GauntletArmorC_armor_diffuse.jpg
+	map_Kd 13596GauntletArmorC_armor_diffuse.jpg

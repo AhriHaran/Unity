@@ -50,8 +50,7 @@ public class GameManager : MonoSingleton<GameManager>
     /// <param name="iCharIndex"></param>
     public void CharSelect(int iCharIndex)
     {
-        if(CharOverLap(iCharIndex))
-            m_iCurSelectChar = iCharIndex;    //캐릭터 선택
+        m_iCurSelectChar = iCharIndex;    //캐릭터 선택
     }
     bool CharOverLap(int iCharIndex)    //캐릭터 중복확인
     {
@@ -62,9 +61,15 @@ public class GameManager : MonoSingleton<GameManager>
         }
         return true;
     }
-    public void CharSelectComplete(int iNum)    //몇 번째 패널인가
+    public bool CharSelectComplete(int iNum)    //몇 번째 패널인가
     {
-        m_ListCharIndex[iNum] = m_iCurSelectChar; //인덱스 저장
+        if (CharOverLap(m_iCurSelectChar))
+        {
+            m_ListCharIndex[iNum] = m_iCurSelectChar; //인덱스 저장
+            return true;    //중복 안됨
+        }
+        else
+            return false;   //중복됨
     }
     public int GetCharIndex(int iIndex) //캐릭터 인덱스 반환
     {
@@ -99,7 +104,31 @@ public class GameManager : MonoSingleton<GameManager>
     }
     public void GameStart()
     {
+        //캐릭터가 선택된 배열을 한 번 정리해준다.
+        //앞으로 당겨줌
+        for(int i = 0; i < 3; i++)
+        {
+            if(m_ListCharIndex[i] == -1)    //
+            {
+                for(int j = i; j < 2; j++)
+                {
+                    m_ListCharIndex[j] = m_ListCharIndex[j + 1];
+                }
+            }
+        }
         LoadScene.SceneLoad("GameScene");
+    }
+    public void ResetData()
+    {
+        m_iCurStage = -1;
+        for(int i = 0; i < 3; i++)
+        {
+            m_ListCharIndex[i] = -1;
+        }
+        m_iCurSelectChar = -1;
+        m_iCurGameChar = -1;
+        m_strStageType = string.Empty;
+        m_fStageTime = 0.0f;
     }
 
     /// <summary>

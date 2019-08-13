@@ -9,6 +9,9 @@ public class PlayerScript : MonoBehaviour
     public float m_fAniSpeed = 1.5f;    //애니메이션 속도
     public float m_fAttackTime = 0.7f;  //공격 유지 시간
     public float m_fCurAttackTime = 0.0f;   //현재 공격 후 걸린시간.
+    //콤보 유지를 위해서
+    public GameObject m_WeaponL;
+    public GameObject m_WeaponR;
 
     private CharacterController m_Controller;
     private Animator m_PlayerAnimator;
