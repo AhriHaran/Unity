@@ -34,7 +34,6 @@ public class ObjectPool : MonoBehaviour
     public void PushToPool(GameObject item, Transform Parent)    //순서가 중요하지 않음
     {
         //오브젝를 사용후 반환 할 때
-        item.transform.parent = null;
         item.transform.SetParent(Parent, false);
         item.transform.localRotation = Quaternion.identity;
         item.transform.localPosition = Vector3.zero;

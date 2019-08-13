@@ -21,6 +21,8 @@ public class LobbyManager : MonoBehaviour
 
     private List<UIPanel> m_ListPanel = new List<UIPanel>();
     private GameObject m_MainChar;   //메인 캐릭터 위치
+    public UIButton m_BackButton;
+    public UIButton m_HomeButton;
     private string m_strCharSelect;
     private UI_PANEL_INDEX m_eCurPanel;
     //위치는 고정
@@ -52,6 +54,8 @@ public class LobbyManager : MonoBehaviour
         }
         PoolManager.instance.Set(POOL_INDEX.POOL_USER_CHAR.ToString(), strIndex, iCount);
         //내가 가진 캐릭터 모델링들을 미리 셋팅
+        PoolManager.instance.Set(POOL_INDEX.POOL_CHAR_INFO.ToString(), "Prefabs/CharInfoButton", UserInfo.instance.GetMyCharCount());
+        //풀 매니저로 캐릭터 선택 패널을 미리 만들어 놓는다.
 
         PanelOnOff(UI_PANEL_INDEX.PANEL_LOBBY);
 
@@ -111,10 +115,7 @@ public class LobbyManager : MonoBehaviour
         else
         {
             if(m_MainChar != null)
-            {
                 PoolManager.instance.PushToPool(POOL_INDEX.POOL_USER_CHAR.ToString(), iMainCount, m_MainChar);
-                m_MainChar = null;
-            }
         }
     }
 
@@ -130,17 +131,11 @@ public class LobbyManager : MonoBehaviour
         else if(Button == "HomeButton")
         {
             PanelOnOff(UI_PANEL_INDEX.PANEL_LOBBY);
-            GameManager.instance.ResetData();
         }
         else if(Button == "BackButton")
         {
             //이전 패널
             PanelOnOff(m_eCurPanel - 1);
-            if (m_eCurPanel == UI_PANEL_INDEX.PANEL_LOBBY || m_eCurPanel == UI_PANEL_INDEX.PANEL_STAGE)
-            {
-                GameManager.instance.ResetData();
-                //로비로 돌아오거나, 스테이지 선택 패널로 돌아오면 리셋해준다.
-            }
         }
         else if(Button.Contains("Stage_"))  //스테이지 버튼 중 하나를 클릭
         {
@@ -160,12 +155,10 @@ public class LobbyManager : MonoBehaviour
         else if(Button == "SelectButton")
         {
             //캐릭터 선택 버튼을 눌렀으면 이전 패널로 돌아가며, 스프라이트에 해당 캐릭터의 그림과 이름이 올라간다.
-            if(GameManager.instance.CharSelectComplete(int.Parse(m_strCharSelect)))
-            {
-                //해당 패널을 제 샛팅
-                m_ListPanel[(int)UI_PANEL_INDEX.PANEL_STAGE_READY].GetComponent<StageReadyPanel>().SelectChar(m_strCharSelect);
-                PanelOnOff(UI_PANEL_INDEX.PANEL_STAGE_READY);
-            }
+            GameManager.instance.CharSelectComplete(int.Parse(m_strCharSelect));
+            //해당 패널을 제 샛팅
+            m_ListPanel[(int)UI_PANEL_INDEX.PANEL_STAGE_READY].GetComponent<StageReadyPanel>().SelectChar(m_strCharSelect);
+            PanelOnOff(UI_PANEL_INDEX.PANEL_STAGE_READY);
         }
         else if(Button == "StageStart")
         {

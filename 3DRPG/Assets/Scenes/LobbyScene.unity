@@ -3306,8 +3306,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 241c28295d6d2d74293d97c5d1f767b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SelectCharMain: {fileID: 0}
-  m_SelectChar: {fileID: 0}
 --- !u!1 &1220624715
 GameObject:
   m_ObjectHideFlags: 0
@@ -4082,13 +4080,13 @@ GameObject:
   - component: {fileID: 1558720454}
   - component: {fileID: 1558720453}
   - component: {fileID: 1558720452}
-  m_Layer: 8
+  m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1558720451
 Transform:
   m_ObjectHideFlags: 0
@@ -4926,6 +4924,8 @@ MonoBehaviour:
   m_UserLevel: {fileID: 1845938324}
   m_UserNickName: {fileID: 1169248808}
   m_MainCharTR: {fileID: 1138121202}
+  m_BackButton: {fileID: 1558720452}
+  m_HomeButton: {fileID: 1971443125}
 --- !u!1 &1845938322
 GameObject:
   m_ObjectHideFlags: 0
@@ -5503,7 +5503,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1971443124
 Transform:
   m_ObjectHideFlags: 0
@@ -5657,7 +5657,7 @@ MonoBehaviour:
   mClipping: 0
   mClipRange: {x: 0, y: 0, z: 300, w: 200}
   mClipSoftness: {x: 4, y: 4}
-  mDepth: 10
+  mDepth: 2
   mSortingOrder: 0
   mSortingLayerName: 
   mClipOffset: {x: 0, y: 0}

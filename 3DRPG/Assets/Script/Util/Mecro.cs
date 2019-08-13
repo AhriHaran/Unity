@@ -36,40 +36,9 @@ public enum CHAR_DATA
     CHAR_STIGMA_CENTER_INDEX,   //스티그마 중
     CHAR_STIGMA_BOTTOM_INDEX,   //스티그마 하
 }
-
-//캐릭터의 애니메이션
+//캐릭터의 데이터를 관리, 적 아군 둘다 사용가능
 public enum CHAR_ANIMATOR
 {
     CHAR_LOBBY_ANIMATOR,
     CHAR_BATTLE_ANIMATOR,
-}
-
-//무기 데이터
-public enum WEAPON_DATA
-{
-    WEAPON_INDEX,
-    WEAPON_NAME,
-    WEAPON_ATK,
-    WEAPON_CRI,
-    WEAPON_MAX_LEVEL,
-    WEAPON_CUR_LEVEL,
-    WEAPON_MAX_EXP,
-    WEAPON_CUR_EXP,
-    WEAPON_GOLD,
-}
-
-//성흔 데이터
-public enum STIGMA_DATA
-{
-    STIGMA_INDEX,
-    STIGMA_NAME,
-    STIGMA_HP,
-    STIGMA_ATK,
-    STIGMA_DEF,
-    STIGMA_CRI,
-    STIGMA_MAX_LEVEL,
-    STIGMA_CUR_LEVEL,
-    STIGMA_MAX_EXP,
-    STIGMA_CUR_EXP,
-    STIGMA_GOLD,
 }
