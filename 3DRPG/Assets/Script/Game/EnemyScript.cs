@@ -86,7 +86,7 @@ public class EnemyScript : MonoBehaviour
                     m_NavMeshAgent.isStopped = true;
                     break;
                 case ENEMY_STATE.STATE_ATTACK:  
-                    //m_Animator.SetBool("Attack", true);
+                    m_Animator.SetBool("Attack", true);
                     m_Animator.SetBool("Moving", false);
                     m_NavMeshAgent.isStopped = true;
                     break;

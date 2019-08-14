@@ -22,7 +22,11 @@ public class PlayerManager
                     GameObject PlayerChar = ResourceLoader.CreatePrefab(CharRoute, Parent);
                     PlayerChar.GetComponent<Animator>().runtimeAnimatorController = UserInfo.instance.GetCharAnimator(i, CHAR_ANIMATOR.CHAR_BATTLE_ANIMATOR) as RuntimeAnimatorController;
                     //해당 캐릭터의 배틀 애니메이터 셋팅
-                    PlayerChar.GetComponent<PlayerScript>().enabled = true;
+                    PlayerScript script = PlayerChar.GetComponent<PlayerScript>();
+                    script.enabled = true;
+                    script.PlayerSet();
+                    //해당 캐릭터의 플레이어 스크립트 설정
+
                     //플레이어 동작 스크립트
                     PlayerChar.SetActive(false);
                     m_ListChar.Add(PlayerChar);

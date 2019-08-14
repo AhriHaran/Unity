@@ -50,21 +50,25 @@ public class GameManager : MonoSingleton<GameManager>
     /// <param name="iCharIndex"></param>
     public void CharSelect(int iCharIndex)
     {
-        if(CharOverLap(iCharIndex))
-            m_iCurSelectChar = iCharIndex;    //캐릭터 선택
+        m_iCurSelectChar = iCharIndex;    //캐릭터 선택
     }
-    bool CharOverLap(int iCharIndex)    //캐릭터 중복확인
+    bool CharOverLap()    //캐릭터 중복확인
     {
         for(int i = 0; i < 3; i++)
         {
-            if (m_ListCharIndex[i] == iCharIndex)
+            if (m_ListCharIndex[i] == m_iCurSelectChar)
                 return false;
         }
         return true;
     }
-    public void CharSelectComplete(int iNum)    //몇 번째 패널인가
+    public bool CharSelectComplete(int iNum)    //몇 번째 패널인가
     {
-        m_ListCharIndex[iNum] = m_iCurSelectChar; //인덱스 저장
+        if (CharOverLap())
+        {
+            m_ListCharIndex[iNum] = m_iCurSelectChar; //인덱스 저장
+            return true;
+        }
+        return false;
     }
     public int GetCharIndex(int iIndex) //캐릭터 인덱스 반환
     {
@@ -83,6 +87,16 @@ public class GameManager : MonoSingleton<GameManager>
     {
         if (m_iCurStage != -1 && ifCharSelect())  //스테이지 선택이 되었으며 하나 이상의 캐릭터가 선택되었다.
         {
+            for(int i = 0; i < 3; i++)
+            {
+                if (m_ListCharIndex[i] ==-1)//앞으로 정렬
+                {
+                    for (int j = i; j < 3 - 1; j++)
+                    {
+                        m_ListCharIndex[j] = m_ListCharIndex[j + 1];
+                    }
+                }
+            }
             return true;
         }
         else
@@ -112,6 +126,19 @@ public class GameManager : MonoSingleton<GameManager>
     public int ReturnCurPlayer()
     {
         return m_iCurGameChar;  //현재 선택된 캐릭터
+    }
+    public void ResetData()
+    {
+        m_iCurStage = -1;
+
+        for(int i =0; i < 3; i++)
+        {
+            m_ListCharIndex[i] = -1;
+        }
+        m_iCurSelectChar = -1;
+        m_iCurGameChar = -1;     //게임 속에서 내가 현재 선택한 캐릭터
+        m_strStageType = string.Empty;
+        m_fStageTime = 0.0f;
     }
 }
 

@@ -9,34 +9,69 @@ public class PlayerScript : MonoBehaviour
     public float m_fAniSpeed = 1.5f;    //애니메이션 속도
     public float m_fAttackTime = 0.7f;  //공격 유지 시간
     public float m_fCurAttackTime = 0.0f;   //현재 공격 후 걸린시간.
+    public int m_iIndex;    //플레이어 캐릭터 인덱스
 
     private CharacterController m_Controller;
     private Animator m_PlayerAnimator;
     private Vector3 m_Vec3; //목표 지점
     private bool m_bAttack;
     private bool m_bDie;
-    private float m_fBackTurn = 1.0f;
     private string m_strCurAnime;
     private string m_strCurTrigger;
-    private int m_iIndex;
+    private UISlider m_HpSlider = null;
+    private UISlider m_SpSlider = null;
+    private float m_fMaxHP = 0.0f; //맥스 HP
+    private float m_fCurHP = 0.0f; //현재 HP
+    private float m_fMaxSP = 0.0f; //맥스 SP
+    private float m_fCurSP = 0.0f; //현재 SP
+
     //플레이어의 조종에 따른 스크립트
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         m_Controller = GetComponent<CharacterController>();
         m_PlayerAnimator = GetComponent<Animator>();
+    }
+    
+    private void OnEnable()
+    {
         m_bAttack = false;
         m_bDie = false;
         m_strCurAnime = string.Empty;
         m_strCurTrigger = string.Empty;
+        
         StartCoroutine(CheckAnimationState());
         StartCoroutine(CheckAttackState());
-        m_fBackTurn = 1.0f;
     }
 
-    public void SetIndex(int iIndex)
+    public void PlayerSet()
     {
-        m_iIndex = iIndex;
+        if (m_HpSlider == null && m_SpSlider == null)
+        {
+            GameObject UI = GameObject.Find("GameUI");
+
+            m_HpSlider = UI.transform.GetChild(1).GetComponent<UISlider>();//hp 바
+            m_SpSlider = UI.transform.GetChild(2).GetComponent<UISlider>();//sp 바
+
+            m_fMaxHP = float.Parse(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_MAX_HP, m_iIndex).ToString());
+            m_fCurHP = m_fMaxHP;
+
+            m_fMaxSP = float.Parse(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_MAX_SP, m_iIndex).ToString());
+            m_fCurSP = 0.0f;
+        }
+
+        float fHP = ((float)m_fCurHP / (float)m_fMaxHP);
+        float fSP = ((float)m_fCurSP / (float)m_fMaxSP);
+
+        m_HpSlider.value = fHP; //현재 HP
+        m_HpSlider.GetComponentInChildren<UILabel>().text = (m_fCurHP.ToString() + "/" + m_fMaxHP.ToString());//라벨
+        m_SpSlider.value = fSP; //현재 SP
+        m_SpSlider.GetComponentInChildren<UILabel>().text = (m_fCurSP.ToString() + "/" + m_fMaxSP.ToString());//라벨
+    }
+   
+
+    void Start()
+    {
     }
 
     // Update is called once per frame
@@ -76,28 +111,14 @@ public class PlayerScript : MonoBehaviour
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
 
-        if(v < -0.1)
-        {
-            //뒤쪽 방향키를 누름, 그러면 현재 위치에서 180도 회전
-            Vector3 rotate = transform.rotation.eulerAngles;
-            rotate.y -= 180.0f;
-            transform.Rotate(rotate);
-            m_fBackTurn = -1;
-        }
-        else if(v > 0.1)
-        {
-            m_fBackTurn = 1;
-        }
-        
-        m_PlayerAnimator.SetFloat("Speed", v * m_fBackTurn);
+        m_PlayerAnimator.SetFloat("Speed", v);
         m_PlayerAnimator.SetFloat("Direction", h);
         m_PlayerAnimator.speed = m_fAniSpeed;   //애니메이션 속도
                                                 //움직임에 따른 애니메이션
-        m_Vec3.Set(0, 0, v * m_fBackTurn);
+        m_Vec3.Set(0, 0, v);
         m_Vec3 = transform.TransformDirection(m_Vec3);
         m_Vec3 *= m_fSpeed * Time.deltaTime;
         //이동 거리
-        
         m_Controller.Move(m_Vec3);
 
         transform.Rotate(0, h * m_fRotateSpeed, 0);

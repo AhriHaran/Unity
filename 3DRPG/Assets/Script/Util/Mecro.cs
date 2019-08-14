@@ -2,7 +2,6 @@
 {
     POOL_USER_CHAR,
     POOL_ENEMY_CHAR,
-    POOL_CHAR_INFO,
 }
 
 public enum USER_INFO
@@ -21,11 +20,9 @@ public enum CHAR_DATA
 {
     CHAR_NAME,
     CHAR_ROUTE, //캐릭터 리소스 경로
-    CHAR_LEVEL,
-    CHAR_MAX_HP,
-    CHAR_CUR_HP,
+    CHAR_LEVEL, //캐릭터 레벨
+    CHAR_MAX_HP,    //캐릭터 HP
     CHAR_MAX_SP,
-    CHAR_CUR_SP,
     CHAR_MAX_EXP,
     CHAR_CUR_EXP,
     CHAR_ATK,

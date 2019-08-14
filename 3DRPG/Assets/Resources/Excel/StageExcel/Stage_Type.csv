@@ -1,2 +1,2 @@
-Type,Time
-Normal,NULL
+Type,Time,ClearEXP,ClearGold,ClearItem
+Normal,NULL,,,

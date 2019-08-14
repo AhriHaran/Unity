@@ -8,29 +8,37 @@ public class StageReadyPanel : MonoBehaviour
     private UIPanel m_UIPanel;
     private UIButton [] m_selectCharBT = new UIButton[3];
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         m_UIPanel = gameObject.GetComponent<UIPanel>();
-    }
-
-    private void OnEnable()
-    {
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i <3; i++)
         {
             m_selectCharBT[i] = transform.GetChild(i + 1).GetComponent<UIButton>();
         }
     }
+    void Start()
+    {
+    }
+
+    private void OnEnable()
+    {
+        int[] iarr = GameManager.instance.ReturnPlayerList();
+        for (int i = 0; i < 3; i++)
+        {
+            if(iarr[i] != -1)
+            {
+                string strName = UserInfo.instance.GetCharData(CHAR_DATA.CHAR_NAME, GameManager.instance.GetCharIndex(i)) as string;
+                m_selectCharBT[i].GetComponentInChildren<UILabel>().text = strName;
+                strName += m_strSprite;
+                m_selectCharBT[i].GetComponentInChildren<UISprite>().spriteName = strName;
+                m_selectCharBT[i].normalSprite = strName;
+            }
+        }
+        m_UIPanel.Refresh();
+    }
 
     private void OnDisable()
     {
-        //해당 버튼의 라벨과 스프라이트를 리셋
-
-        for(int i = 0; i < 3; i++)
-        {
-            m_selectCharBT[i].GetComponentInChildren<UILabel>().text = "Name";  //이름
-            m_selectCharBT[i].GetComponentInChildren<UISprite>().spriteName = "EmptySelect";   //바꿔 줄 스프라이트
-        }
-        m_UIPanel.Refresh();
     }
 
     // Update is called once per frame

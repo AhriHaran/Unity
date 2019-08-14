@@ -12,19 +12,22 @@ public class CharSelectPanel : MonoBehaviour
     private List<GameObject> m_SelectPanel = new List<GameObject>();
     private string m_strSprite = "Icon";
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         //하위 오브젝트인 그리드를 받아온다.
         m_SelectCharMain = GameObject.Find("SelectCharModel");  //선택된 캐릭터를 보여준는 자리
         m_GridPanel = transform.GetChild(0).GetComponent<UIPanel>(); //ui 패널
         m_GridChar = m_GridPanel.transform.GetChild(0).gameObject;   //해당 패널이 가지는 차일드 패널(캐릭터 선택 스크롤뷰를 위해서), 이 오브젝트의 하위에 정렬된다.
+    }
 
+    void Start()
+    {
         ////활성화 될 때 호출\
         int iCount = UserInfo.instance.GetMyCharCount();
 
         for (int i = 0; i < iCount; i++)
         {
-            GameObject CharInfo = PoolManager.instance.PopFromPool(POOL_INDEX.POOL_CHAR_INFO.ToString());//만들어 놓은 오브젝트를 다시 가져와서 쓴다.
+            GameObject CharInfo =ResourceLoader.CreatePrefab("Prefabs/CharInfoButton");//만들어 놓은 오브젝트를 다시 가져와서 쓴다.
             CharInfo.SetActive(true);
             CharInfo.transform.SetParent(m_GridChar.transform, false); //부모 트랜스폼 새로 설정
             CharInfo.GetComponent<CharInfoButton>().SetCallBack(CharInfoSelect, i);
@@ -37,28 +40,22 @@ public class CharSelectPanel : MonoBehaviour
 
         m_GridPanel.Refresh();
         m_GridChar.GetComponent<UIGrid>().Reposition(); //리 포지셔닝으로 그리드 재정렬
+    }
+
+    private void OnEnable()
+    {
         CharInfoSelect(0);  //첫번째로 셋팅
     }
 
     private void OnDisable()
     {
-        m_GridChar.transform.DetachChildren();
-
-        foreach(var v in m_SelectPanel)
-        {
-            v.GetComponentInChildren<UILabel>().text = "Name";
-            v.GetComponentInChildren<UISprite>().spriteName = "EmptyIcon";
-            PoolManager.instance.PushToPool(POOL_INDEX.POOL_CHAR_INFO.ToString(),v);
-            //사용한 패널 반납
-        }
-
         if(m_SelectChar != null)
         {
             PoolManager.instance.PushToPool(POOL_INDEX.POOL_USER_CHAR.ToString(), m_iCharIndex, m_SelectChar);
+            m_SelectChar = null;
+            m_iCharIndex = -1;
             //사용한 캐릭터 오브젝트 반납
         }
-        m_GridPanel.Refresh();
-        m_SelectPanel.Clear();
     }
 
     // Update is called once per frame
