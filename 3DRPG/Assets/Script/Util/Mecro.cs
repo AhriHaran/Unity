@@ -39,3 +39,14 @@ public enum CHAR_ANIMATOR
     CHAR_LOBBY_ANIMATOR,
     CHAR_BATTLE_ANIMATOR,
 }
+
+[System.Serializable]
+public class UserInfoData
+{
+    private string NickName;    //유저 닉네임
+    private int Level;  //유저 레벨
+    private int CurEnergy;  //유저 현재 에너지
+    private int CurEXP; //유저 현재 경험치
+    private int Gold; //유저 골드
+    private int MainChar;   //유저 메인 캐릭터
+}

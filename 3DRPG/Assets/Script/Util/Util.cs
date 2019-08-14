@@ -74,4 +74,43 @@ public partial class Util
             fileInfos[i].Delete();
         }
     }
+
+    public string ObjectToJson(object obj)
+    {
+        return JsonUtility.ToJson(obj);
+    }
+
+    T JsonToObject<T>(string jsonData)
+    {
+        return JsonUtility.FromJson<T>(jsonData);
+    }
+
+    public void CreateJson(string createPath, string FileName, string jsonData)
+    {
+        FileStream fileStream = new FileStream(string.Format("{0}/{1}.json", createPath, FileName), FileMode.Create);
+        byte[] data = System.Text.Encoding.UTF8.GetBytes(jsonData);
+        fileStream.Write(data, 0, data.Length);
+        fileStream.Close();
+    }
+
+    public bool FileCheck(string FilePath)
+    {
+        if(System.IO.File.Exists(FilePath))
+        {
+            return true;
+        }
+        else
+            return false;
+    }
+
+    public T LoadJson<T>(string loadPath, string FileName)
+    {
+        FileStream fileStream = new FileStream(string.Format("{0}/{1}.json", loadPath, FileName), FileMode.Open);
+        byte[] data = new byte[fileStream.Length];
+
+        fileStream.Read(data, 0, data.Length);
+        fileStream.Close();
+        string Json = System.Text.Encoding.UTF8.GetString(data);
+        return JsonUtility.FromJson<T>(Json);
+    }
 }

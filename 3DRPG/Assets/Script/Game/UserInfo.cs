@@ -16,8 +16,8 @@ public class UserInfo : GSingleton<UserInfo>
         Event.AddListener(first.UserInfoComplete);
         //유저 데이터를 모두 셋팅 하면 호출할 이벤트 설정
 
-        var Userinfo = EXCEL.ExcelLoad.Read("Excel/UserInfo");
-        var UserCharData = EXCEL.ExcelLoad.Read("Excel/UserCharData");
+        var Userinfo = EXCEL.ExcelLoad.Read("Excel/UserInfo");  //이거 두 개는 JSON
+        var UserCharData = EXCEL.ExcelLoad.Read("Excel/UserCharData");  //이거 두 개는 JSON
         var UserTable = EXCEL.ExcelLoad.Read("Excel/UserTable");
 
         m_UserData = new UserData(Userinfo, UserCharData, UserTable);
