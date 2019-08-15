@@ -10,16 +10,13 @@ public class FirstLoadScene : MonoBehaviour
     public UIPanel m_UserCreate;
     AsyncOperation async_operation;
     private static bool m_bUserInfo = false;   //
-    private bool m_bCreate = true;
-    private string m_strNickName;
     private bool m_bLoadComplete = false;
     // Start is called before the first frame update
     void Start()
     {
         //우선 처음 파일이 존재하는 가를 확인한다.
 
-        string FilePath = Application.dataPath + "/Resources/Json/UserInfoData.json";
-        if(System.IO.File.Exists(FilePath)) //해당 파일이 존재하는가?
+        if(JsonUtil.FileCheck("UserInfoData")) //해당 파일이 존재하는가?
         {
             //존재한다면 그것을 기반으로 Init하여라
 
@@ -31,13 +28,11 @@ public class FirstLoadScene : MonoBehaviour
         {
             //존재하지 않다면 닉네임을 생성하고 만들어줘라
             m_UserCreate.gameObject.SetActive(true);
-            m_bCreate = true;
             //없을 경우 생성후 INit
         }
         
         //처음 로딩 할 때, 유저 정보가 저장된 제이슨 파일을 불러오게 한다.
 
-        UserInfo.instance.Init();   //여기서 json을 깐다.
         GameManager.instance.Init();
 
         m_StartLabel.gameObject.SetActive(false);
@@ -51,7 +46,21 @@ public class FirstLoadScene : MonoBehaviour
         if(Input.value != string.Empty)
         {
             //적힌 것이 있다면
-            m_strNickName = Input.value;
+            //유저 데이터를 기반으로 저장
+            UserInfoData Data = new UserInfoData();
+            Data.NickName = Input.value;
+            Data.Level = 1;
+            Data.Gold = 0;
+            Data.MainChar = 0;
+            Data.CurEXP = 0;
+            var UserTable = EXCEL.ExcelLoad.Read("Excel/UserTable");
+            Data.CurEnergy =int.Parse(UserTable[Data.Level][USER_INFO.USER_INFO_MAX_ENERGY.ToString()].ToString());
+            //에너지
+            string jsonData = JsonUtil.ObjectToJson(Data);
+            Debug.Log(jsonData);
+            JsonUtil.CreateJson("UserInfoData", jsonData);
+            //제이슨 파일 생성
+            UserInfo.instance.Init();   //여기서 json을 깐다.
         }
     }
 
