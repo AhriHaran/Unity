@@ -39,7 +39,7 @@ public class EnemyScript : MonoBehaviour
     public void Setting(int iIndex, List<Dictionary<string, object>> CharInfo)
     {
         m_iIndex = iIndex;
-        m_CharData = new CharacterData(iIndex, CharInfo);
+        //m_CharData = new CharacterData(iIndex, CharInfo);
     }
 
     public void TrSetting(Transform Player)

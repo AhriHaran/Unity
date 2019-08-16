@@ -16,12 +16,10 @@ public class FirstLoadScene : MonoBehaviour
     {
         //우선 처음 파일이 존재하는 가를 확인한다.
 
-        if(JsonUtil.FileCheck("UserInfoData")) //해당 파일이 존재하는가?
+        if(JSON.JsonUtil.FileCheck("UserInfoData")) //해당 파일이 존재하는가?
         {
             //존재한다면 그것을 기반으로 Init하여라
-
             //처음 로딩 할 때, 유저 정보가 저장된 제이슨 파일을 불러오게 한다.
-
             UserInfo.instance.Init();   //여기서 json을 깐다.
         }
         else
@@ -53,14 +51,30 @@ public class FirstLoadScene : MonoBehaviour
             Data.Gold = 0;
             Data.MainChar = 0;
             Data.CurEXP = 0;
-            var UserTable = EXCEL.ExcelLoad.Read("Excel/UserTable");
-            Data.CurEnergy =int.Parse(UserTable[Data.Level][USER_INFO.USER_INFO_MAX_ENERGY.ToString()].ToString());
-            //에너지
-            string jsonData = JsonUtil.ObjectToJson(Data);
+            var Table = EXCEL.ExcelLoad.Read("Excel/Table/UserTable");
+            Data.CurEnergy = int.Parse(Table[0][USER_INFO.USER_INFO_MAX_ENERGY.ToString()].ToString());
+            string jsonData = JSON.JsonUtil.ToJson(Data);
             Debug.Log(jsonData);
-            JsonUtil.CreateJson("UserInfoData", jsonData);
-            //제이슨 파일 생성
+            JSON.JsonUtil.CreateJson("UserInfoData", jsonData);
+            //유저 데이터 JSON(초기 유저 데이터)
+
+            UserCharInfoData Char = new UserCharInfoData();
+            Char.CharName = "UnityChan";
+            Char.CharRoute = "Unity-chan!/";
+            Char.CharIndex = 0;
+            Char.CharLevel = 1;
+            Char.CharCurEXP = 0;
+            Char.CharWeapon = -1;
+            Char.CharStigmaTop = -1;
+            Char.CharStigmaCenter = -1;
+            Char.CharStigmaBottom = -1;
+            string CharData = JSON.JsonUtil.ToJson(Char);
+            Debug.Log(CharData);
+            JSON.JsonUtil.CreateJson("UserCharInfoData", CharData);
+            //초기 캐릭터 데이터 JSON
+
             UserInfo.instance.Init();   //여기서 json을 깐다.
+            m_UserCreate.gameObject.SetActive(false);
         }
     }
 

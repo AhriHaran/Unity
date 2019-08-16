@@ -14,13 +14,16 @@ public class UserInfo : GSingleton<UserInfo>
         FirstLoadScene first = GameObject.Find("FirstLoad").GetComponent<FirstLoadScene>();
         UnityEvent Event = new UnityEvent();
         Event.AddListener(first.UserInfoComplete);
-        //유저 데이터를 모두 셋팅 하면 호출할 이벤트 설정
 
-        var Userinfo = EXCEL.ExcelLoad.Read("Excel/UserInfo");  //이거 두 개는 JSON
-        var UserCharData = EXCEL.ExcelLoad.Read("Excel/UserCharData");  //이거 두 개는 JSON
-        var UserTable = EXCEL.ExcelLoad.Read("Excel/UserTable");
+        if (JSON.JsonUtil.FileCheck("UserInfoData"))
+        {
+            //해당 데이터를 확인,
+            //유저 데이터를 모두 셋팅 하면 호출할 이벤트 설정
+            var UserTable = EXCEL.ExcelLoad.Read("Excel/Table/UserTable");
+            var CharTable = EXCEL.ExcelLoad.Read("Excel/CharacterExcel/0_Index_Char");
 
-        m_UserData = new UserData(Userinfo, UserCharData, UserTable);
+            m_UserData = new UserData(UserTable, CharTable);
+        }
         Event.Invoke();
     }
 
