@@ -7,7 +7,8 @@ using System;
 public class UserInfo : GSingleton<UserInfo>
 {
     private UserData m_UserData;    //유저 데이터
-
+    private UserInventory m_UserInventory;  //유저 인벤토리, 아이템등의 데이터
+    private UserCharData m_UserCharData;    //유저 소유 캐릭터 데이터
     // Start is called before the first frame upda te
     public void Init()
     {
@@ -20,17 +21,37 @@ public class UserInfo : GSingleton<UserInfo>
             //해당 데이터를 확인,
             //유저 데이터를 모두 셋팅 하면 호출할 이벤트 설정
             var UserTable = EXCEL.ExcelLoad.Read("Excel/Table/UserTable");
-            var CharTable = EXCEL.ExcelLoad.Read("Excel/CharacterExcel/0_Index_Char");
-
-            m_UserData = new UserData(UserTable, CharTable);
+            m_UserData = new UserData(UserTable);
         }
+
+        //내가 가진 캐릭터
+        var CharTable = EXCEL.ExcelLoad.Read("Excel/CharacterExcel/0_Index_Char");
+        m_UserCharData = new UserCharData(CharTable);
+        //처음 셋팅은 이정도만
+        
         Event.Invoke();
+    }
+
+    public void InvenSetting()
+    {
+        m_UserInventory = new UserInventory();
+    }
+
+    public List<CharacterData> GetMyCharList()
+    {
+        return m_UserCharData.GetMyCharList();  //내가 가진 전체 리스트
+    }
+
+    public int GetMyCharCount()
+    {
+        return m_UserCharData.GetMyCharCount();
     }
 
     public object GetCharData(CHAR_DATA eIndex, int iIndex)
     {
-        return m_UserData.GetCharData(eIndex, iIndex);//유저의 캐릭터 데이터
+        return m_UserCharData.GetCharData(eIndex, iIndex);
     }
+
 
     public string GetUserData(USER_INFO eIndex)
     {
@@ -41,7 +62,7 @@ public class UserInfo : GSingleton<UserInfo>
     {
         try
         {
-            string route = m_UserData.GetCharData(CHAR_DATA.CHAR_ROUTE, iIndex).ToString();
+            string route = GetCharData(CHAR_DATA.CHAR_ROUTE, iIndex).ToString();
             string strTmp = "Player/" + route + "Animators/" + eIndex.ToString();
             return ResourceLoader.LoadResource(strTmp);
         }
@@ -50,15 +71,5 @@ public class UserInfo : GSingleton<UserInfo>
             Debug.Log("Animator is NULL");
             return null;
         }
-    }
-
-    public List<CharacterData> GetMyCharList()
-    {
-        return m_UserData.GetMyCharList();  //내캐릭터 전체 리스트
-    }
-
-    public int GetMyCharCount()
-    {
-        return m_UserData.GetMyCharCount();
     }
 }

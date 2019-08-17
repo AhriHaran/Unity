@@ -3,6 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.AI;
 
+public enum MAP_DATA
+{
+    MAP_TYPE,
+    MAP_TIME,
+    MAP_CLEAR_EXP,
+    MAP_CLEAR_GOLD,
+    MAP_CLEAR_ITEM,
+}
+
 public class MapManager
 {
     //맵의 오브젝트 데이터만 설정하고 맵의 시작과 끝 지점만을 가진다.
@@ -66,4 +75,5 @@ public class MapManager
     {
         return m_ListEventPos;
     }
+    //맵 종료시 해당 맵 클리어 결산 보상을 준다.
 }

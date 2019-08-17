@@ -83,7 +83,6 @@ public class ObjectPool : MonoBehaviour
     {
         //크리에이트
         GameObject Item = ResourceLoader.CreatePrefab(m_strName, parent);
-        Item.name = m_strName;
         Item.SetActive(false);
         return Item;
     }

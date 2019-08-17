@@ -177,8 +177,10 @@ public class PlayerScript : MonoBehaviour
 
             for(int i = 0; i < colliders.Length; i++)
             {
-                colliders[i].GetComponent<EnemyScript>().Damege(fATK, fCRI);
-                //데미지 함수 모두 호출
+                EnemyScript script = colliders[i].GetComponent<EnemyScript>() ?? null;
+                if (script != null)
+                    script.Damege(fATK, fCRI);
+                //해당 함수 호출
             }      
         }
     }

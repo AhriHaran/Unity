@@ -58,7 +58,7 @@ public class FirstLoadScene : MonoBehaviour
             JSON.JsonUtil.CreateJson("UserInfoData", jsonData);
             //유저 데이터 JSON(초기 유저 데이터)
 
-            UserCharInfoData Char = new UserCharInfoData();
+            CharInfoData Char = new CharInfoData();
             Char.CharName = "UnityChan";
             Char.CharRoute = "Unity-chan!/";
             Char.CharIndex = 0;
@@ -73,7 +73,54 @@ public class FirstLoadScene : MonoBehaviour
             JSON.JsonUtil.CreateJson("UserCharInfoData", CharData);
             //초기 캐릭터 데이터 JSON
 
-            UserInfo.instance.Init();   //여기서 json을 깐다.
+            ItemInfoData Item = new ItemInfoData();
+            Item.ItemType = "Gauntlet";
+            Item.ItemName = "초기형 건틀릿";
+            Item.ItemRoute = "Weapon/Gauntlet/";
+            Item.ItemIndex = 0;
+            Item.ItemLevel = 1;
+            Item.ItemCurEXP = 0;
+            string WeaponData = JSON.JsonUtil.ToJson(Item);
+            Debug.Log(WeaponData);
+            JSON.JsonUtil.CreateJson("UserWeaponData", WeaponData);
+
+            ItemInfoData[] StigmaList = new ItemInfoData[3];
+            for (int i = 0; i < 3; i++)
+            {
+                try
+                {
+                    StigmaList[i] = new ItemInfoData();
+                    if (i == 0)
+                    {
+                        StigmaList[i].ItemType = "Stigma_T";
+                        StigmaList[i].ItemRoute = "Stigma/T/";
+                    }
+                    else if (i == 1)
+                    {
+                        StigmaList[i].ItemType = "Stigma_C";
+                        StigmaList[i].ItemRoute = "Stigma/C/";
+                    }
+                    else if (i == 2)
+                    {
+                        StigmaList[i].ItemType = "Stigma_B";
+                        StigmaList[i].ItemRoute = "Stigma/B/";//성흔은 이미지 스프라이트만 있으면 된다.
+                    }
+                    StigmaList[i].ItemName = "초기형 성흔";
+                    StigmaList[i].ItemIndex = 0;
+                    StigmaList[i].ItemLevel = 1;
+                    StigmaList[i].ItemCurEXP = 0;
+                }
+                catch (System.NullReferenceException ex)
+                {
+                    Debug.Log(ex);
+                }
+            }
+            string Stigma = JSON.JsonUtil.ToJson<ItemInfoData>(StigmaList);
+            Debug.Log(Stigma);
+            JSON.JsonUtil.CreateJson("UserStigmaData", Stigma);
+            //유저의 초기 데이터들
+
+            UserInfo.instance.Init();   
             m_UserCreate.gameObject.SetActive(false);
         }
     }

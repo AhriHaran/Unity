@@ -16,7 +16,7 @@ public class EnemyScript : MonoBehaviour
     private NavMeshAgent m_NavMeshAgent;    //내비메쉬 기반 플레이어 추적
     private Animator m_Animator;
     private CharacterData m_CharData;   //적의 데이터
-    private Transform m_PlayerTR = null;   //플레이어 TR
+    public Transform m_PlayerTR = null;   //플레이어 TR
 
     public ENEMY_STATE m_eCurState; //적의 현재 스테이트
     public float m_fAttackArea = 7.0f;  //적과 나의 거리
@@ -63,13 +63,13 @@ public class EnemyScript : MonoBehaviour
             {
                 //거리가 사정거리보다 짧아지면 공격 스테이트
                 m_eCurState = ENEMY_STATE.STATE_ATTACK;
-                transform.LookAt(m_PlayerTR); //플레이어를 본다.
             }
 
             if (Distance >= m_fAttackArea)
             {
                 //거리가 사정거리보다 길어지면 추적 스테이트
                 m_eCurState = ENEMY_STATE.STATE_TRACE;
+                transform.LookAt(m_PlayerTR);   
             }
         }
     }
@@ -112,14 +112,10 @@ public class EnemyScript : MonoBehaviour
 
     public void Damege(float fATK, float fCRI)
     {
-        //데미지 계산은 나중에 현재는 모든 적을 잡고 나면 루틴을 돌리는 것을 해야한다.
-        /*
-         * 현재 필요한 것들
-         * 적을 죽이면 일정 확률로 아이템이 떨어지고 이것이 나의 인벤토리로 가야 한다.
-         */
-
+        //적이 죽으면 일정확률로 체력 회복 아이템과 SP 회복 아이템을 드랍한다.
         //임시함수
         m_eCurState = ENEMY_STATE.STATE_DIE;
+        m_Animator.enabled = false;
         gameObject.SetActive(false);
     }
 }

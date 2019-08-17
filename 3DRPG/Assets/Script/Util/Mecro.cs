@@ -19,18 +19,18 @@ public enum USER_INFO
 public enum CHAR_DATA
 {
     CHAR_NAME,
-    CHAR_ROUTE, //캐릭터 리소스 경로
+    CHAR_ROUTE,                 //캐릭터 리소스 경로
     CHAR_INDEX,
-    CHAR_LEVEL, //캐릭터 레벨
-    CHAR_MAX_HP,    //캐릭터 HP
+    CHAR_LEVEL,                 //캐릭터 레벨
+    CHAR_MAX_HP,                //캐릭터 HP
     CHAR_MAX_SP,
     CHAR_MAX_EXP,
     CHAR_CUR_EXP,
     CHAR_ATK,
     CHAR_DEF,
     CHAR_CRI,
-    CHAR_WEAPON_INDEX,  //캐릭터가 가지고 있는 무기 인덱스 값
-    CHAR_STIGMA_TOP_INDEX,  //스티그마 상
+    CHAR_WEAPON_INDEX,          //캐릭터가 가지고 있는 무기 인덱스 값
+    CHAR_STIGMA_TOP_INDEX,      //스티그마 상
     CHAR_STIGMA_CENTER_INDEX,   //스티그마 중
     CHAR_STIGMA_BOTTOM_INDEX,   //스티그마 하
 }
@@ -42,13 +42,12 @@ public enum CHAR_ANIMATOR
     CHAR_BATTLE_ANIMATOR,
 }
 
-public enum MAP_DATA
+public enum ITEM_TYPE
 {
-    MAP_TYPE,
-    MAP_TIME,
-    MAP_CLEAR_EXP,
-    MAP_CLEAR_GOLD,
-    MAP_CLEAR_ITEM,
+    ITEM_GAUNTLET,
+    ITEM_STIGMA_TOP,
+    ITEM_STIGMA_CENTER,
+    ITEM_STIGMA_BOTTOM,
 }
 
 [System.Serializable]
@@ -63,7 +62,7 @@ public class UserInfoData
 }
 
 [System.Serializable]
-public class UserCharInfoData
+public class CharInfoData
 {
     public string CharName; //캐릭터 이름
     public string CharRoute; //캐릭터 저장 위치
@@ -72,6 +71,17 @@ public class UserCharInfoData
     public int CharCurEXP;  //캐릭터 현재 EXP
     public int CharWeapon;  //캐릭터 웨폰
     public int CharStigmaTop;//캐릭터 스트그마 상
-    public int CharStigmaCenter;//캐릭터 스트그마 상
-    public int CharStigmaBottom;//캐릭터 스트그마 상
+    public int CharStigmaCenter;//캐릭터 스트그마 중
+    public int CharStigmaBottom;//캐릭터 스트그마 하
+}
+
+[System.Serializable]
+public class ItemInfoData
+{
+    public string ItemType; //아이템 타입
+    public string ItemName;
+    public string ItemRoute;
+    public int ItemIndex;
+    public int ItemLevel;
+    public int ItemCurEXP;
 }
