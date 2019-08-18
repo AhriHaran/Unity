@@ -191,5 +191,12 @@ public class LobbyManager : MonoBehaviour
                 GameManager.instance.GameStart();   //게임 시작
             }
         }
+        else if(Button == "")
+        {
+        }
+        else if(Button == "Equipment")
+        {
+            PanelOnOff(UI_PANEL_INDEX.PANEL_EQUIPMENT);   //캐릭터 선택창을 선택하면 해당 스크립트가 실행되면서 활동한다.
+        }
     }
 }

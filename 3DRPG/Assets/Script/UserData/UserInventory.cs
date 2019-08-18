@@ -25,12 +25,16 @@ public class UserInventory
         //JSON 데이터와 테이블 데이터를 통해서 셋팅
         //UserStigmaData, UserWeaponData -> Json
         ItemInfoData Weapon = JSON.JsonUtil.LoadJson<ItemInfoData>("UserWeaponData");   //웨폰 리스트
+        m_ListInven[(int)INVENTORY_TYPE.INVENTORY_WEAPON] = new List<ItemData>();
+
         ItemData Data = new ItemData("Excel/WeaponTable/", Weapon);
         m_ListInven[(int)INVENTORY_TYPE.INVENTORY_WEAPON].Add(Data);
         //무기 셋팅
 
         ItemInfoData[] stigma = JSON.JsonUtil.LoadArrJson<ItemInfoData>("UserStigmaData");  //스티그마 리스트
-        foreach(var S in stigma)
+        m_ListInven[(int)INVENTORY_TYPE.INVENTORY_STIGMA] = new List<ItemData>();
+
+        foreach (var S in stigma)
         {
             ItemData Item = new ItemData("Excel/StigmaTable/" , S);
             m_ListInven[(int)INVENTORY_TYPE.INVENTORY_STIGMA].Add(Item);

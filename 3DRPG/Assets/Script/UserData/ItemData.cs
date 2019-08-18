@@ -34,12 +34,12 @@ public class ItemData
             NodeSetting(ITEM_DATA.ITEM_ROUTE, Data.ItemRoute);
             NodeSetting(ITEM_DATA.ITEM_INDEX, Data.ItemIndex);
             NodeSetting(ITEM_DATA.ITEM_LEVEl, Data.ItemLevel);
-            NodeSetting(ITEM_DATA.ITEM_MAX_EXP, Table[Data.ItemLevel][ITEM_DATA.ITEM_MAX_EXP.ToString()]);
+            NodeSetting(ITEM_DATA.ITEM_MAX_EXP, Table[Data.ItemLevel - 1][ITEM_DATA.ITEM_MAX_EXP.ToString()]);
             NodeSetting(ITEM_DATA.ITEM_CUR_EXP, Data.ItemCurEXP);
-            NodeSetting(ITEM_DATA.ITEM_HP, Table[Data.ItemLevel][ITEM_DATA.ITEM_HP.ToString()]);
-            NodeSetting(ITEM_DATA.ITEM_ATK, Table[Data.ItemLevel][ITEM_DATA.ITEM_ATK.ToString()]);
-            NodeSetting(ITEM_DATA.ITEM_DEF, Table[Data.ItemLevel][ITEM_DATA.ITEM_DEF.ToString()]);
-            NodeSetting(ITEM_DATA.ITEM_CRI, Table[Data.ItemLevel][ITEM_DATA.ITEM_CRI.ToString()]);
+            NodeSetting(ITEM_DATA.ITEM_HP, Table[Data.ItemLevel - 1][ITEM_DATA.ITEM_HP.ToString()]);
+            NodeSetting(ITEM_DATA.ITEM_ATK, Table[Data.ItemLevel - 1][ITEM_DATA.ITEM_ATK.ToString()]);
+            NodeSetting(ITEM_DATA.ITEM_DEF, Table[Data.ItemLevel - 1][ITEM_DATA.ITEM_DEF.ToString()]);
+            NodeSetting(ITEM_DATA.ITEM_CRI, Table[Data.ItemLevel - 1][ITEM_DATA.ITEM_CRI.ToString()]);
         }
         catch(System.NullReferenceException ex)
         {
