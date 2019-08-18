@@ -11,12 +11,18 @@ public class EnemyScript : MonoBehaviour
         STATE_ATTACK,
         STATE_TRACE,
         STATE_DIE,
+        STATE_NONE,
     }
 
     private NavMeshAgent m_NavMeshAgent;    //내비메쉬 기반 플레이어 추적
     private Animator m_Animator;
     private CharacterData m_CharData;   //적의 데이터
-    public Transform m_PlayerTR = null;   //플레이어 TR
+    private Transform m_PlayerTR = null;   //플레이어 TR
+    private UISlider m_HpSlider = null;
+    private float m_fCurDeathTime = 0.0f;
+    private float m_fDeathTime = 2.0f;
+    private float m_fMaxHP = 0.0f; //맥스 HP
+    private float m_fCurHP = 0.0f; //현재 HP
 
     public ENEMY_STATE m_eCurState; //적의 현재 스테이트
     public float m_fAttackArea = 7.0f;  //적과 나의 거리
@@ -27,11 +33,14 @@ public class EnemyScript : MonoBehaviour
     {
         m_NavMeshAgent = GetComponent<NavMeshAgent>();
         m_Animator = GetComponent<Animator>();
+        m_HpSlider = GameObject.Find("GameUI").transform.GetChild(3).GetComponent<UISlider>();
 
-        if(GameManager.instance.ReturnStageType() != "Infiltration")
+        if (GameManager.instance.ReturnStageType() != "Infiltration")
             m_eCurState = ENEMY_STATE.STATE_TRACE;
         else
             m_eCurState = ENEMY_STATE.STATE_WAIT;
+        m_fMaxHP = 100.0f;
+        m_fCurHP = m_fMaxHP;
         StartCoroutine(StateAction());
         StartCoroutine(StateCheck(0.2f));
     }
@@ -49,6 +58,16 @@ public class EnemyScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (m_eCurState == ENEMY_STATE.STATE_DIE)
+        {
+            m_fCurDeathTime += Time.deltaTime;
+            if (m_fCurDeathTime >= m_fDeathTime)
+            {
+                m_HpSlider.gameObject.SetActive(false);
+                m_eCurState = ENEMY_STATE.STATE_NONE;
+                gameObject.SetActive(false);
+            }
+        }
     }
 
     IEnumerator StateCheck(float fTime)
@@ -71,6 +90,7 @@ public class EnemyScript : MonoBehaviour
                 m_eCurState = ENEMY_STATE.STATE_TRACE;
                 transform.LookAt(m_PlayerTR);   
             }
+
         }
     }
 
@@ -83,20 +103,18 @@ public class EnemyScript : MonoBehaviour
                 case ENEMY_STATE.STATE_WAIT:    //대기 상태
                     m_Animator.SetBool("Attack", false);
                     m_Animator.SetBool("Moving", false);
-                    m_NavMeshAgent.isStopped = true;
+                    m_NavMeshAgent.Stop();
                     break;
                 case ENEMY_STATE.STATE_ATTACK:  
                     m_Animator.SetBool("Attack", true);
                     m_Animator.SetBool("Moving", false);
-                    m_NavMeshAgent.isStopped = true;
+                    m_NavMeshAgent.Stop();
                     break;
                 case ENEMY_STATE.STATE_TRACE:
                     m_Animator.SetBool("Attack", false);
                     m_Animator.SetBool("Moving", true);
                     m_NavMeshAgent.SetDestination(m_PlayerTR.position);
-                    m_NavMeshAgent.isStopped = false;
-                    break;
-                case ENEMY_STATE.STATE_DIE:
+                    m_NavMeshAgent.Resume();
                     break;
             }
             yield return null;
@@ -114,8 +132,36 @@ public class EnemyScript : MonoBehaviour
     {
         //적이 죽으면 일정확률로 체력 회복 아이템과 SP 회복 아이템을 드랍한다.
         //임시함수
-        m_eCurState = ENEMY_STATE.STATE_DIE;
-        m_Animator.enabled = false;
-        gameObject.SetActive(false);
+
+        if(m_eCurState != ENEMY_STATE.STATE_DIE)
+        {
+            m_HpSlider.gameObject.SetActive(true);
+            //부딪힌 것의 HP바를 보여준다.
+            int iCri = Random.Range(0, 100);
+            int iAtk = (int)fATK;
+
+            if (iCri == (int)fCRI)
+            {
+                iAtk += (iCri * 10);
+            }
+
+            m_fCurHP -= (float)iAtk;
+
+            if (m_fCurHP <= 0.0f)   //모든 HP가 다 떨어지면
+            {
+                m_fCurHP = 0.0f;
+                m_eCurState = ENEMY_STATE.STATE_DIE;
+                m_Animator.SetBool("Attack", false);
+                m_Animator.SetBool("Moving", false);
+                m_Animator.SetTrigger("Death");
+                m_NavMeshAgent.Stop();
+                StopAllCoroutines();
+            }
+
+            float fHP = ((float)m_fCurHP / (float)m_fMaxHP);
+            m_HpSlider.value = fHP;
+
+            m_HpSlider.GetComponentInChildren<UILabel>().text = "Enemy";//에너미 이름
+        }
     }
 }

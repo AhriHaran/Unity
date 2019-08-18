@@ -93,6 +93,7 @@ public class EnemyManager
             if (m_ListEnemyObject[m_iCurWave][i].activeSelf) //해당 오브젝트가 살아있는 상태인가
                 iCount++; //해당 오브젝트가 하나라도 살아있다면 
         }
+
         if (iCount > 0)
         {
             eState = WAVE_STATE.WAVE_NONE;

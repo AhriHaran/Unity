@@ -73,6 +73,7 @@ public class GameScene : MonoBehaviour
                  * 캐릭터의 스테이터스 등을 상승시켜줄 필요가있다.
                  */
                 
+
                 CancelInvoke("WaveClear");
                 LoadScene.SceneLoad("LobbyScene");
                 break;
