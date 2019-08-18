@@ -191,13 +191,5 @@ public class LobbyManager : MonoBehaviour
                 GameManager.instance.GameStart();   //게임 시작
             }
         }
-        else if (Button == "WeaponButton")
-        {
-
-        }
-        else if (Button == "StigmaButton")
-        {
-
-        }
     }
 }

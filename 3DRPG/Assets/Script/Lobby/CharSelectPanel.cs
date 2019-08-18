@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class CharSelectPanel : MonoBehaviour
 {
-    private UIPanel m_GridPanel = null;
+    private GameObject m_GridPanel = null;
     private GameObject m_GridChar = null;
+
     private GameObject m_SelectCharMain;
     private GameObject m_SelectChar = null;    //내가 선택한 캐릭터의 프리팹
     private int m_iCharIndex = -1;
@@ -16,7 +17,7 @@ public class CharSelectPanel : MonoBehaviour
     {
         //하위 오브젝트인 그리드를 받아온다.
         m_SelectCharMain = GameObject.Find("SelectCharModel");  //선택된 캐릭터를 보여준는 자리
-        m_GridPanel = transform.GetChild(0).GetComponent<UIPanel>(); //ui 패널
+        m_GridPanel = transform.GetChild(0).gameObject; //ui 패널
         m_GridChar = m_GridPanel.transform.GetChild(0).gameObject;   //해당 패널이 가지는 차일드 패널(캐릭터 선택 스크롤뷰를 위해서), 이 오브젝트의 하위에 정렬된다.
     }
 
@@ -37,9 +38,9 @@ public class CharSelectPanel : MonoBehaviour
             CharInfo.GetComponentInChildren<UISprite>().spriteName = strIcon;
             m_SelectPanel.Add(CharInfo);
         }
-
-        m_GridPanel.Refresh();
         m_GridChar.GetComponent<UIGrid>().Reposition(); //리 포지셔닝으로 그리드 재정렬
+        m_GridPanel.GetComponent<UIScrollView>().ResetPosition();
+        m_GridPanel.GetComponent<UIPanel>().Refresh();
     }
 
     private void OnEnable()
