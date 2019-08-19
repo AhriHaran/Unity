@@ -16,26 +16,6 @@ public enum USER_INFO
     USER_INFO_MAIN_CHAR,
 }
 
-public enum CHAR_DATA
-{
-    CHAR_NAME,
-    CHAR_ROUTE,                 //캐릭터 리소스 경로
-    CHAR_INDEX,
-    CHAR_LEVEL,                 //캐릭터 레벨
-    CHAR_MAX_HP,                //캐릭터 HP
-    CHAR_MAX_SP,
-    CHAR_MAX_EXP,
-    CHAR_CUR_EXP,
-    CHAR_ATK,
-    CHAR_DEF,
-    CHAR_CRI,
-    CHAR_WEAPON_INDEX,          //캐릭터가 가지고 있는 무기 인덱스 값
-    CHAR_STIGMA_TOP_INDEX,      //스티그마 상
-    CHAR_STIGMA_CENTER_INDEX,   //스티그마 중
-    CHAR_STIGMA_BOTTOM_INDEX,   //스티그마 하
-}
-//캐릭터의 데이터를 관리, 적 아군 둘다 사용가능
-
 public enum CHAR_ANIMATOR
 {
     CHAR_LOBBY_ANIMATOR,
@@ -44,7 +24,7 @@ public enum CHAR_ANIMATOR
 
 public enum ITEM_TYPE
 {
-    ITEM_GAUNTLET,
+    ITEM_GAUNTLET,  //주먹 아이템
     ITEM_STIGMA_TOP,
     ITEM_STIGMA_CENTER,
     ITEM_STIGMA_BOTTOM,

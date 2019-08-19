@@ -43,7 +43,18 @@ public class UserInventory
         
     }
 
-    public void GetNewObject(int itemIndex, INVENTORY_TYPE eType, string ItemType)
+    public object GetInventoryItem(int inventoryIndex, INVENTORY_TYPE eType, ITEM_DATA eIndex)
+    {
+        //인벤토리 인덱스 순서
+        return m_ListInven[(int)eType][inventoryIndex].GetItemData(eIndex);
+    }
+    public List<ItemData> GetInventoryList(INVENTORY_TYPE eType)
+    {
+        return m_ListInven[(int)eType];
+    }
+
+
+    public void InventoryUpdate(int itemIndex, INVENTORY_TYPE eType, string ItemType)
     {
         //아이템이나 스티그마 획득 시
         /*새로운 아이템을 얻을 시 해당 아이템의 인덱스를 기반으로 새로운 데이터 기반을 생성하고
@@ -53,14 +64,4 @@ public class UserInventory
          */
     }
 
-    public object GetInventoryItem(int inventoryIndex, INVENTORY_TYPE eType, ITEM_DATA eIndex)
-    {
-        //인벤토리 인덱스 순서
-        return m_ListInven[(int)eType][inventoryIndex].GetItemData(eIndex);
-    }
-
-    public List<ItemData> GetInventoryList(INVENTORY_TYPE eType)
-    {
-        return m_ListInven[(int)eType];
-    }   
 }

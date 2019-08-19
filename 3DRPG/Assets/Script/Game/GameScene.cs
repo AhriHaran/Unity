@@ -20,6 +20,7 @@ public class GameScene : MonoBehaviour
     private EnemyManager m_EnemyMangaer;
     public delegate void CallBack(Transform tr);    //캐릭터 변경등의 상황에서 카메라 셋팅
     private CallBack m_CallBack = null;
+    private UIPanel m_ResultPanel;
 
     void Start()
     {
@@ -48,6 +49,8 @@ public class GameScene : MonoBehaviour
         m_EnemyMangaer.TrSetting(m_PlayerManager.GetCharTR());
         m_EnemyMangaer.ActiveWave();
 
+        m_ResultPanel = GameObject.Find("GameUI").GetComponentInChildren<UIPanel>();
+
         InvokeRepeating("WaveClear", 2.0f, 1.0f);
     }
 
@@ -72,17 +75,17 @@ public class GameScene : MonoBehaviour
                  * 스테이지를 클리어하였기에 경험치와 아이템들을 정산해줘야 하며
                  * 캐릭터의 스테이터스 등을 상승시켜줄 필요가있다.
                  */
-                
-
+                m_ResultPanel.gameObject.SetActive(true);
                 CancelInvoke("WaveClear");
-                LoadScene.SceneLoad("LobbyScene");
+                //결과창을띄워준다.
                 break;
         }
     }
 
+    public void OnClick()
+    {
+        //유저 인포 세이브
+        //변경된 데이터를 저장하고 로비로 돌아간다.
+        //LoadScene.SceneLoad("LobbyScene");
+    }
 }
-
-/*
- * 이제 필요한 것 플레이어 유아이
- * 
- */

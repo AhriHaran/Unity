@@ -27,8 +27,13 @@ public class UserData
         return m_UserInfo[(int)eIndex];
     }
 
-    public void UserDataUpdate(USER_INFO eIndex, object UpdateData)
+    public void UserUpdate(USER_INFO eIndex, object UpdateData)
     {
-        //유저의 업데이트 데이터
+
+    }
+
+    public void UserDataSave(List<Dictionary<string, object>> UserTable)
+    {
+
     }
 }

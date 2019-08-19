@@ -15,16 +15,13 @@ public enum MAP_DATA
 public class MapManager
 {
     //맵의 오브젝트 데이터만 설정하고 맵의 시작과 끝 지점만을 가진다.
-    public List<Vector3> m_ListEventPos = new List<Vector3>();
-    public List<GameObject> m_ListMapObject = new List<GameObject>();    
-    string m_strStage;  //맵의 인덱스
-    string m_strType;   //맵의 타입
-    float m_fStageTime = 0.0f;  //맵의 제한 시간
+    public List<Vector3> m_ListEventPos = new List<Vector3>();  //맵 벡터 리스트
+    public List<Dictionary<MAP_DATA, object>> m_ListObjectType = new List<Dictionary<MAP_DATA, object>>();
 
     public MapManager(Transform Parent)
     {
-        m_strStage = GameManager.instance.ReturnStage(); //첫시작 
-        string strFile = "Excel/StageExcel/" + m_strStage + "Stage_Map";
+        string strStage = GameManager.instance.ReturnStage(); //첫시작 
+        string strFile = "Excel/StageExcel/" + strStage + "Stage_Map";
 
         List<Dictionary<string, object>> tmp = EXCEL.ExcelLoad.Read(strFile);
         //리스트로 저장 하고 해당 리스트에 맞춰서 맵 배치
@@ -43,32 +40,34 @@ public class MapManager
 
             MapObject.transform.SetPositionAndRotation(vecPos, QueRot);   //맵의 오브젝트
             MapObject.transform.localScale = vecSca;
-            m_ListMapObject.Add(MapObject);
         }
         //맵 셋팅 
 
         //맵 타입 설정
-        strFile = "Excel/StageExcel/Stage_Type";
+        strFile = "Excel/StageExcel/Stage_Table";
         tmp = EXCEL.ExcelLoad.Read(strFile);
-        int iStage = int.Parse(m_strStage);
+        int iStage = int.Parse(strStage);
         //맵의 타입, 시간
-        m_strType = tmp[iStage]["Type"].ToString();  //맵 타입
-        if (tmp[iStage]["Time"].ToString() == "NULL")
-            m_fStageTime = 0.0f;
-        else
-            m_fStageTime = float.Parse(tmp[iStage]["Time"].ToString());
+        foreach(MAP_DATA E in System.Enum.GetValues(typeof(MAP_DATA)))
+        {
+            Dictionary<MAP_DATA, object> Node = new Dictionary<MAP_DATA, object>();
+            Node.Add(E, tmp[iStage][E.ToString()]);
+            m_ListObjectType.Add(Node);
+        }
 
-        GameManager.instance.StageSelect(m_strType, m_fStageTime);
-        strFile = "Excel/StageExcel/" + m_strStage + "Stage_Event_Pos";
+        strFile = "Excel/StageExcel/" + strStage + "Stage_Event_Pos";
         tmp = EXCEL.ExcelLoad.Read(strFile);
         //맵의 특정 이벤트 지점을 저장한 백터
         //            Index LocX    LocY LocZ
-        for (var i = 0; i < tmp.Count; i++)
+        foreach(var POS in tmp)
         {
-            Vector3 Node = new Vector3(float.Parse(tmp[i]["LocX"].ToString()), float.Parse(tmp[i]["LocY"].ToString()), float.Parse(tmp[i]["LocZ"].ToString()));
+            Vector3 Node = new Vector3(float.Parse(POS["LocX"].ToString()), 
+                float.Parse(POS["LocY"].ToString()), float.Parse(POS["LocZ"].ToString()));
             m_ListEventPos.Add(Node);
-        }
-        //출발 지점과 끝나는 지점
+        }        //출발 지점등
+
+        GameManager.instance.StageSelect(m_ListObjectType); 
+        //게임 매니저에 스테이지 관련 타입들을 저장한다.
     }
 
     public List<Vector3> ReturnEventPos()

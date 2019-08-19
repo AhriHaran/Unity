@@ -35,7 +35,7 @@ public class EnemyScript : MonoBehaviour
         m_Animator = GetComponent<Animator>();
         m_HpSlider = GameObject.Find("GameUI").transform.GetChild(3).GetComponent<UISlider>();
 
-        if (GameManager.instance.ReturnStageType() != "Infiltration")
+        if (GameManager.instance.ReturnStageData(MAP_DATA.MAP_TYPE) as string != "Infiltration")
             m_eCurState = ENEMY_STATE.STATE_TRACE;
         else
             m_eCurState = ENEMY_STATE.STATE_WAIT;

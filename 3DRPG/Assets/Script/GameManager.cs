@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class GameManager : MonoSingleton<GameManager>
 {
-    private int m_iCurStage = -1;   //현재 선택한 스테이지
-    private int[] m_ListCharIndex;  //내가 선택한 캐릭터 인덱스들
+    private int[] m_ListCharIndex;      //내가 선택한 캐릭터 인덱스들
     private int m_iCurSelectChar = -1;   //캐릭터 선택 단계에서 내가 선택한 캐릭터
     private int m_iCurGameChar = -1;     //게임 속에서 내가 현재 선택한 캐릭터
-    private string m_strStageType;  
-    private float m_fStageTime = 0.0f;
+
+    //맵관련 인자들
+    private int m_iCurStage = -1;       //현재 선택한 스테이지
+    public List<Dictionary<MAP_DATA, object>> m_ListMapData = new List<Dictionary<MAP_DATA, object>>();
 
     public void Init()
     {
@@ -23,26 +24,26 @@ public class GameManager : MonoSingleton<GameManager>
     /// <param name="iStage"></param>
     public void StageSelect(int iStage)
     {
-        m_iCurStage = iStage;
-    }
-    public void StageSelect(string strType, float fTime)
-    {
-        m_strStageType = strType;
-        m_fStageTime = fTime;
-    }
-    public string ReturnStageType()
-    {
-        return m_strStageType;
-    }
-    public float ReturnStageTime()
-    {
-        return m_fStageTime;
+        m_iCurStage = iStage;   //로비에서 스테이지 선택 시 임시 저장 변수
     }
     public string ReturnStage()
     {
         return m_iCurStage.ToString(); //현재 시작 스테이지 리턴
     }
-
+    public void StageSelect(List<Dictionary<MAP_DATA, object>> MapData)
+    {
+        foreach (MAP_DATA E in System.Enum.GetValues(typeof(MAP_DATA)))
+        {
+            Dictionary<MAP_DATA, object> Node = new Dictionary<MAP_DATA, object>();
+            Node.Add(E, MapData[(int)E][E]);
+            m_ListMapData.Add(Node);
+        }
+        //스테이지 선택 시 
+    }
+    public object ReturnStageData(MAP_DATA eIndex)
+    {
+        return m_ListMapData[(int)eIndex][eIndex];
+    }
 
     /// <summary>
     /// 캐릭터와 관련된 정보를 처리하는 구간
@@ -137,8 +138,7 @@ public class GameManager : MonoSingleton<GameManager>
         }
         m_iCurSelectChar = -1;
         m_iCurGameChar = -1;     //게임 속에서 내가 현재 선택한 캐릭터
-        m_strStageType = string.Empty;
-        m_fStageTime = 0.0f;
+        m_ListMapData.Clear();
     }
 }
 
