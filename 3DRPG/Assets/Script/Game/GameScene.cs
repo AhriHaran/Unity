@@ -34,8 +34,16 @@ public class GameScene : MonoBehaviour
 
         m_CallBack = Camera.main.GetComponent<FollowCam>().CameraSet;   //카메라 셋팅 콜백
 
-        m_MapManager = new MapManager(m_arrObject[(int)OBJECT_INDEX.OBJECT_BACKGROUND].transform);
+        string strStage = GameManager.instance.ReturnStage(); //첫시작 
+        string strFile = "Excel/StageExcel/" + strStage + "Stage_Map";
+        List<Dictionary<string, object>> MapFile = EXCEL.ExcelLoad.Read(strFile);
+        strFile = "Excel/StageExcel/Stage_Table";
+        List<Dictionary<string, object>> MapTable = EXCEL.ExcelLoad.Read(strFile);
+        strFile = "Excel/StageExcel/" + strStage + "Stage_Event_Pos";
+        List<Dictionary<string, object>> MapPos = EXCEL.ExcelLoad.Read(strFile);
+        m_MapManager = new MapManager(m_arrObject[(int)OBJECT_INDEX.OBJECT_BACKGROUND].transform, MapFile, MapTable, MapPos);
         //배경 오브젝트 설정
+
         m_arrObject[(int)OBJECT_INDEX.OBJECT_BACKGROUND].GetComponent<NavMeshSurface>().BuildNavMesh();
         //네비메쉬 서페이스로 런타임 베이크
         m_PlayerManager = new PlayerManager(m_arrObject[(int)OBJECT_INDEX.OBJECT_PLAYER].transform);
