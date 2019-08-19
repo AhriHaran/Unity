@@ -7,6 +7,7 @@ public enum MAP_DATA
 {
     MAP_TYPE,
     MAP_TIME,
+    MAP_ENERGY,
     MAP_CLEAR_EXP,
     MAP_CLEAR_GOLD,
     MAP_CLEAR_ITEM,

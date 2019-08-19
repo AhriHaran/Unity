@@ -93,6 +93,11 @@ public class UserInfo : GSingleton<UserInfo>
     {
         m_UserData.UserUpdate(eIndex, UpdateData);
     }
+    public bool ifUserLevelUP()
+    {
+        var UserTable = EXCEL.ExcelLoad.Read("Excel/Table/UserTable");
+        return m_UserData.ifUserLevelUP(UserTable);
+    }
     public void CharUpdate(CHAR_DATA eIndex, object UpdateData, int iIndex)
     {
         m_UserCharData.CharUpdate(eIndex, UpdateData, iIndex);
@@ -100,11 +105,7 @@ public class UserInfo : GSingleton<UserInfo>
     public bool ifCharLevelUp(int iIndex)
     {
         var CharTable = EXCEL.ExcelLoad.Read("Excel/CharacterExcel/0_Index_Char");
-        if (m_UserCharData.ifCharLevelUp(iIndex, CharTable))
-        {
-            return true;
-        }
-        return false;
+        return m_UserCharData.ifCharLevelUp(iIndex, CharTable);
     }
     public void InventoryUpdate(int itemIndex, INVENTORY_TYPE eType, string ItemType)
     {

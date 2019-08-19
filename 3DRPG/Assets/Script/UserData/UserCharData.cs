@@ -42,17 +42,10 @@ public class UserCharData
     }
     public bool ifCharLevelUp(int iIndex, List<Dictionary<string, object>> Table)
     {
-        if (m_ListChar[iIndex].m_bLevelUP)
-        {
-            m_ListChar[iIndex].CharUpdate(Table);
-            return true;
-        }
-        else
-            return false;
+        return m_ListChar[iIndex].ifCharLevelUP(Table);
     }
-
     public void CharSave()
     {
-
+        //내가 가진 모든 캐릭터 세이브
     }
 }
