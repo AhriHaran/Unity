@@ -43,12 +43,13 @@ public class LobbyManager : MonoBehaviour
         var CharList = UserInfo.instance.GetMyCharList();
         int iCount = CharList.Count;
         string[] strIndex = new string[CharList.Count];
+        //로비 패널 기반
         for (int i = 0; i < iCount; i++)
         {
             try
             {
                 string route = Util.ConvertToString(CharList[i].GetCharData(CHAR_DATA.CHAR_ROUTE));
-                string name = UserInfo.instance.GetCharData(CHAR_DATA.CHAR_NAME, i).ToString();
+                string name = Util.ConvertToString(CharList[i].GetCharData(CHAR_DATA.CHAR_NAME));
                 strIndex[i] = "Player/" +route + "Prefabs/" + name;
             }
             catch (System.NullReferenceException ex)

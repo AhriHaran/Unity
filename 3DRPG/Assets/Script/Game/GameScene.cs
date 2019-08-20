@@ -103,6 +103,6 @@ public class GameScene : MonoBehaviour
         //세이브 데이터
         //변경된 데이터를 저장하고 로비로 돌아간다.
         UserInfo.instance.Save();
-        //LoadScene.SceneLoad("LobbyScene");
+        LoadScene.SceneLoad("LobbyScene");
     }
 }

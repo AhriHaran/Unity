@@ -35,10 +35,10 @@ public class ResultPanel : MonoBehaviour
     {
         //해당 패널이 액티브 되면 활성화
         int [] ListChar = GameManager.instance.ReturnPlayerList();
-        int ClearExp = Convert.ToInt32(GameManager.instance.ReturnStageData(MAP_DATA.MAP_CLEAR_EXP));
-        int ClearGold = Convert.ToInt32(GameManager.instance.ReturnStageData(MAP_DATA.MAP_CLEAR_GOLD));
-        int ClearEnergy = Convert.ToInt32(GameManager.instance.ReturnStageData(MAP_DATA.MAP_ENERGY));
-        string [] ClearItem = Convert.ToString(GameManager.instance.ReturnStageData(MAP_DATA.MAP_CLEAR_ITEM)).Split(',');
+        int ClearExp = Util.ConvertToInt(GameManager.instance.ReturnStageData(MAP_DATA.MAP_CLEAR_EXP));
+        int ClearGold = Util.ConvertToInt(GameManager.instance.ReturnStageData(MAP_DATA.MAP_CLEAR_GOLD));
+        int ClearEnergy = Util.ConvertToInt(GameManager.instance.ReturnStageData(MAP_DATA.MAP_ENERGY));
+        string [] ClearItem = Util.ConvertToString(GameManager.instance.ReturnStageData(MAP_DATA.MAP_CLEAR_ITEM)).Split(',');
         //클리어 아이템들은 ;과 ,으로 구분 되어 있으니 잘 쪼개어 사용
 
         m_StageLabel.text = GameManager.instance.ReturnStage() + "Stage Clear"; //스테이지
@@ -57,14 +57,14 @@ public class ResultPanel : MonoBehaviour
         }
 
         GameObject Slider = m_PlayerResource.transform.GetChild(2).gameObject;  //경험치 바 업데이트
-        int iCur = Convert.ToInt32( UserInfo.instance.GetUserData(USER_INFO.USER_INFO_CUR_EXP));
-        int iMax = Convert.ToInt32(UserInfo.instance.GetUserData(USER_INFO.USER_INFO_MAX_ENERGY));
+        int iCur = Util.ConvertToInt( UserInfo.instance.GetUserData(USER_INFO.USER_INFO_CUR_EXP));
+        int iMax = Util.ConvertToInt(UserInfo.instance.GetUserData(USER_INFO.USER_INFO_MAX_ENERGY));
         float fValue = (float)iCur / (float)iMax;
         string strEXP = iCur.ToString() + "/" + iMax.ToString();
         Slider.GetComponentInChildren<UILabel>().text = strEXP; //현재 경험치 / 맥스 경험
         Slider.GetComponent<UISlider>().value = fValue; //경험치 바 value
 
-        //플레이어 캐릭터 관련 업데이트
+        //플레이어 캐릭터 관련 업데이트, 리스트 인덱스 기반
         for (int i = 0;  i < 3; i++)
         {
             if(ListChar[i] != -1)
@@ -76,7 +76,7 @@ public class ResultPanel : MonoBehaviour
 
                 //경험치 만큼 업데이트를 하고
                 Slider = m_ListChar[i].transform.GetChild(1).gameObject;
-                int iCurEXP = System.Convert.ToInt32(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_CUR_EXP, ListChar[i]));
+                int iCurEXP = Util.ConvertToInt(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_CUR_EXP, ListChar[i]));
                 iCurEXP += ClearExp;
                 UserInfo.instance.CharUpdate(CHAR_DATA.CHAR_CUR_EXP, iCurEXP, ListChar[i]); //EXP 업데이트
                 if(UserInfo.instance.ifCharLevelUp(ListChar[i]))
@@ -85,8 +85,8 @@ public class ResultPanel : MonoBehaviour
                     m_ListChar[i].transform.GetChild(3).gameObject.SetActive(true);
                 }
 
-                iCur = Convert.ToInt32(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_CUR_EXP, ListChar[i]));    //업데이트 이후 CurEXp
-                iMax = Convert.ToInt32(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_MAX_EXP, ListChar[i]));
+                iCur = Util.ConvertToInt(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_CUR_EXP, ListChar[i]));    //업데이트 이후 CurEXp
+                iMax = Util.ConvertToInt(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_MAX_EXP, ListChar[i]));
                 fValue = (float)iCur / (float)iMax;
                 Slider.GetComponent<UISlider>().value = fValue; //경험치 value
                 Slider.GetComponentInChildren<UILabel>().text = "+" + ClearExp.ToString();  //경험치 획득

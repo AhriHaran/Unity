@@ -27,7 +27,7 @@ public class StageReadyPanel : MonoBehaviour
         {
             if(iarr[i] != -1)
             {
-                string strName = UserInfo.instance.GetCharData(CHAR_DATA.CHAR_NAME, GameManager.instance.GetCharIndex(i)) as string;
+                string strName = UserInfo.instance.GetCharData(CHAR_DATA.CHAR_NAME, iarr[i]) as string;
                 m_selectCharBT[i].GetComponentInChildren<UILabel>().text = strName;
                 strName += m_strSprite;
                 m_selectCharBT[i].GetComponentInChildren<UISprite>().spriteName = strName;
@@ -46,19 +46,24 @@ public class StageReadyPanel : MonoBehaviour
     {
     }
     
-    public void SelectChar(string strSelect)
+    public void SelectChar(string strSelect)    //내가 선택한 패널
     {
         int iSelect = int.Parse(strSelect);
-        string strName = UserInfo.instance.GetCharData(CHAR_DATA.CHAR_NAME, GameManager.instance.GetCharIndex(iSelect)) as string;
-        m_selectCharBT[iSelect].GetComponentInChildren<UILabel>().text = strName;
-        //텍스트를 바꿔주고
-        ////해당 캐릭터의 이름
-        strName += m_strSprite;
-        ////스프라이트 바꿈
-        m_selectCharBT[iSelect].GetComponentInChildren<UISprite>().spriteName = strName;
-        m_selectCharBT[iSelect].normalSprite = strName;
-        //해당 스프라이트를 바꿔준다.
-        m_UIPanel.Refresh();
+        int[] iarrList = GameManager.instance.ReturnPlayerList();
+        if(iarrList[iSelect] != -1)
+        {
+            string strName = UserInfo.instance.GetCharData(CHAR_DATA.CHAR_NAME, iarrList[iSelect]) as string;
+            //캐릭터 인덱스 기반 반환
+            m_selectCharBT[iSelect].GetComponentInChildren<UILabel>().text = strName;
+            //텍스트를 바꿔주고
+            ////해당 캐릭터의 이름
+            strName += m_strSprite;
+            ////스프라이트 바꿈
+            m_selectCharBT[iSelect].GetComponentInChildren<UISprite>().spriteName = strName;
+            m_selectCharBT[iSelect].normalSprite = strName;
+            //해당 스프라이트를 바꿔준다.
+            m_UIPanel.Refresh();
+        }
     }
     
 }

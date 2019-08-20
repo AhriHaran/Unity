@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 using System;
 
 public class UserCharData
@@ -24,7 +25,7 @@ public class UserCharData
     {
         return m_ListChar.Count;
     }
-    public object GetChar(CHAR_DATA eIndex, int iIndex) //캐릭터의 인덱스 기반으로 반환
+    public object GetCharData(CHAR_DATA eIndex, int iIndex) //캐릭터의 인덱스 기반으로 반환
     {
         for(int i = 0; i < m_ListChar.Count;i++)
         {
@@ -58,16 +59,23 @@ public class UserCharData
     public void Save()
     {
         //내가 가진 모든 캐릭터 세이브
-        foreach(var L in m_ListChar)
+        int iCount = m_ListChar.Count;
+
+        CharInfoData [] Node = new CharInfoData[iCount];
+
+        for(int i = 0; i < iCount; i++)
         {
-            CharInfoData Node = new CharInfoData();
-            Node.CharIndex = Util.ConvertToInt(L.GetCharData(CHAR_DATA.CHAR_INDEX));
-            Node.CharCurEXP = Util.ConvertToInt(L.GetCharData(CHAR_DATA.CHAR_CUR_EXP));
-            Node.CharWeapon = Util.ConvertToInt(L.GetCharData(CHAR_DATA.CHAR_WEAPON_INDEX));
-            Node.CharStigmaTop = Util.ConvertToInt(L.GetCharData(CHAR_DATA.CHAR_STIGMA_TOP_INDEX));
-            Node.CharStigmaCenter = Util.ConvertToInt(L.GetCharData(CHAR_DATA.CHAR_STIGMA_CENTER_INDEX));
-            Node.CharStigmaBottom = Util.ConvertToInt(L.GetCharData(CHAR_DATA.CHAR_STIGMA_BOTTOM_INDEX));
+            Node[i].CharIndex = Util.ConvertToInt(m_ListChar[i].GetCharData(CHAR_DATA.CHAR_INDEX));
+            Node[i].CharLevel = Util.ConvertToInt(m_ListChar[i].GetCharData(CHAR_DATA.CHAR_LEVEL));
+            Node[i].CharCurEXP = Util.ConvertToInt(m_ListChar[i].GetCharData(CHAR_DATA.CHAR_CUR_EXP));
+            Node[i].CharWeapon = Util.ConvertToInt(m_ListChar[i].GetCharData(CHAR_DATA.CHAR_WEAPON_INDEX));
+            Node[i].CharStigmaTop = Util.ConvertToInt(m_ListChar[i].GetCharData(CHAR_DATA.CHAR_STIGMA_TOP_INDEX));
+            Node[i].CharStigmaCenter = Util.ConvertToInt(m_ListChar[i].GetCharData(CHAR_DATA.CHAR_STIGMA_CENTER_INDEX));
+            Node[i].CharStigmaBottom = Util.ConvertToInt(m_ListChar[i].GetCharData(CHAR_DATA.CHAR_STIGMA_BOTTOM_INDEX));
         }
 
+        string Char = JSON.JsonUtil.ToJson<CharInfoData>(Node);
+        Debug.Log(Char);
+        JSON.JsonUtil.CreateJson("UserCharInfoData", Char);
     }
 }

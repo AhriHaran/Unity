@@ -69,6 +69,25 @@ public class UserInventory
 
     public void Save()
     {
+        for(int i = (int)INVENTORY_TYPE.INVENTORY_START; i < (int)INVENTORY_TYPE.INVENTORY_END; i++)
+        {
+            int iCount = m_ListInven[i].Count;
+            ItemInfoData [] Item = new ItemInfoData[iCount];
+            for(int j = 0; j < iCount; j++)
+            {
+                Item[j].ItemType = Util.ConvertToString(m_ListInven[i][j].GetItemData(ITEM_DATA.ITEM_TYPE));
+                Item[j].ItemRoute = Util.ConvertToString(m_ListInven[i][j].GetItemData(ITEM_DATA.ITEM_ROUTE));
+                Item[j].ItemIndex = Util.ConvertToInt( m_ListInven[i][j].GetItemData(ITEM_DATA.ITEM_INDEX));
+                Item[j].ItemLevel = Util.ConvertToInt(m_ListInven[i][j].GetItemData(ITEM_DATA.ITEM_LEVEl));
+                Item[j].ItemCurEXP = Util.ConvertToInt(m_ListInven[i][j].GetItemData(ITEM_DATA.ITEM_CUR_EXP));
+            }
+            string Inven = JSON.JsonUtil.ToJson<ItemInfoData>(Item);
+            Debug.Log(Inven);
+            if(i == (int)INVENTORY_TYPE.INVENTORY_WEAPON)
+                JSON.JsonUtil.CreateJson("UserWeaponData", Inven);
+            else if (i == (int)INVENTORY_TYPE.INVENTORY_STIGMA)
+                JSON.JsonUtil.CreateJson("UserStigmaData", Inven);
+        }
     }
 
 }

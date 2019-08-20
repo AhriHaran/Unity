@@ -56,9 +56,4 @@ public class ItemData
     {   //해당 아이템 정보 오브젝트 반환
         return m_ItemData[(int)eIndex][eIndex];
     }
-
-    public void Save()
-    {
-
-    }
 }

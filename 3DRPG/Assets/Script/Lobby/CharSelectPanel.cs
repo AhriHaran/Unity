@@ -24,7 +24,9 @@ public class CharSelectPanel : MonoBehaviour
     void Start()
     {
         ////활성화 될 때 호출\
-        int iCount = UserInfo.instance.GetMyCharCount();
+        ///
+        var CharList = UserInfo.instance.GetMyCharList();
+        int iCount = CharList.Count;
 
         for (int i = 0; i < iCount; i++)
         {
@@ -32,7 +34,7 @@ public class CharSelectPanel : MonoBehaviour
             CharInfo.SetActive(true);
             CharInfo.transform.SetParent(m_GridChar.transform, false); //부모 트랜스폼 새로 설정
             CharInfo.GetComponent<CharInfoButton>().SetCallBack(CharInfoSelect, i);
-            string strIcon = UserInfo.instance.GetCharData(CHAR_DATA.CHAR_NAME, i) as string;
+            string strIcon = Util.ConvertToString(CharList[i].GetCharData(CHAR_DATA.CHAR_NAME));
             CharInfo.GetComponentInChildren<UILabel>().text = strIcon;
             strIcon += m_strSprite;
             CharInfo.GetComponentInChildren<UISprite>().spriteName = strIcon;

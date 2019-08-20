@@ -49,7 +49,7 @@ public class UserInfo : GSingleton<UserInfo>
     {
         return m_UserCharData.GetMyCharCount();
     }
-    public object GetChar(CHAR_DATA eIndex, int iIndex)
+    public object GetCharData(CHAR_DATA eIndex, int iIndex)
     {
         return m_UserCharData.GetCharData(eIndex, iIndex);
     }

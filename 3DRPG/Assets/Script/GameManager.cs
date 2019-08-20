@@ -72,10 +72,6 @@ public class GameManager : MonoSingleton<GameManager>
         }
         return false;
     }
-    public int GetCharIndex(int iIndex) //캐릭터 인덱스 반환
-    {
-        return m_ListCharIndex[iIndex];
-    }
     public int[] ReturnPlayerList()
     {
         return m_ListCharIndex;
