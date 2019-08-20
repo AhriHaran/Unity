@@ -30,8 +30,8 @@ public class CharacterData
     public CharacterData(CharInfoData Data, List<Dictionary<string, object>> Table)   //캐릭터 인덱스
     {
         int iLevel = Data.CharLevel;
-        NodeSetting(CHAR_DATA.CHAR_NAME, Data.CharName);    //캐릭터 이름
-        NodeSetting(CHAR_DATA.CHAR_ROUTE, Data.CharRoute);  //캐릭터 저장소
+        NodeSetting(CHAR_DATA.CHAR_NAME, Table[iLevel][CHAR_DATA.CHAR_NAME.ToString()]);    //캐릭터 이름
+        NodeSetting(CHAR_DATA.CHAR_ROUTE, Table[iLevel][CHAR_DATA.CHAR_ROUTE.ToString()]);  //캐릭터 저장소
         NodeSetting(CHAR_DATA.CHAR_INDEX, Data.CharIndex);  //캐릭터 인덱스
         NodeSetting(CHAR_DATA.CHAR_LEVEL, Data.CharLevel);  //캐릭터 레벨
         NodeSetting(CHAR_DATA.CHAR_MAX_HP, Table[iLevel][CHAR_DATA.CHAR_MAX_HP.ToString()]);   //캐릭터 HP
@@ -68,8 +68,8 @@ public class CharacterData
     }
     public bool ifCharLevelUP(List<Dictionary<string, object>> CharTable)
     {
-        int iCurEXP = Convert.ToInt32(m_CharInfo[(int)CHAR_DATA.CHAR_CUR_EXP]);
-        int iLevel = Convert.ToInt32(m_CharInfo[(int)CHAR_DATA.CHAR_CUR_EXP]);
+        int iCurEXP = Convert.ToInt32(GetCharData(CHAR_DATA.CHAR_CUR_EXP));
+        int iLevel = Convert.ToInt32(GetCharData(CHAR_DATA.CHAR_LEVEL));
         bool bLevelUp = false;
 
         while (true)
@@ -99,6 +99,7 @@ public class CharacterData
 
     public void CharSave(List<Dictionary<string, object>> Table)
     {
+        //플레이어 데이터 갱신 후
 
     }
 }

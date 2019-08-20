@@ -32,8 +32,6 @@ public class LobbyManager : MonoBehaviour
 
     private void Start()
     {
-        UserInfo.instance.InvenSetting();
-
         GameObject LobbyUI = GameObject.Find("LobbyUI");
         for (int i = (int)UI_PANEL_INDEX.PANEL_START; i < (int)UI_PANEL_INDEX.PANEL_END; i++)
         {
@@ -42,13 +40,14 @@ public class LobbyManager : MonoBehaviour
             m_ListPanel.Add(Node);
         }
 
-        int iCount = UserInfo.instance.GetMyCharCount();
-        string[] strIndex = new string[iCount];
+        var CharList = UserInfo.instance.GetMyCharList();
+        int iCount = CharList.Count;
+        string[] strIndex = new string[CharList.Count];
         for (int i = 0; i < iCount; i++)
         {
             try
             {
-                string route = UserInfo.instance.GetCharData(CHAR_DATA.CHAR_ROUTE, i).ToString();
+                string route = Util.ConvertToString(CharList[i].GetCharData(CHAR_DATA.CHAR_ROUTE));
                 string name = UserInfo.instance.GetCharData(CHAR_DATA.CHAR_NAME, i).ToString();
                 strIndex[i] = "Player/" +route + "Prefabs/" + name;
             }

@@ -58,28 +58,13 @@ public class FirstLoadScene : MonoBehaviour
             JSON.JsonUtil.CreateJson("UserInfoData", jsonData);
             //유저 데이터 JSON(초기 유저 데이터)
 
-            CharInfoData Char = new CharInfoData();
-            Char.CharName = "UnityChan";
-            Char.CharRoute = "Unity-chan!/";
-            Char.CharIndex = 0;
-            Char.CharLevel = 1;
-            Char.CharCurEXP = 0;
-            Char.CharWeapon = -1;
-            Char.CharStigmaTop = -1;
-            Char.CharStigmaCenter = -1;
-            Char.CharStigmaBottom = -1;
+            CharInfoData Char = new CharInfoData(0);
             string CharData = JSON.JsonUtil.ToJson(Char);
             Debug.Log(CharData);
             JSON.JsonUtil.CreateJson("UserCharInfoData", CharData);
             //초기 캐릭터 데이터 JSON
 
-            ItemInfoData Item = new ItemInfoData();
-            Item.ItemType = "Gauntlet";
-            Item.ItemName = "초기형 건틀릿";
-            Item.ItemRoute = "Weapon/Gauntlet/";
-            Item.ItemIndex = 0;
-            Item.ItemLevel = 1;
-            Item.ItemCurEXP = 0;
+            ItemInfoData Item = new ItemInfoData(ITEM_TYPE.ITEM_GAUNTLET.ToString(),0);
             string WeaponData = JSON.JsonUtil.ToJson(Item);
             Debug.Log(WeaponData);
             JSON.JsonUtil.CreateJson("UserWeaponData", WeaponData);
@@ -89,26 +74,21 @@ public class FirstLoadScene : MonoBehaviour
             {
                 try
                 {
-                    StigmaList[i] = new ItemInfoData();
+                    ITEM_TYPE type = ITEM_TYPE.ITEM_NONE;
                     if (i == 0)
                     {
-                        StigmaList[i].ItemType = "Stigma_T";
-                        StigmaList[i].ItemRoute = "Stigma/T/";
+                        type = ITEM_TYPE.ITEM_STIGMA_TOP;
                     }
                     else if (i == 1)
                     {
-                        StigmaList[i].ItemType = "Stigma_C";
-                        StigmaList[i].ItemRoute = "Stigma/C/";
+                        type = ITEM_TYPE.ITEM_STIGMA_CENTER;
                     }
                     else if (i == 2)
                     {
-                        StigmaList[i].ItemType = "Stigma_B";
-                        StigmaList[i].ItemRoute = "Stigma/B/";//성흔은 이미지 스프라이트만 있으면 된다.
+                        type = ITEM_TYPE.ITEM_STIGMA_BOTTOM;
+
                     }
-                    StigmaList[i].ItemName = "초기형 성흔";
-                    StigmaList[i].ItemIndex = 0;
-                    StigmaList[i].ItemLevel = 1;
-                    StigmaList[i].ItemCurEXP = 0;
+                    StigmaList[i] = new ItemInfoData(type.ToString(), 0);
                 }
                 catch (System.NullReferenceException ex)
                 {
@@ -120,7 +100,7 @@ public class FirstLoadScene : MonoBehaviour
             JSON.JsonUtil.CreateJson("UserStigmaData", Stigma);
             //유저의 초기 데이터들
 
-            UserInfo.instance.Init();   
+            UserInfo.instance.Init();
             m_UserCreate.gameObject.SetActive(false);
         }
     }

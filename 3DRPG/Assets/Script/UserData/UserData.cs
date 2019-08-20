@@ -33,8 +33,8 @@ public class UserData
     }
     public bool ifUserLevelUP(List<Dictionary<string, object>> UserTable)
     {
-        int iCurEXP = int.Parse(m_UserInfo[(int)USER_INFO.USER_INFO_CUR_EXP]);
-        int iLevel = int.Parse(m_UserInfo[(int)USER_INFO.USER_INFO_LEVEL]);
+        int iCurEXP = Util.ConvertToInt(m_UserInfo[(int)USER_INFO.USER_INFO_CUR_EXP]);
+        int iLevel = Util.ConvertToInt(m_UserInfo[(int)USER_INFO.USER_INFO_LEVEL]);
         bool bLevelUp = false;
         while (true)
         {
@@ -59,8 +59,18 @@ public class UserData
         return bLevelUp;
     }
 
-    public void UserDataSave()
+
+    public void Save()
     {
-        //데이터 세이브
+        UserInfoData Data = JSON.JsonUtil.LoadJson<UserInfoData>("UserInfoData");
+        Data.Level = Util.ConvertToInt(GetUserData(USER_INFO.USER_INFO_LEVEL));
+        Data.CurEnergy = Util.ConvertToInt(GetUserData(USER_INFO.USER_INFO_CUR_ENERGY));
+        Data.CurEXP = Util.ConvertToInt(GetUserData(USER_INFO.USER_INFO_CUR_EXP));
+        Data.Gold = Util.ConvertToInt(GetUserData(USER_INFO.USER_INFO_GOLD));
+        Data.Gold = Util.ConvertToInt(GetUserData(USER_INFO.USER_INFO_GOLD));
+        string StrData = JSON.JsonUtil.ToJson(Data);
+        JSON.JsonUtil.CreateJson("UserInfoData", StrData);
+        Debug.Log(StrData);
+        //json 데이터 갱신
     }
 }

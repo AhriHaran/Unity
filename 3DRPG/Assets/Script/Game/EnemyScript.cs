@@ -88,9 +88,7 @@ public class EnemyScript : MonoBehaviour
             {
                 //거리가 사정거리보다 길어지면 추적 스테이트
                 m_eCurState = ENEMY_STATE.STATE_TRACE;
-                transform.LookAt(m_PlayerTR);   
             }
-
         }
     }
 
@@ -108,6 +106,7 @@ public class EnemyScript : MonoBehaviour
                 case ENEMY_STATE.STATE_ATTACK:  
                     m_Animator.SetBool("Attack", true);
                     m_Animator.SetBool("Moving", false);
+                    transform.LookAt(m_PlayerTR);
                     m_NavMeshAgent.Stop();
                     break;
                 case ENEMY_STATE.STATE_TRACE:

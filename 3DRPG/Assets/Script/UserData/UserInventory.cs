@@ -27,7 +27,7 @@ public class UserInventory
         ItemInfoData Weapon = JSON.JsonUtil.LoadJson<ItemInfoData>("UserWeaponData");   //웨폰 리스트
         m_ListInven[(int)INVENTORY_TYPE.INVENTORY_WEAPON] = new List<ItemData>();
 
-        ItemData Data = new ItemData("Excel/WeaponTable/", Weapon);
+        ItemData Data = new ItemData(Weapon);
         m_ListInven[(int)INVENTORY_TYPE.INVENTORY_WEAPON].Add(Data);
         //무기 셋팅
 
@@ -36,25 +36,24 @@ public class UserInventory
 
         foreach (var S in stigma)
         {
-            ItemData Item = new ItemData("Excel/StigmaTable/" , S);
+            ItemData Item = new ItemData(S);
             m_ListInven[(int)INVENTORY_TYPE.INVENTORY_STIGMA].Add(Item);
         }
         //성흔 셋팅
-        
     }
 
     public object GetInventoryItem(int inventoryIndex, INVENTORY_TYPE eType, ITEM_DATA eIndex)
     {
-        //인벤토리 인덱스 순서
+        //인벤토리 인덱스 순서, 즉 획득 순서
         return m_ListInven[(int)eType][inventoryIndex].GetItemData(eIndex);
     }
+
     public List<ItemData> GetInventoryList(INVENTORY_TYPE eType)
     {
         return m_ListInven[(int)eType];
     }
 
-
-    public void InventoryUpdate(int itemIndex, INVENTORY_TYPE eType, string ItemType)
+    public void InventoryUpdate(string ItemType, int invenType, int itemIndex)
     {
         //아이템이나 스티그마 획득 시
         /*새로운 아이템을 얻을 시 해당 아이템의 인덱스를 기반으로 새로운 데이터 기반을 생성하고
@@ -62,6 +61,14 @@ public class UserInventory
          * 인벤토리에 순서대로 넣어준다.
          * 그리고 해당 아이템을 장착할 시에는 캐릭터 인덱스는 내가 해당 아이템을 가진 인덱스 순서대로 넣어준다.
          */
+        ItemInfoData ItemInfo = new ItemInfoData(ItemType, itemIndex);    //새로운 아이템 생성
+        ItemData Data = new ItemData(ItemInfo);
+        m_ListInven[invenType].Add(Data);
+        //새로운 데이터 셋팅
+    }
+
+    public void Save()
+    {
     }
 
 }

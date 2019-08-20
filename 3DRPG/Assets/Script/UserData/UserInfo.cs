@@ -32,12 +32,9 @@ public class UserInfo : GSingleton<UserInfo>
         var CharTable = EXCEL.ExcelLoad.Read("Excel/CharacterExcel/0_Index_Char");
         m_UserCharData = new UserCharData(CharTable);
         //처음 셋팅은 이정도만
-        
-        Event.Invoke();
-    }
-    public void InvenSetting()
-    {
         m_UserInventory = new UserInventory();
+        Event.Invoke();
+        
     }
 
     /// <summary>
@@ -52,7 +49,7 @@ public class UserInfo : GSingleton<UserInfo>
     {
         return m_UserCharData.GetMyCharCount();
     }
-    public object GetCharData(CHAR_DATA eIndex, int iIndex)
+    public object GetChar(CHAR_DATA eIndex, int iIndex)
     {
         return m_UserCharData.GetCharData(eIndex, iIndex);
     }
@@ -107,10 +104,18 @@ public class UserInfo : GSingleton<UserInfo>
         var CharTable = EXCEL.ExcelLoad.Read("Excel/CharacterExcel/0_Index_Char");
         return m_UserCharData.ifCharLevelUp(iIndex, CharTable);
     }
-    public void InventoryUpdate(int itemIndex, INVENTORY_TYPE eType, string ItemType)
+    public void InventoryUpdate(string ItemType, int invenType, int itemIndex)
     {
-        m_UserInventory.InventoryUpdate(itemIndex, eType, ItemType);
+        m_UserInventory.InventoryUpdate(ItemType, invenType, itemIndex);//인벤토리 새로운 아이템 획득
     }
 
-    
+    /// <summary>
+    /// SaveData
+    /// </summary>
+    public void Save()
+    {
+        m_UserData.Save();
+        m_UserCharData.Save();
+        m_UserInventory.Save();
+    }
 }

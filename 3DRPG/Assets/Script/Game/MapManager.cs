@@ -49,8 +49,7 @@ public class MapManager
             Node.Add(E, MapTable[iStage][E.ToString()]);
             m_ListObjectType.Add(Node);
         }
-
-
+        
         //맵의 특정 이벤트 지점을 저장한 백터
         //            Index LocX    LocY LocZ
         foreach(var POS in MapPos)

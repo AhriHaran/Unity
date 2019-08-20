@@ -87,11 +87,11 @@ public class InventoryPanel : MonoBehaviour
                     GameObject Item = ResourceLoader.CreatePrefab("Prefabs/ItemSprite");
                     Item.transform.SetParent(m_GridChar.transform, false);
                     string sprite = string.Empty;
-                    if ("Stigma_T" == S.GetItemData(ITEM_DATA.ITEM_TYPE).ToString())
+                    if (S.GetItemData(ITEM_DATA.ITEM_TYPE).ToString().Equals(ITEM_TYPE.ITEM_STIGMA_TOP.ToString()))
                         sprite = "HelmetBronze";
-                    else if ("Stigma_C" == S.GetItemData(ITEM_DATA.ITEM_TYPE).ToString())
+                    else if (S.GetItemData(ITEM_DATA.ITEM_TYPE).ToString().Equals(ITEM_TYPE.ITEM_STIGMA_CENTER.ToString()))
                         sprite = "ArmorBronze";
-                    else if ("Stigma_B" == S.GetItemData(ITEM_DATA.ITEM_TYPE).ToString())
+                    else if (S.GetItemData(ITEM_DATA.ITEM_TYPE).ToString().Equals(ITEM_TYPE.ITEM_STIGMA_BOTTOM.ToString()))
                         sprite = "GreaveBronze";
                     Item.GetComponent<UISprite>().spriteName = sprite;
                 }

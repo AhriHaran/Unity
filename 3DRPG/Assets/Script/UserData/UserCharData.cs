@@ -24,9 +24,15 @@ public class UserCharData
     {
         return m_ListChar.Count;
     }
-    public object GetCharData(CHAR_DATA eIndex, int iIndex)
+    public object GetChar(CHAR_DATA eIndex, int iIndex) //캐릭터의 인덱스 기반으로 반환
     {
-        return m_ListChar[iIndex].GetCharData(eIndex);
+        for(int i = 0; i < m_ListChar.Count;i++)
+        {
+           int CharIndex = Util.ConvertToInt(m_ListChar[i].GetCharData(CHAR_DATA.CHAR_INDEX));
+           if (CharIndex == iIndex) //캐릭터 인덱스 기반
+                return m_ListChar[iIndex].GetCharData(eIndex);
+        }
+        return null;
     }
 
     /// <summary>
@@ -44,8 +50,24 @@ public class UserCharData
     {
         return m_ListChar[iIndex].ifCharLevelUP(Table);
     }
-    public void CharSave()
+
+
+    /// <summary>
+    /// Save data
+    /// </summary>
+    public void Save()
     {
         //내가 가진 모든 캐릭터 세이브
+        foreach(var L in m_ListChar)
+        {
+            CharInfoData Node = new CharInfoData();
+            Node.CharIndex = Util.ConvertToInt(L.GetCharData(CHAR_DATA.CHAR_INDEX));
+            Node.CharCurEXP = Util.ConvertToInt(L.GetCharData(CHAR_DATA.CHAR_CUR_EXP));
+            Node.CharWeapon = Util.ConvertToInt(L.GetCharData(CHAR_DATA.CHAR_WEAPON_INDEX));
+            Node.CharStigmaTop = Util.ConvertToInt(L.GetCharData(CHAR_DATA.CHAR_STIGMA_TOP_INDEX));
+            Node.CharStigmaCenter = Util.ConvertToInt(L.GetCharData(CHAR_DATA.CHAR_STIGMA_CENTER_INDEX));
+            Node.CharStigmaBottom = Util.ConvertToInt(L.GetCharData(CHAR_DATA.CHAR_STIGMA_BOTTOM_INDEX));
+        }
+
     }
 }

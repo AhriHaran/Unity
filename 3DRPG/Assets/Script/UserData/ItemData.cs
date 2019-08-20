@@ -19,18 +19,16 @@ public enum ITEM_DATA
 
 public class ItemData
 {
-    //성흔 데이터
-    //성흔은 총 HP와 방어력
-    List<Dictionary<ITEM_DATA, object>> m_StigmaData = new List<Dictionary<ITEM_DATA, object>>();
-    public ItemData(string TableRoute, ItemInfoData Data)
+    List<Dictionary<ITEM_DATA, object>> m_ItemData = new List<Dictionary<ITEM_DATA, object>>();
+    public ItemData(ItemInfoData Data)
     {
-        string Route = TableRoute + Data.ItemType + "_" + Data.ItemIndex;
+        string Route = "Excel/Table/" + Data.ItemType + "_" + Data.ItemIndex;
         try
         {
             var Table = EXCEL.ExcelLoad.Read(Route);
             //해당 인덱스 데이터의 엑셀
             NodeSetting(ITEM_DATA.ITEM_TYPE, Data.ItemType);
-            NodeSetting(ITEM_DATA.ITEM_NAME, Data.ItemName);
+            NodeSetting(ITEM_DATA.ITEM_NAME, Table[Data.ItemLevel - 1][ITEM_DATA.ITEM_NAME.ToString()]);
             NodeSetting(ITEM_DATA.ITEM_ROUTE, Data.ItemRoute);
             NodeSetting(ITEM_DATA.ITEM_INDEX, Data.ItemIndex);
             NodeSetting(ITEM_DATA.ITEM_LEVEl, Data.ItemLevel);
@@ -51,12 +49,16 @@ public class ItemData
     {
         Dictionary<ITEM_DATA, object> node = new Dictionary<ITEM_DATA, object>();
         node.Add(eIndex, Data);
-        m_StigmaData.Add(node);
+        m_ItemData.Add(node);
     }
 
     public object GetItemData(ITEM_DATA eIndex)
-    {   //해당 캐릭터 정보 오브젝트 반환
-        return m_StigmaData[(int)eIndex][eIndex];
+    {   //해당 아이템 정보 오브젝트 반환
+        return m_ItemData[(int)eIndex][eIndex];
     }
 
+    public void Save()
+    {
+
+    }
 }

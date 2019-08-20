@@ -209,7 +209,7 @@ MonoBehaviour:
     paddingRight: 2
     paddingTop: 3
     paddingBottom: 0
-  - name: GauntletBronze
+  - name: ITEM_GAUNTLETBronze
     x: 125
     y: 521
     width: 124

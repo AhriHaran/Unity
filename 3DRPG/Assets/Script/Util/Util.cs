@@ -74,4 +74,16 @@ public partial class Util
             fileInfos[i].Delete();
         }
     }
+
+    //toInt
+    public static int ConvertToInt(object Obj)
+    {
+        return System.Convert.ToInt32(Obj);
+    }
+
+    //toString
+    public static string ConvertToString(object Obj)
+    {
+        return System.Convert.ToString(Obj);
+    }
 }

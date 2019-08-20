@@ -16,6 +16,7 @@ public class GameManager : MonoSingleton<GameManager>
     {
         m_ListCharIndex = new int[] { -1, -1, -1 };   //3개
         m_iCurGameChar = -1;
+        m_iCurSelectChar = -1;
     }
 
     /// <summary>
@@ -86,8 +87,9 @@ public class GameManager : MonoSingleton<GameManager>
     /// <returns></returns>
     public bool StageReady()
     {
-        if (m_iCurStage != -1 && ifCharSelect())  //스테이지 선택이 되었으며 하나 이상의 캐릭터가 선택되었다.
+        if (m_iCurStage != -1 && ifCharSelect() && ifEnergyEnough())  //스테이지 선택이 되었으며 하나 이상의 캐릭터가 선택되었다.
         {
+            //플레이어의 에너지가 충분한가?
             for(int i = 0; i < 3; i++)
             {
                 if (m_ListCharIndex[i] ==-1)//앞으로 정렬
@@ -111,6 +113,17 @@ public class GameManager : MonoSingleton<GameManager>
                 return true;
         }
         return false;
+    }
+    public bool ifEnergyEnough()
+    {
+        int iCurEnergy = System.Convert.ToInt32(UserInfo.instance.GetUserData(USER_INFO.USER_INFO_CUR_ENERGY));
+        var MapData = EXCEL.ExcelLoad.Read("Excel/Table/Stage_Table");
+        int iStageEnergy = System.Convert.ToInt32(MapData[m_iCurSelectChar][MAP_DATA.MAP_ENERGY.ToString()]);
+        //현재 남아있는 에너지 비교
+        if (iCurEnergy >= iStageEnergy) //에너지 충분함
+            return true;
+        else
+            return false;
     }
     public void GameStart()
     {

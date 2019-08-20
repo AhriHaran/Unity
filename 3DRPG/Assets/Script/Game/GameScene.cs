@@ -22,42 +22,48 @@ public class GameScene : MonoBehaviour
     private CallBack m_CallBack = null;
     private UIPanel m_ResultPanel;
 
-    void Start()
+    private void Awake()
     {
-        //정렬할 오브젝트를 받아온뒤
+        m_ResultPanel = GameObject.Find("GameUI").transform.GetChild(4).GetComponent<UIPanel>();    //결과창s   
         int ChildCount = transform.childCount;
         m_arrObject = new GameObject[(int)OBJECT_INDEX.OBJECT_END];
         for (int i = 0; i < ChildCount; i++)
         {
             m_arrObject[i] = transform.GetChild(i).gameObject;
         }
+    }
 
+    void Start()
+    {
         m_CallBack = Camera.main.GetComponent<FollowCam>().CameraSet;   //카메라 셋팅 콜백
 
-        string strStage = GameManager.instance.ReturnStage(); //첫시작 
-        string strFile = "Excel/StageExcel/" + strStage + "Stage_Map";
-        List<Dictionary<string, object>> MapFile = EXCEL.ExcelLoad.Read(strFile);
-        strFile = "Excel/StageExcel/Stage_Table";
-        List<Dictionary<string, object>> MapTable = EXCEL.ExcelLoad.Read(strFile);
-        strFile = "Excel/StageExcel/" + strStage + "Stage_Event_Pos";
-        List<Dictionary<string, object>> MapPos = EXCEL.ExcelLoad.Read(strFile);
-        m_MapManager = new MapManager(m_arrObject[(int)OBJECT_INDEX.OBJECT_BACKGROUND].transform, MapFile, MapTable, MapPos);
+        string strStage = GameManager.instance.ReturnStage(); //첫시작    
+        string strFile = "Excel/StageExcel/" + strStage + "Stage_Map";  //해당스테이지의 맵 Info
+        List<Dictionary<string, object>> Info = EXCEL.ExcelLoad.Read(strFile);
+        strFile = "Excel/Table/Stage_Table";   //전체 맵의 table 데이터
+        List<Dictionary<string, object>> Table = EXCEL.ExcelLoad.Read(strFile);
+        strFile = "Excel/StageExcel/" + strStage + "Stage_Event_Pos";   //해당 맵의 시작 등의 좌표
+        List<Dictionary<string, object>> Pos = EXCEL.ExcelLoad.Read(strFile);
+        m_MapManager = new MapManager(m_arrObject[(int)OBJECT_INDEX.OBJECT_BACKGROUND].transform, Info, Table, Pos);
         //배경 오브젝트 설정
-
         m_arrObject[(int)OBJECT_INDEX.OBJECT_BACKGROUND].GetComponent<NavMeshSurface>().BuildNavMesh();
         //네비메쉬 서페이스로 런타임 베이크
+
         m_PlayerManager = new PlayerManager(m_arrObject[(int)OBJECT_INDEX.OBJECT_PLAYER].transform);
         //플레이어 셋팅
-        var Pos = m_MapManager.ReturnEventPos();
-        m_PlayerManager.SetPosition(0, Pos[0]);
+        var vecPos = m_MapManager.ReturnEventPos();
+        m_PlayerManager.SetPosition(0, vecPos[0]);
         //스타트에서 처음 포지셔닝을 셋팅
 
-        m_EnemyMangaer = new EnemyManager(m_arrObject[(int)OBJECT_INDEX.OBJECT_ENEMY].transform);
-        m_CallBack(m_PlayerManager.GetCharTR());    //카메라 콜백 함수 선언
-        m_EnemyMangaer.TrSetting(m_PlayerManager.GetCharTR());
-        m_EnemyMangaer.ActiveWave();
+        strFile = "Excel/StageExcel/" + strStage + "Stage_Enemy";
+        Info = EXCEL.ExcelLoad.Read(strFile);
+        Table = EXCEL.ExcelLoad.Read("Excel/CharacterExcel/Enemy_Char_Info");
+        m_EnemyMangaer = new EnemyManager(m_arrObject[(int)OBJECT_INDEX.OBJECT_ENEMY].transform, Info, Table);
+        //에너미 셋팅
 
-        m_ResultPanel = GameObject.Find("GameUI").GetComponentInChildren<UIPanel>();
+        m_CallBack(m_PlayerManager.GetCharTR());    //카메라 콜백 함수 선언
+        m_EnemyMangaer.TrSetting(m_PlayerManager.GetCharTR()); //타겟 셋팅
+        m_EnemyMangaer.ActiveWave();    //액티브
 
         InvokeRepeating("WaveClear", 2.0f, 1.0f);
     }
@@ -83,6 +89,7 @@ public class GameScene : MonoBehaviour
                  * 스테이지를 클리어하였기에 경험치와 아이템들을 정산해줘야 하며
                  * 캐릭터의 스테이터스 등을 상승시켜줄 필요가있다.
                  */
+                Time.timeScale = 0.0f;
                 m_ResultPanel.gameObject.SetActive(true);
                 CancelInvoke("WaveClear");
                 //결과창을띄워준다.
@@ -93,7 +100,9 @@ public class GameScene : MonoBehaviour
     public void OnClick()
     {
         //유저 인포 세이브
+        //세이브 데이터
         //변경된 데이터를 저장하고 로비로 돌아간다.
+        UserInfo.instance.Save();
         //LoadScene.SceneLoad("LobbyScene");
     }
 }
