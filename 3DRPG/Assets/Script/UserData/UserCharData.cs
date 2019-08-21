@@ -27,10 +27,10 @@ public class UserCharData
     }
     public object GetCharData(CHAR_DATA eIndex, int iIndex) //캐릭터의 인덱스 기반으로 반환
     {
-        for(int i = 0; i < m_ListChar.Count;i++)
+        for (int i = 0; i < m_ListChar.Count; i++)
         {
-           int CharIndex = Util.ConvertToInt(m_ListChar[i].GetCharData(CHAR_DATA.CHAR_INDEX));
-           if (CharIndex == iIndex) //캐릭터 인덱스 기반
+            int CharIndex = Util.ConvertToInt(m_ListChar[i].GetCharData(CHAR_DATA.CHAR_INDEX));
+            if (CharIndex == iIndex) //캐릭터 인덱스 기반
                 return m_ListChar[iIndex].GetCharData(eIndex);
         }
         return null;
@@ -61,21 +61,30 @@ public class UserCharData
         //내가 가진 모든 캐릭터 세이브
         int iCount = m_ListChar.Count;
 
-        CharInfoData [] Node = new CharInfoData[iCount];
-
-        for(int i = 0; i < iCount; i++)
+        CharInfoData[] Node = new CharInfoData[iCount];
+        try
         {
-            Node[i].CharIndex = Util.ConvertToInt(m_ListChar[i].GetCharData(CHAR_DATA.CHAR_INDEX));
-            Node[i].CharLevel = Util.ConvertToInt(m_ListChar[i].GetCharData(CHAR_DATA.CHAR_LEVEL));
-            Node[i].CharCurEXP = Util.ConvertToInt(m_ListChar[i].GetCharData(CHAR_DATA.CHAR_CUR_EXP));
-            Node[i].CharWeapon = Util.ConvertToInt(m_ListChar[i].GetCharData(CHAR_DATA.CHAR_WEAPON_INDEX));
-            Node[i].CharStigmaTop = Util.ConvertToInt(m_ListChar[i].GetCharData(CHAR_DATA.CHAR_STIGMA_TOP_INDEX));
-            Node[i].CharStigmaCenter = Util.ConvertToInt(m_ListChar[i].GetCharData(CHAR_DATA.CHAR_STIGMA_CENTER_INDEX));
-            Node[i].CharStigmaBottom = Util.ConvertToInt(m_ListChar[i].GetCharData(CHAR_DATA.CHAR_STIGMA_BOTTOM_INDEX));
-        }
+            for (int i = 0; i < iCount; i++)
+            {
+                Node[i] = new CharInfoData
+                {
+                    CharIndex = Util.ConvertToInt(m_ListChar[i].GetCharData(CHAR_DATA.CHAR_INDEX)),
+                    CharLevel = Util.ConvertToInt(m_ListChar[i].GetCharData(CHAR_DATA.CHAR_LEVEL)),
+                    CharCurEXP = Util.ConvertToInt(m_ListChar[i].GetCharData(CHAR_DATA.CHAR_CUR_EXP)),
+                    CharWeapon = Util.ConvertToInt(m_ListChar[i].GetCharData(CHAR_DATA.CHAR_WEAPON_INDEX)),
+                    CharStigmaTop = Util.ConvertToInt(m_ListChar[i].GetCharData(CHAR_DATA.CHAR_STIGMA_TOP_INDEX)),
+                    CharStigmaCenter = Util.ConvertToInt(m_ListChar[i].GetCharData(CHAR_DATA.CHAR_STIGMA_CENTER_INDEX)),
+                    CharStigmaBottom = Util.ConvertToInt(m_ListChar[i].GetCharData(CHAR_DATA.CHAR_STIGMA_BOTTOM_INDEX))
+                };
+            }
 
-        string Char = JSON.JsonUtil.ToJson<CharInfoData>(Node);
-        Debug.Log(Char);
-        JSON.JsonUtil.CreateJson("UserCharInfoData", Char);
+            string Char = JSON.JsonUtil.ToJson<CharInfoData>(Node);
+            Debug.Log(Char);
+            JSON.JsonUtil.CreateJson("UserCharInfoData", Char);
+        }
+        catch(System.NullReferenceException ex)
+        {
+            Debug.Log(ex);
+        }
     }
 }

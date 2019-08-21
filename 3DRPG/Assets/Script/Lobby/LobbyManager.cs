@@ -2,20 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum UI_PANEL_INDEX
+{
+    PANEL_START,
+    PANEL_LOBBY = PANEL_START,    //로비 패널
+    PANEL_STAGE,        //스테이지 패널
+    PANEL_STAGE_READY,  //스테이지 준비 패널
+    PANEL_VALKYRJA,     //캐릭터 선택 패널
+    PANEL_EQUIPMENT,    //장비 패널
+    PANEL_BUTTON,
+    PANEL_END,
+}
+
 public class LobbyManager : MonoBehaviour
 {
-    public enum UI_PANEL_INDEX
-    {
-        PANEL_START,
-        PANEL_LOBBY = PANEL_START,    //로비 패널
-        PANEL_STAGE,    //스테이지 패널
-        PANEL_STAGE_READY,  //스테이지 준비 패널
-        PANEL_CHAR_SELECT,  //캐릭터 선택 패널
-        PANEL_VALKYRJA,     //발키리 패널
-        PANEL_EQUIPMENT,    //장비 패널
-        PANEL_BUTTON,
-        PANEL_END,
-    }
 
     public UILabel m_UserLevel;
     public UILabel m_UserNickName;
@@ -43,7 +43,8 @@ public class LobbyManager : MonoBehaviour
         var CharList = UserInfo.instance.GetMyCharList();
         int iCount = CharList.Count;
         string[] strIndex = new string[CharList.Count];
-        //로비 패널 기반
+        int[] iarr = new int[CharList.Count];
+        //내가 가진 캐릭터 리스트 기반
         for (int i = 0; i < iCount; i++)
         {
             try
@@ -51,13 +52,14 @@ public class LobbyManager : MonoBehaviour
                 string route = Util.ConvertToString(CharList[i].GetCharData(CHAR_DATA.CHAR_ROUTE));
                 string name = Util.ConvertToString(CharList[i].GetCharData(CHAR_DATA.CHAR_NAME));
                 strIndex[i] = "Player/" +route + "Prefabs/" + name;
+                iarr[i] = Util.ConvertToInt(CharList[i].GetCharData(CHAR_DATA.CHAR_INDEX));
             }
             catch (System.NullReferenceException ex)
             {
                 Debug.Log(ex);
             }
         }
-        PoolManager.instance.Set(POOL_INDEX.POOL_USER_CHAR.ToString(), strIndex, iCount);
+        CharPoolManager.instance.Set(POOL_INDEX.POOL_USER_CHAR.ToString(), strIndex, iarr, iCount);
         //내가 가진 캐릭터 모델링들을 미리 셋팅
 
         PanelOnOff(UI_PANEL_INDEX.PANEL_LOBBY);
@@ -84,7 +86,9 @@ public class LobbyManager : MonoBehaviour
         for (int i = (int)UI_PANEL_INDEX.PANEL_START; i < (int)UI_PANEL_INDEX.PANEL_END; i++)
         {
             if (i == (int)eindex)   //켜고자 하는 거 외에는 모두 꺼라
+            {
                 m_ListPanel[i].gameObject.SetActive(true);
+            }
             else
                 m_ListPanel[i].gameObject.SetActive(false);
         }
@@ -121,7 +125,7 @@ public class LobbyManager : MonoBehaviour
         int iMainCount = int.Parse(strMain);
         if (bSet)
         {
-            m_MainChar = PoolManager.instance.PopFromPool(POOL_INDEX.POOL_USER_CHAR.ToString(), iMainCount);
+            m_MainChar = CharPoolManager.instance.PopFromPool(POOL_INDEX.POOL_USER_CHAR.ToString(), iMainCount);
             m_MainChar.SetActive(true);
             m_MainChar.transform.SetParent(m_MainCharTR, false); //메인 캐릭터의 하위 오브젝트로 설정
             //메인으로 지정된 캐릭터 불러오기
@@ -133,7 +137,7 @@ public class LobbyManager : MonoBehaviour
         {
             if(m_MainChar != null)
             {
-                PoolManager.instance.PushToPool(POOL_INDEX.POOL_USER_CHAR.ToString(), iMainCount, m_MainChar);
+                CharPoolManager.instance.PushToPool(POOL_INDEX.POOL_USER_CHAR.ToString(), iMainCount, m_MainChar);
                 m_MainChar = null;
             }
         }
@@ -173,7 +177,8 @@ public class LobbyManager : MonoBehaviour
             //무슨 캐릭터 선택창을 선택했는가를 확인
             string[] split = Button.Split('_');
             m_strCharSelect = split[split.Length - 1];   //내가 선택한 캐릭터 선택창 임시 저장
-            PanelOnOff(UI_PANEL_INDEX.PANEL_CHAR_SELECT);   //캐릭터 선택창을 선택하면 해당 스크립트가 실행되면서 활동한다.
+            PanelOnOff(UI_PANEL_INDEX.PANEL_VALKYRJA);   //캐릭터 선택창을 선택하면 해당 스크립트가 실행되면서 활동한다.
+            m_ListPanel[(int)UI_PANEL_INDEX.PANEL_VALKYRJA].GetComponent<CharSelectPanel>().ButtonOnOff(true);
         }
         else if (Button == "SelectButton")
         {
@@ -191,12 +196,15 @@ public class LobbyManager : MonoBehaviour
                 GameManager.instance.GameStart();   //게임 시작
             }
         }
-        else if(Button == "")
+        else if(Button == "Valkyrja")
         {
+            //캐릭터 창, 여기서 장비 장착등이 가능하다.
+            PanelOnOff(UI_PANEL_INDEX.PANEL_VALKYRJA);
+            m_ListPanel[(int)UI_PANEL_INDEX.PANEL_VALKYRJA].GetComponent<CharSelectPanel>().ButtonOnOff(false);
         }
         else if(Button == "Equipment")
         {
-            PanelOnOff(UI_PANEL_INDEX.PANEL_EQUIPMENT);   //캐릭터 선택창을 선택하면 해당 스크립트가 실행되면서 활동한다.
+            PanelOnOff(UI_PANEL_INDEX.PANEL_EQUIPMENT); 
         }
     }
 }

@@ -26,6 +26,7 @@ public enum ITEM_TYPE   //아이템 테이블 이름
 {
     ITEM_NONE,
     ITEM_GAUNTLET,  //주먹 아이템
+    ITEM_SWORD,
     ITEM_STIGMA_TOP,
     ITEM_STIGMA_CENTER,
     ITEM_STIGMA_BOTTOM,
@@ -63,14 +64,13 @@ public class CharInfoData
         CharStigmaCenter = -1;
         CharStigmaBottom = -1;
     }
-    public CharInfoData() { }
+    public CharInfoData() { } //정보 갱신용
 }
 
 [System.Serializable]
 public class ItemInfoData
 {
     public string ItemType; //아이템 타입
-    public string ItemRoute;
     public int ItemIndex;
     public int ItemLevel;
     public int ItemCurEXP;
@@ -78,7 +78,6 @@ public class ItemInfoData
     public ItemInfoData(string strType, int iIndex)
     {
         ItemType = strType;
-        ItemRoute = "Equipment/" + strType + "/";
         ItemIndex = iIndex;
         ItemLevel = 1;
         ItemCurEXP = 0;

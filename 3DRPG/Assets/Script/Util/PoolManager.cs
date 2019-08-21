@@ -24,24 +24,6 @@ public class PoolManager : GSingleton<PoolManager>
         }
     }
 
-    public void Set(string strPoolName, string [] strPrefabs, int iObjectCount)
-    {
-        //서로 다른 오브젝트를 풀링으로 관리
-        try
-        {
-            GameObject ObjectPool = ResourceLoader.CreatePrefab("Prefabs/ObejctPool");   //오브젝트 풀링
-            ObjectPool.name = strPoolName;
-            ObjectPool Pool = ObjectPool.GetComponent<ObjectPool>();
-            Pool.Init(strPrefabs, iObjectCount, Pool.transform);
-            m_PoolManger.Add(Pool);
-            //게임 오브젝트로 생성한 뒤 하위 컴포넌트로 셋팅
-        }
-        catch (NullReferenceException ex)
-        {
-            Debug.Log(ex);
-        }
-    }
-
     public bool PushToPool(string strPoolName, GameObject item)
     {
         //기본 반납
@@ -55,18 +37,6 @@ public class PoolManager : GSingleton<PoolManager>
         return true;
     }
 
-    public bool PushToPool(string strPoolName, int iIndex, GameObject item)
-    {
-        //인덱스 기반 반납
-        ObjectPool pool = GetPoolItem(strPoolName);
-        if (pool.name == string.Empty)
-            return false;
-
-        pool.PushToPool(item, iIndex, pool.transform);
-        return true;
-    }
-
-
     public GameObject PopFromPool(string strPoolName)
     {
         //기본 대출
@@ -76,17 +46,6 @@ public class PoolManager : GSingleton<PoolManager>
         //부족할 떄 만든다.
         return pool.PopFromPoll(pool.transform);
     }
-
-    public GameObject PopFromPool(string strPoolName, int iIndex)
-    {
-        //인덱스 기반 대출
-        ObjectPool pool = GetPoolItem(strPoolName);
-        if (pool == null)
-            return null;
-
-        return pool.PopFromPoll(iIndex);
-    }
-
 
     ObjectPool GetPoolItem(string strPoolName)
     {

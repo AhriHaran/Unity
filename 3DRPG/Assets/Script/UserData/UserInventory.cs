@@ -14,24 +14,23 @@ public class UserInventory
 {
     //무기, 성흔 상 중 하
     //무기 인벤토리, 성흔 인벤토리\
-    List<ItemData> [] m_ListInven = new List<ItemData>[(int)INVENTORY_TYPE.INVENTORY_END];
-    //로비에서 데이터 셋팅
-    //아이템 스프라이트는 110 x 110
-    /*
-     *그리드는 6 x 4
-     */
+    private const string m_strRoute = "Equipment/"; //데이터 저장 루트(공통)
+    List<ItemData>[] m_ListInven = new List<ItemData>[(int)INVENTORY_TYPE.INVENTORY_END];
     public UserInventory()
     {
         //JSON 데이터와 테이블 데이터를 통해서 셋팅
         //UserStigmaData, UserWeaponData -> Json
-        ItemInfoData Weapon = JSON.JsonUtil.LoadJson<ItemInfoData>("UserWeaponData");   //웨폰 리스트
+        ItemInfoData[] Weapon = JSON.JsonUtil.LoadArrJson<ItemInfoData>(INVENTORY_TYPE.INVENTORY_WEAPON.ToString());   //웨폰 리스트
         m_ListInven[(int)INVENTORY_TYPE.INVENTORY_WEAPON] = new List<ItemData>();
 
-        ItemData Data = new ItemData(Weapon);
-        m_ListInven[(int)INVENTORY_TYPE.INVENTORY_WEAPON].Add(Data);
+        foreach (var W in Weapon)
+        {
+            ItemData Data = new ItemData(W);
+            m_ListInven[(int)INVENTORY_TYPE.INVENTORY_WEAPON].Add(Data);
+        }
         //무기 셋팅
 
-        ItemInfoData[] stigma = JSON.JsonUtil.LoadArrJson<ItemInfoData>("UserStigmaData");  //스티그마 리스트
+        ItemInfoData[] stigma = JSON.JsonUtil.LoadArrJson<ItemInfoData>(INVENTORY_TYPE.INVENTORY_STIGMA.ToString());  //스티그마 리스트
         m_ListInven[(int)INVENTORY_TYPE.INVENTORY_STIGMA] = new List<ItemData>();
 
         foreach (var S in stigma)
@@ -41,19 +40,16 @@ public class UserInventory
         }
         //성흔 셋팅
     }
-
-    public object GetInventoryItem(int inventoryIndex, INVENTORY_TYPE eType, ITEM_DATA eIndex)
+    public object GetItemForList(int inventoryIndex, INVENTORY_TYPE eType, ITEM_DATA eIndex)
     {
-        //인벤토리 인덱스 순서, 즉 획득 순서
+        //인벤토리 아이템은 중복 획득이 가능하므로 리스트 순서 기반으로 한다.
         return m_ListInven[(int)eType][inventoryIndex].GetItemData(eIndex);
     }
-
     public List<ItemData> GetInventoryList(INVENTORY_TYPE eType)
     {
-        return m_ListInven[(int)eType];
+        return m_ListInven[(int)eType]; //전체 리스트
     }
-
-    public void InventoryUpdate(string ItemType, int invenType, int itemIndex)
+    public void InventoryUpdate(string ItemType, int invenType, int itemIndex)  //새로운 아이템 획득
     {
         //아이템이나 스티그마 획득 시
         /*새로운 아이템을 얻을 시 해당 아이템의 인덱스를 기반으로 새로운 데이터 기반을 생성하고
@@ -66,27 +62,39 @@ public class UserInventory
         m_ListInven[invenType].Add(Data);
         //새로운 데이터 셋팅
     }
+    public void InventoryUpdate(int invenType, int itemIndex)
+    {
+        //기존 아이템 업데이트, 레벨 업 등
+    }
+
 
     public void Save()
     {
-        for(int i = (int)INVENTORY_TYPE.INVENTORY_START; i < (int)INVENTORY_TYPE.INVENTORY_END; i++)
+        for(INVENTORY_TYPE i = INVENTORY_TYPE.INVENTORY_START; i < INVENTORY_TYPE.INVENTORY_END; i++)
         {
-            int iCount = m_ListInven[i].Count;
-            ItemInfoData [] Item = new ItemInfoData[iCount];
-            for(int j = 0; j < iCount; j++)
+            int iIndex = (int)i;
+            int iCount = m_ListInven[iIndex].Count;
+            try
             {
-                Item[j].ItemType = Util.ConvertToString(m_ListInven[i][j].GetItemData(ITEM_DATA.ITEM_TYPE));
-                Item[j].ItemRoute = Util.ConvertToString(m_ListInven[i][j].GetItemData(ITEM_DATA.ITEM_ROUTE));
-                Item[j].ItemIndex = Util.ConvertToInt( m_ListInven[i][j].GetItemData(ITEM_DATA.ITEM_INDEX));
-                Item[j].ItemLevel = Util.ConvertToInt(m_ListInven[i][j].GetItemData(ITEM_DATA.ITEM_LEVEl));
-                Item[j].ItemCurEXP = Util.ConvertToInt(m_ListInven[i][j].GetItemData(ITEM_DATA.ITEM_CUR_EXP));
+                ItemInfoData[] Item = new ItemInfoData[iCount];
+                for (int j = 0; j < iCount; j++)
+                {
+                    Item[j] = new ItemInfoData
+                    {
+                        ItemType = Util.ConvertToString(m_ListInven[iIndex][j].GetItemData(ITEM_DATA.ITEM_TYPE)),
+                        ItemIndex = Util.ConvertToInt(m_ListInven[iIndex][j].GetItemData(ITEM_DATA.ITEM_INDEX)),
+                        ItemLevel = Util.ConvertToInt(m_ListInven[iIndex][j].GetItemData(ITEM_DATA.ITEM_LEVEl)),
+                        ItemCurEXP = Util.ConvertToInt(m_ListInven[iIndex][j].GetItemData(ITEM_DATA.ITEM_CUR_EXP))
+                    };
+                }
+                string Inven = JSON.JsonUtil.ToJson<ItemInfoData>(Item);
+                Debug.Log(Inven);
+                JSON.JsonUtil.CreateJson(i.ToString(), Inven);
             }
-            string Inven = JSON.JsonUtil.ToJson<ItemInfoData>(Item);
-            Debug.Log(Inven);
-            if(i == (int)INVENTORY_TYPE.INVENTORY_WEAPON)
-                JSON.JsonUtil.CreateJson("UserWeaponData", Inven);
-            else if (i == (int)INVENTORY_TYPE.INVENTORY_STIGMA)
-                JSON.JsonUtil.CreateJson("UserStigmaData", Inven);
+            catch(System.NullReferenceException ex)
+            {
+                Debug.Log(ex);
+            }
         }
     }
 

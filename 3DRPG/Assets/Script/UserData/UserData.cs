@@ -36,25 +36,27 @@ public class UserData
         int iCurEXP = Util.ConvertToInt(m_UserInfo[(int)USER_INFO.USER_INFO_CUR_EXP]);
         int iLevel = Util.ConvertToInt(m_UserInfo[(int)USER_INFO.USER_INFO_LEVEL]);
         bool bLevelUp = false;
+        int iTableLevel = iLevel - 1;
         while (true)
         {
-            int iMaxEXP = int.Parse(UserTable[iLevel][USER_INFO.USER_INFO_MAX_EXP.ToString()].ToString());  //레벨당 최대 경험치 대비
+            iTableLevel = iLevel - 1;
+            int iMaxEXP = Util.ConvertToInt(UserTable[iTableLevel][USER_INFO.USER_INFO_MAX_EXP.ToString()]);  //레벨당 최대 경험치 대비
             if (iCurEXP >= iMaxEXP)
             {
                 iLevel++;
-                iCurEXP -= iMaxEXP;
+                iCurEXP -= iMaxEXP; //
                 bLevelUp = true;
             }
             else
                 break;
         }
-
+        iTableLevel = iLevel - 1;
         UserUpdate(USER_INFO.USER_INFO_LEVEL, iLevel);//현재 레벨
         UserUpdate(USER_INFO.USER_INFO_CUR_EXP, iCurEXP); //현재 경험치
-        UserUpdate(USER_INFO.USER_INFO_MAX_EXP, UserTable[iLevel][USER_INFO.USER_INFO_MAX_EXP.ToString()]); //현재 레벨 max EXP
-        UserUpdate(USER_INFO.USER_INFO_MAX_ENERGY, UserTable[iLevel][USER_INFO.USER_INFO_MAX_ENERGY.ToString()]); //현재 레벨 max EXP
+        UserUpdate(USER_INFO.USER_INFO_MAX_EXP, UserTable[iTableLevel][USER_INFO.USER_INFO_MAX_EXP.ToString()]); //현재 레벨 max EXP
+        UserUpdate(USER_INFO.USER_INFO_MAX_ENERGY, UserTable[iTableLevel][USER_INFO.USER_INFO_MAX_ENERGY.ToString()]); //현재 레벨 max EXP
         if (bLevelUp)   //레벨 업 시, 현재 에너지를 맥스로 채워준다.
-            UserUpdate(USER_INFO.USER_INFO_CUR_ENERGY, UserTable[iLevel][USER_INFO.USER_INFO_MAX_ENERGY.ToString()]);
+            UserUpdate(USER_INFO.USER_INFO_CUR_ENERGY, UserTable[iTableLevel][USER_INFO.USER_INFO_MAX_ENERGY.ToString()]);
         
         return bLevelUp;
     }
@@ -62,15 +64,22 @@ public class UserData
 
     public void Save()
     {
-        UserInfoData Data = JSON.JsonUtil.LoadJson<UserInfoData>("UserInfoData");
-        Data.Level = Util.ConvertToInt(GetUserData(USER_INFO.USER_INFO_LEVEL));
-        Data.CurEnergy = Util.ConvertToInt(GetUserData(USER_INFO.USER_INFO_CUR_ENERGY));
-        Data.CurEXP = Util.ConvertToInt(GetUserData(USER_INFO.USER_INFO_CUR_EXP));
-        Data.Gold = Util.ConvertToInt(GetUserData(USER_INFO.USER_INFO_GOLD));
-        Data.Gold = Util.ConvertToInt(GetUserData(USER_INFO.USER_INFO_GOLD));
-        string StrData = JSON.JsonUtil.ToJson(Data);
-        JSON.JsonUtil.CreateJson("UserInfoData", StrData);
-        Debug.Log(StrData);
+        try
+        {
+            UserInfoData Data = JSON.JsonUtil.LoadJson<UserInfoData>("UserInfoData");
+            Data.Level = Util.ConvertToInt(GetUserData(USER_INFO.USER_INFO_LEVEL));
+            Data.CurEnergy = Util.ConvertToInt(GetUserData(USER_INFO.USER_INFO_CUR_ENERGY));
+            Data.CurEXP = Util.ConvertToInt(GetUserData(USER_INFO.USER_INFO_CUR_EXP));
+            Data.Gold = Util.ConvertToInt(GetUserData(USER_INFO.USER_INFO_GOLD));
+            Data.Gold = Util.ConvertToInt(GetUserData(USER_INFO.USER_INFO_GOLD));
+            string StrData = JSON.JsonUtil.ToJson(Data);
+            JSON.JsonUtil.CreateJson("UserInfoData", StrData);
+            Debug.Log(StrData);
+        }
+        catch(System.NullReferenceException ex)
+        {
+            Debug.Log(ex);
+        }
         //json 데이터 갱신
     }
 }

@@ -31,10 +31,9 @@ public class UserInfo : GSingleton<UserInfo>
         //내가 가진 캐릭터
         var CharTable = EXCEL.ExcelLoad.Read("Excel/CharacterExcel/0_Index_Char");
         m_UserCharData = new UserCharData(CharTable);
-        //처음 셋팅은 이정도만
+
         m_UserInventory = new UserInventory();
-        Event.Invoke();
-        
+        Event.Invoke();    
     }
 
     /// <summary>
@@ -71,10 +70,10 @@ public class UserInfo : GSingleton<UserInfo>
             return null;
         }
     }
-    public object GetInventoryItem(int inventoryIndex, INVENTORY_TYPE eType, ITEM_DATA eIndex)
+    public object GetItemForList(int inventoryIndex, INVENTORY_TYPE eType, ITEM_DATA eIndex)
     {
         //인벤토리 인덱스 순서
-        return m_UserInventory.GetInventoryItem(inventoryIndex, eType, eIndex);
+        return m_UserInventory.GetItemForList(inventoryIndex, eType, eIndex);
     }
     public List<ItemData> GetInventoryList(INVENTORY_TYPE eType)
     {
@@ -112,10 +111,23 @@ public class UserInfo : GSingleton<UserInfo>
     /// <summary>
     /// SaveData
     /// </summary>
-    public void Save()
+    /// 
+    public void AllSave()
     {
         m_UserData.Save();
         m_UserCharData.Save();
+        m_UserInventory.Save();
+    }
+    public void UserDataSave()
+    {
+        m_UserData.Save();
+    }
+    public void UserCharSave()
+    {
+        m_UserCharData.Save();
+    }
+    public void UserInvenSave()
+    {
         m_UserInventory.Save();
     }
 }

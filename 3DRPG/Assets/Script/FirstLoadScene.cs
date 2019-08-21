@@ -64,10 +64,11 @@ public class FirstLoadScene : MonoBehaviour
             JSON.JsonUtil.CreateJson("UserCharInfoData", CharData);
             //초기 캐릭터 데이터 JSON
 
-            ItemInfoData Item = new ItemInfoData(ITEM_TYPE.ITEM_GAUNTLET.ToString(),0);
-            string WeaponData = JSON.JsonUtil.ToJson(Item);
+            ItemInfoData[] Item = new ItemInfoData[1];
+            Item[0] = new ItemInfoData(ITEM_TYPE.ITEM_GAUNTLET.ToString(), 0);
+            string WeaponData = JSON.JsonUtil.ToJson<ItemInfoData>(Item);
             Debug.Log(WeaponData);
-            JSON.JsonUtil.CreateJson("UserWeaponData", WeaponData);
+            JSON.JsonUtil.CreateJson(INVENTORY_TYPE.INVENTORY_WEAPON.ToString(), WeaponData);
 
             ItemInfoData[] StigmaList = new ItemInfoData[3];
             for (int i = 0; i < 3; i++)
@@ -97,7 +98,7 @@ public class FirstLoadScene : MonoBehaviour
             }
             string Stigma = JSON.JsonUtil.ToJson<ItemInfoData>(StigmaList);
             Debug.Log(Stigma);
-            JSON.JsonUtil.CreateJson("UserStigmaData", Stigma);
+            JSON.JsonUtil.CreateJson(INVENTORY_TYPE.INVENTORY_STIGMA.ToString(), Stigma);
             //유저의 초기 데이터들
 
             UserInfo.instance.Init();

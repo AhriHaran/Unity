@@ -67,7 +67,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ac07e312a1e6ba4a83014379b10162b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PlayerTR: {fileID: 0}
   m_eCurState: 0
   m_fAttackArea: 5
 --- !u!195 &1701065083379976713

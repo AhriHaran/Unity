@@ -102,7 +102,9 @@ public class GameScene : MonoBehaviour
         //유저 인포 세이브
         //세이브 데이터
         //변경된 데이터를 저장하고 로비로 돌아간다.
-        UserInfo.instance.Save();
+        UserInfo.instance.AllSave();
+
+        Time.timeScale = 1.0f;
         LoadScene.SceneLoad("LobbyScene");
     }
 }

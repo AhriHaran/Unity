@@ -29,7 +29,7 @@ public class CharacterData
 
     public CharacterData(CharInfoData Data, List<Dictionary<string, object>> Table)   //캐릭터 인덱스
     {
-        int iLevel = Data.CharLevel;
+        int iLevel = Data.CharLevel - 1;
         NodeSetting(CHAR_DATA.CHAR_NAME, Table[iLevel][CHAR_DATA.CHAR_NAME.ToString()]);    //캐릭터 이름
         NodeSetting(CHAR_DATA.CHAR_ROUTE, Table[iLevel][CHAR_DATA.CHAR_ROUTE.ToString()]);  //캐릭터 저장소
         NodeSetting(CHAR_DATA.CHAR_INDEX, Data.CharIndex);  //캐릭터 인덱스
@@ -68,13 +68,16 @@ public class CharacterData
     }
     public bool ifCharLevelUP(List<Dictionary<string, object>> CharTable)
     {
-        int iCurEXP = Convert.ToInt32(GetCharData(CHAR_DATA.CHAR_CUR_EXP));
-        int iLevel = Convert.ToInt32(GetCharData(CHAR_DATA.CHAR_LEVEL));
+        int iCurEXP = Util.ConvertToInt(GetCharData(CHAR_DATA.CHAR_CUR_EXP));
+        int iLevel = Util.ConvertToInt(GetCharData(CHAR_DATA.CHAR_LEVEL));
+        int iTableLevel = 0;
         bool bLevelUp = false;
 
         while (true)
         {
-            int iMaxEXP = int.Parse(CharTable[iLevel][CHAR_DATA.CHAR_MAX_EXP.ToString()].ToString());  //레벨당 최대 경험치 대비
+            iTableLevel = iLevel - 1;
+            int iMaxEXP = int.Parse(CharTable[iTableLevel][CHAR_DATA.CHAR_MAX_EXP.ToString()].ToString()); 
+            //현재 레벨당 최대 경험치 대비
             if (iCurEXP >= iMaxEXP)
             {
                 iLevel++;
@@ -85,21 +88,16 @@ public class CharacterData
                 break;
         }
 
+        iTableLevel = iLevel - 1;
         CharUpdate(CHAR_DATA.CHAR_LEVEL, iLevel);//현재 레벨
-        CharUpdate(CHAR_DATA.CHAR_MAX_HP, CharTable[iLevel][CHAR_DATA.CHAR_MAX_HP.ToString()]); //현재 레벨 HP
-        CharUpdate(CHAR_DATA.CHAR_MAX_SP, CharTable[iLevel][CHAR_DATA.CHAR_MAX_HP.ToString()]); //현재 레벨 SP
+        CharUpdate(CHAR_DATA.CHAR_MAX_HP, CharTable[iTableLevel][CHAR_DATA.CHAR_MAX_HP.ToString()]); //현재 레벨 HP
+        CharUpdate(CHAR_DATA.CHAR_MAX_SP, CharTable[iTableLevel][CHAR_DATA.CHAR_MAX_HP.ToString()]); //현재 레벨 SP
         CharUpdate(CHAR_DATA.CHAR_CUR_EXP, iCurEXP); //현재 경험치
-        CharUpdate(CHAR_DATA.CHAR_MAX_EXP, CharTable[iLevel][CHAR_DATA.CHAR_MAX_EXP.ToString()]); //현재 레벨 max EXP
-        CharUpdate(CHAR_DATA.CHAR_ATK, CharTable[iLevel][CHAR_DATA.CHAR_ATK.ToString()]); //현재 레벨ATK
-        CharUpdate(CHAR_DATA.CHAR_DEF, CharTable[iLevel][CHAR_DATA.CHAR_DEF.ToString()]); //현재 레벨 DEF
-        CharUpdate(CHAR_DATA.CHAR_CRI, CharTable[iLevel][CHAR_DATA.CHAR_CRI.ToString()]); //현재 레벨 CRI
+        CharUpdate(CHAR_DATA.CHAR_MAX_EXP, CharTable[iTableLevel][CHAR_DATA.CHAR_MAX_EXP.ToString()]); //현재 레벨 max EXP
+        CharUpdate(CHAR_DATA.CHAR_ATK, CharTable[iTableLevel][CHAR_DATA.CHAR_ATK.ToString()]); //현재 레벨ATK
+        CharUpdate(CHAR_DATA.CHAR_DEF, CharTable[iTableLevel][CHAR_DATA.CHAR_DEF.ToString()]); //현재 레벨 DEF
+        CharUpdate(CHAR_DATA.CHAR_CRI, CharTable[iTableLevel][CHAR_DATA.CHAR_CRI.ToString()]); //현재 레벨 CRI
         
         return bLevelUp;
-    }
-
-    public void CharSave(List<Dictionary<string, object>> Table)
-    {
-        //플레이어 데이터 갱신 후
-
     }
 }
