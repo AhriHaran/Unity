@@ -10,6 +10,7 @@ public enum UI_PANEL_INDEX
     PANEL_STAGE_READY,  //스테이지 준비 패널
     PANEL_VALKYRJA,     //캐릭터 선택 패널
     PANEL_EQUIPMENT,    //장비 패널
+    PANEL_CHAR_INFO,
     PANEL_BUTTON,
     PANEL_END,
 }
@@ -103,7 +104,6 @@ public class LobbyManager : MonoBehaviour
             MainCharSet(false);
             m_ListPanel[(int)UI_PANEL_INDEX.PANEL_BUTTON].gameObject.SetActive(true);
             //무슨 패널이라도 무조건 켜주는 버튼 패널
-
         }
     }
 
@@ -178,7 +178,7 @@ public class LobbyManager : MonoBehaviour
             string[] split = Button.Split('_');
             m_strCharSelect = split[split.Length - 1];   //내가 선택한 캐릭터 선택창 임시 저장
             PanelOnOff(UI_PANEL_INDEX.PANEL_VALKYRJA);   //캐릭터 선택창을 선택하면 해당 스크립트가 실행되면서 활동한다.
-            m_ListPanel[(int)UI_PANEL_INDEX.PANEL_VALKYRJA].GetComponent<CharSelectPanel>().ButtonOnOff(true);
+            m_ListPanel[(int)UI_PANEL_INDEX.PANEL_VALKYRJA].GetComponent<ValkyrjaPanel>().ButtonOnOff(true);
         }
         else if (Button == "SelectButton")
         {
@@ -199,8 +199,9 @@ public class LobbyManager : MonoBehaviour
         else if(Button == "Valkyrja")
         {
             //캐릭터 창, 여기서 장비 장착등이 가능하다.
+            MainCharSet(false);
             PanelOnOff(UI_PANEL_INDEX.PANEL_VALKYRJA);
-            m_ListPanel[(int)UI_PANEL_INDEX.PANEL_VALKYRJA].GetComponent<CharSelectPanel>().ButtonOnOff(false);
+            m_ListPanel[(int)UI_PANEL_INDEX.PANEL_VALKYRJA].GetComponent<ValkyrjaPanel>().ButtonOnOff(false);
         }
         else if(Button == "Equipment")
         {

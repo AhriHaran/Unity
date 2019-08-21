@@ -12,7 +12,7 @@ public enum CHAR_INFO_UI
     CHAR_INFO_UI_END
 }   //캐릭터 정보창
 
-public class CharSelectPanel : MonoBehaviour
+public class ValkyrjaPanel : MonoBehaviour
 {
     private GameObject m_GridPanel = null;
     private GameObject m_GridChar = null;   //그리드 정렬
@@ -36,10 +36,11 @@ public class CharSelectPanel : MonoBehaviour
 
         m_SelectButton = transform.GetChild(1).gameObject;
 
-        for(int i = (int)CHAR_INFO_UI.CHAR_INFO_UI_START; i < (int)CHAR_INFO_UI.CHAR_INFO_UI_END; i++)
+        for (int i = (int)CHAR_INFO_UI.CHAR_INFO_UI_START; i < (int)CHAR_INFO_UI.CHAR_INFO_UI_END; i++)
         {
             m_CharUI[i] = transform.GetChild(i + 3).gameObject;
         }
+        m_iCharIndex = -1;
     }
 
     void Start()
@@ -142,12 +143,43 @@ public class CharSelectPanel : MonoBehaviour
             int iWeapon = Util.ConvertToInt(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_WEAPON_INDEX, iIndex));
             if(iWeapon != -1)
             {
-                strData = Util.ConvertToString(UserInfo.instance.GetInventoryItem(CHAR_DATA.CHAR_ATK, iIndex));
-                m_CharUI[(int)CHAR_INFO_UI.CHAR_INFO_UI_LEVEL].transform.GetChild(2).GetComponent<UILabel>().text = strData;
+                strData = Util.ConvertToString(UserInfo.instance.GetItemForList(iWeapon, INVENTORY_TYPE.INVENTORY_WEAPON, ITEM_DATA.ITEM_NAME));
+                m_CharUI[(int)CHAR_INFO_UI.CHAR_INFO_UI_WEAPON].transform.GetChild(2).GetComponent<UILabel>().text = strData;
                 //무기
             }
+            else
+            {
+                strData = "WeaponNone";
+                m_CharUI[(int)CHAR_INFO_UI.CHAR_INFO_UI_WEAPON].transform.GetChild(2).GetComponent<UILabel>().text = strData;
+            }
+            //장착한 무기 셋팅
 
+            int T = Util.ConvertToInt(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_STIGMA_TOP_INDEX, iIndex));
+            int C = Util.ConvertToInt(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_STIGMA_CENTER_INDEX, iIndex));
+            int B = Util.ConvertToInt(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_STIGMA_BOTTOM_INDEX, iIndex));
+            //해당 아이템은 스프라이트로 처리
+        }
+    }
 
+    void OnClick()
+    {
+        //해당 인포메이션 버튼을 누르면 캐릭터 프리펩이 나오고 해당 인덱스를 저장한다.
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = UICamera.mainCamera.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+            {
+                for(int i = (int)CHAR_INFO_UI.CHAR_INFO_UI_START; i < (int)CHAR_INFO_UI.CHAR_INFO_UI_END; i++)
+                {
+                    if (Object.ReferenceEquals(hit.transform.gameObject, m_CharUI[i].gameObject))
+                    {
+                        //띄워준 유아이에 하나라도 걸리는 것이 있는가?
+                        //그렇다면 현재 패널을 꺼주고, 해당 캐릭터의 인포메이션 패널을 열어줘라
+
+                    }
+                }
+            }
         }
     }
 }
