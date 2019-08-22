@@ -16,12 +16,15 @@ public class FollowCam : MonoBehaviour
 
     private void LateUpdate()
     {
-        float curAngle = Mathf.LerpAngle(transform.eulerAngles.y, m_PlayerTR.eulerAngles.y, m_fSmoothRotate * Time.deltaTime);
+        if(m_PlayerTR != null)
+        {
+            float curAngle = Mathf.LerpAngle(transform.eulerAngles.y, m_PlayerTR.eulerAngles.y, m_fSmoothRotate * Time.deltaTime);
 
-        Quaternion Qu = Quaternion.Euler(0.0f, curAngle, 0.0f);
-        transform.position = m_PlayerTR.position - (Qu * Vector3.forward * m_fdist)
-            + (Vector3.up * m_fheight);
-        transform.LookAt(m_PlayerTR);
+            Quaternion Qu = Quaternion.Euler(0.0f, curAngle, 0.0f);
+            transform.position = m_PlayerTR.position - (Qu * Vector3.forward * m_fdist)
+                + (Vector3.up * m_fheight);
+            transform.LookAt(m_PlayerTR);
+        }
     }
 
     //캐릭터를 바꿀 때나 캐릭터를 셋팅 완료 했을 경우 카메라를 그 캐릭터 기준으로 바꿔준다.

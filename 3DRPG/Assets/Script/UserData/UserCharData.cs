@@ -8,8 +8,8 @@ public class UserCharData
 
     public UserCharData(List<Dictionary<string, object>> CharTable)
     {
-        CharInfoData Char = JSON.JsonUtil.LoadJson<CharInfoData>("UserCharInfoData");
-        CharacterData Node = new CharacterData(Char, CharTable);
+        CharInfoData [] Char = JSON.JsonUtil.LoadArrJson<CharInfoData>("UserCharInfoData");
+        CharacterData Node = new CharacterData(Char[0], CharTable);
         m_ListChar.Add(Node);   //내가 가진 캐릭터 인덱스 값
     }
 

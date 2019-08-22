@@ -33,7 +33,7 @@ public class UserInfo : GSingleton<UserInfo>
         m_UserCharData = new UserCharData(CharTable);
 
         m_UserInventory = new UserInventory();
-        Event.Invoke();    
+        Event.Invoke();
     }
 
     /// <summary>

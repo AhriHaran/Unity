@@ -31,12 +31,10 @@ public class CharInfoButton : MonoBehaviour
         //해당 인포메이션 버튼을 누르면 캐릭터 프리펩이 나오고 해당 인덱스를 저장한다.
         if(Input.GetMouseButtonDown(0))
         {
-            Ray ray = UICamera.mainCamera.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+            GameObject Object = null; 
+            if(Util.RayCastHitObject(ref Object))
             {
                 m_CallBack(m_iCharIndex);
-                //콜백 함수 호출
             }
         }
     }

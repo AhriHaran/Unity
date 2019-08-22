@@ -10,7 +10,8 @@ public enum UI_PANEL_INDEX
     PANEL_STAGE_READY,  //스테이지 준비 패널
     PANEL_VALKYRJA,     //캐릭터 선택 패널
     PANEL_EQUIPMENT,    //장비 패널
-    PANEL_CHAR_INFO,
+    PANEL_CHAR_INFO,    //캐릭터 정보 패널ㄴ
+    PANEL_ITEM_SELECT,  //장비 패널
     PANEL_BUTTON,
     PANEL_END,
 }
@@ -30,6 +31,10 @@ public class LobbyManager : MonoBehaviour
     private string m_strCharSelect;
     private UI_PANEL_INDEX m_eCurPanel;
     //위치는 고정
+    private void Awake()
+    {
+        GameManager.instance.Init();
+    }
 
     private void Start()
     {
@@ -84,17 +89,15 @@ public class LobbyManager : MonoBehaviour
     void PanelOnOff(UI_PANEL_INDEX eindex)
     {
         m_eCurPanel = eindex;   //현재 패널
-        for (int i = (int)UI_PANEL_INDEX.PANEL_START; i < (int)UI_PANEL_INDEX.PANEL_END; i++)
+        
+        if (eindex != UI_PANEL_INDEX.PANEL_VALKYRJA && eindex != UI_PANEL_INDEX.PANEL_CHAR_INFO
+            && eindex != UI_PANEL_INDEX.PANEL_ITEM_SELECT)
         {
-            if (i == (int)eindex)   //켜고자 하는 거 외에는 모두 꺼라
-            {
-                m_ListPanel[i].gameObject.SetActive(true);
-            }
-            else
-                m_ListPanel[i].gameObject.SetActive(false);
+            GameManager.instance.DestroyModel();
+            //이 외의 패널은 모두 현재 선택된 캐릭터를 다시 반납한다.
         }
-
-        if(eindex == UI_PANEL_INDEX.PANEL_LOBBY)
+        
+        if (eindex == UI_PANEL_INDEX.PANEL_LOBBY)
         {
             MainCharSet(true);
             m_ListPanel[(int)UI_PANEL_INDEX.PANEL_BUTTON].gameObject.SetActive(false);
@@ -104,6 +107,16 @@ public class LobbyManager : MonoBehaviour
             MainCharSet(false);
             m_ListPanel[(int)UI_PANEL_INDEX.PANEL_BUTTON].gameObject.SetActive(true);
             //무슨 패널이라도 무조건 켜주는 버튼 패널
+        }
+
+        for (int i = (int)UI_PANEL_INDEX.PANEL_START; i < (int)UI_PANEL_INDEX.PANEL_END - 1; i++)
+        {
+            if (i == (int)eindex)   //켜고자 하는 거 외에는 모두 꺼라
+            {
+                m_ListPanel[i].gameObject.SetActive(true);
+            }
+            else
+                m_ListPanel[i].gameObject.SetActive(false);
         }
     }
 
@@ -125,12 +138,15 @@ public class LobbyManager : MonoBehaviour
         int iMainCount = int.Parse(strMain);
         if (bSet)
         {
-            m_MainChar = CharPoolManager.instance.PopFromPool(POOL_INDEX.POOL_USER_CHAR.ToString(), iMainCount);
-            m_MainChar.SetActive(true);
-            m_MainChar.transform.SetParent(m_MainCharTR, false); //메인 캐릭터의 하위 오브젝트로 설정
-            //메인으로 지정된 캐릭터 불러오기
-            m_MainChar.GetComponent<Animator>().runtimeAnimatorController = UserInfo.instance.GetCharAnimator(iMainCount,
-                CHAR_ANIMATOR.CHAR_LOBBY_ANIMATOR) as RuntimeAnimatorController;
+            if (m_MainChar == null)
+            {
+                m_MainChar = CharPoolManager.instance.PopFromPool(POOL_INDEX.POOL_USER_CHAR.ToString(), iMainCount);
+                m_MainChar.SetActive(true);
+                m_MainChar.transform.SetParent(m_MainCharTR, false); //메인 캐릭터의 하위 오브젝트로 설정
+                                                                     //메인으로 지정된 캐릭터 불러오기
+                m_MainChar.GetComponent<Animator>().runtimeAnimatorController = UserInfo.instance.GetCharAnimator(iMainCount,
+                    CHAR_ANIMATOR.CHAR_LOBBY_ANIMATOR) as RuntimeAnimatorController;
+            }
             //애니메이터 변경
         }
         else
@@ -199,13 +215,31 @@ public class LobbyManager : MonoBehaviour
         else if(Button == "Valkyrja")
         {
             //캐릭터 창, 여기서 장비 장착등이 가능하다.
-            MainCharSet(false);
             PanelOnOff(UI_PANEL_INDEX.PANEL_VALKYRJA);
             m_ListPanel[(int)UI_PANEL_INDEX.PANEL_VALKYRJA].GetComponent<ValkyrjaPanel>().ButtonOnOff(false);
         }
         else if(Button == "Equipment")
         {
             PanelOnOff(UI_PANEL_INDEX.PANEL_EQUIPMENT); 
+        }
+        else if(Button == "CharInfo" || Button == "CharLevel")
+        {
+            PanelOnOff(UI_PANEL_INDEX.PANEL_CHAR_INFO);
+            GameManager.instance.ModelRotate(new Vector3(0, -30, 0));
+            Vector3 Local = Camera.main.transform.localPosition;
+            Local.x = 1;
+            Camera.main.transform.position = Local;
+            m_ListPanel[(int)UI_PANEL_INDEX.PANEL_CHAR_INFO].GetComponent<CharInfoPanel>().UiOnOff(CHAR_INFO_UI.CHAR_INFO_UI_LEVEL);
+        }
+        else if(Button == "CharWeapon")
+        {
+            PanelOnOff(UI_PANEL_INDEX.PANEL_CHAR_INFO);
+            m_ListPanel[(int)UI_PANEL_INDEX.PANEL_CHAR_INFO].GetComponent<CharInfoPanel>().UiOnOff(CHAR_INFO_UI.CHAR_INFO_UI_WEAPON);
+        }
+        else if(Button == "CharStigma")
+        {
+            PanelOnOff(UI_PANEL_INDEX.PANEL_CHAR_INFO);
+            m_ListPanel[(int)UI_PANEL_INDEX.PANEL_CHAR_INFO].GetComponent<CharInfoPanel>().UiOnOff(CHAR_INFO_UI.CHAR_INFO_UI_STIGMA);
         }
     }
 }

@@ -31,8 +31,6 @@ public class FirstLoadScene : MonoBehaviour
         
         //처음 로딩 할 때, 유저 정보가 저장된 제이슨 파일을 불러오게 한다.
 
-        GameManager.instance.Init();
-
         m_StartLabel.gameObject.SetActive(false);
         StartCoroutine(SceneLoad());
     }

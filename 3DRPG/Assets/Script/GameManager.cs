@@ -11,12 +11,15 @@ public class GameManager : MonoSingleton<GameManager>
     //맵관련 인자들
     private int m_iCurStage = -1;       //현재 선택한 스테이지
     public List<Dictionary<MAP_DATA, object>> m_ListMapData = new List<Dictionary<MAP_DATA, object>>();
+    private GameObject m_SelectCharMain = null;
+    private GameObject m_SelectChar = null;    //내가 선택한 캐릭터의 프리팹
 
     public void Init()
     {
         m_ListCharIndex = new int[] { -1, -1, -1 };   //3개
         m_iCurGameChar = -1;
         m_iCurSelectChar = -1;
+        m_SelectCharMain = GameObject.Find("SelectCharModel");
     }
 
     /// <summary>
@@ -75,6 +78,37 @@ public class GameManager : MonoSingleton<GameManager>
     public int[] ReturnPlayerList()
     {
         return m_ListCharIndex;
+    }
+    public int ReturnCurSelectChar()
+    {
+        //내가 발키리 패널에서 선택한 캐릭터 인덱스
+        return m_iCurSelectChar;
+    }
+
+    /// <summary>
+    /// 캐릭터 선택 시 나오는 모델링 관련
+    /// </summary>
+    public void DestroyModel()
+    {
+        if (m_SelectChar != null)
+        {
+            CharPoolManager.instance.PushToPool(POOL_INDEX.POOL_USER_CHAR.ToString(), m_iCurSelectChar, m_SelectChar);
+            m_SelectChar = null;
+            //사용한 캐릭터 오브젝트 반납
+        }
+    }
+    public void CreateModel(int iIndex)
+    {
+        m_SelectChar = CharPoolManager.instance.PopFromPool(POOL_INDEX.POOL_USER_CHAR.ToString(), iIndex); //해당 인덱스를 반환해서 크리에이트
+                                                                                                           //현재 지정한 캐릭터를 세팅
+        m_SelectChar.SetActive(true);
+        m_SelectChar.transform.SetParent(m_SelectCharMain.transform, false);
+        m_SelectChar.GetComponent<Animator>().runtimeAnimatorController = UserInfo.instance.GetCharAnimator(iIndex, CHAR_ANIMATOR.CHAR_LOBBY_ANIMATOR) as RuntimeAnimatorController;
+        //캐릭터 선택하면 메인 화면에 해당 캐릭터의 프리펩이 뜬다.
+    }
+    public void ModelRotate(Vector3 vRotate)
+    {
+        m_SelectCharMain.transform.Rotate(vRotate);
     }
 
     /// <summary>
@@ -148,6 +182,7 @@ public class GameManager : MonoSingleton<GameManager>
         m_iCurSelectChar = -1;
         m_iCurGameChar = -1;     //게임 속에서 내가 현재 선택한 캐릭터
         m_ListMapData.Clear();
+        DestroyModel();
     }
 }
 

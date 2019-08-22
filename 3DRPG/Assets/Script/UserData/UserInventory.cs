@@ -38,7 +38,7 @@ public class UserInventory
             ItemData Item = new ItemData(S);
             m_ListInven[(int)INVENTORY_TYPE.INVENTORY_STIGMA].Add(Item);
         }
-        //성흔 셋팅
+        //성흔 TCB로 미리 구분
     }
     public object GetItemForList(int inventoryIndex, INVENTORY_TYPE eType, ITEM_DATA eIndex)
     {
