@@ -22,7 +22,7 @@ public class ItemInfoUI : MonoBehaviour
     private void OnEnable()
     {
         m_iCurSelectChar = GameManager.instance.ReturnCurSelectChar();    //바꾸려고 하는 캐릭터
-        m_eSelectType = GameManager.instance.ReturnSelectType(); //바꾸고자 하는 것
+        m_eSelectType = GameManager.instance.ReturnSelectType(); //바꾸고자 하는 타입
         m_eInvenType = INVENTORY_TYPE.INVENTORY_START;
 
         int iCurItemIndex = 0;  //현재 인덱스
@@ -44,7 +44,7 @@ public class ItemInfoUI : MonoBehaviour
         else
         {
             //무기 타입 등
-            iCurItemIndex = Util.ConvertToInt(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_WEAPON_TYPE, m_iCurSelectChar));
+            iCurItemIndex = Util.ConvertToInt(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_WEAPON_INDEX, m_iCurSelectChar));
             m_eInvenType = INVENTORY_TYPE.INVENTORY_WEAPON;
         }
 

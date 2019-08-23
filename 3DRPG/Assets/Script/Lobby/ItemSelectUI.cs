@@ -49,8 +49,9 @@ public class ItemSelectUI : MonoBehaviour
                 //장비 장착은 현재 아이템 인벤토리에 획득 순서를 기반으로 한다.
                 //스프라이트의 선택은 레이캐스트와 콜백을 사용한다
                 //콜백으로 현재 선택한 아이템의 리스트 인덱스를 저장한 뒤 선택 버튼을 누르면 갱신된다.
-                GameObject Item = ResourceLoader.CreatePrefab("Prefabs/ItemSelectSprite");
+                GameObject Item = ResourceLoader.CreatePrefab("Prefabs/ItemSprite");
                 Item.transform.SetParent(m_GridChar.transform, false);
+                Item.GetComponent<ItemSelectSprite>().Setting(i, (ITEM_TYPE)Data[i].GetItemData(ITEM_DATA.ITEM_TYPE), m_eInvenType);
             }
         }
     }

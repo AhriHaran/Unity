@@ -70,32 +70,39 @@ public class InventoryPanel : MonoBehaviour
             InventoryReset();
             //무슨 인벤토리를 보여줄 것인가.
             List<ItemData> Data = UserInfo.instance.GetInventoryList(eType);
-            if (eType == INVENTORY_TYPE.INVENTORY_WEAPON)
+
+            for (int i = 0; i < Data.Count; i++)
             {
-                foreach (var W in Data)
-                {
-                    GameObject Item = ResourceLoader.CreatePrefab("Prefabs/ItemSprite");
-                    Item.transform.SetParent(m_GridChar.transform, false);
-                    string sprite = W.GetItemData(ITEM_DATA.ITEM_TYPE).ToString() + "Bronze";
-                    Item.GetComponent<UISprite>().spriteName = sprite;
-                }
+                GameObject Item = ResourceLoader.CreatePrefab("Prefabs/ItemSprite");
+                Item.transform.SetParent(m_GridChar.transform, false);
+                Item.GetComponent<ItemSelectSprite>().Setting(i, (ITEM_TYPE)Data[i].GetItemData(ITEM_DATA.ITEM_TYPE), eType);
             }
-            else if (eType == INVENTORY_TYPE.INVENTORY_STIGMA)
-            {
-                foreach (var S in Data)
-                {
-                    GameObject Item = ResourceLoader.CreatePrefab("Prefabs/ItemSprite");
-                    Item.transform.SetParent(m_GridChar.transform, false);
-                    string sprite = string.Empty;
-                    if (S.GetItemData(ITEM_DATA.ITEM_TYPE).ToString().Equals(ITEM_TYPE.ITEM_STIGMA_TOP.ToString()))
-                        sprite = "HelmetBronze";
-                    else if (S.GetItemData(ITEM_DATA.ITEM_TYPE).ToString().Equals(ITEM_TYPE.ITEM_STIGMA_CENTER.ToString()))
-                        sprite = "ArmorBronze";
-                    else if (S.GetItemData(ITEM_DATA.ITEM_TYPE).ToString().Equals(ITEM_TYPE.ITEM_STIGMA_BOTTOM.ToString()))
-                        sprite = "GreaveBronze";
-                    Item.GetComponent<UISprite>().spriteName = sprite;
-                }
-            }
+
+            //if (eType == INVENTORY_TYPE.INVENTORY_WEAPON)
+            //{
+            //    for(int i = 0; i < Data.Count; i++)
+            //    {
+            //        GameObject Item = ResourceLoader.CreatePrefab("Prefabs/ItemSelectSprite");
+            //        Item.transform.SetParent(m_GridChar.transform, false);
+            //        Item.GetComponent<ItemSelectSprite>().Setting(i, (ITEM_TYPE)Data[i].GetItemData(ITEM_DATA.ITEM_TYPE), eType);
+            //    }
+            //}
+            //else if (eType == INVENTORY_TYPE.INVENTORY_STIGMA)
+            //{
+            //    foreach (var S in Data)
+            //    {
+            //        GameObject Item = ResourceLoader.CreatePrefab("Prefabs/ItemSprite");
+            //        Item.transform.SetParent(m_GridChar.transform, false);
+            //        string sprite = string.Empty;
+            //        if (S.GetItemData(ITEM_DATA.ITEM_TYPE).ToString().Equals(ITEM_TYPE.ITEM_STIGMA_TOP.ToString()))
+            //            sprite = "HelmetBronze";
+            //        else if (S.GetItemData(ITEM_DATA.ITEM_TYPE).ToString().Equals(ITEM_TYPE.ITEM_STIGMA_CENTER.ToString()))
+            //            sprite = "ArmorBronze";
+            //        else if (S.GetItemData(ITEM_DATA.ITEM_TYPE).ToString().Equals(ITEM_TYPE.ITEM_STIGMA_BOTTOM.ToString()))
+            //            sprite = "GreaveBronze";
+            //        Item.GetComponent<UISprite>().spriteName = sprite;
+            //    }
+            //}
 
             m_GridChar.GetComponent<UIGrid>().Reposition(); //리 포지셔닝으로 그리드 재정렬
             m_ItemView.GetComponent<UIScrollView>().ResetPosition();

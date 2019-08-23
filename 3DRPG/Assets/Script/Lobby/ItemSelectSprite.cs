@@ -43,15 +43,33 @@ public class ItemSelectSprite : MonoBehaviour
         m_iItemIndex = iIndex;
         m_eItemType = eType;
         m_eInvenType = eInven;
-
-        
-
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        string sprite = string.Empty;
+        if(m_eItemType == ITEM_TYPE.ITEM_STIGMA_TOP)
+            sprite = "HelmetBronze";
+        else if (m_eItemType == ITEM_TYPE.ITEM_STIGMA_CENTER)
+            sprite = "ArmorBronze";
+        else if(m_eItemType == ITEM_TYPE.ITEM_STIGMA_BOTTOM)
+            sprite = "GreaveBronze";
+        else
+            sprite = Util.ConvertToString(UserInfo.instance.GetItemForList(m_iItemIndex, m_eInvenType, ITEM_DATA.ITEM_TYPE)) + "Bronze";
+
+        m_ItemSprite.spriteName = sprite;
+        m_ItemLabel.text = Util.ConvertToString(UserInfo.instance.GetItemForList(m_iItemIndex, m_eInvenType, ITEM_DATA.ITEM_NAME));
+
+        OnClick();
+    }
+
+    private void OnClick()
+    {
+        if(m_CallBack != null)
+        {
+            //콜백 설정됨
+
+        }
     }
 }
