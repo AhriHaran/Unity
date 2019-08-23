@@ -1,1 +1,25 @@
-{"Items":[{"ItemType":"ITEM_STIGMA_TOP","ItemIndex":0,"ItemLevel":1,"ItemCurEXP":0},{"ItemType":"ITEM_STIGMA_CENTER","ItemIndex":0,"ItemLevel":1,"ItemCurEXP":0},{"ItemType":"ITEM_STIGMA_BOTTOM","ItemIndex":0,"ItemLevel":1,"ItemCurEXP":0}]}
+{
+  "Items": [
+    {
+      "ItemType": 1,
+      "ItemIndex": 0,
+      "ItemEquipChar": -1,
+      "ItemLevel": 1,
+      "ItemCurEXP": 0
+    },
+    {
+      "ItemType": 2,
+      "ItemIndex": 0,
+      "ItemEquipChar": -1,
+      "ItemLevel": 1,
+      "ItemCurEXP": 0
+    },
+    {
+      "ItemType": 3,
+      "ItemIndex": 0,
+      "ItemEquipChar": -1,
+      "ItemLevel": 1,
+      "ItemCurEXP": 0
+    }
+  ]
+}

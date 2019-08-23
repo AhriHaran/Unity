@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class GameManager : MonoSingleton<GameManager>
 {
+    /// <summary>
+    /// 캐릭터 관련 인자들
+    /// </summary>
     private int[] m_ListCharIndex;      //내가 선택한 캐릭터 인덱스들
     private int m_iCurSelectChar = -1;   //캐릭터 선택 단계에서 내가 선택한 캐릭터
     private int m_iCurGameChar = -1;     //게임 속에서 내가 현재 선택한 캐릭터
-
-    //맵관련 인자들
-    private int m_iCurStage = -1;       //현재 선택한 스테이지
-    public List<Dictionary<MAP_DATA, object>> m_ListMapData = new List<Dictionary<MAP_DATA, object>>();
     private GameObject m_SelectCharMain = null;
     private GameObject m_SelectChar = null;    //내가 선택한 캐릭터의 프리팹
+    private ITEM_TYPE m_eType;
+
+/// <summary>
+/// 맵 관련 인자들
+/// </summary>
+    private int m_iCurStage = -1;       //현재 선택한 스테이지
+    public List<Dictionary<MAP_DATA, object>> m_ListMapData = new List<Dictionary<MAP_DATA, object>>();
 
     public void Init()
     {
@@ -86,6 +92,25 @@ public class GameManager : MonoSingleton<GameManager>
     }
 
     /// <summary>
+    /// 아이템 장착에 관련된 함수
+    /// </summary>
+    /// <param name="eType"></param>
+    public void ItemSelect(ITEM_TYPE eType)
+    {
+        m_eType = eType;    //내가 현재 이것의 장비 장착을 요구하였다.
+    }
+    public ITEM_TYPE ReturnSelectType()
+    {
+        return m_eType;
+    }
+    public ITEM_TYPE ReturnSelectCharType()
+    {
+        //현재 선택된 캐릭터의 무기 타입을 리턴
+
+        return (ITEM_TYPE)UserInfo.instance.GetCharData(CHAR_DATA.CHAR_WEAPON_TYPE, m_iCurSelectChar);
+    }
+
+    /// <summary>
     /// 캐릭터 선택 시 나오는 모델링 관련
     /// </summary>
     public void DestroyModel()
@@ -94,21 +119,45 @@ public class GameManager : MonoSingleton<GameManager>
         {
             CharPoolManager.instance.PushToPool(POOL_INDEX.POOL_USER_CHAR.ToString(), m_iCurSelectChar, m_SelectChar);
             m_SelectChar = null;
+            m_SelectCharMain.transform.DetachChildren();
             //사용한 캐릭터 오브젝트 반납
         }
     }
     public void CreateModel(int iIndex)
     {
-        m_SelectChar = CharPoolManager.instance.PopFromPool(POOL_INDEX.POOL_USER_CHAR.ToString(), iIndex); //해당 인덱스를 반환해서 크리에이트
-                                                                                                           //현재 지정한 캐릭터를 세팅
-        m_SelectChar.SetActive(true);
-        m_SelectChar.transform.SetParent(m_SelectCharMain.transform, false);
-        m_SelectChar.GetComponent<Animator>().runtimeAnimatorController = UserInfo.instance.GetCharAnimator(iIndex, CHAR_ANIMATOR.CHAR_LOBBY_ANIMATOR) as RuntimeAnimatorController;
-        //캐릭터 선택하면 메인 화면에 해당 캐릭터의 프리펩이 뜬다.
+        if(m_SelectChar == null)
+        {
+            m_SelectChar = CharPoolManager.instance.PopFromPool(POOL_INDEX.POOL_USER_CHAR.ToString(), iIndex); //해당 인덱스를 반환해서 크리에이트
+                                                                                                               //현재 지정한 캐릭터를 세팅
+            m_SelectChar.SetActive(true);
+            m_SelectChar.transform.SetParent(m_SelectCharMain.transform, false);
+            m_SelectChar.GetComponent<Animator>().runtimeAnimatorController = UserInfo.instance.GetCharAnimator(iIndex, CHAR_ANIMATOR.CHAR_LOBBY_ANIMATOR) as RuntimeAnimatorController;
+            //캐릭터 선택하면 메인 화면에 해당 캐릭터의 프리펩이 뜬다.
+        }
+    }
+    public void ModelSetting(Vector3 vRotate, bool bSet)
+    {
+        if (m_SelectChar != null)
+        {
+            if (bSet)
+            {
+                ModelRotate(vRotate);
+                Vector3 Local = Camera.main.transform.localPosition;
+                Local.x = 1;
+                Camera.main.transform.position = Local;
+            }
+            else
+            {
+                ModelRotate(new Vector3(0, 0, 0));
+                Vector3 Local = Camera.main.transform.localPosition;
+                Local.x = 0;
+                Camera.main.transform.position = Local;
+            }
+        }
     }
     public void ModelRotate(Vector3 vRotate)
     {
-        m_SelectCharMain.transform.Rotate(vRotate);
+        m_SelectChar.transform.localRotation = Quaternion.Euler(vRotate);
     }
 
     /// <summary>

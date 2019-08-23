@@ -7,6 +7,7 @@ public enum ITEM_DATA
     ITEM_TYPE,
     ITEM_NAME,
     ITEM_INDEX,
+    ITEM_EQUIP_CHAR,    //현재 이 장비를 장착한 캐릭터
     ITEM_LEVEl,
     ITEM_MAX_EXP,
     ITEM_CUR_EXP,
@@ -30,6 +31,7 @@ public class ItemData
             NodeSetting(ITEM_DATA.ITEM_TYPE, Data.ItemType);
             NodeSetting(ITEM_DATA.ITEM_NAME, Table[iTableLevel][ITEM_DATA.ITEM_NAME.ToString()]);
             NodeSetting(ITEM_DATA.ITEM_INDEX, Data.ItemIndex);
+            NodeSetting(ITEM_DATA.ITEM_EQUIP_CHAR, Data.ItemEquipChar);
             NodeSetting(ITEM_DATA.ITEM_LEVEl, Data.ItemLevel);
             NodeSetting(ITEM_DATA.ITEM_MAX_EXP, Table[iTableLevel][ITEM_DATA.ITEM_MAX_EXP.ToString()]);
             NodeSetting(ITEM_DATA.ITEM_CUR_EXP, Data.ItemCurEXP);

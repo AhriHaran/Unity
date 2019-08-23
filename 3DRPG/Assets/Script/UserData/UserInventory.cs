@@ -49,7 +49,7 @@ public class UserInventory
     {
         return m_ListInven[(int)eType]; //전체 리스트
     }
-    public void InventoryUpdate(string ItemType, int invenType, int itemIndex)  //새로운 아이템 획득
+    public void InventoryUpdate(ITEM_TYPE ItemType, int invenType, int itemIndex)  //새로운 아이템 획득
     {
         //아이템이나 스티그마 획득 시
         /*새로운 아이템을 얻을 시 해당 아이템의 인덱스를 기반으로 새로운 데이터 기반을 생성하고
@@ -81,7 +81,7 @@ public class UserInventory
                 {
                     Item[j] = new ItemInfoData
                     {
-                        ItemType = Util.ConvertToString(m_ListInven[iIndex][j].GetItemData(ITEM_DATA.ITEM_TYPE)),
+                        ItemType =  (ITEM_TYPE)m_ListInven[iIndex][j].GetItemData(ITEM_DATA.ITEM_TYPE),
                         ItemIndex = Util.ConvertToInt(m_ListInven[iIndex][j].GetItemData(ITEM_DATA.ITEM_INDEX)),
                         ItemLevel = Util.ConvertToInt(m_ListInven[iIndex][j].GetItemData(ITEM_DATA.ITEM_LEVEl)),
                         ItemCurEXP = Util.ConvertToInt(m_ListInven[iIndex][j].GetItemData(ITEM_DATA.ITEM_CUR_EXP))

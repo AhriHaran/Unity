@@ -9,9 +9,9 @@ public enum UI_PANEL_INDEX
     PANEL_STAGE,        //스테이지 패널
     PANEL_STAGE_READY,  //스테이지 준비 패널
     PANEL_VALKYRJA,     //캐릭터 선택 패널
-    PANEL_EQUIPMENT,    //장비 패널
     PANEL_CHAR_INFO,    //캐릭터 정보 패널ㄴ
     PANEL_ITEM_SELECT,  //장비 패널
+    PANEL_EQUIPMENT,    //장비 패널
     PANEL_BUTTON,
     PANEL_END,
 }
@@ -29,8 +29,7 @@ public class LobbyManager : MonoBehaviour
     private List<UIPanel> m_ListPanel = new List<UIPanel>();
     private GameObject m_MainChar;   //메인 캐릭터 위치
     private string m_strCharSelect;
-    private UI_PANEL_INDEX m_eCurPanel;
-    //위치는 고정
+    private UI_PANEL_INDEX m_eCurPanel; //플레이어가 머물런던 위치
     private void Awake()
     {
         GameManager.instance.Init();
@@ -39,6 +38,7 @@ public class LobbyManager : MonoBehaviour
     private void Start()
     {
         GameObject LobbyUI = GameObject.Find("LobbyUI");
+        m_eCurPanel = UI_PANEL_INDEX.PANEL_LOBBY;
         for (int i = (int)UI_PANEL_INDEX.PANEL_START; i < (int)UI_PANEL_INDEX.PANEL_END; i++)
         {
             UIPanel Node = LobbyUI.transform.GetChild(i + 1).GetComponent<UIPanel>();
@@ -96,6 +96,7 @@ public class LobbyManager : MonoBehaviour
             GameManager.instance.DestroyModel();
             //이 외의 패널은 모두 현재 선택된 캐릭터를 다시 반납한다.
         }
+
         
         if (eindex == UI_PANEL_INDEX.PANEL_LOBBY)
         {
@@ -156,6 +157,53 @@ public class LobbyManager : MonoBehaviour
                 CharPoolManager.instance.PushToPool(POOL_INDEX.POOL_USER_CHAR.ToString(), iMainCount, m_MainChar);
                 m_MainChar = null;
             }
+        }
+    }
+
+    public void OnClickCharInfo()
+    {
+        string Button = UIButton.current.name;
+
+        if (Button == "CharInfo" || Button == "CharLevel")
+        {
+            PanelOnOff(UI_PANEL_INDEX.PANEL_CHAR_INFO);
+            m_ListPanel[(int)UI_PANEL_INDEX.PANEL_CHAR_INFO].GetComponent<CharInfoPanel>().UiOnOff(CHAR_INFO_UI.CHAR_INFO_UI_LEVEL);
+        }
+        else if (Button == "CharWeapon")
+        {
+            PanelOnOff(UI_PANEL_INDEX.PANEL_CHAR_INFO);
+            m_ListPanel[(int)UI_PANEL_INDEX.PANEL_CHAR_INFO].GetComponent<CharInfoPanel>().UiOnOff(CHAR_INFO_UI.CHAR_INFO_UI_WEAPON);
+        }
+        else if (Button == "CharStigma")
+        {
+            PanelOnOff(UI_PANEL_INDEX.PANEL_CHAR_INFO);
+            m_ListPanel[(int)UI_PANEL_INDEX.PANEL_CHAR_INFO].GetComponent<CharInfoPanel>().UiOnOff(CHAR_INFO_UI.CHAR_INFO_UI_STIGMA);
+        }
+    }
+
+    public void OnClickItemSelect()
+    {
+        string Button = UIButton.current.name;
+
+        if(Button == "Change_Weapon")   //캐릭터의 장비를 바꾼다.
+        {
+            GameManager.instance.ItemSelect(GameManager.instance.ReturnSelectCharType());
+            PanelOnOff(UI_PANEL_INDEX.PANEL_ITEM_SELECT);
+        }
+        else if(Button == "Change_T")
+        {
+            GameManager.instance.ItemSelect(ITEM_TYPE.ITEM_STIGMA_TOP);
+            PanelOnOff(UI_PANEL_INDEX.PANEL_ITEM_SELECT);
+        }
+        else if (Button == "Change_C")
+        {
+            GameManager.instance.ItemSelect(ITEM_TYPE.ITEM_STIGMA_CENTER);
+            PanelOnOff(UI_PANEL_INDEX.PANEL_ITEM_SELECT);
+        }
+        else if (Button == "Change_B")
+        {
+            GameManager.instance.ItemSelect(ITEM_TYPE.ITEM_STIGMA_BOTTOM);
+            PanelOnOff(UI_PANEL_INDEX.PANEL_ITEM_SELECT);
         }
     }
 
@@ -221,25 +269,6 @@ public class LobbyManager : MonoBehaviour
         else if(Button == "Equipment")
         {
             PanelOnOff(UI_PANEL_INDEX.PANEL_EQUIPMENT); 
-        }
-        else if(Button == "CharInfo" || Button == "CharLevel")
-        {
-            PanelOnOff(UI_PANEL_INDEX.PANEL_CHAR_INFO);
-            GameManager.instance.ModelRotate(new Vector3(0, -30, 0));
-            Vector3 Local = Camera.main.transform.localPosition;
-            Local.x = 1;
-            Camera.main.transform.position = Local;
-            m_ListPanel[(int)UI_PANEL_INDEX.PANEL_CHAR_INFO].GetComponent<CharInfoPanel>().UiOnOff(CHAR_INFO_UI.CHAR_INFO_UI_LEVEL);
-        }
-        else if(Button == "CharWeapon")
-        {
-            PanelOnOff(UI_PANEL_INDEX.PANEL_CHAR_INFO);
-            m_ListPanel[(int)UI_PANEL_INDEX.PANEL_CHAR_INFO].GetComponent<CharInfoPanel>().UiOnOff(CHAR_INFO_UI.CHAR_INFO_UI_WEAPON);
-        }
-        else if(Button == "CharStigma")
-        {
-            PanelOnOff(UI_PANEL_INDEX.PANEL_CHAR_INFO);
-            m_ListPanel[(int)UI_PANEL_INDEX.PANEL_CHAR_INFO].GetComponent<CharInfoPanel>().UiOnOff(CHAR_INFO_UI.CHAR_INFO_UI_STIGMA);
         }
     }
 }

@@ -103,7 +103,7 @@ public class UserInfo : GSingleton<UserInfo>
         var CharTable = EXCEL.ExcelLoad.Read("Excel/CharacterExcel/0_Index_Char");
         return m_UserCharData.ifCharLevelUp(iIndex, CharTable);
     }
-    public void InventoryUpdate(string ItemType, int invenType, int itemIndex)
+    public void InventoryUpdate(ITEM_TYPE ItemType, int invenType, int itemIndex)
     {
         m_UserInventory.InventoryUpdate(ItemType, invenType, itemIndex);//인벤토리 새로운 아이템 획득
     }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5570441354637567048}
   - component: {fileID: 5772190250011650646}
   m_Layer: 8
-  m_Name: WeaponSprite
+  m_Name: ItemSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

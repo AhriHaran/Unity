@@ -16,6 +16,7 @@ public enum CHAR_DATA
     CHAR_ATK,
     CHAR_DEF,
     CHAR_CRI,
+    CHAR_WEAPON_TYPE,
     CHAR_WEAPON_INDEX,          //캐릭터가 가지고 있는 무기 인덱스 값
     CHAR_STIGMA_TOP_INDEX,      //스티그마 상
     CHAR_STIGMA_CENTER_INDEX,   //스티그마 중
@@ -41,6 +42,7 @@ public class CharacterData
         NodeSetting(CHAR_DATA.CHAR_ATK, Table[iLevel][CHAR_DATA.CHAR_ATK.ToString()]);  //공격력
         NodeSetting(CHAR_DATA.CHAR_DEF, Table[iLevel][CHAR_DATA.CHAR_DEF.ToString()]);  //방어력
         NodeSetting(CHAR_DATA.CHAR_CRI, Table[iLevel][CHAR_DATA.CHAR_CRI.ToString()]);  //크리
+        NodeSetting(CHAR_DATA.CHAR_WEAPON_TYPE, Data.CharWeaponType);
         NodeSetting(CHAR_DATA.CHAR_WEAPON_INDEX, Data.CharWeapon);  //웨폰
         NodeSetting(CHAR_DATA.CHAR_STIGMA_TOP_INDEX, Data.CharStigmaTop);   //상 
         NodeSetting(CHAR_DATA.CHAR_STIGMA_CENTER_INDEX, Data.CharStigmaCenter); //중
@@ -66,6 +68,7 @@ public class CharacterData
         m_CharInfo[(int)eIndex][eIndex] = UpdateData;
         //임시로 저장 해준 뒤, 밑에서 처리한다.
     }
+
     public bool ifCharLevelUP(List<Dictionary<string, object>> CharTable)
     {
         int iCurEXP = Util.ConvertToInt(GetCharData(CHAR_DATA.CHAR_CUR_EXP));

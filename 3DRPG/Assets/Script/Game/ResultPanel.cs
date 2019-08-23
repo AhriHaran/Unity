@@ -110,7 +110,7 @@ public class ResultPanel : MonoBehaviour
             Item.transform.SetParent(Grid.transform, false);
             string sprite = item[0] + "Bronze";
             Item.GetComponent<UISprite>().spriteName = sprite;
-            UserInfo.instance.InventoryUpdate(item[0], int.Parse(item[1]), int.Parse(item[2]));
+            UserInfo.instance.InventoryUpdate((ITEM_TYPE)Util.ConvertToInt(item[0]), int.Parse(item[1]), int.Parse(item[2]));
         }
         Grid.GetComponent<UIGrid>().Reposition(); //리 포지셔닝으로 그리드 재정렬
         m_ItemRoot.GetComponent<UIScrollView>().ResetPosition();

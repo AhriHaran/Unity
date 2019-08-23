@@ -553,7 +553,7 @@ MonoBehaviour:
   pixelSnap: 0
   onClick:
   - mTarget: {fileID: 1826768016}
-    mMethodName: OnClick
+    mMethodName: OnClickCharInfo
     mParameters: []
     oneShot: 0
 --- !u!114 &92412657
@@ -695,7 +695,7 @@ Transform:
   - {fileID: 861107614}
   - {fileID: 1324564382}
   m_Father: {fileID: 380367743}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &119522237
 MonoBehaviour:
@@ -742,7 +742,7 @@ MonoBehaviour:
   mClipping: 0
   mClipRange: {x: 0, y: 0, z: 300, w: 200}
   mClipSoftness: {x: 4, y: 4}
-  mDepth: 7
+  mDepth: 6
   mSortingOrder: 0
   mSortingLayerName: 
   mClipOffset: {x: 0, y: 0}
@@ -819,7 +819,11 @@ MonoBehaviour:
   pressedSprite2D: {fileID: 0}
   disabledSprite2D: {fileID: 0}
   pixelSnap: 1
-  onClick: []
+  onClick:
+  - mTarget: {fileID: 1826768016}
+    mMethodName: OnClickItemSelect
+    mParameters: []
+    oneShot: 0
 --- !u!114 &132017715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1061,13 +1065,14 @@ GameObject:
   m_Component:
   - component: {fileID: 194192882}
   - component: {fileID: 194192883}
+  - component: {fileID: 194192884}
   m_Layer: 8
   m_Name: ItemSelectPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &194192882
 Transform:
   m_ObjectHideFlags: 0
@@ -1082,7 +1087,7 @@ Transform:
   - {fileID: 1804204682}
   - {fileID: 276603598}
   m_Father: {fileID: 380367743}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &194192883
 MonoBehaviour:
@@ -1123,17 +1128,29 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3014
+  startingRenderQueue: 3004
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
   mClipRange: {x: 0, y: 0, z: 300, w: 200}
   mClipSoftness: {x: 4, y: 4}
-  mDepth: 9
+  mDepth: 8
   mSortingOrder: 0
   mSortingLayerName: 
   mClipOffset: {x: 0, y: 0}
   useSortingOrder: 0
+--- !u!114 &194192884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194192881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ae01bfcbe55a9942bfe700692d8c881, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &219659897
 GameObject:
   m_ObjectHideFlags: 0
@@ -1462,6 +1479,7 @@ GameObject:
   - component: {fileID: 276603598}
   - component: {fileID: 276603600}
   - component: {fileID: 276603599}
+  - component: {fileID: 276603601}
   m_Layer: 8
   m_Name: ItemInfo
   m_TagString: Untagged
@@ -1480,7 +1498,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.0008001, y: 1.0008001, z: 1.0008001}
   m_Children:
-  - {fileID: 665593093}
+  - {fileID: 292903425}
   m_Father: {fileID: 194192882}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1547,6 +1565,18 @@ MonoBehaviour:
   from: {x: 0, y: 0, z: 0}
   to: {x: 0, y: 0, z: 0}
   worldSpace: 0
+--- !u!114 &276603601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 276603597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb08cc2cf53174846b6548214563f601, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &282894068
 GameObject:
   m_ObjectHideFlags: 0
@@ -1661,8 +1691,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 292903424}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -350, y: 120, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -350.00003, y: 120, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 768406405}
@@ -1681,7 +1711,7 @@ Transform:
   - {fileID: 1327970401}
   - {fileID: 1783358719}
   - {fileID: 347381595}
-  m_Father: {fileID: 665593093}
+  m_Father: {fileID: 276603598}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &292903426
@@ -2733,7 +2763,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3000
+  startingRenderQueue: 3004
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -2781,9 +2811,9 @@ Transform:
   - {fileID: 1460993656}
   - {fileID: 3137575949021443727}
   - {fileID: 1197983899}
-  - {fileID: 1555540049}
   - {fileID: 119522236}
   - {fileID: 194192882}
+  - {fileID: 1555540049}
   - {fileID: 2021143491}
   - {fileID: 1476822894}
   m_Father: {fileID: 0}
@@ -3470,7 +3500,11 @@ MonoBehaviour:
   pressedSprite2D: {fileID: 0}
   disabledSprite2D: {fileID: 0}
   pixelSnap: 1
-  onClick: []
+  onClick:
+  - mTarget: {fileID: 1826768016}
+    mMethodName: OnClickItemSelect
+    mParameters: []
+    oneShot: 0
 --- !u!114 &542081106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3976,7 +4010,7 @@ MonoBehaviour:
   pixelSnap: 0
   onClick:
   - mTarget: {fileID: 1826768016}
-    mMethodName: OnClick
+    mMethodName: OnClickCharInfo
     mParameters: []
     oneShot: 0
 --- !u!114 &646784637
@@ -4230,37 +4264,6 @@ MonoBehaviour:
   mMaxLineHeight: 0
   mLineWidth: 0
   mMultiline: 1
---- !u!1 &665593092
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 665593093}
-  m_Layer: 8
-  m_Name: ItemInfo
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &665593093
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 665593092}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 292903425}
-  m_Father: {fileID: 276603598}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &669527452
 GameObject:
   m_ObjectHideFlags: 0
@@ -5358,21 +5361,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leftAnchor:
-    target: {fileID: 0}
+    target: {fileID: 292903425}
     relative: 0
-    absolute: 0
+    absolute: 105
   rightAnchor:
-    target: {fileID: 0}
-    relative: 1
-    absolute: 0
+    target: {fileID: 292903425}
+    relative: 0.5
+    absolute: 5
   bottomAnchor:
-    target: {fileID: 0}
-    relative: 0
-    absolute: 0
+    target: {fileID: 292903425}
+    relative: 0.5
+    absolute: 55
   topAnchor:
-    target: {fileID: 0}
+    target: {fileID: 292903425}
     relative: 1
-    absolute: 0
+    absolute: -65
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
@@ -6735,7 +6738,11 @@ MonoBehaviour:
   pressedSprite2D: {fileID: 0}
   disabledSprite2D: {fileID: 0}
   pixelSnap: 1
-  onClick: []
+  onClick:
+  - mTarget: {fileID: 1826768016}
+    mMethodName: OnClickItemSelect
+    mParameters: []
+    oneShot: 0
 --- !u!114 &993003000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6941,13 +6948,13 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3014
+  startingRenderQueue: 3004
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 3
   mClipRange: {x: 0, y: 0, z: 500, w: 430}
   mClipSoftness: {x: 4, y: 4}
-  mDepth: 8
+  mDepth: 9
   mSortingOrder: 0
   mSortingLayerName: 
   mClipOffset: {x: 0, y: 0}
@@ -7191,7 +7198,7 @@ MonoBehaviour:
   pixelSnap: 0
   onClick:
   - mTarget: {fileID: 1826768016}
-    mMethodName: OnClick
+    mMethodName: OnClickCharInfo
     mParameters: []
     oneShot: 0
 --- !u!114 &1074705730
@@ -8684,32 +8691,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leftAnchor:
-    target: {fileID: 0}
+    target: {fileID: 292903425}
     relative: 0
-    absolute: 0
+    absolute: -18
   rightAnchor:
-    target: {fileID: 0}
+    target: {fileID: 292903425}
     relative: 1
-    absolute: 0
+    absolute: -122
   bottomAnchor:
-    target: {fileID: 0}
+    target: {fileID: 292903425}
     relative: 0
-    absolute: 0
+    absolute: -30
   topAnchor:
-    target: {fileID: 0}
+    target: {fileID: 292903425}
     relative: 1
-    absolute: 0
+    absolute: -30
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 150
-  mHeight: 30
+  mWidth: 396
+  mHeight: 300
   mDepth: 2
   mMat: {fileID: 0}
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 5
+  aspectRatio: 1.32
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 11400000, guid: 29056518aafb01b49a5b08faf8e30cff, type: 2}
@@ -9483,21 +9490,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leftAnchor:
-    target: {fileID: 0}
-    relative: 0
-    absolute: 0
+    target: {fileID: 292903425}
+    relative: 0.5
+    absolute: 90
   rightAnchor:
-    target: {fileID: 0}
+    target: {fileID: 292903425}
     relative: 1
-    absolute: 0
+    absolute: -10
   bottomAnchor:
-    target: {fileID: 0}
-    relative: 0
-    absolute: 0
+    target: {fileID: 292903425}
+    relative: 0.5
+    absolute: 55
   topAnchor:
-    target: {fileID: 0}
+    target: {fileID: 292903425}
     relative: 1
-    absolute: 0
+    absolute: -65
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 3
@@ -10128,21 +10135,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leftAnchor:
-    target: {fileID: 0}
-    relative: 0
-    absolute: 0
+    target: {fileID: 292903425}
+    relative: 0.5
+    absolute: 90
   rightAnchor:
-    target: {fileID: 0}
+    target: {fileID: 292903425}
     relative: 1
-    absolute: 0
+    absolute: -10
   bottomAnchor:
-    target: {fileID: 0}
-    relative: 0
-    absolute: 0
+    target: {fileID: 292903425}
+    relative: 0.5
+    absolute: 5
   topAnchor:
-    target: {fileID: 0}
-    relative: 1
-    absolute: 0
+    target: {fileID: 292903425}
+    relative: 0.5
+    absolute: 35
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 3
@@ -10791,7 +10798,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3002
+  startingRenderQueue: 3004
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -11575,7 +11582,7 @@ Transform:
   - {fileID: 1503292446}
   - {fileID: 2086674556}
   m_Father: {fileID: 380367743}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1555540050
 MonoBehaviour:
@@ -11622,7 +11629,7 @@ MonoBehaviour:
   mClipping: 0
   mClipRange: {x: 0, y: 0, z: 300, w: 200}
   mClipSoftness: {x: 4, y: 4}
-  mDepth: 6
+  mDepth: 10
   mSortingOrder: 0
   mSortingLayerName: 
   mClipOffset: {x: 0, y: 0}
@@ -12213,7 +12220,7 @@ MonoBehaviour:
   pixelSnap: 0
   onClick:
   - mTarget: {fileID: 1826768016}
-    mMethodName: OnClick
+    mMethodName: OnClickCharInfo
     mParameters: []
     oneShot: 0
 --- !u!114 &1665707166
@@ -13538,6 +13545,7 @@ GameObject:
   - component: {fileID: 1804204682}
   - component: {fileID: 1804204684}
   - component: {fileID: 1804204683}
+  - component: {fileID: 1804204685}
   m_Layer: 8
   m_Name: ItemSelect
   m_TagString: Untagged
@@ -13628,6 +13636,18 @@ MonoBehaviour:
   from: {x: 0, y: 0, z: 0}
   to: {x: 0, y: 0, z: 0}
   worldSpace: 0
+--- !u!114 &1804204685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804204681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 899b0347f3efa364a8bc38031f055728, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1811916444
 GameObject:
   m_ObjectHideFlags: 0
@@ -13814,7 +13834,11 @@ MonoBehaviour:
   pressedSprite2D: {fileID: 0}
   disabledSprite2D: {fileID: 0}
   pixelSnap: 1
-  onClick: []
+  onClick:
+  - mTarget: {fileID: 1826768016}
+    mMethodName: OnClickItemSelect
+    mParameters: []
+    oneShot: 0
 --- !u!114 &1824109903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14126,21 +14150,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leftAnchor:
-    target: {fileID: 0}
-    relative: 0
-    absolute: 0
+    target: {fileID: 292903425}
+    relative: 0.5
+    absolute: 90
   rightAnchor:
-    target: {fileID: 0}
+    target: {fileID: 292903425}
     relative: 1
-    absolute: 0
+    absolute: -10
   bottomAnchor:
-    target: {fileID: 0}
-    relative: 0
-    absolute: 0
+    target: {fileID: 292903425}
+    relative: 0.5
+    absolute: -45
   topAnchor:
-    target: {fileID: 0}
-    relative: 1
-    absolute: 0
+    target: {fileID: 292903425}
+    relative: 0.5
+    absolute: -15
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 3
@@ -14376,7 +14400,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3000
+  startingRenderQueue: 3004
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -14532,32 +14556,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leftAnchor:
-    target: {fileID: 0}
+    target: {fileID: 292903425}
     relative: 0
-    absolute: 0
+    absolute: -18
   rightAnchor:
-    target: {fileID: 0}
+    target: {fileID: 292903425}
     relative: 1
-    absolute: 0
+    absolute: -122
   bottomAnchor:
-    target: {fileID: 0}
+    target: {fileID: 292903425}
     relative: 0
-    absolute: 0
+    absolute: 20
   topAnchor:
-    target: {fileID: 0}
+    target: {fileID: 292903425}
     relative: 1
-    absolute: 0
+    absolute: 20
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 150
-  mHeight: 30
+  mWidth: 396
+  mHeight: 300
   mDepth: 2
   mMat: {fileID: 0}
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 5
+  aspectRatio: 1.32
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 11400000, guid: 29056518aafb01b49a5b08faf8e30cff, type: 2}
@@ -14807,32 +14831,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leftAnchor:
-    target: {fileID: 0}
+    target: {fileID: 292903425}
     relative: 0
-    absolute: 0
+    absolute: -18
   rightAnchor:
-    target: {fileID: 0}
+    target: {fileID: 292903425}
     relative: 1
-    absolute: 0
+    absolute: -122
   bottomAnchor:
-    target: {fileID: 0}
+    target: {fileID: 292903425}
     relative: 0
-    absolute: 0
+    absolute: -80
   topAnchor:
-    target: {fileID: 0}
-    relative: 1
-    absolute: 0
+    target: {fileID: 292903425}
+    relative: 0.5
+    absolute: 70
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 150
-  mHeight: 30
+  mWidth: 396
+  mHeight: 300
   mDepth: 2
   mMat: {fileID: 0}
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 5
+  aspectRatio: 1.32
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 11400000, guid: 29056518aafb01b49a5b08faf8e30cff, type: 2}
@@ -15748,21 +15772,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leftAnchor:
-    target: {fileID: 0}
-    relative: 0
-    absolute: 0
+    target: {fileID: 292903425}
+    relative: 0.5
+    absolute: 90
   rightAnchor:
-    target: {fileID: 0}
+    target: {fileID: 292903425}
     relative: 1
-    absolute: 0
+    absolute: -10
   bottomAnchor:
-    target: {fileID: 0}
+    target: {fileID: 292903425}
     relative: 0
-    absolute: 0
+    absolute: 55
   topAnchor:
-    target: {fileID: 0}
-    relative: 1
-    absolute: 0
+    target: {fileID: 292903425}
+    relative: 0.5
+    absolute: -65
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 3

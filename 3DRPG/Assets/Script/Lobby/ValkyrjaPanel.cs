@@ -89,13 +89,9 @@ public class ValkyrjaPanel : MonoBehaviour
 
     private void OnDisable()
     {
-        while (m_GridChar.transform.childCount != 0)
-        {
-            GameObject game = m_GridChar.transform.GetChild(0).gameObject;
-            game.transform.SetParent(null);
-            NGUITools.Destroy(game);
-        }
-        m_GridChar.transform.DetachChildren();
+        GameManager.instance.DestroyModel();
+        m_iCharIndex = -1;
+        m_GridChar.transform.DestroyChildren();
     }
 
     // Update is called once per frame
