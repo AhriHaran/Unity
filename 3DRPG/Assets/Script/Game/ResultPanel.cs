@@ -45,11 +45,11 @@ public class ResultPanel : MonoBehaviour
 
         //플레이어 리소스 관련
         m_PlayerResource.transform.GetChild(0).GetComponent<UILabel>().text = "+" + ClearExp.ToString();
-        UserResourceUpdate(USER_INFO.USER_INFO_CUR_EXP, ClearExp);  //유저의 현재 경험치 업데이트
+        UserInfo.instance.UserUpdate(USER_INFO.USER_INFO_CUR_EXP, Util.SumData(UserInfo.instance.GetUserData(USER_INFO.USER_INFO_CUR_EXP), ClearExp, true));    //클리어 데이터 업데이트
 
-        m_PlayerResource.transform.GetChild(1).GetComponent<UILabel>().text = "+" + ClearGold.ToString();  
-        UserResourceUpdate(USER_INFO.USER_INFO_GOLD, ClearGold);    //유저의 현재 골드 업데이트
-        UserResourceUpdate(USER_INFO.USER_INFO_GOLD, -ClearEnergy); //클리어 시 소모 에너지 업데이트
+        m_PlayerResource.transform.GetChild(1).GetComponent<UILabel>().text = "+" + ClearGold.ToString();
+        UserInfo.instance.UserUpdate(USER_INFO.USER_INFO_GOLD, Util.SumData(UserInfo.instance.GetUserData(USER_INFO.USER_INFO_GOLD), ClearGold, true));    //클리어 데이터 업데이트
+        UserInfo.instance.UserUpdate(USER_INFO.USER_INFO_CUR_ENERGY, Util.SumData(UserInfo.instance.GetUserData(USER_INFO.USER_INFO_CUR_ENERGY), ClearEnergy, false));    //클리어 데이터 업데이트
 
         if (UserInfo.instance.ifUserLevelUP())  //캐릭터 레벨업을 하였는가? 처리
         {
@@ -76,9 +76,7 @@ public class ResultPanel : MonoBehaviour
 
                 //경험치 만큼 업데이트를 하고
                 Slider = m_ListChar[i].transform.GetChild(1).gameObject;
-                int iCurEXP = Util.ConvertToInt(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_CUR_EXP, ListChar[i]));
-                iCurEXP += ClearExp;
-                UserInfo.instance.CharUpdate(CHAR_DATA.CHAR_CUR_EXP, iCurEXP, ListChar[i]); //EXP 업데이트
+                UserInfo.instance.CharUpdate(CHAR_DATA.CHAR_CUR_EXP, Util.SumData(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_CUR_EXP, ListChar[i]), ClearExp, true), ListChar[i]); //EXP 업데이트
                 if(UserInfo.instance.ifCharLevelUp(ListChar[i]))
                 {
                     //해당 캐릭터가 레벨업을 하였는가?
@@ -110,19 +108,12 @@ public class ResultPanel : MonoBehaviour
             Item.transform.SetParent(Grid.transform, false);
             string sprite = item[0] + "Bronze";
             Item.GetComponent<UISprite>().spriteName = sprite;
-            UserInfo.instance.InventoryUpdate((ITEM_TYPE)Util.ConvertToInt(item[0]), int.Parse(item[1]), int.Parse(item[2]));
+            UserInfo.instance.InventoryUpdate((ITEM_TYPE)Util.ConvertToInt(item[0]), (INVENTORY_TYPE)int.Parse(item[1]), int.Parse(item[2]));
         }
         Grid.GetComponent<UIGrid>().Reposition(); //리 포지셔닝으로 그리드 재정렬
         m_ItemRoot.GetComponent<UIScrollView>().ResetPosition();
         m_ResultPanel.Refresh();
         //인벤토리 업데이트
-    }
-
-    void UserResourceUpdate(USER_INFO eIndex, int iData)
-    {
-        int CurData = System.Convert.ToInt32(UserInfo.instance.GetUserData(eIndex));
-        CurData += iData;
-        UserInfo.instance.UserUpdate(eIndex, CurData);    //클리어 데이터 업데이트
     }
 
     // Update is called once per frame

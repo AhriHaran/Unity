@@ -9,8 +9,8 @@ public class ItemSelectUI : MonoBehaviour
     private UILabel m_CurItemLevel;
 
     private int m_iCurSelectChar;
+    private int m_iCurSelectItem;
     private ITEM_TYPE m_eSelectType;
-    private INVENTORY_TYPE m_eInvenType;
 
     private GameObject m_ItemView = null;
     private GameObject m_GridChar = null;
@@ -24,22 +24,18 @@ public class ItemSelectUI : MonoBehaviour
 
         m_ItemView = transform.GetChild(4).gameObject;
         m_GridChar = m_ItemView.transform.GetChild(0).gameObject;
+        m_iCurSelectItem = -1;
     }
 
     private void OnEnable()
     {
         m_iCurSelectChar = GameManager.instance.ReturnCurSelectChar();    //바꾸려고 하는 캐릭터
         m_eSelectType = GameManager.instance.ReturnSelectType(); //바꾸고자 하는 것
-        m_eInvenType = INVENTORY_TYPE.INVENTORY_START;
 
         m_ChangeItem.text = Util.ConvertToString(m_eSelectType);    //현재 바꾸려는 것
+        INVENTORY_TYPE eInven = GameManager.instance.ReturnInvenType();
 
-        if (m_eSelectType >= ITEM_TYPE.ITEM_STIGMA_TOP && m_eSelectType <= ITEM_TYPE.ITEM_STIGMA_BOTTOM)
-            m_eInvenType = INVENTORY_TYPE.INVENTORY_STIGMA;
-        else
-            m_eInvenType = INVENTORY_TYPE.INVENTORY_WEAPON;
-
-        List<ItemData> Data = UserInfo.instance.GetInventoryList(m_eInvenType);
+        List<ItemData> Data = UserInfo.instance.GetInventoryList(eInven);
         
         for(int i = 0; i < Data.Count; i++)
         {
@@ -51,9 +47,14 @@ public class ItemSelectUI : MonoBehaviour
                 //콜백으로 현재 선택한 아이템의 리스트 인덱스를 저장한 뒤 선택 버튼을 누르면 갱신된다.
                 GameObject Item = ResourceLoader.CreatePrefab("Prefabs/ItemSprite");
                 Item.transform.SetParent(m_GridChar.transform, false);
-                Item.GetComponent<ItemSelectSprite>().Setting(i, (ITEM_TYPE)Data[i].GetItemData(ITEM_DATA.ITEM_TYPE), m_eInvenType);
+                Item.GetComponent<ItemSprite>().Setting(i, (ITEM_TYPE)Data[i].GetItemData(ITEM_DATA.ITEM_TYPE), eInven);
+                Item.GetComponent<ItemSprite>().SetCallBack(ItemSelect);
             }
         }
+
+        m_GridChar.GetComponent<UIGrid>().Reposition(); //리 포지셔닝으로 그리드 재정렬
+        m_ItemView.GetComponent<UIScrollView>().ResetPosition();
+        m_ItemView.GetComponent<UIPanel>().Refresh();
     }
     
     void Start()
@@ -64,5 +65,29 @@ public class ItemSelectUI : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void OnDisable()
+    {
+        m_iCurSelectItem = -1;
+    }
+
+    void ItemSelect(int iIndex)
+    {
+        //리스트 기준의 아이템 순서
+        //선택 시 
+        if (m_iCurSelectItem != iIndex)
+        {
+            INVENTORY_TYPE eInven = GameManager.instance.ReturnInvenType();
+            m_iCurSelectChar = iIndex;
+
+            transform.parent.GetChild(1).GetComponent<ItemInfoUI>().ItemInfo((int)ITEM_INFO_UI.ITEM_INFO_SELECT, iIndex);
+            //아이템 유아이에 장착 시 오를 능력치를 보여준다.
+            m_CurItemName.text = Util.ConvertToString(UserInfo.instance.GetItemForList(iIndex, eInven, ITEM_DATA.ITEM_NAME));
+            m_CurItemLevel.text = "Lv." + Util.ConvertToString(UserInfo.instance.GetItemForList(iIndex, eInven, ITEM_DATA.ITEM_LEVEl));
+            //현재 선택한 아이템의 이름과 레벨
+            GameManager.instance.SelectCurItem(iIndex);
+            //선택한 인덱스를 게임 매니저가 저장한다.
+        }
     }
 }

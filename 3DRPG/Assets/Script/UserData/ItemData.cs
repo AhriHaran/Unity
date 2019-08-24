@@ -60,6 +60,8 @@ public class ItemData
 
     public void ItemUpdate(ITEM_DATA eIndex, object Data)   //아이템 정보 갱신
     {
-
+        m_ItemData[(int)eIndex][eIndex] = Data;
     }
+
+    //레벨 업 시 아이템 업데이트
 }

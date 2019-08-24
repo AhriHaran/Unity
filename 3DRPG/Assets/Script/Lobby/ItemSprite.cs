@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemSelectSprite : MonoBehaviour
+public class ItemSprite : MonoBehaviour
 {
     //아이템을 표시 해주는 스프라이트로, 다음과 같은 것이 필요하다
 
@@ -18,6 +18,9 @@ public class ItemSelectSprite : MonoBehaviour
     //콜백 함수
     private UISprite m_ItemSprite;
     private UILabel m_ItemLabel;
+
+    private GameObject m_Equip;
+
     private int m_iItemIndex;
     private ITEM_TYPE m_eItemType;
     private INVENTORY_TYPE m_eInvenType;
@@ -26,6 +29,9 @@ public class ItemSelectSprite : MonoBehaviour
     {
         m_ItemSprite = transform.GetChild(1).GetComponent<UISprite>();
         m_ItemLabel = transform.GetChild(3).GetComponent<UILabel>();
+        m_Equip = transform.GetChild(4).gameObject;
+        m_Equip.gameObject.SetActive(false);
+        INGUIAtlas atlas = m_ItemSprite.atlas;
     }
     // Start is called before the first frame update
     void Start()
@@ -45,31 +51,44 @@ public class ItemSelectSprite : MonoBehaviour
         m_eInvenType = eInven;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ShowInfo()
     {
         string sprite = string.Empty;
-        if(m_eItemType == ITEM_TYPE.ITEM_STIGMA_TOP)
+        if (m_eItemType == ITEM_TYPE.ITEM_STIGMA_TOP)
             sprite = "HelmetBronze";
         else if (m_eItemType == ITEM_TYPE.ITEM_STIGMA_CENTER)
             sprite = "ArmorBronze";
-        else if(m_eItemType == ITEM_TYPE.ITEM_STIGMA_BOTTOM)
+        else if (m_eItemType == ITEM_TYPE.ITEM_STIGMA_BOTTOM)
             sprite = "GreaveBronze";
         else
             sprite = Util.ConvertToString(UserInfo.instance.GetItemForList(m_iItemIndex, m_eInvenType, ITEM_DATA.ITEM_TYPE)) + "Bronze";
 
-        m_ItemSprite.spriteName = sprite;
+        m_ItemSprite.spriteName = sprite;   //스프라이트 교체
         m_ItemLabel.text = Util.ConvertToString(UserInfo.instance.GetItemForList(m_iItemIndex, m_eInvenType, ITEM_DATA.ITEM_NAME));
+        //이름 교채
 
+        int iEquip = Util.ConvertToInt(UserInfo.instance.GetItemForList(m_iItemIndex, m_eInvenType, ITEM_DATA.ITEM_EQUIP_CHAR));
+        if(iEquip >= 0)
+            m_Equip.gameObject.SetActive(true);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        ShowInfo();
         OnClick();
     }
 
     private void OnClick()
     {
-        if(m_CallBack != null)
+        //콜백 설정됨
+        if (Input.GetMouseButtonDown(0))
         {
-            //콜백 설정됨
-
+            GameObject Object = null;
+            if (Util.RayCastHitObject(ref Object))
+            {
+                m_CallBack?.Invoke(m_iItemIndex);   //나의 현재 아이템 인덱스
+            }
         }
     }
 }

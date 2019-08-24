@@ -6,11 +6,14 @@ public class UserCharData
 {
     List<CharacterData> m_ListChar = new List<CharacterData>(); //내가 가진 캐릭터 정보 리스트
 
-    public UserCharData(List<Dictionary<string, object>> CharTable)
+    public UserCharData()
     {
-        CharInfoData [] Char = JSON.JsonUtil.LoadArrJson<CharInfoData>("UserCharInfoData");
-        CharacterData Node = new CharacterData(Char[0], CharTable);
+    }
+    public void Init(CharInfoData Char, List<Dictionary<string, object>> CharTable)
+    {
+        CharacterData Node = new CharacterData(Char, CharTable);
         m_ListChar.Add(Node);   //내가 가진 캐릭터 인덱스 값
+        Node.CharUpdate();
     }
 
     /// <summary>

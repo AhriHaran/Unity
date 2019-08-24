@@ -49,7 +49,7 @@ public class UserInventory
     {
         return m_ListInven[(int)eType]; //전체 리스트
     }
-    public void InventoryUpdate(ITEM_TYPE ItemType, int invenType, int itemIndex)  //새로운 아이템 획득
+    public void InventoryUpdate(ITEM_TYPE ItemType, INVENTORY_TYPE eInven, int itemIndex)  //새로운 아이템 획득
     {
         //아이템이나 스티그마 획득 시
         /*새로운 아이템을 얻을 시 해당 아이템의 인덱스를 기반으로 새로운 데이터 기반을 생성하고
@@ -59,12 +59,35 @@ public class UserInventory
          */
         ItemInfoData ItemInfo = new ItemInfoData(ItemType, itemIndex);    //새로운 아이템 생성
         ItemData Data = new ItemData(ItemInfo);
-        m_ListInven[invenType].Add(Data);
+        m_ListInven[(int)eInven].Add(Data);
         //새로운 데이터 셋팅
     }
-    public void InventoryUpdate(int invenType, int itemIndex)
+    public void InventoryUpdate(INVENTORY_TYPE eInven, int itemIndex, ITEM_DATA eData, object UpdateData)
     {
         //기존 아이템 업데이트, 레벨 업 등
+        m_ListInven[(int)eInven][itemIndex].ItemUpdate(eData, UpdateData);
+    }
+    public void ItemUpdateForChar(INVENTORY_TYPE eInven, int itemIndex, bool bUpgrade)
+    {
+        //현재 해당 아이템을 장착한 캐릭터의 능력치를 상승시켜준다.
+        int iInven = (int)eInven;
+        int iCurChar = Util.ConvertToInt(m_ListInven[iInven][itemIndex].GetItemData(ITEM_DATA.ITEM_EQUIP_CHAR));
+
+        if(iCurChar >= 0)
+        {
+            int iData = Util.SumData(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_MAX_HP, iCurChar), m_ListInven[iInven][itemIndex].GetItemData(ITEM_DATA.ITEM_HP), bUpgrade);
+            UserInfo.instance.CharUpdate(CHAR_DATA.CHAR_MAX_HP, iData, iCurChar);
+
+            iData = Util.SumData(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_ATK, iCurChar), m_ListInven[iInven][itemIndex].GetItemData(ITEM_DATA.ITEM_ATK), bUpgrade);
+            UserInfo.instance.CharUpdate(CHAR_DATA.CHAR_ATK, iData, iCurChar);
+
+            iData = Util.SumData(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_DEF, iCurChar), m_ListInven[iInven][itemIndex].GetItemData(ITEM_DATA.ITEM_DEF), bUpgrade);
+            UserInfo.instance.CharUpdate(CHAR_DATA.CHAR_DEF, iData, iCurChar);
+
+            iData = Util.SumData(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_CRI, iCurChar), m_ListInven[iInven][itemIndex].GetItemData(ITEM_DATA.ITEM_CRI), bUpgrade);
+            UserInfo.instance.CharUpdate(CHAR_DATA.CHAR_CRI, iData, iCurChar);
+        }
+        //아이템 기준으로 정보 업데이트
     }
 
 
@@ -81,8 +104,9 @@ public class UserInventory
                 {
                     Item[j] = new ItemInfoData
                     {
-                        ItemType =  (ITEM_TYPE)m_ListInven[iIndex][j].GetItemData(ITEM_DATA.ITEM_TYPE),
+                        ItemType = (ITEM_TYPE)m_ListInven[iIndex][j].GetItemData(ITEM_DATA.ITEM_TYPE),
                         ItemIndex = Util.ConvertToInt(m_ListInven[iIndex][j].GetItemData(ITEM_DATA.ITEM_INDEX)),
+                        ItemEquipChar = Util.ConvertToInt(m_ListInven[iIndex][j].GetItemData(ITEM_DATA.ITEM_EQUIP_CHAR)),
                         ItemLevel = Util.ConvertToInt(m_ListInven[iIndex][j].GetItemData(ITEM_DATA.ITEM_LEVEl)),
                         ItemCurEXP = Util.ConvertToInt(m_ListInven[iIndex][j].GetItemData(ITEM_DATA.ITEM_CUR_EXP))
                     };

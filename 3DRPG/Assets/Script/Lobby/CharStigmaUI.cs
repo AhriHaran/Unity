@@ -27,7 +27,29 @@ public class CharStigmaUI : MonoBehaviour
     public void OnFinished()
     {
         int iIndex = GameManager.instance.ReturnCurSelectChar();
+        //해당 캐릭터
         
+        int iData = Util.ConvertToInt(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_STIGMA_TOP_INDEX, iIndex));
+        if(iData >= 0)
+        {
+            m_StigmaT.spriteName = "";
+            m_StigmaTName.text = Util.ConvertToString(UserInfo.instance.GetItemForList(iData, INVENTORY_TYPE.INVENTORY_STIGMA, ITEM_DATA.ITEM_NAME)) + "(T)";
+        }
+
+        iData = Util.ConvertToInt(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_STIGMA_CENTER_INDEX, iIndex));
+        if(iData >= 0)
+        {
+            m_StigmaC.spriteName = "";
+            m_StigmaCName.text = Util.ConvertToString(UserInfo.instance.GetItemForList(iData, INVENTORY_TYPE.INVENTORY_STIGMA, ITEM_DATA.ITEM_NAME)) + "(C)";
+        }
+
+        iData = Util.ConvertToInt(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_STIGMA_BOTTOM_INDEX, iIndex));
+        if (iData >= 0)
+        {
+            m_StigmaB.spriteName = "";
+            m_StigmaBName.text = Util.ConvertToString(UserInfo.instance.GetItemForList(iData, INVENTORY_TYPE.INVENTORY_STIGMA, ITEM_DATA.ITEM_NAME)) + "(B)";
+        }
+        //onfinish가 되면 매번 셋팅
     }
 
     private void Start()

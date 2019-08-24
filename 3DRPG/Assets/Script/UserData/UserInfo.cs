@@ -28,11 +28,23 @@ public class UserInfo : GSingleton<UserInfo>
             m_UserData = new UserData(UserTable);
         }
 
-        //내가 가진 캐릭터
-        var CharTable = EXCEL.ExcelLoad.Read("Excel/CharacterExcel/0_Index_Char");
-        m_UserCharData = new UserCharData(CharTable);
-
+        //인벤토리 셋팅
         m_UserInventory = new UserInventory();
+
+        //내가 가진 캐릭터
+        if (JSON.JsonUtil.FileCheck("UserCharInfoData"))
+        {
+            m_UserCharData = new UserCharData();
+            CharInfoData[] Char = JSON.JsonUtil.LoadArrJson<CharInfoData>("UserCharInfoData");
+            for (int i = 0; i < Char.Length; i++)
+            {
+                string file = "Excel/Table/" + Char[i].CharIndex + "_Char_Table";//테이블 데이터
+                var CharTable = EXCEL.ExcelLoad.Read(file);
+                m_UserCharData.Init(Char[i], CharTable);
+            }
+        }
+        //유저의 캐릭터 데이터를 먼저 받아주고, 인벤토리를 받는다.
+        
         Event.Invoke();
     }
 
@@ -103,9 +115,18 @@ public class UserInfo : GSingleton<UserInfo>
         var CharTable = EXCEL.ExcelLoad.Read("Excel/CharacterExcel/0_Index_Char");
         return m_UserCharData.ifCharLevelUp(iIndex, CharTable);
     }
-    public void InventoryUpdate(ITEM_TYPE ItemType, int invenType, int itemIndex)
+    public void InventoryUpdate(ITEM_TYPE ItemType, INVENTORY_TYPE eInven, int itemIndex)   //새로운 아이템 획득
     {
-        m_UserInventory.InventoryUpdate(ItemType, invenType, itemIndex);//인벤토리 새로운 아이템 획득
+        m_UserInventory.InventoryUpdate(ItemType, eInven, itemIndex);//인벤토리 새로운 아이템 획득
+    }
+    public void InventoryUpdate(INVENTORY_TYPE eInven, int itemIndex, ITEM_DATA eData, object UpdateData)
+    {
+        //무슨 인벤토리에 무슨 아이템에 무슨 데이터가 업데이트 되었다.
+        m_UserInventory.InventoryUpdate(eInven, itemIndex, eData, UpdateData);
+    }
+    public void ItemUpdateForChar(INVENTORY_TYPE eInven, int itemIndex, bool bUpgrade)  //true 면 장비 장착, false면 장비 해제
+    {
+        m_UserInventory.ItemUpdateForChar(eInven, itemIndex, bUpgrade);
     }
 
     /// <summary>

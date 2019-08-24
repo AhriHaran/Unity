@@ -12,7 +12,6 @@ public class GameManager : MonoSingleton<GameManager>
     private int m_iCurGameChar = -1;     //게임 속에서 내가 현재 선택한 캐릭터
     private GameObject m_SelectCharMain = null;
     private GameObject m_SelectChar = null;    //내가 선택한 캐릭터의 프리팹
-    private ITEM_TYPE m_eType;
 
 /// <summary>
 /// 맵 관련 인자들
@@ -20,11 +19,20 @@ public class GameManager : MonoSingleton<GameManager>
     private int m_iCurStage = -1;       //현재 선택한 스테이지
     public List<Dictionary<MAP_DATA, object>> m_ListMapData = new List<Dictionary<MAP_DATA, object>>();
 
+    /// <summary>
+    /// 아이템 장착에 관련된 인자들
+    /// </summary>
+    private int m_iCurSelectItme = -1;
+    private ITEM_TYPE m_eItemType;
+    private INVENTORY_TYPE m_eInvenType;
+
+
     public void Init()
     {
         m_ListCharIndex = new int[] { -1, -1, -1 };   //3개
         m_iCurGameChar = -1;
         m_iCurSelectChar = -1;
+        m_iCurSelectItme = -1;
         m_SelectCharMain = GameObject.Find("SelectCharModel");
     }
 
@@ -97,17 +105,35 @@ public class GameManager : MonoSingleton<GameManager>
     /// <param name="eType"></param>
     public void ItemSelect(ITEM_TYPE eType)
     {
-        m_eType = eType;    //내가 현재 이것의 장비 장착을 요구하였다.
+        m_eItemType = eType;    //내가 현재 이것의 장비 장착을 요구하였다.
+
+        if (m_eItemType == ITEM_TYPE.ITEM_STIGMA_TOP || m_eItemType == ITEM_TYPE.ITEM_STIGMA_CENTER || m_eItemType == ITEM_TYPE.ITEM_STIGMA_BOTTOM)
+            m_eInvenType = INVENTORY_TYPE.INVENTORY_STIGMA;
+        else
+            m_eInvenType = INVENTORY_TYPE.INVENTORY_WEAPON;
+
     }
     public ITEM_TYPE ReturnSelectType()
     {
-        return m_eType;
+        return m_eItemType;
     }
     public ITEM_TYPE ReturnSelectCharType()
     {
         //현재 선택된 캐릭터의 무기 타입을 리턴
 
         return (ITEM_TYPE)UserInfo.instance.GetCharData(CHAR_DATA.CHAR_WEAPON_TYPE, m_iCurSelectChar);
+    }
+    public INVENTORY_TYPE ReturnInvenType()
+    {
+        return m_eInvenType;
+    }
+    public int ReturnCurSelectItem()
+    {
+        return m_iCurSelectItme;
+    }
+    public void SelectCurItem(int iIndex)
+    {
+        m_iCurSelectItme = iIndex;
     }
 
     /// <summary>
@@ -228,8 +254,11 @@ public class GameManager : MonoSingleton<GameManager>
         {
             m_ListCharIndex[i] = -1;
         }
+
         m_iCurSelectChar = -1;
         m_iCurGameChar = -1;     //게임 속에서 내가 현재 선택한 캐릭터
+        m_iCurSelectItme = -1;
+
         m_ListMapData.Clear();
         DestroyModel();
     }

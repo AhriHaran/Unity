@@ -100,4 +100,20 @@ public partial class Util
         else
             return false;
     }
+
+    //데이터 덧셈, true면 덧셈, false면 뺄샘
+    public static int SumData(object obFirst, object obSeconde, bool bSum)
+    {
+        int iSum = 0;
+        int iFirst = ConvertToInt(obFirst);
+        int iSeconde = ConvertToInt(obSeconde);
+        if (bSum)
+        { 
+            iSum = iFirst + iSeconde;
+        }
+        else 
+            iSum = iFirst - iSeconde;
+
+        return iSum;
+    }
 }

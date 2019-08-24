@@ -49,6 +49,12 @@ public class CharacterData
         NodeSetting(CHAR_DATA.CHAR_STIGMA_BOTTOM_INDEX, Data.CharStigmaBottom); //하
     }
 
+    public CharacterData(List<Dictionary<string, object>> Table)
+    {
+        //에너미 등 테이블 기반의 데이터
+
+    }
+
     void NodeSetting(CHAR_DATA eIndex, object Data)
     {
         Dictionary<CHAR_DATA, object>  node = new Dictionary<CHAR_DATA, object>();
@@ -67,6 +73,25 @@ public class CharacterData
         //결과창에서 EXP 데이터를 업데이트 하기 위해서
         m_CharInfo[(int)eIndex][eIndex] = UpdateData;
         //임시로 저장 해준 뒤, 밑에서 처리한다.
+    }
+    public void CharUpdate()
+    {
+        int iData = Util.ConvertToInt(GetCharData(CHAR_DATA.CHAR_WEAPON_INDEX));
+        if (iData >= 0)
+            UserInfo.instance.ItemUpdateForChar(INVENTORY_TYPE.INVENTORY_WEAPON, iData, true);
+
+        iData = Util.ConvertToInt(GetCharData(CHAR_DATA.CHAR_STIGMA_TOP_INDEX));
+        if (iData >= 0)
+            UserInfo.instance.ItemUpdateForChar(INVENTORY_TYPE.INVENTORY_STIGMA, iData, true);
+
+        iData = Util.ConvertToInt(GetCharData(CHAR_DATA.CHAR_STIGMA_CENTER_INDEX));
+        if (iData >= 0)
+            UserInfo.instance.ItemUpdateForChar(INVENTORY_TYPE.INVENTORY_STIGMA, iData, true);
+
+        iData = Util.ConvertToInt(GetCharData(CHAR_DATA.CHAR_STIGMA_BOTTOM_INDEX));
+        if (iData >= 0)
+            UserInfo.instance.ItemUpdateForChar(INVENTORY_TYPE.INVENTORY_STIGMA, iData, true);
+        //데이터 로딩 시 해당 캐릭터가 무기 등의 정보를 가진다면
     }
 
     public bool ifCharLevelUP(List<Dictionary<string, object>> CharTable)
@@ -100,6 +125,7 @@ public class CharacterData
         CharUpdate(CHAR_DATA.CHAR_ATK, CharTable[iTableLevel][CHAR_DATA.CHAR_ATK.ToString()]); //현재 레벨ATK
         CharUpdate(CHAR_DATA.CHAR_DEF, CharTable[iTableLevel][CHAR_DATA.CHAR_DEF.ToString()]); //현재 레벨 DEF
         CharUpdate(CHAR_DATA.CHAR_CRI, CharTable[iTableLevel][CHAR_DATA.CHAR_CRI.ToString()]); //현재 레벨 CRI
+        //업데이트 후, 해당 캐릭터가 장비가 있다면 장비 스테이터스도 업데이트
         
         return bLevelUp;
     }

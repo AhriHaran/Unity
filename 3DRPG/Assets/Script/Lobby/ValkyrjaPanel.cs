@@ -42,8 +42,6 @@ public class ValkyrjaPanel : MonoBehaviour
 
     void Start()
     {
-        ////활성화 될 때 호출\
-        //
     }
 
     public void ButtonOnOff(bool OnOff)
