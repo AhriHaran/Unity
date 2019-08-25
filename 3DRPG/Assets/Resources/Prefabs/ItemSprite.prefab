@@ -466,8 +466,8 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: e568b6b9ef757884f88cf6b928c00194, type: 2}
-  mSpriteName: ArmorBronze
+  mAtlas: {fileID: 11400000, guid: ab9fe4187e1d07c45b3cbcad6b7954c2, type: 2}
+  mSpriteName: CrossHair
   mFixedAspect: 0
   mFillCenter: 1
 --- !u!1 &5870532496868358482

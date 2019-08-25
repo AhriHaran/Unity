@@ -15,13 +15,13 @@ public class CharStigmaUI : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
-        m_StigmaT = transform.GetChild(0).GetComponent<UISprite>();
-        m_StigmaC = transform.GetChild(1).GetComponent<UISprite>();
-        m_StigmaB = transform.GetChild(2).GetComponent<UISprite>();
+        m_StigmaT = transform.GetChild(0).transform.GetChild(0).GetComponent<UISprite>();
+        m_StigmaC = transform.GetChild(1).transform.GetChild(0).GetComponent<UISprite>();
+        m_StigmaB = transform.GetChild(2).transform.GetChild(0).GetComponent<UISprite>();
 
-        m_StigmaTName = m_StigmaT.GetComponentInChildren<UILabel>();
-        m_StigmaCName = m_StigmaC.GetComponentInChildren<UILabel>();
-        m_StigmaBName = m_StigmaB.GetComponentInChildren<UILabel>();
+        m_StigmaTName = transform.GetChild(0).transform.GetChild(1).GetComponentInChildren<UILabel>();
+        m_StigmaCName = transform.GetChild(1).transform.GetChild(1).GetComponentInChildren<UILabel>();
+        m_StigmaBName = transform.GetChild(2).transform.GetChild(1).GetComponentInChildren<UILabel>();
     }
 
     public void OnFinished()
@@ -30,24 +30,33 @@ public class CharStigmaUI : MonoBehaviour
         //해당 캐릭터
         
         int iData = Util.ConvertToInt(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_STIGMA_TOP_INDEX, iIndex));
+        string spriteName = string.Empty;
         if(iData >= 0)
         {
-            m_StigmaT.spriteName = "";
+            spriteName = Util.ConvertToString(iData) + "_T";
+            m_StigmaT.spriteName = spriteName;
             m_StigmaTName.text = Util.ConvertToString(UserInfo.instance.GetItemForList(iData, INVENTORY_TYPE.INVENTORY_STIGMA, ITEM_DATA.ITEM_NAME)) + "(T)";
         }
 
         iData = Util.ConvertToInt(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_STIGMA_CENTER_INDEX, iIndex));
         if(iData >= 0)
         {
-            m_StigmaC.spriteName = "";
+            spriteName = Util.ConvertToString(iData) + "_C";
+            m_StigmaC.spriteName = spriteName;
             m_StigmaCName.text = Util.ConvertToString(UserInfo.instance.GetItemForList(iData, INVENTORY_TYPE.INVENTORY_STIGMA, ITEM_DATA.ITEM_NAME)) + "(C)";
         }
 
         iData = Util.ConvertToInt(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_STIGMA_BOTTOM_INDEX, iIndex));
         if (iData >= 0)
         {
-            m_StigmaB.spriteName = "";
+            spriteName = Util.ConvertToString(iData) + "_B";
+            m_StigmaB.spriteName = spriteName;
             m_StigmaBName.text = Util.ConvertToString(UserInfo.instance.GetItemForList(iData, INVENTORY_TYPE.INVENTORY_STIGMA, ITEM_DATA.ITEM_NAME)) + "(B)";
+        }
+        else
+        {
+            m_StigmaB.spriteName = "CrossHair";
+            m_StigmaBName.text = "None";
         }
         //onfinish가 되면 매번 셋팅
     }

@@ -29,7 +29,10 @@ public class LobbyManager : MonoBehaviour
     private List<UIPanel> m_ListPanel = new List<UIPanel>();
     private GameObject m_MainChar;   //메인 캐릭터 위치
     private string m_strCharSelect;
-    private UI_PANEL_INDEX m_eCurPanel; //플레이어가 머물런던 위치
+    private int m_iItemSelect = -1;
+    private Stack<UI_PANEL_INDEX> m_StackPanel = new Stack<UI_PANEL_INDEX>();
+    private UI_PANEL_INDEX m_eCurPanel; //플레이어의 현재 패널
+
     private void Awake()
     {
         GameManager.instance.Init();
@@ -68,7 +71,7 @@ public class LobbyManager : MonoBehaviour
         CharPoolManager.instance.Set(POOL_INDEX.POOL_USER_CHAR.ToString(), strIndex, iarr, iCount);
         //내가 가진 캐릭터 모델링들을 미리 셋팅
 
-        PanelOnOff(UI_PANEL_INDEX.PANEL_LOBBY);
+        PanelOnOff(UI_PANEL_INDEX.PANEL_LOBBY, false);
         
         m_UserLevel.text += UserInfo.instance.GetUserData(USER_INFO.USER_INFO_LEVEL);       //유저 레벨
         m_UserNickName.text = UserInfo.instance.GetUserData(USER_INFO.USER_INFO_NICKNAME);  //유저 닉네임
@@ -86,8 +89,10 @@ public class LobbyManager : MonoBehaviour
         m_UserGold.text = UserInfo.instance.GetUserData(USER_INFO.USER_INFO_GOLD);
     }
 
-    void PanelOnOff(UI_PANEL_INDEX eindex)
+    void PanelOnOff(UI_PANEL_INDEX eindex, bool bStack = true)
     {
+        if(bStack)
+            m_StackPanel.Push(m_eCurPanel);
         m_eCurPanel = eindex;   //현재 패널
         
         if (eindex != UI_PANEL_INDEX.PANEL_VALKYRJA && eindex != UI_PANEL_INDEX.PANEL_CHAR_INFO
@@ -96,7 +101,6 @@ public class LobbyManager : MonoBehaviour
             GameManager.instance.DestroyModel();
             //이 외의 패널은 모두 현재 선택된 캐릭터를 다시 반납한다.
         }
-
         
         if (eindex == UI_PANEL_INDEX.PANEL_LOBBY)
         {
@@ -130,6 +134,7 @@ public class LobbyManager : MonoBehaviour
     private void OnDisable()
     {
         PoolManager.instance.Clear();
+        m_StackPanel.Clear();
         //해당 씬에서 생성했던 모든 풀 삭제
     }
 
@@ -167,16 +172,19 @@ public class LobbyManager : MonoBehaviour
         if (Button == "CharInfo" || Button == "CharLevel")
         {
             PanelOnOff(UI_PANEL_INDEX.PANEL_CHAR_INFO);
+            m_iItemSelect = -1;
             m_ListPanel[(int)UI_PANEL_INDEX.PANEL_CHAR_INFO].GetComponent<CharInfoPanel>().UiOnOff(CHAR_INFO_UI.CHAR_INFO_UI_LEVEL);
         }
         else if (Button == "CharWeapon")
         {
             PanelOnOff(UI_PANEL_INDEX.PANEL_CHAR_INFO);
+            m_iItemSelect = 0;
             m_ListPanel[(int)UI_PANEL_INDEX.PANEL_CHAR_INFO].GetComponent<CharInfoPanel>().UiOnOff(CHAR_INFO_UI.CHAR_INFO_UI_WEAPON);
         }
         else if (Button == "CharStigma")
         {
             PanelOnOff(UI_PANEL_INDEX.PANEL_CHAR_INFO);
+            m_iItemSelect = 1;
             m_ListPanel[(int)UI_PANEL_INDEX.PANEL_CHAR_INFO].GetComponent<CharInfoPanel>().UiOnOff(CHAR_INFO_UI.CHAR_INFO_UI_STIGMA);
         }
     }
@@ -224,7 +232,21 @@ public class LobbyManager : MonoBehaviour
         else if (Button == "BackButton")
         {
             //이전 패널
-            PanelOnOff(m_eCurPanel - 1);
+            UI_PANEL_INDEX eCur = m_eCurPanel;
+            UI_PANEL_INDEX eIndex = m_StackPanel.Pop();
+            PanelOnOff(eIndex, false);
+            if (eCur == UI_PANEL_INDEX.PANEL_ITEM_SELECT) //현재 패널이 아이템 셀렉이고 이전 패널로 돌아간다면?
+            {
+                if(m_iItemSelect == 0)
+                {
+                    m_ListPanel[(int)UI_PANEL_INDEX.PANEL_CHAR_INFO].GetComponent<CharInfoPanel>().UiOnOff(CHAR_INFO_UI.CHAR_INFO_UI_WEAPON);
+                }
+                else if(m_iItemSelect == 1)
+                {
+                    m_ListPanel[(int)UI_PANEL_INDEX.PANEL_CHAR_INFO].GetComponent<CharInfoPanel>().UiOnOff(CHAR_INFO_UI.CHAR_INFO_UI_STIGMA);
+                }
+                m_iItemSelect = -1;
+            }
             if (m_eCurPanel == UI_PANEL_INDEX.PANEL_LOBBY || m_eCurPanel == UI_PANEL_INDEX.PANEL_STAGE)
                 GameManager.instance.ResetData();
         }

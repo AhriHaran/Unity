@@ -55,13 +55,13 @@ public class ItemSprite : MonoBehaviour
     {
         string sprite = string.Empty;
         if (m_eItemType == ITEM_TYPE.ITEM_STIGMA_TOP)
-            sprite = "HelmetBronze";
+            sprite = Util.ConvertToString(UserInfo.instance.GetItemForList(m_iItemIndex, m_eInvenType, ITEM_DATA.ITEM_INDEX)) + "T";
         else if (m_eItemType == ITEM_TYPE.ITEM_STIGMA_CENTER)
-            sprite = "ArmorBronze";
+            sprite = Util.ConvertToString(UserInfo.instance.GetItemForList(m_iItemIndex, m_eInvenType, ITEM_DATA.ITEM_INDEX)) + "C";
         else if (m_eItemType == ITEM_TYPE.ITEM_STIGMA_BOTTOM)
-            sprite = "GreaveBronze";
+            sprite = Util.ConvertToString(UserInfo.instance.GetItemForList(m_iItemIndex, m_eInvenType, ITEM_DATA.ITEM_INDEX)) + "B";
         else
-            sprite = Util.ConvertToString(UserInfo.instance.GetItemForList(m_iItemIndex, m_eInvenType, ITEM_DATA.ITEM_TYPE)) + "Bronze";
+            sprite = Util.ConvertToString(UserInfo.instance.GetItemForList(m_iItemIndex, m_eInvenType, ITEM_DATA.ITEM_INDEX)) + "Weapon";
 
         m_ItemSprite.spriteName = sprite;   //스프라이트 교체
         m_ItemLabel.text = Util.ConvertToString(UserInfo.instance.GetItemForList(m_iItemIndex, m_eInvenType, ITEM_DATA.ITEM_NAME));

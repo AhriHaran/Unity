@@ -34,7 +34,7 @@ public class UserCharData
         {
             int CharIndex = Util.ConvertToInt(m_ListChar[i].GetCharData(CHAR_DATA.CHAR_INDEX));
             if (CharIndex == iIndex) //캐릭터 인덱스 기반
-                return m_ListChar[iIndex].GetCharData(eIndex);
+                return m_ListChar[i].GetCharData(eIndex);
         }
         return null;
     }
@@ -74,6 +74,7 @@ public class UserCharData
                     CharIndex = Util.ConvertToInt(m_ListChar[i].GetCharData(CHAR_DATA.CHAR_INDEX)),
                     CharLevel = Util.ConvertToInt(m_ListChar[i].GetCharData(CHAR_DATA.CHAR_LEVEL)),
                     CharCurEXP = Util.ConvertToInt(m_ListChar[i].GetCharData(CHAR_DATA.CHAR_CUR_EXP)),
+                    CharWeaponType = (ITEM_TYPE)Util.ConvertToInt(m_ListChar[i].GetCharData(CHAR_DATA.CHAR_WEAPON_TYPE)),
                     CharWeapon = Util.ConvertToInt(m_ListChar[i].GetCharData(CHAR_DATA.CHAR_WEAPON_INDEX)),
                     CharStigmaTop = Util.ConvertToInt(m_ListChar[i].GetCharData(CHAR_DATA.CHAR_STIGMA_TOP_INDEX)),
                     CharStigmaCenter = Util.ConvertToInt(m_ListChar[i].GetCharData(CHAR_DATA.CHAR_STIGMA_CENTER_INDEX)),

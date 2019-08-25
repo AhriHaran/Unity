@@ -16,9 +16,19 @@ public class CharWeaponUI : MonoBehaviour
     public void OnFinished()
     {
         int iIndex = GameManager.instance.ReturnCurSelectChar();    //현재 선택된 캐릭터
-        m_WeaponLevel.text = "LV." + 
-            Util.ConvertToString(UserInfo.instance.GetItemForList(iIndex, INVENTORY_TYPE.INVENTORY_WEAPON, ITEM_DATA.ITEM_LEVEl));
-        //해당 장비의 스프라이트 이미지
+        int iItem = Util.ConvertToInt(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_WEAPON_INDEX, iIndex));
+
+        if(iItem >= 0)
+        {
+            m_WeaponLevel.text = "LV." +
+                Util.ConvertToString(UserInfo.instance.GetItemForList(iItem, INVENTORY_TYPE.INVENTORY_WEAPON, ITEM_DATA.ITEM_LEVEl));
+            //해당 장비의 스프라이트 이미지
+                string strName = Util.ConvertToString(UserInfo.instance.GetItemForList(iItem, INVENTORY_TYPE.INVENTORY_WEAPON, ITEM_DATA.ITEM_INDEX)) + "_" +
+                    Util.ConvertToString(UserInfo.instance.GetItemForList(iItem, INVENTORY_TYPE.INVENTORY_WEAPON, ITEM_DATA.ITEM_TYPE)) + "_Select";
+            m_WeaponSprite.spriteName = strName;
+        }
+        else
+            m_WeaponSprite.spriteName = "CrossHair";
     }
 
     void Start()

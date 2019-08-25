@@ -35,7 +35,7 @@ public class ValkyrjaPanel : MonoBehaviour
 
         for (int i = (int)VALKYRJA_UI.VALKYRJA_UI_START; i < (int)VALKYRJA_UI.VALKYRJA_UI_END; i++)
         {
-            m_ThisUI[i] = transform.GetChild(i + 3).gameObject;
+            m_ThisUI[i] = transform.GetChild(i + 2).gameObject;
         }
         m_iCharIndex = -1;
     }
