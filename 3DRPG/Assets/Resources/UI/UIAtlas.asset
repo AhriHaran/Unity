@@ -27,6 +27,32 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: CrossHair
+    x: 219
+    y: 4
+    width: 63
+    height: 63
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 18
+    paddingRight: 18
+    paddingTop: 15
+    paddingBottom: 18
+  - name: EnemyHP
+    x: 0
+    y: 59
+    width: 218
+    height: 8
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 4
+    paddingRight: 2
+    paddingTop: 3
+    paddingBottom: 4
   - name: Equipment
     x: 1623
     y: 914
@@ -42,7 +68,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: "hp\uAF49\uCC38"
     x: 0
-    y: 236
+    y: 263
     width: 869
     height: 26
     borderLeft: 0
@@ -55,7 +81,7 @@ MonoBehaviour:
     paddingBottom: 18
   - name: "hp\uC5C6\uC74C"
     x: 0
-    y: 263
+    y: 236
     width: 869
     height: 26
     borderLeft: 0
@@ -145,8 +171,8 @@ MonoBehaviour:
     paddingTop: 15
     paddingBottom: 20
   - name: "\uB808\uBCA8\uC5C5"
-    x: 613
-    y: 58
+    x: 937
+    y: 108
     width: 215
     height: 96
     borderLeft: 0
@@ -159,7 +185,7 @@ MonoBehaviour:
     paddingBottom: 6
   - name: "\uB808\uBCA8\uC5C5b"
     x: 937
-    y: 108
+    y: 205
     width: 215
     height: 96
     borderLeft: 0
@@ -184,8 +210,8 @@ MonoBehaviour:
     paddingTop: 10
     paddingBottom: 14
   - name: "\uBB34\uAE30"
-    x: 937
-    y: 205
+    x: 613
+    y: 58
     width: 215
     height: 96
     borderLeft: 0
@@ -210,8 +236,8 @@ MonoBehaviour:
     paddingTop: 7
     paddingBottom: 7
   - name: "\uBCC0\uACBD"
-    x: 309
-    y: 69
+    x: 613
+    y: 155
     width: 220
     height: 80
     borderLeft: 0
@@ -249,8 +275,8 @@ MonoBehaviour:
     paddingTop: 7
     paddingBottom: 8
   - name: "\uC2ED\uC790\uC120"
-    x: 0
-    y: 4
+    x: 309
+    y: 5
     width: 63
     height: 63
     borderLeft: 0
@@ -275,8 +301,8 @@ MonoBehaviour:
     paddingTop: 26
     paddingBottom: 20
   - name: "\uD574\uC81C"
-    x: 613
-    y: 155
+    x: 309
+    y: 69
     width: 220
     height: 80
     borderLeft: 0
