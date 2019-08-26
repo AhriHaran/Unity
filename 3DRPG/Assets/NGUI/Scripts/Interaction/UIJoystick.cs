@@ -182,8 +182,13 @@ public class UIJoystick : MonoBehaviour {
 			StartCoroutine(fadeOutJoystick());
 		}
 	}
-	
-	public void Disable () {
+
+    public Vector2 GetInput()
+    {
+        return position;
+    }
+
+    public void Disable () {
 		gameObject.SetActive(false);
 		enumeratedJoysticks = false;
 	}

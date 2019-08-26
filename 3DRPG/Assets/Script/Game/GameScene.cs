@@ -51,21 +51,23 @@ public class GameScene : MonoBehaviour
 
         m_PlayerManager = new PlayerManager(m_arrObject[(int)OBJECT_INDEX.OBJECT_PLAYER].transform);
         //플레이어 셋팅
-        var vecPos = m_MapManager.ReturnEventPos();
-        m_PlayerManager.SetPosition(0, vecPos[0]);
-        //스타트에서 처음 포지셔닝을 셋팅
 
         strFile = "Excel/StageExcel/" + strStage + "Stage_Enemy";
         Info = EXCEL.ExcelLoad.Read(strFile);
         Table = EXCEL.ExcelLoad.Read("Excel/CharacterExcel/Enemy_Char_Info");
-        m_EnemyMangaer = new EnemyManager(m_arrObject[(int)OBJECT_INDEX.OBJECT_ENEMY].transform, Info, Table);
+        //m_EnemyMangaer = new EnemyManager(m_arrObject[(int)OBJECT_INDEX.OBJECT_ENEMY].transform, Info, Table);
         //에너미 셋팅
 
-        m_CallBack(m_PlayerManager.GetCharTR());    //카메라 콜백 함수 선언
-        m_EnemyMangaer.TrSetting(m_PlayerManager.GetCharTR()); //타겟 셋팅
-        m_EnemyMangaer.ActiveWave();    //액티브
 
-        InvokeRepeating("WaveClear", 2.0f, 1.0f);
+        var vecPos = m_MapManager.ReturnEventPos();
+        m_PlayerManager.SetPosition(0, vecPos[0]);
+        //스타트에서 처음 포지셔닝을 셋팅
+        
+        m_CallBack(m_PlayerManager.GetCharTR());    //카메라 콜백 함수 선언
+        //m_EnemyMangaer.TrSetting(m_PlayerManager.GetCharTR()); //타겟 셋팅
+       // m_EnemyMangaer.ActiveWave();    //액티브
+
+        //InvokeRepeating("WaveClear", 2.0f, 1.0f);
     }
 
     // Update is called once per frame
@@ -107,4 +109,7 @@ public class GameScene : MonoBehaviour
         Time.timeScale = 1.0f;
         LoadScene.SceneLoad("LobbyScene");
     }
+
+
+
 }

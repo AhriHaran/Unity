@@ -22,7 +22,6 @@ public class ValkyrjaPanel : MonoBehaviour
     private GameObject[] m_ThisUI = new GameObject[(int)VALKYRJA_UI.VALKYRJA_UI_END];   //화면에 띄워진 UI
 
     private int m_iCharIndex = -1;  //선택한 캐릭터 인덱스
-    private string m_strSprite = "Icon";
 
     // Start is called before the first frame update
     private void Awake()
@@ -71,11 +70,8 @@ public class ValkyrjaPanel : MonoBehaviour
             GameObject CharInfo = ResourceLoader.CreatePrefab("Prefabs/CharInfoButton");//만들어 놓은 오브젝트를 다시 가져와서 쓴다.
             CharInfo.transform.SetParent(m_GridChar.transform, false); //부모 트랜스폼 새로 설정
             int iData = Util.ConvertToInt(CharList[i].GetCharData(CHAR_DATA.CHAR_INDEX));
-            CharInfo.GetComponent<CharInfoButton>().SetCallBack(CharInfoSelect, iData);//캐릭터의 고유 인덱스 기반
-            string strIcon = Util.ConvertToString(CharList[i].GetCharData(CHAR_DATA.CHAR_NAME));
-            CharInfo.GetComponentInChildren<UILabel>().text = strIcon;
-            strIcon += m_strSprite;
-            CharInfo.GetComponentInChildren<UISprite>().spriteName = strIcon;
+            CharInfo.GetComponent<CharInfoButton>().Setting(iData);
+            CharInfo.GetComponent<CharInfoButton>().SetCallBack(CharInfoSelect);//캐릭터의 고유 인덱스 기반
         }
 
         m_GridChar.GetComponent<UIGrid>().Reposition(); //리 포지셔닝으로 그리드 재정렬

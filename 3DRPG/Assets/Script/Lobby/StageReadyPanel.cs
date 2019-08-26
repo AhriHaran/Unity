@@ -45,6 +45,10 @@ public class StageReadyPanel : MonoBehaviour
     void Update()
     {
     }
+    void Onclick()
+    {
+
+    }
     
     public void SelectChar(string strSelect)    //내가 선택한 패널
     {

@@ -58,9 +58,9 @@ public class LobbyManager : MonoBehaviour
         {
             try
             {
-                string route = Util.ConvertToString(CharList[i].GetCharData(CHAR_DATA.CHAR_ROUTE));
+                string route = Util.ConvertToString(CharList[i].GetCharData(CHAR_DATA.CHAR_INDEX));
                 string name = Util.ConvertToString(CharList[i].GetCharData(CHAR_DATA.CHAR_NAME));
-                strIndex[i] = "Player/" +route + "Prefabs/" + name;
+                strIndex[i] = "Player/" +route + "/Prefabs/" + name;
                 iarr[i] = Util.ConvertToInt(CharList[i].GetCharData(CHAR_DATA.CHAR_INDEX));
             }
             catch (System.NullReferenceException ex)

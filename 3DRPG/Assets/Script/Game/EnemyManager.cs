@@ -40,7 +40,7 @@ public class EnemyManager
                 if(i == int.Parse(Info[j]["CurWave"].ToString()))
                 {
                     int Index = int.Parse(Info[j]["Index"].ToString());   //에너미 인덱스
-                    string Rote = "Enemy/" + Table[Index][CHAR_DATA.CHAR_ROUTE.ToString()].ToString() + "Prefabs/"
+                    string Rote = "Enemy/" + Table[Index][CHAR_DATA.CHAR_INDEX.ToString()].ToString() + "/Prefabs/"
                         + Table[Index][CHAR_DATA.CHAR_NAME.ToString()].ToString();
 
                     GameObject Enemy = ResourceLoader.CreatePrefab(Rote, WaveObject.transform);//Wave 하위로 셋팅

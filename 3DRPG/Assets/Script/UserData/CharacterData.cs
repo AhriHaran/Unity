@@ -6,7 +6,6 @@ using UnityEngine;
 public enum CHAR_DATA
 {
     CHAR_NAME,
-    CHAR_ROUTE,                 //캐릭터 리소스 경로
     CHAR_INDEX,
     CHAR_LEVEL,                 //캐릭터 레벨
     CHAR_MAX_HP,                //캐릭터 HP
@@ -32,7 +31,6 @@ public class CharacterData
     {
         int iLevel = Data.CharLevel - 1;
         NodeSetting(CHAR_DATA.CHAR_NAME, Table[iLevel][CHAR_DATA.CHAR_NAME.ToString()]);    //캐릭터 이름
-        NodeSetting(CHAR_DATA.CHAR_ROUTE, Table[iLevel][CHAR_DATA.CHAR_ROUTE.ToString()]);  //캐릭터 저장소
         NodeSetting(CHAR_DATA.CHAR_INDEX, Data.CharIndex);  //캐릭터 인덱스
         NodeSetting(CHAR_DATA.CHAR_LEVEL, Data.CharLevel);  //캐릭터 레벨
         NodeSetting(CHAR_DATA.CHAR_MAX_HP, Table[iLevel][CHAR_DATA.CHAR_MAX_HP.ToString()]);   //캐릭터 HP

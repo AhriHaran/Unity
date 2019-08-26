@@ -72,13 +72,14 @@ public class UserInfo : GSingleton<UserInfo>
     {
         try
         {
-            string route = GetCharData(CHAR_DATA.CHAR_ROUTE, iIndex).ToString();
-            string strTmp = "Player/" + route + "Animators/" + eIndex.ToString();
+            string route = GetCharData(CHAR_DATA.CHAR_INDEX, iIndex).ToString();
+            string strTmp = "Player/" + route + "/Animators/" + eIndex.ToString();
             return ResourceLoader.LoadResource(strTmp);
         }
         catch (NullReferenceException ex)
         {
             Debug.Log("Animator is NULL");
+            Debug.Log(ex);
             return null;
         }
     }
@@ -112,7 +113,8 @@ public class UserInfo : GSingleton<UserInfo>
     }
     public bool ifCharLevelUp(int iIndex)
     {
-        var CharTable = EXCEL.ExcelLoad.Read("Excel/CharacterExcel/0_Index_Char");
+        string file = "Excel/Table/" + iIndex + "_Char_Table";//테이블 데이터
+        var CharTable = EXCEL.ExcelLoad.Read(file);
         return m_UserCharData.ifCharLevelUp(iIndex, CharTable);
     }
     public void InventoryUpdate(ITEM_TYPE ItemType, INVENTORY_TYPE eInven, int itemIndex)   //새로운 아이템 획득

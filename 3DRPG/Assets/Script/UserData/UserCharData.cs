@@ -30,13 +30,21 @@ public class UserCharData
     }
     public object GetCharData(CHAR_DATA eIndex, int iIndex) //캐릭터의 인덱스 기반으로 반환
     {
-        for (int i = 0; i < m_ListChar.Count; i++)
+        int iListIndex = GetIndexToCharIndx(iIndex);
+        if (iListIndex >= 0)
+            return m_ListChar[iListIndex].GetCharData(eIndex);
+        else
+            return null;
+    }
+    public int GetIndexToCharIndx(int CharIndex)    //캐릭터 인덱스를 기반으로 현재 리스트 인덱스 호출
+    {
+        for(int i = 0; i < m_ListChar.Count; i++)
         {
-            int CharIndex = Util.ConvertToInt(m_ListChar[i].GetCharData(CHAR_DATA.CHAR_INDEX));
-            if (CharIndex == iIndex) //캐릭터 인덱스 기반
-                return m_ListChar[i].GetCharData(eIndex);
+            int Char = Util.ConvertToInt(m_ListChar[i].GetCharData(CHAR_DATA.CHAR_INDEX));
+            if (CharIndex == Char)
+                return i;
         }
-        return null;
+        return -1;
     }
 
     /// <summary>
@@ -48,14 +56,20 @@ public class UserCharData
     public void CharUpdate(CHAR_DATA eIndex, object UpdateData, int iIndex)
     {
         //캐릭터 업데이트
-        m_ListChar[iIndex].CharUpdate(eIndex, UpdateData);
+        int iListIndex = GetIndexToCharIndx(iIndex);
+        if (iListIndex >= 0)
+            m_ListChar[iListIndex].CharUpdate(eIndex, UpdateData);
     }
     public bool ifCharLevelUp(int iIndex, List<Dictionary<string, object>> Table)
     {
-        return m_ListChar[iIndex].ifCharLevelUP(Table);
+        int iListIndex = GetIndexToCharIndx(iIndex);
+        if (iListIndex >= 0)
+            return m_ListChar[iListIndex].ifCharLevelUP(Table);
+        else
+            return false;
     }
-
-
+    //캐릭터 인덱스 기반 데이터 이므로
+    
     /// <summary>
     /// Save data
     /// </summary>
