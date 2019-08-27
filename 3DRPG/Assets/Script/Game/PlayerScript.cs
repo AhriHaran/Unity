@@ -9,6 +9,13 @@ public enum KEY_INPUT
     KEY_NONE,
 }
 
+public enum KEY_TYPE
+{
+    KEY_ATTACK,
+    KEY_EVASION,
+    KEY_UITIMATE,
+}
+//소모 SP
 
 public class PlayerScript : MonoBehaviour
 {
@@ -17,6 +24,13 @@ public class PlayerScript : MonoBehaviour
         public int st_iIndex;  //콤보 인덱스
         public int st_iKey; //키
         public KEY_INPUT st_eInput;  //키 입력 타입
+    }
+
+    public struct st_Ultimate
+    {
+        public int st_iKey; //키
+        public KEY_INPUT st_eInput;  //키 입력 타입
+        public int st_iSpendSP;
     }
 
     public float m_fSpeed = 1.0f;   //이동속도
@@ -38,10 +52,11 @@ public class PlayerScript : MonoBehaviour
     //공격 관련
     private List<List<st_Key>> m_ListComboKey = new List<List<st_Key>>();
     private List<GameObject> m_ListKey = new List<GameObject>();
+    private st_Ultimate m_UltimateSkill = new st_Ultimate();
     private KEY_INPUT m_eInput; //입력 방식
     private bool m_bAttack;
     public int m_iCurKey;  //현재 콤보 단계
-    public float m_fAttackTime = 1.5f;  //공격 유지 시간
+    public float m_fAttackTime = 1.0f;  //공격 유지 시간
     public float m_fCurAttackTime = 0.0f;   //현재 공격 후 걸린시간.
 
     //플레이어의 조종에 따른 스크립트
@@ -120,19 +135,28 @@ public class PlayerScript : MonoBehaviour
 
         string strExcel = "Excel/CharacterExcel/" + Util.ConvertToString(m_iIndex) + "_KeyControl";
         var Key = EXCEL.ExcelLoad.Read(strExcel);
+        string[] KeyList = Key[0]["Key"].ToString().Split(',');
+        KeyList = KeyList[0].Split(';');
 
-        for(int i = 0; i < Key.Count; i++)
+        m_UltimateSkill.st_eInput = (KEY_INPUT)Util.ConvertToInt(KeyList[0]);
+        m_UltimateSkill.st_iKey = Util.ConvertToInt(KeyList[1]);
+        m_UltimateSkill.st_iSpendSP = Util.ConvertToInt(KeyList[2]);
+        //키, 입력 타입, 소모값
+
+        for (int i = 1; i < Key.Count; i++)
         {
             string index = Key[i]["Index"].ToString();
-            string[] KeyList = Key[i]["Key"].ToString().Split(',');
+            KeyList = Key[i]["Key"].ToString().Split(',');
+            
             List<st_Key> ListNode = new List<st_Key>();
             for (int j = 0; j < KeyList.Length; j++)
             {
                 st_Key Node = new st_Key();
-                string[] vs = KeyList[j].Split(';');
+                string [] NodeKey = KeyList[j].Split(';');
+    
                 Node.st_iIndex = j;
-                Node.st_iKey = Util.ConvertToInt(vs[0]);
-                Node.st_eInput = (KEY_INPUT)Util.ConvertToInt(vs[1]);
+                Node.st_iKey = Util.ConvertToInt(NodeKey[0]);
+                Node.st_eInput = (KEY_INPUT)Util.ConvertToInt(NodeKey[1]);
                 ListNode.Add(Node);
             }
             m_ListComboKey.Add(ListNode);
@@ -163,7 +187,7 @@ public class PlayerScript : MonoBehaviour
         if (CollectKeyInput())
         {
             //제대로 클릭 하였다.
-            m_PlayerAnimator.SetBool("ClickAttack", true);
+            m_PlayerAnimator.SetBool("Attack", true);
             m_PlayerAnimator.SetInteger("ComboCount", m_iCurKey);
             m_fCurAttackTime = 0.0f;    //콤보 성공시 초기화
             m_iCurKey++;
@@ -171,7 +195,7 @@ public class PlayerScript : MonoBehaviour
         else
         {
             m_iCurKey = 0;
-            m_PlayerAnimator.SetBool("ClickAttack", false);
+            m_PlayerAnimator.SetBool("Attack", false);
             m_PlayerAnimator.SetInteger("ComboCount", m_iCurKey);
         }
     }
@@ -186,8 +210,22 @@ public class PlayerScript : MonoBehaviour
     {
         //궁극기
         //SP가 특정 이상이면 궁극기 발동 하지만 SP가 특정 이하면 기본 공격 콤보
-
-
+        m_eInput = KEY_INPUT.KEY_CLICK;
+        m_bAttack = true;
+        if (CollectKeyInput())
+        {
+            //제대로 클릭 하였다.
+            m_PlayerAnimator.SetBool("Ultimate", true);
+            m_PlayerAnimator.SetInteger("ComboCount", m_iCurKey);
+            m_fCurAttackTime = 0.0f;    //콤보 성공시 초기화
+            m_iCurKey++;
+        }
+        else
+        {
+            m_iCurKey = 0;
+            m_PlayerAnimator.SetBool("Ultimate", false);
+            m_PlayerAnimator.SetInteger("ComboCount", m_iCurKey);
+        }
     }
 
     bool CollectKeyInput()
@@ -236,11 +274,11 @@ public class PlayerScript : MonoBehaviour
             if(m_bAttack)
             {
                 m_fCurAttackTime += Time.deltaTime;
-                if(m_fCurAttackTime >= m_fAttackTime)
+                if(m_fCurAttackTime >= m_fAttackTime)   //모든 게 초기화
                 {
                     m_bAttack = false;
-                    m_PlayerAnimator.SetBool("ClickAttack", false);
-                    m_PlayerAnimator.SetBool("PressAttack", false);
+                    m_PlayerAnimator.SetBool("Attack", false);
+                    m_PlayerAnimator.SetBool("Ultimate", false);
                     m_iCurKey = 0;
                     m_PlayerAnimator.SetInteger("ComboCount", m_iCurKey);
                     m_fCurAttackTime = 0.0f;

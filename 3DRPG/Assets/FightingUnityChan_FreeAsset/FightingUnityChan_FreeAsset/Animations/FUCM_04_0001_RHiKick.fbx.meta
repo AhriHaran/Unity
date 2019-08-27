@@ -1097,7 +1097,7 @@ ModelImporter:
       firstFrame: 0
       lastFrame: 44
       wrapMode: 0
-      orientationOffsetY: 0
+      orientationOffsetY: -30
       level: 0
       cycleOffset: 0
       loop: 0
@@ -1114,7 +1114,15 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.33193275
+        functionName: Hit
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 503b7ff8ae4ed7f4491cf16102acc3e4,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1
