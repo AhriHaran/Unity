@@ -58,9 +58,8 @@ public class GameScene : MonoBehaviour
         //m_EnemyMangaer = new EnemyManager(m_arrObject[(int)OBJECT_INDEX.OBJECT_ENEMY].transform, Info, Table);
         //에너미 셋팅
 
-
         var vecPos = m_MapManager.ReturnEventPos();
-        m_PlayerManager.SetPosition(0, vecPos[0]);
+        m_PlayerManager.PlayerSet(0, vecPos[0]);  //가장 첫번째 캐릭터와, 포지션 셋팅
         //스타트에서 처음 포지셔닝을 셋팅
         
         m_CallBack(m_PlayerManager.GetCharTR());    //카메라 콜백 함수 선언
@@ -105,7 +104,7 @@ public class GameScene : MonoBehaviour
         //세이브 데이터
         //변경된 데이터를 저장하고 로비로 돌아간다.
         UserInfo.instance.AllSave();
-
+        GameManager.instance.ResetData();
         Time.timeScale = 1.0f;
         LoadScene.SceneLoad("LobbyScene");
     }

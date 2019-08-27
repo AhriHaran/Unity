@@ -8,7 +8,7 @@ public class PlayerManager
     public PlayerManager(Transform Parent)
     {
         int[] iarr = GameManager.instance.ReturnPlayerList();
-
+        //초기 셋팅만해놓는다.
         foreach (int i in iarr)
         {
             if(i != -1)
@@ -24,13 +24,12 @@ public class PlayerManager
                     //해당 캐릭터의 배틀 애니메이터 셋팅
                     PlayerScript script = PlayerChar.GetComponent<PlayerScript>();
                     script.enabled = true;
-                    script.PlayerSet();
+                    script.PlayerInit();
                     //해당 캐릭터의 플레이어 스크립트 설정
 
                     //플레이어 동작 스크립트
                     PlayerChar.SetActive(false);
                     m_ListChar.Add(PlayerChar);
-
                     //플레이어 캐릭터 셋팅
                 }
                 catch (System.NullReferenceException ex)
@@ -41,9 +40,11 @@ public class PlayerManager
         }
     }
 
-    public void SetPosition(int iCount, Vector3 CharPos)
+    public void PlayerSet(int iCount, Vector3 CharPos)  //바꾸려는 캐릭터 인덱스, 
     {
-        int iCurChar = GameManager.instance.ReturnCurPlayer();
+        //0,1,2 기준이며, 첫번째는 무조건 0
+        int iCurChar = GameManager.instance.ReturnCurPlayer();  //현재 선택된 캐릭터를 호출
+        //세 명의 캐릭터 중 가장 첫번째는 0번째 캐릭터 부터 호출된다.
         if(iCurChar != iCount) //현재 메인 캐릭터랑 다른 경우
         {
             if(iCurChar != -1)
@@ -55,11 +56,14 @@ public class PlayerManager
             else
             {
                 m_ListChar[iCount].SetActive(true);
+                m_ListChar[iCount].GetComponent<PlayerScript>().PlayerSet();
                 m_ListChar[iCount].transform.position = CharPos; //포지션 셋팅
                 GameManager.instance.PlayerCharChange(iCount);
             }
         }
     }
+
+
 
     public Transform GetCharTR()
     {

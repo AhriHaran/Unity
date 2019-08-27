@@ -2144,12 +2144,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 503b7ff8ae4ed7f4491cf16102acc3e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_fSpeed: 7
+  m_fSpeed: 1
   m_fRotateSpeed: 2
   m_fAniSpeed: 1.5
-  m_fAttackTime: 0.7
-  m_fCurAttackTime: 0
   m_iIndex: 0
+  m_iCurKey: 0
+  m_fAttackTime: 1.5
+  m_fCurAttackTime: 0
 --- !u!143 &43209543998487113
 CharacterController:
   m_ObjectHideFlags: 0

@@ -238,9 +238,10 @@ public class GameManager : MonoSingleton<GameManager>
     /// <summary>
     /// 게임 내에서 캐릭터 변경 등에 대한 함수
     /// </summary>
-    public void PlayerCharChange(int iSelect)
+    public void PlayerCharChange(int iSelect)   //내가 선택한 리스트 기반이므로 0,1,2
     {
-        m_iCurGameChar = iSelect;
+        if(iSelect >=0 && iSelect <3)
+            m_iCurGameChar = m_ListCharIndex[iSelect];
     }
     public int ReturnCurPlayer()
     {
