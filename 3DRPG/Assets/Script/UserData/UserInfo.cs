@@ -19,7 +19,7 @@ public class UserInfo : GSingleton<UserInfo>
         FirstLoadScene first = GameObject.Find("FirstLoad").GetComponent<FirstLoadScene>();
         UnityEvent Event = new UnityEvent();
         Event.AddListener(first.UserInfoComplete);
-
+        Event.Invoke();
         if (JSON.JsonUtil.FileCheck("UserInfoData"))
         {
             //해당 데이터를 확인,
@@ -44,8 +44,7 @@ public class UserInfo : GSingleton<UserInfo>
             }
         }
         //유저의 캐릭터 데이터를 먼저 받아주고, 인벤토리를 받는다.
-        
-        Event.Invoke();
+       
     }
 
     /// <summary>

@@ -20,25 +20,31 @@ public class UserInventory
     {
         //JSON 데이터와 테이블 데이터를 통해서 셋팅
         //UserStigmaData, UserWeaponData -> Json
-        ItemInfoData[] Weapon = JSON.JsonUtil.LoadArrJson<ItemInfoData>(INVENTORY_TYPE.INVENTORY_WEAPON.ToString());   //웨폰 리스트
-        m_ListInven[(int)INVENTORY_TYPE.INVENTORY_WEAPON] = new List<ItemData>();
-
-        foreach (var W in Weapon)
+        if(JSON.JsonUtil.FileCheck(INVENTORY_TYPE.INVENTORY_WEAPON.ToString()))
         {
-            ItemData Data = new ItemData(W);
-            m_ListInven[(int)INVENTORY_TYPE.INVENTORY_WEAPON].Add(Data);
+            ItemInfoData[] Weapon = JSON.JsonUtil.LoadArrJson<ItemInfoData>(INVENTORY_TYPE.INVENTORY_WEAPON.ToString());   //웨폰 리스트
+            m_ListInven[(int)INVENTORY_TYPE.INVENTORY_WEAPON] = new List<ItemData>();
+
+            foreach (var W in Weapon)
+            {
+                ItemData Data = new ItemData(W);
+                m_ListInven[(int)INVENTORY_TYPE.INVENTORY_WEAPON].Add(Data);
+            }
+            //무기 셋팅
         }
-        //무기 셋팅
 
-        ItemInfoData[] stigma = JSON.JsonUtil.LoadArrJson<ItemInfoData>(INVENTORY_TYPE.INVENTORY_STIGMA.ToString());  //스티그마 리스트
-        m_ListInven[(int)INVENTORY_TYPE.INVENTORY_STIGMA] = new List<ItemData>();
-
-        foreach (var S in stigma)
+        if (JSON.JsonUtil.FileCheck(INVENTORY_TYPE.INVENTORY_STIGMA.ToString()))
         {
-            ItemData Item = new ItemData(S);
-            m_ListInven[(int)INVENTORY_TYPE.INVENTORY_STIGMA].Add(Item);
+            ItemInfoData[] stigma = JSON.JsonUtil.LoadArrJson<ItemInfoData>(INVENTORY_TYPE.INVENTORY_STIGMA.ToString());  //스티그마 리스트
+            m_ListInven[(int)INVENTORY_TYPE.INVENTORY_STIGMA] = new List<ItemData>();
+
+            foreach (var S in stigma)
+            {
+                ItemData Item = new ItemData(S);
+                m_ListInven[(int)INVENTORY_TYPE.INVENTORY_STIGMA].Add(Item);
+            }
+            //성흔 TCB로 미리 구분
         }
-        //성흔 TCB로 미리 구분
     }
     public object GetItemForList(int inventoryIndex, INVENTORY_TYPE eType, ITEM_DATA eIndex)
     {

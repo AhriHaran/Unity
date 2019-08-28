@@ -212,20 +212,30 @@ public class PlayerScript : MonoBehaviour
         //SP가 특정 이상이면 궁극기 발동 하지만 SP가 특정 이하면 기본 공격 콤보
         m_eInput = KEY_INPUT.KEY_CLICK;
         m_bAttack = true;
-        if (CollectKeyInput())
+
+        if(m_fCurSP >= m_UltimateSkill.st_iSpendSP && m_UltimateSkill.st_eInput == m_eInput)
         {
-            //제대로 클릭 하였다.
-            m_PlayerAnimator.SetBool("Ultimate", true);
-            m_PlayerAnimator.SetInteger("ComboCount", m_iCurKey);
-            m_fCurAttackTime = 0.0f;    //콤보 성공시 초기화
-            m_iCurKey++;
+            //sp가 다 모이면 궁극기 사용
+
         }
         else
         {
-            m_iCurKey = 0;
-            m_PlayerAnimator.SetBool("Ultimate", false);
-            m_PlayerAnimator.SetInteger("ComboCount", m_iCurKey);
+            if (CollectKeyInput())
+            {
+                //제대로 클릭 하였다.
+                m_PlayerAnimator.SetBool("Ultimate", true);
+                m_PlayerAnimator.SetInteger("ComboCount", m_iCurKey);
+                m_fCurAttackTime = 0.0f;    //콤보 성공시 초기화
+                m_iCurKey++;
+            }
+            else
+            {
+                m_iCurKey = 0;
+                m_PlayerAnimator.SetBool("Ultimate", false);
+                m_PlayerAnimator.SetInteger("ComboCount", m_iCurKey);
+            }
         }
+
     }
 
     bool CollectKeyInput()

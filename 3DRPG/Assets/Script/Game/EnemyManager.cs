@@ -2,25 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum WAVE_STATE
+{
+    WAVE_NONE,  //아직 웨이브가 남아있다.
+    WAVE_CLEAR, //현재 웨이브 클리어
+    WAVE_END,    //웨이브가 끝났다.
+    WAVE_FAILED,    //플레이어 캐릭터가 죽었다.
+}
+
 public class EnemyManager
 {
-    public enum WAVE_STATE
-    {
-        WAVE_NONE,  //아직 웨이브가 남아있다.
-        WAVE_CLEAR, //현재 웨이브 클리어
-        WAVE_END,    //웨이브가 끝났다.
-    }
-    
     int m_iMaxWave;
     int m_iCurWave;
     List<GameObject> m_WaveObject = new List<GameObject>(); //웨이브 오브젝트를 관리
     List<List<GameObject>> m_ListEnemyObject = new List<List<GameObject>>();
 
-    public EnemyManager(Transform Parent, List<Dictionary<string, object>> Info, List<Dictionary<string, object>> Table)
+    public EnemyManager(Transform Parent, List<Dictionary<string, object>> Pos, List<Dictionary<string, object>> Info)
     {
         //엑셀을 읽어와서
         //MaxWave, CurWave,	Prefab	LocX	LocY	LocZ	QuaW	QuaX	QuaY	QuaZ	ScaleX	ScaleY	ScaleZ
-        m_iMaxWave = int.Parse(Info[0]["MaxWave"].ToString());
+        m_iMaxWave = int.Parse(Pos[0]["MaxWave"].ToString());
         //전체 웨이브 숫자
         m_iCurWave = 0;
         //현재 웨이브 숫자
@@ -35,25 +36,23 @@ public class EnemyManager
 
             GameObject WaveObject = ResourceLoader.CreatePrefab("Prefabs/Wave", Parent);
             WaveObject.name = i.ToString() + "Wave";
-            for(int j = 0; j < Info.Count; j++)
+            for(int j = 0; j < Pos.Count; j++)
             {
-                if(i == int.Parse(Info[j]["CurWave"].ToString()))
+                if(i == int.Parse(Pos[j]["CurWave"].ToString()))
                 {
-                    int Index = int.Parse(Info[j]["Index"].ToString());   //에너미 인덱스
-                    string Rote = "Enemy/" + Table[Index][CHAR_DATA.CHAR_INDEX.ToString()].ToString() + "/Prefabs/"
-                        + Table[Index][CHAR_DATA.CHAR_NAME.ToString()].ToString();
-
+                    int Index = int.Parse(Pos[j]["Index"].ToString());   //에너미 인덱스
+                    string Rote = "Enemy/" + Index.ToString() + "/Prefabs/" + Index.ToString();
                     GameObject Enemy = ResourceLoader.CreatePrefab(Rote, WaveObject.transform);//Wave 하위로 셋팅
-                    vecPos.Set(float.Parse(Info[j]["LocX"].ToString()), float.Parse(Info[j]["LocY"].ToString()), float.Parse(Info[j]["LocZ"].ToString()));   //좌표
-                    QueRot.Set(float.Parse(Info[j]["QuaX"].ToString()), float.Parse(Info[j]["QuaY"].ToString()), float.Parse(Info[j]["QuaZ"].ToString()), float.Parse(Info[j]["QuaW"].ToString()));   //회전
-                    vecSca.Set(float.Parse(Info[j]["ScaleX"].ToString()), float.Parse(Info[j]["ScaleY"].ToString()), float.Parse(Info[j]["ScaleZ"].ToString()));   //스케일
+                    vecPos.Set(float.Parse(Pos[j]["LocX"].ToString()), float.Parse(Pos[j]["LocY"].ToString()), float.Parse(Pos[j]["LocZ"].ToString()));   //좌표
+                    QueRot.Set(float.Parse(Pos[j]["QuaX"].ToString()), float.Parse(Pos[j]["QuaY"].ToString()), float.Parse(Pos[j]["QuaZ"].ToString()), float.Parse(Pos[j]["QuaW"].ToString()));   //회전
+                    vecSca.Set(float.Parse(Pos[j]["ScaleX"].ToString()), float.Parse(Pos[j]["ScaleY"].ToString()), float.Parse(Pos[j]["ScaleZ"].ToString()));   //스케일
 
                     Enemy.transform.SetPositionAndRotation(vecPos, QueRot);   //맵의 오브젝트
                     Enemy.transform.localScale = vecSca;
 
                     EnemyScript script = Enemy.GetComponent<EnemyScript>();
                     script.enabled = true;
-                    script.Setting(Index, Table);       //내부에 캐릭터 데이터 셋팅
+                    script.Setting(Index, Info);       //내부에 캐릭터 데이터 셋팅
                     Node.Add(Enemy);
                 }
             }

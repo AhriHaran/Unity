@@ -93,7 +93,6 @@ public class ItemSelectPanel : MonoBehaviour
                 UserInfo.instance.CharUpdate(eData, iCurItem, iCurChar);  //해당 아이템을 장착할 캐릭터
                 UserInfo.instance.InventoryUpdate(eInven, iCurItem, ITEM_DATA.ITEM_EQUIP_CHAR, iCurChar);   //아이템 또한 해당 캐릭터가 장착했다는 것을 알린다
                 UserInfo.instance.ItemUpdateForChar(eInven, iCurItem, true);    //해당 아이템 기준으로 능력치 업데이트
-
                 UserInfo.instance.UserCharSave();
                 UserInfo.instance.UserInvenSave();
                 //세이브 데이터

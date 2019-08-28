@@ -106,9 +106,8 @@ public class ResultPanel : MonoBehaviour
             string[] item = ClearItem[i].Split(';');
             GameObject Item = ResourceLoader.CreatePrefab("Prefabs/ItemSprite");
             Item.transform.SetParent(Grid.transform, false);
-            string sprite = item[0] + "Bronze";
-            Item.GetComponent<UISprite>().spriteName = sprite;
-            UserInfo.instance.InventoryUpdate((ITEM_TYPE)Util.ConvertToInt(item[0]), (INVENTORY_TYPE)int.Parse(item[1]), int.Parse(item[2]));
+            Item.GetComponent<ItemSprite>().Setting(Util.ConvertToInt(item[2]), (ITEM_TYPE)Util.ConvertToInt(item[0]), (INVENTORY_TYPE)Util.ConvertToInt(item[1]));
+            UserInfo.instance.InventoryUpdate((ITEM_TYPE)Util.ConvertToInt(item[0]), (INVENTORY_TYPE)Util.ConvertToInt(item[1]), Util.ConvertToInt(item[2]));
         }
         Grid.GetComponent<UIGrid>().Reposition(); //리 포지셔닝으로 그리드 재정렬
         m_ItemRoot.GetComponent<UIScrollView>().ResetPosition();

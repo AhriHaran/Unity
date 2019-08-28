@@ -32,6 +32,22 @@ public class CharInfoPanel : MonoBehaviour
 
     private void OnEnable()
     {
+        GameManager.instance.DestroyModel();
+        int iCurSelect = GameManager.instance.ReturnCurSelectChar();
+        GameManager.instance.CreateModel(iCurSelect);
+        GameManager.instance.ModelRotate(new Vector3(0, -30, 0));
+        GameManager.instance.ViewWeapon(true, false);
+        Vector3 vec = Camera.main.transform.position;
+        vec.x = 1;
+        Camera.main.transform.position = vec;
+    }
+
+    private void OnDisable()
+    {
+        //이전으로 돌아갈 시 
+        Vector3 vec = Camera.main.transform.position;
+        vec.x = 0;
+        Camera.main.transform.position = vec;
     }
 
     public void UiOnOff(CHAR_INFO_UI eIndex)

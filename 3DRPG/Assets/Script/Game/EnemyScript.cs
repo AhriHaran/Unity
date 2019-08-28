@@ -19,6 +19,7 @@ public class EnemyScript : MonoBehaviour
     private CharacterData m_CharData;   //적의 데이터
     private Transform m_PlayerTR = null;   //플레이어 TR
     private UISlider m_HpSlider = null;
+
     private float m_fCurDeathTime = 0.0f;
     private float m_fDeathTime = 2.0f;
     private float m_fMaxHP = 0.0f; //맥스 HP
@@ -39,16 +40,14 @@ public class EnemyScript : MonoBehaviour
             m_eCurState = ENEMY_STATE.STATE_TRACE;
         else
             m_eCurState = ENEMY_STATE.STATE_WAIT;
-        m_fMaxHP = 100.0f;
-        m_fCurHP = m_fMaxHP;
-        StartCoroutine(StateAction());
-        StartCoroutine(StateCheck(0.2f));
     }
 
     public void Setting(int iIndex, List<Dictionary<string, object>> CharInfo)
     {
         m_iIndex = iIndex;
-        //m_CharData = new CharacterData(iIndex, CharInfo);
+        m_CharData = new CharacterData(m_iIndex, CharInfo);
+        m_fMaxHP = Util.ConvertToInt(m_CharData.GetCharData(CHAR_DATA.CHAR_MAX_HP));
+        m_fCurHP = m_fMaxHP;
     }
 
     public void TrSetting(Transform Player)
@@ -67,6 +66,7 @@ public class EnemyScript : MonoBehaviour
                 m_eCurState = ENEMY_STATE.STATE_NONE;
                 gameObject.SetActive(false);
             }
+            //죽었다.
         }
     }
 
@@ -101,19 +101,19 @@ public class EnemyScript : MonoBehaviour
                 case ENEMY_STATE.STATE_WAIT:    //대기 상태
                     m_Animator.SetBool("Attack", false);
                     m_Animator.SetBool("Moving", false);
-                    m_NavMeshAgent.Stop();
+                    m_NavMeshAgent.isStopped = true;
                     break;
                 case ENEMY_STATE.STATE_ATTACK:  
                     m_Animator.SetBool("Attack", true);
                     m_Animator.SetBool("Moving", false);
                     transform.LookAt(m_PlayerTR);
-                    m_NavMeshAgent.Stop();
+                    m_NavMeshAgent.isStopped = true;
                     break;
                 case ENEMY_STATE.STATE_TRACE:
                     m_Animator.SetBool("Attack", false);
                     m_Animator.SetBool("Moving", true);
                     m_NavMeshAgent.SetDestination(m_PlayerTR.position);
-                    m_NavMeshAgent.Resume();
+                    m_NavMeshAgent.isStopped = false;
                     break;
             }
             yield return null;
@@ -141,7 +141,7 @@ public class EnemyScript : MonoBehaviour
 
             if (iCri == (int)fCRI)
             {
-                iAtk += (iCri * 10);
+                iAtk += (iCri * 10);    //크리티컬!
             }
 
             m_fCurHP -= (float)iAtk;
@@ -153,14 +153,14 @@ public class EnemyScript : MonoBehaviour
                 m_Animator.SetBool("Attack", false);
                 m_Animator.SetBool("Moving", false);
                 m_Animator.SetTrigger("Death");
-                m_NavMeshAgent.Stop();
+                m_NavMeshAgent.isStopped = true;
                 StopAllCoroutines();
             }
 
             float fHP = ((float)m_fCurHP / (float)m_fMaxHP);
             m_HpSlider.value = fHP;
 
-            m_HpSlider.GetComponentInChildren<UILabel>().text = "Enemy";//에너미 이름
+            m_HpSlider.GetComponentInChildren<UILabel>().text =Util.ConvertToString(m_CharData.GetCharData(CHAR_DATA.CHAR_NAME));//에너미 이름
         }
     }
 }

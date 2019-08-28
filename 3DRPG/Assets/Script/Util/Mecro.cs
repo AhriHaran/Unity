@@ -1,7 +1,8 @@
 ﻿public enum POOL_INDEX
 {
     POOL_USER_CHAR,
-    POOL_ENEMY_CHAR,
+    POOL_HP_ITEM,
+    POOL_SP_ITEM,
 }
 
 public enum USER_INFO

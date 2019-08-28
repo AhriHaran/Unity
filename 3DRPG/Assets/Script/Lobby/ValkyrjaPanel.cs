@@ -78,6 +78,7 @@ public class ValkyrjaPanel : MonoBehaviour
         m_GridPanel.GetComponent<UIScrollView>().ResetPosition();
         m_GridPanel.GetComponent<UIPanel>().Refresh();
 
+        GameManager.instance.DestroyModel();
         CharInfoSelect(Util.ConvertToInt(CharList[0].GetCharData(CHAR_DATA.CHAR_INDEX)));  //첫번째로 셋팅
     }
 

@@ -80,6 +80,7 @@ public class CharObjectPool : MonoBehaviour
         //크리에이트
         CharObject Item = new CharObject();
         Item.st_Object = ResourceLoader.CreatePrefab(m_strName, parent);
+        //무기관련 정보가 있다면 셋팅
         Item.st_Object.SetActive(false);
         Item.st_Index = m_iCurIndex;
         return Item;

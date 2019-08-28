@@ -58,47 +58,49 @@ public class FirstLoadScene : MonoBehaviour
 
             CharInfoData[] Char = new CharInfoData[1];
             Char[0] = new CharInfoData(0, ITEM_TYPE.ITEM_GAUNTLET);
+            Char[0].CharWeapon = 0;
             string CharData = JSON.JsonUtil.ToJson<CharInfoData>(Char);
             Debug.Log(CharData);
             JSON.JsonUtil.CreateJson("UserCharInfoData", CharData);
             //초기 캐릭터 데이터 JSON
 
             ItemInfoData[] Item = new ItemInfoData[1];
-            Item[0] = new ItemInfoData(ITEM_TYPE.ITEM_GAUNTLET, 0);
+            Item[0] = new ItemInfoData(ITEM_TYPE.ITEM_GAUNTLET, 0);//아이템 타입, 아이템 인덱스
+            Item[0].ItemEquipChar = 0;
             string WeaponData = JSON.JsonUtil.ToJson<ItemInfoData>(Item);
             Debug.Log(WeaponData);
             JSON.JsonUtil.CreateJson(INVENTORY_TYPE.INVENTORY_WEAPON.ToString(), WeaponData);
 
-            ItemInfoData[] StigmaList = new ItemInfoData[3];
-            for (int i = 0; i < 3; i++)
-            {
-                try
-                {
-                    ITEM_TYPE type = ITEM_TYPE.ITEM_NONE;
-                    if (i == 0)
-                    {
-                        type = ITEM_TYPE.ITEM_STIGMA_TOP;
-                    }
-                    else if (i == 1)
-                    {
-                        type = ITEM_TYPE.ITEM_STIGMA_CENTER;
-                    }
-                    else if (i == 2)
-                    {
-                        type = ITEM_TYPE.ITEM_STIGMA_BOTTOM;
+            //ItemInfoData[] StigmaList = new ItemInfoData[3];
+            //for (int i = 0; i < 3; i++)
+            //{
+            //    try
+            //    {
+            //        ITEM_TYPE type = ITEM_TYPE.ITEM_NONE;
+            //        if (i == 0)
+            //        {
+            //            type = ITEM_TYPE.ITEM_STIGMA_TOP;
+            //        }
+            //        else if (i == 1)
+            //        {
+            //            type = ITEM_TYPE.ITEM_STIGMA_CENTER;
+            //        }
+            //        else if (i == 2)
+            //        {
+            //            type = ITEM_TYPE.ITEM_STIGMA_BOTTOM;
 
-                    }
-                    StigmaList[i] = new ItemInfoData(type, 0);
-                }
-                catch (System.NullReferenceException ex)
-                {
-                    Debug.Log(ex);
-                }
-            }
-            string Stigma = JSON.JsonUtil.ToJson<ItemInfoData>(StigmaList);
-            Debug.Log(Stigma);
-            JSON.JsonUtil.CreateJson(INVENTORY_TYPE.INVENTORY_STIGMA.ToString(), Stigma);
-            //유저의 초기 데이터들
+            //        }
+            //        StigmaList[i] = new ItemInfoData(type, 0);
+            //    }
+            //    catch (System.NullReferenceException ex)
+            //    {
+            //        Debug.Log(ex);
+            //    }
+            //}
+            //string Stigma = JSON.JsonUtil.ToJson<ItemInfoData>(StigmaList);
+            //Debug.Log(Stigma);
+            //JSON.JsonUtil.CreateJson(INVENTORY_TYPE.INVENTORY_STIGMA.ToString(), Stigma);
+            ////유저의 초기 데이터들
 
             UserInfo.instance.Init();
             m_UserCreate.gameObject.SetActive(false);

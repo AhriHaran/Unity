@@ -22,6 +22,12 @@ public class PlayerManager
                     GameObject PlayerChar = ResourceLoader.CreatePrefab(CharRoute, Parent);
                     PlayerChar.GetComponent<Animator>().runtimeAnimatorController = UserInfo.instance.GetCharAnimator(i, CHAR_ANIMATOR.CHAR_BATTLE_ANIMATOR) as RuntimeAnimatorController;
                     //해당 캐릭터의 배틀 애니메이터 셋팅
+
+                    int iIndex =Util.ConvertToInt(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_WEAPON_INDEX, iarr[i]));
+                    ITEM_TYPE eType = (ITEM_TYPE)Util.ConvertToInt(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_WEAPON_TYPE, iarr[i]));
+
+                    PlayerChar.GetComponent<WeaponPoint>().WeaponSet(iIndex, eType);
+                    PlayerChar.GetComponent<WeaponPoint>().ViewWeapon(true, true);
                     PlayerScript script = PlayerChar.GetComponent<PlayerScript>();
                     script.enabled = true;
                     script.PlayerInit();

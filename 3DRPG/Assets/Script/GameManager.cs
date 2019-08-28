@@ -143,6 +143,7 @@ public class GameManager : MonoSingleton<GameManager>
     {
         if (m_SelectChar != null)
         {
+            m_SelectChar.GetComponent<WeaponPoint>().ViewWeapon(false, false);
             CharPoolManager.instance.PushToPool(POOL_INDEX.POOL_USER_CHAR.ToString(), m_iCurSelectChar, m_SelectChar);
             m_SelectChar = null;
             m_SelectCharMain.transform.DetachChildren();
@@ -161,29 +162,24 @@ public class GameManager : MonoSingleton<GameManager>
             //캐릭터 선택하면 메인 화면에 해당 캐릭터의 프리펩이 뜬다.
         }
     }
-    public void ModelSetting(Vector3 vRotate, bool bSet)
-    {
-        if (m_SelectChar != null)
-        {
-            if (bSet)
-            {
-                ModelRotate(vRotate);
-                Vector3 Local = Camera.main.transform.localPosition;
-                Local.x = 1;
-                Camera.main.transform.position = Local;
-            }
-            else
-            {
-                ModelRotate(new Vector3(0, 0, 0));
-                Vector3 Local = Camera.main.transform.localPosition;
-                Local.x = 0;
-                Camera.main.transform.position = Local;
-            }
-        }
-    }
     public void ModelRotate(Vector3 vRotate)
     {
-        m_SelectChar.transform.localRotation = Quaternion.Euler(vRotate);
+        if (m_SelectChar != null)
+            m_SelectChar.transform.localRotation = Quaternion.Euler(vRotate);
+    }
+    public void ViewWeapon(bool bView,  bool bEffect)
+    {
+        //무기 보이기
+        if (m_SelectChar != null)
+        {
+            int iWeapon = Util.ConvertToInt(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_WEAPON_INDEX, m_iCurSelectChar));
+            if (iWeapon >= 0)
+            {
+                ITEM_TYPE Type = (ITEM_TYPE)Util.ConvertToInt(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_WEAPON_TYPE, m_iCurSelectChar));
+                m_SelectChar.GetComponent<WeaponPoint>().WeaponSet(iWeapon, Type);
+            }
+            m_SelectChar.GetComponent<WeaponPoint>().ViewWeapon(bView, bEffect);
+        }
     }
 
     /// <summary>

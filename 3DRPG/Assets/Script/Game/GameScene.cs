@@ -38,11 +38,11 @@ public class GameScene : MonoBehaviour
         m_CallBack = Camera.main.GetComponent<FollowCam>().CameraSet;   //카메라 셋팅 콜백
 
         string strStage = GameManager.instance.ReturnStage(); //첫시작    
-        string strFile = "Excel/StageExcel/" + strStage + "Stage_Map";  //해당스테이지의 맵 Info
+        string strFile = "Excel/StageExcel/" + strStage + "/Map_Object";  //해당스테이지의 맵 Info
         List<Dictionary<string, object>> Info = EXCEL.ExcelLoad.Read(strFile);
         strFile = "Excel/Table/Stage_Table";   //전체 맵의 table 데이터
         List<Dictionary<string, object>> Table = EXCEL.ExcelLoad.Read(strFile);
-        strFile = "Excel/StageExcel/" + strStage + "Stage_Event_Pos";   //해당 맵의 시작 등의 좌표
+        strFile = "Excel/StageExcel/" + strStage + "/Event_Pos";   //해당 맵의 시작 등의 좌표
         List<Dictionary<string, object>> Pos = EXCEL.ExcelLoad.Read(strFile);
         m_MapManager = new MapManager(m_arrObject[(int)OBJECT_INDEX.OBJECT_BACKGROUND].transform, Info, Table, Pos);
         //배경 오브젝트 설정
@@ -52,10 +52,11 @@ public class GameScene : MonoBehaviour
         m_PlayerManager = new PlayerManager(m_arrObject[(int)OBJECT_INDEX.OBJECT_PLAYER].transform);
         //플레이어 셋팅
 
-        strFile = "Excel/StageExcel/" + strStage + "Stage_Enemy";
+        strFile = "Excel/StageExcel/" + strStage + "/Enemy_Pos";
+        Pos = EXCEL.ExcelLoad.Read(strFile);
+        strFile = "Excel/StageExcel/" + strStage + "/Enemy_Info";
         Info = EXCEL.ExcelLoad.Read(strFile);
-        Table = EXCEL.ExcelLoad.Read("Excel/CharacterExcel/Enemy_Char_Info");
-        //m_EnemyMangaer = new EnemyManager(m_arrObject[(int)OBJECT_INDEX.OBJECT_ENEMY].transform, Info, Table);
+        m_EnemyMangaer = new EnemyManager(m_arrObject[(int)OBJECT_INDEX.OBJECT_ENEMY].transform, Pos, Info);
         //에너미 셋팅
 
         var vecPos = m_MapManager.ReturnEventPos();
@@ -63,10 +64,13 @@ public class GameScene : MonoBehaviour
         //스타트에서 처음 포지셔닝을 셋팅
         
         m_CallBack(m_PlayerManager.GetCharTR());    //카메라 콜백 함수 선언
-        //m_EnemyMangaer.TrSetting(m_PlayerManager.GetCharTR()); //타겟 셋팅
-       // m_EnemyMangaer.ActiveWave();    //액티브
+        m_EnemyMangaer.TrSetting(m_PlayerManager.GetCharTR()); //타겟 셋팅
+        m_EnemyMangaer.ActiveWave();    //액티브
 
-        //InvokeRepeating("WaveClear", 2.0f, 1.0f);
+        PoolManager.instance.Set(POOL_INDEX.POOL_HP_ITEM.ToString(), "Prefabs/HP", 10);
+        PoolManager.instance.Set(POOL_INDEX.POOL_SP_ITEM.ToString(), "Prefabs/HP", 10);
+
+        InvokeRepeating("WaveClear", 2.0f, 1.0f);
     }
 
     // Update is called once per frame
@@ -76,15 +80,15 @@ public class GameScene : MonoBehaviour
 
     void WaveClear()
     {
-        EnemyManager.WAVE_STATE eStae = EnemyManager.WAVE_STATE.WAVE_NONE;
+        WAVE_STATE eStae =WAVE_STATE.WAVE_NONE;
         m_EnemyMangaer.WaveClear(ref eStae);
         switch (eStae)
         {
-            case EnemyManager.WAVE_STATE.WAVE_CLEAR:
+            case WAVE_STATE.WAVE_CLEAR:
                 m_EnemyMangaer.TrSetting(m_PlayerManager.GetCharTR());
                 m_EnemyMangaer.ActiveWave();
                 break;
-            case EnemyManager.WAVE_STATE.WAVE_END:
+            case WAVE_STATE.WAVE_END:
                 /*
                  * 현재는 바로 이전 화면으로 로딩해주지만 아래와 같은 것이 필요
                  * 스테이지를 클리어하였기에 경험치와 아이템들을 정산해줘야 하며
@@ -108,7 +112,11 @@ public class GameScene : MonoBehaviour
         Time.timeScale = 1.0f;
         LoadScene.SceneLoad("LobbyScene");
     }
-
-
-
+    
 }
+
+/*
+ * 아이템 드랍
+ * 유저가 죽을 때 처리
+ * 궁극기
+ */
