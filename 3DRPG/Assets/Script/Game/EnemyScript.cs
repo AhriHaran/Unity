@@ -46,7 +46,7 @@ public class EnemyScript : MonoBehaviour
     {
         m_iIndex = iIndex;
         m_CharData = new CharacterData(m_iIndex, CharInfo);
-        m_fMaxHP = Util.ConvertToInt(m_CharData.GetCharData(CHAR_DATA.CHAR_MAX_HP));
+        m_fMaxHP = Util.ConvertToInt(m_CharData.GetEnemyData(CHAR_DATA.CHAR_MAX_HP));
         m_fCurHP = m_fMaxHP;
     }
 
@@ -160,7 +160,7 @@ public class EnemyScript : MonoBehaviour
             float fHP = ((float)m_fCurHP / (float)m_fMaxHP);
             m_HpSlider.value = fHP;
 
-            m_HpSlider.GetComponentInChildren<UILabel>().text =Util.ConvertToString(m_CharData.GetCharData(CHAR_DATA.CHAR_NAME));//에너미 이름
+            m_HpSlider.GetComponentInChildren<UILabel>().text =Util.ConvertToString(m_CharData.GetEnemyData(CHAR_DATA.CHAR_NAME));//에너미 이름
         }
     }
 }

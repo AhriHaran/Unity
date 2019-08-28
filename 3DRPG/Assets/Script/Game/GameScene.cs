@@ -27,7 +27,7 @@ public class GameScene : MonoBehaviour
         m_ResultPanel = GameObject.Find("GameUI").transform.GetChild(4).GetComponent<UIPanel>();    //결과창s   
         int ChildCount = transform.childCount;
         m_arrObject = new GameObject[(int)OBJECT_INDEX.OBJECT_END];
-        for (int i = 0; i < ChildCount; i++)
+        for (int i = 0; i < ChildCount -1; i++)
         {
             m_arrObject[i] = transform.GetChild(i).gameObject;
         }

@@ -22,13 +22,13 @@ public class PlayerScript : MonoBehaviour
     public struct st_Key
     {
         public int st_iIndex;  //콤보 인덱스
-        public int st_iKey; //키
+        public KEY_TYPE st_iKey; //키
         public KEY_INPUT st_eInput;  //키 입력 타입
     }
 
     public struct st_Ultimate
     {
-        public int st_iKey; //키
+        public KEY_TYPE st_iKey; //키
         public KEY_INPUT st_eInput;  //키 입력 타입
         public int st_iSpendSP;
     }
@@ -40,6 +40,7 @@ public class PlayerScript : MonoBehaviour
 
     private CharacterController m_Controller;
     private Animator m_PlayerAnimator;
+    private GameObject m_UltimateEffect;
     private bool m_bDie;
     private UISlider m_HpSlider = null;
     private UISlider m_SpSlider = null;
@@ -53,11 +54,13 @@ public class PlayerScript : MonoBehaviour
     private List<List<st_Key>> m_ListComboKey = new List<List<st_Key>>();
     private List<GameObject> m_ListKey = new List<GameObject>();
     private st_Ultimate m_UltimateSkill = new st_Ultimate();
-    private KEY_INPUT m_eInput; //입력 방식
     private bool m_bAttack;
+    public KEY_INPUT m_eInput;
     public int m_iCurKey;  //현재 콤보 단계
     public float m_fAttackTime = 1.0f;  //공격 유지 시간
     public float m_fCurAttackTime = 0.0f;   //현재 공격 후 걸린시간.
+    public float m_fCurPressTime = 0.0f;
+    public float m_fPressTime = 0.7f;
 
     //플레이어의 조종에 따른 스크립트
     // Start is called before the first frame update
@@ -102,6 +105,8 @@ public class PlayerScript : MonoBehaviour
         {
             v.GetComponent<PlayerKeyButton>().KeySetting(m_iIndex); //키 버튼 인덱스 교체
         }
+
+
     }
 
     public void PlayerInit()
@@ -115,9 +120,13 @@ public class PlayerScript : MonoBehaviour
             m_ListKey.Add(playerUI.transform.GetChild(i).gameObject);
         }
 
-        m_ListKey[0].GetComponent<UIEventTrigger>().onClick.Add(new EventDelegate(gameObject.GetComponent<PlayerScript>(), "OnAttack"));
+        m_ListKey[0].GetComponent<UIEventTrigger>().onPress.Add(new EventDelegate(gameObject.GetComponent<PlayerScript>(), "OnPress"));
+        m_ListKey[0].GetComponent<UIEventTrigger>().onRelease.Add(new EventDelegate(gameObject.GetComponent<PlayerScript>(), "OnAttack"));
+
         m_ListKey[1].GetComponent<UIEventTrigger>().onClick.Add(new EventDelegate(gameObject.GetComponent<PlayerScript>(), "OnEvasion"));
-        m_ListKey[2].GetComponent<UIEventTrigger>().onClick.Add(new EventDelegate(gameObject.GetComponent<PlayerScript>(), "OnUltimate"));
+
+        m_ListKey[2].GetComponent<UIEventTrigger>().onPress.Add(new EventDelegate(gameObject.GetComponent<PlayerScript>(), "OnPress"));
+        m_ListKey[2].GetComponent<UIEventTrigger>().onRelease.Add(new EventDelegate(gameObject.GetComponent<PlayerScript>(), "OnUltimate"));
 
         if (m_HpSlider == null && m_SpSlider == null)
         {
@@ -128,7 +137,7 @@ public class PlayerScript : MonoBehaviour
             m_fCurHP = m_fMaxHP;
 
             m_fMaxSP = float.Parse(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_MAX_SP, m_iIndex).ToString());
-            m_fCurSP = 0.0f;
+            m_fCurSP = m_fMaxSP;
         }
         m_Input = UI.transform.GetChild(5).GetComponentInChildren<UIJoystick>();
         //초기 셋팅
@@ -138,8 +147,8 @@ public class PlayerScript : MonoBehaviour
         string[] KeyList = Key[0]["Key"].ToString().Split(',');
         KeyList = KeyList[0].Split(';');
 
-        m_UltimateSkill.st_eInput = (KEY_INPUT)Util.ConvertToInt(KeyList[0]);
-        m_UltimateSkill.st_iKey = Util.ConvertToInt(KeyList[1]);
+        m_UltimateSkill.st_iKey = (KEY_TYPE)Util.ConvertToInt(KeyList[0]);
+        m_UltimateSkill.st_eInput = (KEY_INPUT)Util.ConvertToInt(KeyList[1]);
         m_UltimateSkill.st_iSpendSP = Util.ConvertToInt(KeyList[2]);
         //키, 입력 타입, 소모값
 
@@ -155,13 +164,16 @@ public class PlayerScript : MonoBehaviour
                 string [] NodeKey = KeyList[j].Split(';');
     
                 Node.st_iIndex = j;
-                Node.st_iKey = Util.ConvertToInt(NodeKey[0]);
+                Node.st_iKey = (KEY_TYPE)Util.ConvertToInt(NodeKey[0]);
                 Node.st_eInput = (KEY_INPUT)Util.ConvertToInt(NodeKey[1]);
                 ListNode.Add(Node);
             }
             m_ListComboKey.Add(ListNode);
         }
         //여기서 플레이어 키 셋팅
+
+        GameObject Effect = GameObject.Find("EffectObject");
+        m_UltimateEffect = Effect.transform.GetChild(0).gameObject;
     }
 
     //trail renderer
@@ -173,36 +185,59 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!m_bAttack)
+        if (!m_bAttack)
             KeyControll();
-        
     }
     
+    void OnPress()
+    {
+        StartCoroutine("OnPressTime");
+    }
+
+    IEnumerator OnPressTime()
+    {
+        while(true)
+        {
+            yield return null;
+            m_fCurPressTime += Time.deltaTime;
+            //처음 누를때 시간만 체크하고
+            if (m_fCurPressTime >= m_fPressTime)
+                m_eInput = KEY_INPUT.KEY_PRESS;
+            else if (m_fCurPressTime < m_fPressTime)
+                m_eInput = KEY_INPUT.KEY_CLICK;
+        }
+    }
+
     void OnAttack()
     {
         //공격 키
         //OnCl
-        m_eInput = KEY_INPUT.KEY_CLICK;
         m_bAttack = true;
+
         if (CollectKeyInput())
         {
             //제대로 클릭 하였다.
             m_PlayerAnimator.SetBool("Attack", true);
             m_PlayerAnimator.SetInteger("ComboCount", m_iCurKey);
             m_fCurAttackTime = 0.0f;    //콤보 성공시 초기화
+            m_fCurPressTime = 0.0f;
             m_iCurKey++;
         }
         else
         {
+            m_fCurAttackTime = m_fAttackTime;    //콤보 성공시 초기화
+            m_fCurPressTime = 0.0f;
             m_iCurKey = 0;
             m_PlayerAnimator.SetBool("Attack", false);
             m_PlayerAnimator.SetInteger("ComboCount", m_iCurKey);
         }
+        StopCoroutine("OnPressTime");
     }
 
     void OnEvasion()
     {
-        //회피 버튼
+        //회피 버튼, 회피 시에는 무적
+
 
     }
 
@@ -210,13 +245,16 @@ public class PlayerScript : MonoBehaviour
     {
         //궁극기
         //SP가 특정 이상이면 궁극기 발동 하지만 SP가 특정 이하면 기본 공격 콤보
-        m_eInput = KEY_INPUT.KEY_CLICK;
         m_bAttack = true;
-
+        
         if(m_fCurSP >= m_UltimateSkill.st_iSpendSP && m_UltimateSkill.st_eInput == m_eInput)
         {
-            //sp가 다 모이면 궁극기 사용
-
+            //sp가 다 모이고 올바른 키 타입이면
+            m_PlayerAnimator.SetTrigger("UltimateActive");
+            m_fCurSP -= m_UltimateSkill.st_iSpendSP;
+            m_UltimateEffect.transform.position = transform.position;
+            m_UltimateEffect.gameObject.SetActive(true);
+            m_fCurPressTime = 0.0f;
         }
         else
         {
@@ -226,16 +264,19 @@ public class PlayerScript : MonoBehaviour
                 m_PlayerAnimator.SetBool("Ultimate", true);
                 m_PlayerAnimator.SetInteger("ComboCount", m_iCurKey);
                 m_fCurAttackTime = 0.0f;    //콤보 성공시 초기화
+                m_fCurPressTime = 0.0f;
                 m_iCurKey++;
             }
             else
             {
+                m_fCurAttackTime = m_fAttackTime;    //콤보 성공시 초기화
+                m_fCurPressTime = 0.0f;
                 m_iCurKey = 0;
                 m_PlayerAnimator.SetBool("Ultimate", false);
                 m_PlayerAnimator.SetInteger("ComboCount", m_iCurKey);
             }
         }
-
+        StopCoroutine("OnPressTime");
     }
 
     bool CollectKeyInput()
@@ -272,8 +313,6 @@ public class PlayerScript : MonoBehaviour
             m_PlayerAnimator.speed = m_fAniSpeed;
         }
     }
-
-    //백턴
 
     IEnumerator CheckAttackState()
     {

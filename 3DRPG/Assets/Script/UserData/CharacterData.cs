@@ -50,12 +50,12 @@ public class CharacterData
     public CharacterData(int iIndex, List<Dictionary<string, object>> Table)
     {
         //에너미 등 테이블 기반의 데이터
-        NodeSetting(CHAR_DATA.CHAR_NAME, Table[iIndex][CHAR_DATA.CHAR_INDEX.ToString()]);    //캐릭터 인덱스
+        NodeSetting(CHAR_DATA.CHAR_INDEX, Table[iIndex][CHAR_DATA.CHAR_INDEX.ToString()]);    //캐릭터 인덱스
         NodeSetting(CHAR_DATA.CHAR_NAME, Table[iIndex][CHAR_DATA.CHAR_NAME.ToString()]);    //캐릭터 이름
-        NodeSetting(CHAR_DATA.CHAR_NAME, Table[iIndex][CHAR_DATA.CHAR_MAX_HP.ToString()]);    //캐릭터 HP
-        NodeSetting(CHAR_DATA.CHAR_NAME, Table[iIndex][CHAR_DATA.CHAR_ATK.ToString()]);    //캐릭터 ATK
-        NodeSetting(CHAR_DATA.CHAR_NAME, Table[iIndex][CHAR_DATA.CHAR_DEF.ToString()]);    //캐릭터 DEF
-        NodeSetting(CHAR_DATA.CHAR_NAME, Table[iIndex][CHAR_DATA.CHAR_CRI.ToString()]);    //캐릭터 CRI
+        NodeSetting(CHAR_DATA.CHAR_MAX_HP, Table[iIndex][CHAR_DATA.CHAR_MAX_HP.ToString()]);    //캐릭터 HP
+        NodeSetting(CHAR_DATA.CHAR_ATK, Table[iIndex][CHAR_DATA.CHAR_ATK.ToString()]);    //캐릭터 ATK
+        NodeSetting(CHAR_DATA.CHAR_DEF, Table[iIndex][CHAR_DATA.CHAR_DEF.ToString()]);    //캐릭터 DEF
+        NodeSetting(CHAR_DATA.CHAR_CRI, Table[iIndex][CHAR_DATA.CHAR_CRI.ToString()]);    //캐릭터 CRI
     }
 
     void NodeSetting(CHAR_DATA eIndex, object Data)
@@ -68,6 +68,16 @@ public class CharacterData
     public object GetCharData(CHAR_DATA eIndex)
     {   //해당 캐릭터 정보 오브젝트 반환
         return m_CharInfo[(int)eIndex][eIndex];
+    }
+
+    public object GetEnemyData(CHAR_DATA eIndex)
+    {
+        for(int i = 0; i < m_CharInfo.Count; i++)
+        {
+            if (m_CharInfo[i].ContainsKey(eIndex))
+                return m_CharInfo[i][eIndex];
+        }
+        return null;
     }
 
     public void CharUpdate(CHAR_DATA eIndex, object UpdateData)
