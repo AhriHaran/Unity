@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerManager
 {
     private List<GameObject> m_ListChar = new List<GameObject>();
-    public PlayerManager(Transform Parent)
+    public PlayerManager(Transform Parent, Transform Particle)
     {
         int[] iarr = GameManager.instance.ReturnPlayerList();
         //초기 셋팅만해놓는다.
@@ -26,17 +26,23 @@ public class PlayerManager
                     int iIndex =Util.ConvertToInt(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_WEAPON_INDEX, iarr[i]));
                     ITEM_TYPE eType = (ITEM_TYPE)Util.ConvertToInt(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_WEAPON_TYPE, iarr[i]));
 
+                    CharRoute = "Player/" + route + "/Particle/UltimateSkill";
+                    GameObject Ultimate = ResourceLoader.CreatePrefab(CharRoute);
+                    Ultimate.transform.SetParent(Particle, false);
+                    Ultimate.SetActive(false);
+
                     PlayerChar.GetComponent<WeaponPoint>().WeaponSet(iIndex, eType);
                     PlayerChar.GetComponent<WeaponPoint>().ViewWeapon(true, true);
                     PlayerScript script = PlayerChar.GetComponent<PlayerScript>();
                     script.enabled = true;
-                    script.PlayerInit();
+                    script.PlayerInit(Ultimate);
                     //해당 캐릭터의 플레이어 스크립트 설정
 
                     //플레이어 동작 스크립트
                     PlayerChar.SetActive(false);
                     m_ListChar.Add(PlayerChar);
                     //플레이어 캐릭터 셋팅
+                    //해당 캐릭터의 파티클 임팩트
                 }
                 catch (System.NullReferenceException ex)
                 {
@@ -69,7 +75,16 @@ public class PlayerManager
         }
     }
 
-
+    public bool PlayerDie()
+    {
+        for(int i = 0; i < m_ListChar.Count; i++)
+        {
+            if (!m_ListChar[i].activeSelf)
+                return false;
+        }
+        
+        return true;
+    }
 
     public Transform GetCharTR()
     {

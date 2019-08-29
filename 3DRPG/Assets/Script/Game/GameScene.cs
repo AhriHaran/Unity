@@ -11,6 +11,7 @@ public class GameScene : MonoBehaviour
         OBJECT_BACKGROUND = OBJECT_START,
         OBJECT_ENEMY,
         OBJECT_PLAYER,
+        OBJECT_PARTICLE,
         OBJECT_END,
     }
 
@@ -21,13 +22,15 @@ public class GameScene : MonoBehaviour
     public delegate void CallBack(Transform tr);    //캐릭터 변경등의 상황에서 카메라 셋팅
     private CallBack m_CallBack = null;
     private UIPanel m_ResultPanel;
+    private UIPanel m_FailPanel;
 
     private void Awake()
     {
         m_ResultPanel = GameObject.Find("GameUI").transform.GetChild(4).GetComponent<UIPanel>();    //결과창s   
+        m_FailPanel = GameObject.Find("GameUI").transform.GetChild(5).GetComponent<UIPanel>();    //결과창
         int ChildCount = transform.childCount;
         m_arrObject = new GameObject[(int)OBJECT_INDEX.OBJECT_END];
-        for (int i = 0; i < ChildCount -1; i++)
+        for (int i = 0; i < ChildCount; i++)
         {
             m_arrObject[i] = transform.GetChild(i).gameObject;
         }
@@ -49,7 +52,7 @@ public class GameScene : MonoBehaviour
         m_arrObject[(int)OBJECT_INDEX.OBJECT_BACKGROUND].GetComponent<NavMeshSurface>().BuildNavMesh();
         //네비메쉬 서페이스로 런타임 베이크
 
-        m_PlayerManager = new PlayerManager(m_arrObject[(int)OBJECT_INDEX.OBJECT_PLAYER].transform);
+        m_PlayerManager = new PlayerManager(m_arrObject[(int)OBJECT_INDEX.OBJECT_PLAYER].transform, m_arrObject[(int)OBJECT_INDEX.OBJECT_PARTICLE].transform);
         //플레이어 셋팅
 
         strFile = "Excel/StageExcel/" + strStage + "/Enemy_Pos";
@@ -65,10 +68,11 @@ public class GameScene : MonoBehaviour
         
         m_CallBack(m_PlayerManager.GetCharTR());    //카메라 콜백 함수 선언
         m_EnemyMangaer.TrSetting(m_PlayerManager.GetCharTR()); //타겟 셋팅
-        m_EnemyMangaer.ActiveWave();    //액티브
+        //m_EnemyMangaer.ActiveWave();    //액티브
+        
 
         PoolManager.instance.Set(POOL_INDEX.POOL_HP_ITEM.ToString(), "Prefabs/HP", 10);
-        PoolManager.instance.Set(POOL_INDEX.POOL_SP_ITEM.ToString(), "Prefabs/HP", 10);
+        PoolManager.instance.Set(POOL_INDEX.POOL_SP_ITEM.ToString(), "Prefabs/SP", 10);
 
         InvokeRepeating("WaveClear", 2.0f, 1.0f);
     }
@@ -76,6 +80,21 @@ public class GameScene : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        OnKeyInput();
+    }
+
+    void OnKeyInput()
+    {
+        if(Input.GetKeyDown(KeyCode.G))
+        {
+            GameObject Item = PoolManager.instance.PopFromPool(POOL_INDEX.POOL_SP_ITEM.ToString());
+            Item.transform.position = new Vector3(0, 2, 0);
+            Item.SetActive(true);
+        }
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            //죽을 때 시험
+        }
     }
 
     void WaveClear()
@@ -102,6 +121,15 @@ public class GameScene : MonoBehaviour
         }
     }
 
+    void PlayerDie()
+    {
+        if (m_PlayerManager.PlayerDie())
+        {
+            Time.timeScale = 0.0f;
+            m_FailPanel.gameObject.SetActive(true);
+        }
+    }
+
     public void OnClick()
     {
         //유저 인포 세이브
@@ -112,7 +140,7 @@ public class GameScene : MonoBehaviour
         Time.timeScale = 1.0f;
         LoadScene.SceneLoad("LobbyScene");
     }
-    
+ 
 }
 
 /*

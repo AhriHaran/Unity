@@ -33,7 +33,7 @@ public class PlayerScript : MonoBehaviour
         public int st_iSpendSP;
     }
 
-    public float m_fSpeed = 1.0f;   //이동속도
+    public float m_fSpeed = 5.0f;   //이동속도
     public float m_fRotateSpeed = 2.0f; //회전속도
     public float m_fAniSpeed = 1.5f;    //애니메이션 속도
     public int m_iIndex;    //플레이어 캐릭터 인덱스
@@ -86,17 +86,22 @@ public class PlayerScript : MonoBehaviour
      * 키 입력은 런타임으로 설정
      * 
      */
+
+    public void SliderUpdate()
+    {
+        float fHP = ((float)m_fCurHP / (float)m_fMaxHP);
+        float fSP = ((float)m_fCurSP / (float)m_fMaxSP);
+
+        m_HpSlider.value = fHP; //현재 HP
+        m_HpSlider.GetComponentInChildren<UILabel>().text = (m_fCurHP.ToString() + "/" + m_fMaxHP.ToString());//라벨
+        m_SpSlider.value = fSP; //현재 SP
+        m_SpSlider.GetComponentInChildren<UILabel>().text = (m_fCurSP.ToString() + "/" + m_fMaxSP.ToString());//라벨
+    }
     public void PlayerSet()
     {
         if (m_HpSlider != null && m_SpSlider != null)
         {
-            float fHP = ((float)m_fCurHP / (float)m_fMaxHP);
-            float fSP = ((float)m_fCurSP / (float)m_fMaxSP);
-
-            m_HpSlider.value = fHP; //현재 HP
-            m_HpSlider.GetComponentInChildren<UILabel>().text = (m_fCurHP.ToString() + "/" + m_fMaxHP.ToString());//라벨
-            m_SpSlider.value = fSP; //현재 SP
-            m_SpSlider.GetComponentInChildren<UILabel>().text = (m_fCurSP.ToString() + "/" + m_fMaxSP.ToString());//라벨
+            SliderUpdate();
         }
         //hp와 sp를 설정하고
 
@@ -109,10 +114,10 @@ public class PlayerScript : MonoBehaviour
 
     }
 
-    public void PlayerInit()
+    public void PlayerInit(GameObject Ultimate)
     {
         GameObject UI = GameObject.Find("GameUI");
-        GameObject playerUI = UI.transform.GetChild(5).gameObject;
+        GameObject playerUI = UI.transform.GetChild(6).gameObject;
         EventDelegate onClick = new EventDelegate(gameObject.GetComponent<PlayerScript>(), "OnClick");
         EventDelegate onPress = new EventDelegate(gameObject.GetComponent<PlayerScript>(), "OnPress");
         for (int i = 1; i < 4; i++)
@@ -137,9 +142,9 @@ public class PlayerScript : MonoBehaviour
             m_fCurHP = m_fMaxHP;
 
             m_fMaxSP = float.Parse(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_MAX_SP, m_iIndex).ToString());
-            m_fCurSP = m_fMaxSP;
+            m_fCurSP = 0.0f;
         }
-        m_Input = UI.transform.GetChild(5).GetComponentInChildren<UIJoystick>();
+        m_Input = playerUI.GetComponentInChildren<UIJoystick>();
         //초기 셋팅
 
         string strExcel = "Excel/CharacterExcel/" + Util.ConvertToString(m_iIndex) + "_KeyControl";
@@ -171,11 +176,9 @@ public class PlayerScript : MonoBehaviour
             m_ListComboKey.Add(ListNode);
         }
         //여기서 플레이어 키 셋팅
-
-        GameObject Effect = GameObject.Find("EffectObject");
-        m_UltimateEffect = Effect.transform.GetChild(0).gameObject;
+        m_UltimateEffect = Ultimate;
     }
-
+    
     //trail renderer
 
     void Start() //셋팅
@@ -253,6 +256,7 @@ public class PlayerScript : MonoBehaviour
             m_UltimateEffect.transform.position = transform.position;
             m_UltimateEffect.gameObject.SetActive(true);
             m_fCurPressTime = 0.0f;
+            SliderUpdate();
         }
         else
         {
@@ -355,6 +359,25 @@ public class PlayerScript : MonoBehaviour
                 //해당 함수 호출
             }      
         }
+    }
+
+    public void DropItem(POOL_INDEX eIndex, int iUpFactor, GameObject Item)
+    {
+        switch (eIndex)
+        {
+            case POOL_INDEX.POOL_HP_ITEM:   //hp회복
+                m_fCurHP += (float)iUpFactor;
+                if (m_fCurHP >= m_fMaxHP)
+                    m_fCurHP = m_fMaxHP;
+                break;
+            case POOL_INDEX.POOL_SP_ITEM:
+                m_fCurSP += (float)iUpFactor;
+                if (m_fCurSP >= m_fMaxSP)
+                    m_fCurSP = m_fMaxSP;
+                break;
+        }
+        PoolManager.instance.PushToPool(eIndex.ToString(), Item);
+        SliderUpdate();
     }
 }
 

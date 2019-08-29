@@ -25,7 +25,7 @@ public class EnemyScript : MonoBehaviour
     private float m_fMaxHP = 0.0f; //맥스 HP
     private float m_fCurHP = 0.0f; //현재 HP
 
-    public ENEMY_STATE m_eCurState; //적의 현재 스테이트
+    public ENEMY_STATE m_eCurState = ENEMY_STATE.STATE_WAIT; //적의 현재 스테이트
     public float m_fAttackArea = 7.0f;  //적과 나의 거리
     int m_iIndex = 0;
     //에너미 움직임을 담당하는 자체 스크립트
@@ -40,6 +40,14 @@ public class EnemyScript : MonoBehaviour
             m_eCurState = ENEMY_STATE.STATE_TRACE;
         else
             m_eCurState = ENEMY_STATE.STATE_WAIT;
+
+        StartCoroutine("StateCheck", 0.2f);
+        StartCoroutine("StateAction");
+    }
+
+    public void OnDisable()
+    {
+        StopAllCoroutines();
     }
 
     public void Setting(int iIndex, List<Dictionary<string, object>> CharInfo)
@@ -130,8 +138,6 @@ public class EnemyScript : MonoBehaviour
     public void Damege(float fATK, float fCRI)
     {
         //적이 죽으면 일정확률로 체력 회복 아이템과 SP 회복 아이템을 드랍한다.
-        //임시함수
-
         if(m_eCurState != ENEMY_STATE.STATE_DIE)
         {
             m_HpSlider.gameObject.SetActive(true);
@@ -155,6 +161,10 @@ public class EnemyScript : MonoBehaviour
                 m_Animator.SetTrigger("Death");
                 m_NavMeshAgent.isStopped = true;
                 StopAllCoroutines();
+
+                //죽으면 랜덤으로 
+
+
             }
 
             float fHP = ((float)m_fCurHP / (float)m_fMaxHP);
