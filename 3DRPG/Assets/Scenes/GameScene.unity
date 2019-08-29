@@ -1551,7 +1551,7 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 4
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  mTrueTypeFont: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 3}
   mFont: {fileID: 0}
   mText: "\uD68D\uB4DD \uC544\uC774\uD15C"
   mFontSize: 40
@@ -2407,7 +2407,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: -3.11e-43, y: 5e-44, z: 6e-45, w: 8e-45}
+  m_BoundingSphereOverride: {x: 0, y: 13972.359, z: 1e-45, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -2790,6 +2790,56 @@ PrefabInstance:
     - target: {fileID: 4450652140742498, guid: 5e34516f218eeda4a88e57f4e6fe310e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.0154
+      objectReference: {fileID: 0}
+    - target: {fileID: 198114588277123842, guid: 5e34516f218eeda4a88e57f4e6fe310e,
+        type: 3}
+      propertyPath: InitialModule.startSizeY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198114588277123842, guid: 5e34516f218eeda4a88e57f4e6fe310e,
+        type: 3}
+      propertyPath: InitialModule.startSizeZ.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198114588277123842, guid: 5e34516f218eeda4a88e57f4e6fe310e,
+        type: 3}
+      propertyPath: InitialModule.startRotationX.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198114588277123842, guid: 5e34516f218eeda4a88e57f4e6fe310e,
+        type: 3}
+      propertyPath: InitialModule.startRotationY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198502661295548622, guid: 5e34516f218eeda4a88e57f4e6fe310e,
+        type: 3}
+      propertyPath: CollisionModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198502661295548622, guid: 5e34516f218eeda4a88e57f4e6fe310e,
+        type: 3}
+      propertyPath: CollisionModule.collisionMessages
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198176483637470378, guid: 5e34516f218eeda4a88e57f4e6fe310e,
+        type: 3}
+      propertyPath: InitialModule.startSizeY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198176483637470378, guid: 5e34516f218eeda4a88e57f4e6fe310e,
+        type: 3}
+      propertyPath: InitialModule.startSizeZ.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198176483637470378, guid: 5e34516f218eeda4a88e57f4e6fe310e,
+        type: 3}
+      propertyPath: InitialModule.startRotationX.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198176483637470378, guid: 5e34516f218eeda4a88e57f4e6fe310e,
+        type: 3}
+      propertyPath: InitialModule.startRotationY.minMaxState
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e34516f218eeda4a88e57f4e6fe310e, type: 3}

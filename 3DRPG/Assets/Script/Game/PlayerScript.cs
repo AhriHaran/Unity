@@ -213,7 +213,6 @@ public class PlayerScript : MonoBehaviour
         //공격 키
         //OnCl
         m_bAttack = true;
-
         if (CollectKeyInput())
         {
             //제대로 클릭 하였다.
@@ -246,7 +245,6 @@ public class PlayerScript : MonoBehaviour
         //궁극기
         //SP가 특정 이상이면 궁극기 발동 하지만 SP가 특정 이하면 기본 공격 콤보
         m_bAttack = true;
-        
         if(m_fCurSP >= m_UltimateSkill.st_iSpendSP && m_UltimateSkill.st_eInput == m_eInput)
         {
             //sp가 다 모이고 올바른 키 타입이면
@@ -359,3 +357,4 @@ public class PlayerScript : MonoBehaviour
         }
     }
 }
+

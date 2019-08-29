@@ -23,6 +23,12 @@ public enum CHAR_ANIMATOR
     CHAR_BATTLE_ANIMATOR,
 }
 
+public enum TARGET
+{
+    TARGET_PLAYER,
+    TARGET_ENEMY,
+}
+
 public enum ITEM_TYPE   //아이템 테이블 이름
 {
     ITEM_NONE,
@@ -31,6 +37,19 @@ public enum ITEM_TYPE   //아이템 테이블 이름
     ITEM_STIGMA_BOTTOM,
     ITEM_GAUNTLET,  //주먹 아이템
     ITEM_SWORD,
+}
+
+public enum SKILL_PROPERTY  //스킬 속성
+{
+    SKILL_FIRE,
+    SKILL_ELECTRICITY,
+}
+
+public enum SKILL_TYPE
+{
+    TYPE_BUF,
+    TYPE_DEBUF,
+    TYPE_DEMAGE,
 }
 
 [System.Serializable]
