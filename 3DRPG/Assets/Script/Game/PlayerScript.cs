@@ -37,11 +37,11 @@ public class PlayerScript : MonoBehaviour
     public float m_fRotateSpeed = 2.0f; //회전속도
     public float m_fAniSpeed = 1.5f;    //애니메이션 속도
     public int m_iIndex;    //플레이어 캐릭터 인덱스
+    public bool m_bDie = false;
 
     private CharacterController m_Controller;
     private Animator m_PlayerAnimator;
     private GameObject m_UltimateEffect;
-    private bool m_bDie;
     private UISlider m_HpSlider = null;
     private UISlider m_SpSlider = null;
     private UIJoystick m_Input = null;
@@ -54,13 +54,19 @@ public class PlayerScript : MonoBehaviour
     private List<List<st_Key>> m_ListComboKey = new List<List<st_Key>>();
     private List<GameObject> m_ListKey = new List<GameObject>();
     private st_Ultimate m_UltimateSkill = new st_Ultimate();
+
     private bool m_bAttack;
-    public KEY_INPUT m_eInput;
-    public int m_iCurKey;  //현재 콤보 단계
-    public float m_fAttackTime = 1.0f;  //공격 유지 시간
-    public float m_fCurAttackTime = 0.0f;   //현재 공격 후 걸린시간.
-    public float m_fCurPressTime = 0.0f;
-    public float m_fPressTime = 0.7f;
+    private bool m_bInvincible = false;
+    private KEY_INPUT m_eInput;
+    private int m_iCurKey;  //현재 콤보 단계
+    private float m_fCurAttackTime = 0.0f;   //현재 공격 후 걸린시간.
+    private float m_fAttackTime = 0.8f;  //공격 유지 시간
+    private float m_fCurPressTime = 0.0f;
+    private float m_fPressTime = 0.7f;
+    private float m_fCurInvisible = 0.0f;
+    private float m_fInvisibleTime = 0.5f;
+    private float m_fCurDeathTime = 0.0f;
+    private float m_fDeathTime = 0.5f;
 
     //플레이어의 조종에 따른 스크립트
     // Start is called before the first frame update
@@ -72,13 +78,11 @@ public class PlayerScript : MonoBehaviour
     
     private void OnEnable()
     {
-        m_bAttack = false;
-        m_bDie = false;
-        m_iCurKey = 0;
-        m_fCurAttackTime = 0.0f;
-        m_eInput = KEY_INPUT.KEY_NONE;
-
-        StartCoroutine(CheckAttackState());
+        if(!m_bDie)
+        {
+            ResetData();
+            StartCoroutine(CheckAttackState());
+        }
     }
     /*  캐릭터 변경 시에 어떻게 할까 처리 해야 할 것들
      *  OnEnable에서 설정
@@ -97,6 +101,7 @@ public class PlayerScript : MonoBehaviour
         m_SpSlider.value = fSP; //현재 SP
         m_SpSlider.GetComponentInChildren<UILabel>().text = (m_fCurSP.ToString() + "/" + m_fMaxSP.ToString());//라벨
     }
+
     public void PlayerSet()
     {
         if (m_HpSlider != null && m_SpSlider != null)
@@ -110,8 +115,7 @@ public class PlayerScript : MonoBehaviour
         {
             v.GetComponent<PlayerKeyButton>().KeySetting(m_iIndex); //키 버튼 인덱스 교체
         }
-
-
+        
     }
 
     public void PlayerInit(GameObject Ultimate)
@@ -129,9 +133,11 @@ public class PlayerScript : MonoBehaviour
         m_ListKey[0].GetComponent<UIEventTrigger>().onRelease.Add(new EventDelegate(gameObject.GetComponent<PlayerScript>(), "OnAttack"));
 
         m_ListKey[1].GetComponent<UIEventTrigger>().onClick.Add(new EventDelegate(gameObject.GetComponent<PlayerScript>(), "OnEvasion"));
+        //쿨타임 적용
 
         m_ListKey[2].GetComponent<UIEventTrigger>().onPress.Add(new EventDelegate(gameObject.GetComponent<PlayerScript>(), "OnPress"));
         m_ListKey[2].GetComponent<UIEventTrigger>().onRelease.Add(new EventDelegate(gameObject.GetComponent<PlayerScript>(), "OnUltimate"));
+        //쿨타임 적용
 
         if (m_HpSlider == null && m_SpSlider == null)
         {
@@ -190,6 +196,16 @@ public class PlayerScript : MonoBehaviour
     {
         if (!m_bAttack)
             KeyControll();
+
+        if(m_bDie)
+        {
+            m_fCurDeathTime += Time.deltaTime;
+            if (m_fCurDeathTime >= m_fDeathTime)
+            {
+                gameObject.SetActive(false);
+                //죽고 시체가 없어지면 콜백
+            }
+        }
     }
     
     void OnPress()
@@ -239,8 +255,9 @@ public class PlayerScript : MonoBehaviour
     void OnEvasion()
     {
         //회피 버튼, 회피 시에는 무적
-
-
+        m_PlayerAnimator.SetTrigger("Slide");
+        m_bInvincible = true;
+        StartCoroutine("CheckInvincible");
     }
 
     void OnUltimate()
@@ -255,7 +272,9 @@ public class PlayerScript : MonoBehaviour
             m_fCurSP -= m_UltimateSkill.st_iSpendSP;
             m_UltimateEffect.transform.position = transform.position;
             m_UltimateEffect.gameObject.SetActive(true);
-            m_fCurPressTime = 0.0f;
+
+            ResetData();
+            //궁쓰면 일단 초기화
             SliderUpdate();
         }
         else
@@ -271,7 +290,7 @@ public class PlayerScript : MonoBehaviour
             }
             else
             {
-                m_fCurAttackTime = m_fAttackTime;    //콤보 성공시 초기화
+                m_fCurAttackTime = m_fAttackTime;    //콤보 실패
                 m_fCurPressTime = 0.0f;
                 m_iCurKey = 0;
                 m_PlayerAnimator.SetBool("Ultimate", false);
@@ -316,6 +335,23 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
+    IEnumerator CheckInvincible()
+    {
+        while(m_bInvincible)
+        {
+            yield return null;
+
+            m_fCurInvisible += Time.deltaTime;
+
+            if(m_fCurInvisible >= m_fInvisibleTime)
+            {
+                m_bInvincible = false;
+                m_fCurInvisible = 0.0f;
+            }
+
+        }
+    }
+
     IEnumerator CheckAttackState()
     {
         while(!m_bDie)
@@ -327,12 +363,7 @@ public class PlayerScript : MonoBehaviour
                 m_fCurAttackTime += Time.deltaTime;
                 if(m_fCurAttackTime >= m_fAttackTime)   //모든 게 초기화
                 {
-                    m_bAttack = false;
-                    m_PlayerAnimator.SetBool("Attack", false);
-                    m_PlayerAnimator.SetBool("Ultimate", false);
-                    m_iCurKey = 0;
-                    m_PlayerAnimator.SetInteger("ComboCount", m_iCurKey);
-                    m_fCurAttackTime = 0.0f;
+                    ResetData();
                 }
             }
             
@@ -379,5 +410,44 @@ public class PlayerScript : MonoBehaviour
         PoolManager.instance.PushToPool(eIndex.ToString(), Item);
         SliderUpdate();
     }
-}
 
+    public void ResetData()
+    {
+        m_bAttack = false;
+        m_eInput = KEY_INPUT.KEY_NONE;
+        m_PlayerAnimator.SetBool("Attack", false);
+        m_PlayerAnimator.SetBool("Ultimate", false);
+        m_iCurKey = 0;
+        m_PlayerAnimator.SetInteger("ComboCount", m_iCurKey);
+        m_fCurAttackTime = 0.0f;
+        m_fCurPressTime = 0.0f;
+    }
+
+    public void Damege(float fATK, float fCRI)
+    {
+        //적이 죽으면 일정확률로 체력 회복 아이템과 SP 회복 아이템을 드랍한다.
+        if (!m_bDie && !m_bInvincible)
+        {
+            //부딪힌 것의 HP바를 보여준다.
+            int iCri = Random.Range(0, 100);
+            int iAtk = (int)fATK;
+
+            if (iCri == (int)fCRI)
+            {
+                iAtk += (iCri * 10);    //크리티컬!
+            }
+
+            m_fCurHP -= (float)iAtk;
+
+            if (m_fCurHP <= 0.0f)   //모든 HP가 다 떨어지면
+            {
+                m_fCurHP = 0.0f;
+                m_bDie = true;
+                m_PlayerAnimator.SetTrigger("Die");
+                ResetData();
+                StopAllCoroutines();
+            }
+            SliderUpdate();
+        }
+    }
+}

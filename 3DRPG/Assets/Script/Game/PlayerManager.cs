@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerManager
 {
     private List<GameObject> m_ListChar = new List<GameObject>();
+
     public PlayerManager(Transform Parent, Transform Particle)
     {
         int[] iarr = GameManager.instance.ReturnPlayerList();
@@ -79,10 +80,11 @@ public class PlayerManager
     {
         for(int i = 0; i < m_ListChar.Count; i++)
         {
-            if (!m_ListChar[i].activeSelf)
+            if (m_ListChar[i].activeSelf)   //하나라도 살았으면
+            {
                 return false;
+            }
         }
-        
         return true;
     }
 

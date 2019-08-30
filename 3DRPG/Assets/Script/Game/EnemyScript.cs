@@ -30,7 +30,8 @@ public class EnemyScript : MonoBehaviour
     int m_iIndex = 0;
     //에너미 움직임을 담당하는 자체 스크립트
     // Start is called before the first frame update
-    void Start()
+
+    private void Start()
     {
         m_NavMeshAgent = GetComponent<NavMeshAgent>();
         m_Animator = GetComponent<Animator>();
@@ -45,11 +46,6 @@ public class EnemyScript : MonoBehaviour
         StartCoroutine("StateAction");
     }
 
-    public void OnDisable()
-    {
-        StopAllCoroutines();
-    }
-
     public void Setting(int iIndex, List<Dictionary<string, object>> CharInfo)
     {
         m_iIndex = iIndex;
@@ -60,8 +56,11 @@ public class EnemyScript : MonoBehaviour
 
     public void TrSetting(Transform Player)
     {
+        StopAllCoroutines();
+
         m_PlayerTR = Player;
     }
+
     // Update is called once per frame
     void Update()
     {
@@ -73,7 +72,27 @@ public class EnemyScript : MonoBehaviour
                 m_HpSlider.gameObject.SetActive(false);
                 m_eCurState = ENEMY_STATE.STATE_NONE;
                 gameObject.SetActive(false);
+                
+                int RNum = Random.Range(0, 10);
+
+                if (RNum >= 0 && RNum <= 2)
+                {
+                    //hp드랍
+                    DropItem(POOL_INDEX.POOL_HP_ITEM);
+                }
+                else if (RNum >= 3 && RNum <= 5)
+                {
+                    //sp드랍
+                    DropItem(POOL_INDEX.POOL_SP_ITEM);
+                }
+                else if (RNum >= 6 && RNum <= 8)
+                {
+                    //둘다 드랍
+                    DropItem(POOL_INDEX.POOL_HP_ITEM);
+                    DropItem(POOL_INDEX.POOL_SP_ITEM);
+                }
             }
+            
             //죽었다.
         }
     }
@@ -116,6 +135,7 @@ public class EnemyScript : MonoBehaviour
                     m_Animator.SetBool("Moving", false);
                     transform.LookAt(m_PlayerTR);
                     m_NavMeshAgent.isStopped = true;
+                    m_eCurState = ENEMY_STATE.STATE_WAIT;
                     break;
                 case ENEMY_STATE.STATE_TRACE:
                     m_Animator.SetBool("Attack", false);
@@ -131,8 +151,22 @@ public class EnemyScript : MonoBehaviour
     public void Hit()
     {
         //여기서 콜리더 히트 체크
-        //Collider[] colliders = Physics.OverlapSphere(transform.position, 2, 1 << LayerMask.NameToLayer("PLAYER"));
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 2, 1 << LayerMask.NameToLayer("Player"));
 
+        if (colliders.Length != 0)
+        {
+            int iCurChar = GameManager.instance.ReturnCurPlayer();
+            float fATK = float.Parse(m_CharData.GetEnemyData(CHAR_DATA.CHAR_ATK).ToString());
+            float fCRI = float.Parse(m_CharData.GetEnemyData(CHAR_DATA.CHAR_CRI).ToString());
+
+            for (int i = 0; i < colliders.Length; i++)
+            {
+                PlayerScript script = colliders[i].GetComponent<PlayerScript>() ?? null;
+                if (script != null)
+                    script.Damege(fATK, fCRI);
+                //해당 함수 호출
+            }
+        }
     }
 
     public void Damege(float fATK, float fCRI)
@@ -161,16 +195,21 @@ public class EnemyScript : MonoBehaviour
                 m_Animator.SetTrigger("Death");
                 m_NavMeshAgent.isStopped = true;
                 StopAllCoroutines();
-
-                //죽으면 랜덤으로 
-
-
             }
 
             float fHP = ((float)m_fCurHP / (float)m_fMaxHP);
             m_HpSlider.value = fHP;
 
-            m_HpSlider.GetComponentInChildren<UILabel>().text =Util.ConvertToString(m_CharData.GetEnemyData(CHAR_DATA.CHAR_NAME));//에너미 이름
+            m_HpSlider.GetComponentInChildren<UILabel>().text = Util.ConvertToString(m_CharData.GetEnemyData(CHAR_DATA.CHAR_NAME));//에너미 이름
         }
+    }
+
+    void DropItem(POOL_INDEX eIndex)
+    {
+        GameObject Item = PoolManager.instance.PopFromPool(eIndex.ToString());
+        Vector3 Pos = transform.position;
+        Pos.y = 2;
+        Item.transform.position = Pos;
+        Item.SetActive(true);
     }
 }

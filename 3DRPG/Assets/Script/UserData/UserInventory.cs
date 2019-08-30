@@ -99,31 +99,34 @@ public class UserInventory
 
     public void Save()
     {
-        for(INVENTORY_TYPE i = INVENTORY_TYPE.INVENTORY_START; i < INVENTORY_TYPE.INVENTORY_END; i++)
+        for(int i = 0; i < m_ListInven.Length; i++)
         {
-            int iIndex = (int)i;
-            int iCount = m_ListInven[iIndex].Count;
-            try
+            if(m_ListInven[i] != null)
             {
-                ItemInfoData[] Item = new ItemInfoData[iCount];
-                for (int j = 0; j < iCount; j++)
+                int iCount = m_ListInven[i].Count;
+                try
                 {
-                    Item[j] = new ItemInfoData
+                    ItemInfoData[] Item = new ItemInfoData[iCount];
+                    for (int j = 0; j < iCount; j++)
                     {
-                        ItemType = (ITEM_TYPE)m_ListInven[iIndex][j].GetItemData(ITEM_DATA.ITEM_TYPE),
-                        ItemIndex = Util.ConvertToInt(m_ListInven[iIndex][j].GetItemData(ITEM_DATA.ITEM_INDEX)),
-                        ItemEquipChar = Util.ConvertToInt(m_ListInven[iIndex][j].GetItemData(ITEM_DATA.ITEM_EQUIP_CHAR)),
-                        ItemLevel = Util.ConvertToInt(m_ListInven[iIndex][j].GetItemData(ITEM_DATA.ITEM_LEVEl)),
-                        ItemCurEXP = Util.ConvertToInt(m_ListInven[iIndex][j].GetItemData(ITEM_DATA.ITEM_CUR_EXP))
-                    };
+                        Item[j] = new ItemInfoData
+                        {
+                            ItemType = (ITEM_TYPE)m_ListInven[i][j].GetItemData(ITEM_DATA.ITEM_TYPE),
+                            ItemIndex = Util.ConvertToInt(m_ListInven[i][j].GetItemData(ITEM_DATA.ITEM_INDEX)),
+                            ItemEquipChar = Util.ConvertToInt(m_ListInven[i][j].GetItemData(ITEM_DATA.ITEM_EQUIP_CHAR)),
+                            ItemLevel = Util.ConvertToInt(m_ListInven[i][j].GetItemData(ITEM_DATA.ITEM_LEVEl)),
+                            ItemCurEXP = Util.ConvertToInt(m_ListInven[i][j].GetItemData(ITEM_DATA.ITEM_CUR_EXP))
+                        };
+                    }
+                    string Inven = JSON.JsonUtil.ToJson<ItemInfoData>(Item);
+                    Debug.Log(Inven);
+                    INVENTORY_TYPE eType = (INVENTORY_TYPE)i;
+                    JSON.JsonUtil.CreateJson(eType.ToString(), Inven);
                 }
-                string Inven = JSON.JsonUtil.ToJson<ItemInfoData>(Item);
-                Debug.Log(Inven);
-                JSON.JsonUtil.CreateJson(i.ToString(), Inven);
-            }
-            catch(System.NullReferenceException ex)
-            {
-                Debug.Log(ex);
+                catch (System.NullReferenceException ex)
+                {
+                    Debug.Log(ex);
+                }
             }
         }
     }

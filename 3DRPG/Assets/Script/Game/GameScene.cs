@@ -68,33 +68,19 @@ public class GameScene : MonoBehaviour
         
         m_CallBack(m_PlayerManager.GetCharTR());    //카메라 콜백 함수 선언
         m_EnemyMangaer.TrSetting(m_PlayerManager.GetCharTR()); //타겟 셋팅
-        //m_EnemyMangaer.ActiveWave();    //액티브
+        m_EnemyMangaer.ActiveWave();    //액티브
         
 
         PoolManager.instance.Set(POOL_INDEX.POOL_HP_ITEM.ToString(), "Prefabs/HP", 10);
         PoolManager.instance.Set(POOL_INDEX.POOL_SP_ITEM.ToString(), "Prefabs/SP", 10);
 
         InvokeRepeating("WaveClear", 2.0f, 1.0f);
+        InvokeRepeating("PlayerDie", 2.0f, 1.0f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        OnKeyInput();
-    }
-
-    void OnKeyInput()
-    {
-        if(Input.GetKeyDown(KeyCode.G))
-        {
-            GameObject Item = PoolManager.instance.PopFromPool(POOL_INDEX.POOL_SP_ITEM.ToString());
-            Item.transform.position = new Vector3(0, 2, 0);
-            Item.SetActive(true);
-        }
-        if(Input.GetKeyDown(KeyCode.F))
-        {
-            //죽을 때 시험
-        }
     }
 
     void WaveClear()
