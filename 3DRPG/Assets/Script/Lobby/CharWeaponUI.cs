@@ -22,9 +22,10 @@ public class CharWeaponUI : MonoBehaviour
         {
             m_WeaponLevel.text = "LV." +
                 Util.ConvertToString(UserInfo.instance.GetItemForList(iItem, INVENTORY_TYPE.INVENTORY_WEAPON, ITEM_DATA.ITEM_LEVEl));
+
             //해당 장비의 스프라이트 이미지
                 string strName = Util.ConvertToString(UserInfo.instance.GetItemForList(iItem, INVENTORY_TYPE.INVENTORY_WEAPON, ITEM_DATA.ITEM_INDEX)) + "_" +
-                    Util.ConvertToString(UserInfo.instance.GetItemForList(iItem, INVENTORY_TYPE.INVENTORY_WEAPON, ITEM_DATA.ITEM_TYPE)) + "_Select";
+                    Util.ConvertToString(UserInfo.instance.GetItemForList(iItem, INVENTORY_TYPE.INVENTORY_WEAPON, ITEM_DATA.ITEM_TYPE)) + "_Icon";
             m_WeaponSprite.spriteName = strName;
         }
         else

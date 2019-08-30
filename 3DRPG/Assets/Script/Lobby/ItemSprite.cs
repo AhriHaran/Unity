@@ -31,7 +31,6 @@ public class ItemSprite : MonoBehaviour
         m_ItemLabel = transform.GetChild(3).GetComponent<UILabel>();
         m_Equip = transform.GetChild(4).gameObject;
         m_Equip.gameObject.SetActive(false);
-        INGUIAtlas atlas = m_ItemSprite.atlas;
     }
     // Start is called before the first frame update
     void Start()
@@ -54,14 +53,15 @@ public class ItemSprite : MonoBehaviour
     public void ShowInfo()
     {
         string sprite = string.Empty;
-        if (m_eItemType == ITEM_TYPE.ITEM_STIGMA_TOP)
-            sprite = Util.ConvertToString(UserInfo.instance.GetItemForList(m_iItemIndex, m_eInvenType, ITEM_DATA.ITEM_INDEX)) + "_T";
-        else if (m_eItemType == ITEM_TYPE.ITEM_STIGMA_CENTER)
-            sprite = Util.ConvertToString(UserInfo.instance.GetItemForList(m_iItemIndex, m_eInvenType, ITEM_DATA.ITEM_INDEX)) + "_C";
-        else if (m_eItemType == ITEM_TYPE.ITEM_STIGMA_BOTTOM)
-            sprite = Util.ConvertToString(UserInfo.instance.GetItemForList(m_iItemIndex, m_eInvenType, ITEM_DATA.ITEM_INDEX)) + "_B";
-        else
-            sprite = Util.ConvertToString(UserInfo.instance.GetItemForList(m_iItemIndex, m_eInvenType, ITEM_DATA.ITEM_INDEX)) + "_Weapon";
+        sprite = Util.ConvertToString(UserInfo.instance.GetItemForList(m_iItemIndex, m_eInvenType, ITEM_DATA.ITEM_INDEX)) + "_" + m_eItemType.ToString() + "_Icon";
+        //if (m_eItemType == ITEM_TYPE.ITEM_STIGMA_TOP)
+        //    sprite = Util.ConvertToString(UserInfo.instance.GetItemForList(m_iItemIndex, m_eInvenType, ITEM_DATA.ITEM_INDEX)) + "_" + m_eItemType.ToString();
+        //else if (m_eItemType == ITEM_TYPE.ITEM_STIGMA_CENTER)
+        //    sprite = Util.ConvertToString(UserInfo.instance.GetItemForList(m_iItemIndex, m_eInvenType, ITEM_DATA.ITEM_INDEX)) + "_C";
+        //else if (m_eItemType == ITEM_TYPE.ITEM_STIGMA_BOTTOM)
+        //    sprite = Util.ConvertToString(UserInfo.instance.GetItemForList(m_iItemIndex, m_eInvenType, ITEM_DATA.ITEM_INDEX)) + "_B";
+        //else
+        //    sprite = Util.ConvertToString(UserInfo.instance.GetItemForList(m_iItemIndex, m_eInvenType, ITEM_DATA.ITEM_INDEX)) + "_Weapon";
 
         m_ItemSprite.spriteName = sprite;   //스프라이트 교체
         m_ItemLabel.text = Util.ConvertToString(UserInfo.instance.GetItemForList(m_iItemIndex, m_eInvenType, ITEM_DATA.ITEM_NAME));

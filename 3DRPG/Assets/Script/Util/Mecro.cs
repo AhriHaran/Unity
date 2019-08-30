@@ -61,6 +61,14 @@ public class UserInfoData
     public int CurEXP;      //유저 현재 경험치
     public int Gold;        //유저 골드
     public int MainChar;    //유저 메인 캐릭터
+    public UserInfoData(string Name)
+    {
+        NickName = Name;
+        Level = 1;
+        Gold = 0;
+        MainChar = 0;
+        CurEXP = 0;
+    }
 }
 
 [System.Serializable]

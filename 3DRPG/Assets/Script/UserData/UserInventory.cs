@@ -18,13 +18,17 @@ public class UserInventory
     List<ItemData>[] m_ListInven = new List<ItemData>[(int)INVENTORY_TYPE.INVENTORY_END];
     public UserInventory()
     {
+        for(int i = 0; i < (int)INVENTORY_TYPE.INVENTORY_END; i++)
+        {
+            m_ListInven[i] = new List<ItemData>();
+        }
+
+
         //JSON 데이터와 테이블 데이터를 통해서 셋팅
         //UserStigmaData, UserWeaponData -> Json
         if(JSON.JsonUtil.FileCheck(INVENTORY_TYPE.INVENTORY_WEAPON.ToString()))
         {
             ItemInfoData[] Weapon = JSON.JsonUtil.LoadArrJson<ItemInfoData>(INVENTORY_TYPE.INVENTORY_WEAPON.ToString());   //웨폰 리스트
-            m_ListInven[(int)INVENTORY_TYPE.INVENTORY_WEAPON] = new List<ItemData>();
-
             foreach (var W in Weapon)
             {
                 ItemData Data = new ItemData(W);
@@ -36,8 +40,6 @@ public class UserInventory
         if (JSON.JsonUtil.FileCheck(INVENTORY_TYPE.INVENTORY_STIGMA.ToString()))
         {
             ItemInfoData[] stigma = JSON.JsonUtil.LoadArrJson<ItemInfoData>(INVENTORY_TYPE.INVENTORY_STIGMA.ToString());  //스티그마 리스트
-            m_ListInven[(int)INVENTORY_TYPE.INVENTORY_STIGMA] = new List<ItemData>();
-
             foreach (var S in stigma)
             {
                 ItemData Item = new ItemData(S);

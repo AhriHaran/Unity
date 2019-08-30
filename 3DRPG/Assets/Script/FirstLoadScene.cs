@@ -43,12 +43,7 @@ public class FirstLoadScene : MonoBehaviour
         {
             //적힌 것이 있다면
             //유저 데이터를 기반으로 저장
-            UserInfoData Data = new UserInfoData();
-            Data.NickName = Input.value;
-            Data.Level = 1;
-            Data.Gold = 0;
-            Data.MainChar = 0;
-            Data.CurEXP = 0;
+            UserInfoData Data = new UserInfoData(Input.value);
             var Table = EXCEL.ExcelLoad.Read("Excel/Table/UserTable");
             Data.CurEnergy = int.Parse(Table[0][USER_INFO.USER_INFO_MAX_ENERGY.ToString()].ToString());
             string jsonData = JSON.JsonUtil.ToJson(Data);
@@ -56,20 +51,25 @@ public class FirstLoadScene : MonoBehaviour
             JSON.JsonUtil.CreateJson("UserInfoData", jsonData);
             //유저 데이터 JSON(초기 유저 데이터)
 
-            CharInfoData[] Char = new CharInfoData[1];
+            CharInfoData[] Char = new CharInfoData[2];
             Char[0] = new CharInfoData(0, ITEM_TYPE.ITEM_GAUNTLET);
             Char[0].CharWeapon = 0;
+            Char[1] = new CharInfoData(1, ITEM_TYPE.ITEM_SWORD);
+            Char[1].CharWeapon = 1;
             string CharData = JSON.JsonUtil.ToJson<CharInfoData>(Char);
             Debug.Log(CharData);
             JSON.JsonUtil.CreateJson("UserCharInfoData", CharData);
             //초기 캐릭터 데이터 JSON
 
-            ItemInfoData[] Item = new ItemInfoData[1];
+            ItemInfoData[] Item = new ItemInfoData[2];
             Item[0] = new ItemInfoData(ITEM_TYPE.ITEM_GAUNTLET, 0);//아이템 타입, 아이템 인덱스
             Item[0].ItemEquipChar = 0;
+            Item[1] = new ItemInfoData(ITEM_TYPE.ITEM_SWORD, 0);
+            Item[1].ItemEquipChar = 1;
             string WeaponData = JSON.JsonUtil.ToJson<ItemInfoData>(Item);
             Debug.Log(WeaponData);
             JSON.JsonUtil.CreateJson(INVENTORY_TYPE.INVENTORY_WEAPON.ToString(), WeaponData);
+
 
             //ItemInfoData[] StigmaList = new ItemInfoData[3];
             //for (int i = 0; i < 3; i++)

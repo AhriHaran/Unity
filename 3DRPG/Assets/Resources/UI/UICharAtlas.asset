@@ -15,8 +15,8 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: 3f0279f69bc533543badece02dea832e, type: 2}
   mSprites:
   - name: EmptySelect
-    x: 201
-    y: 163
+    x: 1282
+    y: 1699
     width: 200
     height: 349
     borderLeft: 0
@@ -27,9 +27,22 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: UnityChanSelect
+  - name: KohakuSelect
     x: 0
-    y: 157
+    y: 128
+    width: 1080
+    height: 1920
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: UnityChanSelect
+    x: 1081
+    y: 1693
     width: 200
     height: 355
     borderLeft: 0

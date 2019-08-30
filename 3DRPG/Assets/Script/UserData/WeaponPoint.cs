@@ -19,10 +19,11 @@ public class WeaponPoint : MonoBehaviour
             for (int i = 0; i < m_WeaponPoint.Count; i++)
             {
                 string strRoute = string.Empty;
+                string WeaponIndex = Util.ConvertToString(UserInfo.instance.GetItemForList(iIndex, INVENTORY_TYPE.INVENTORY_WEAPON, ITEM_DATA.ITEM_INDEX));
                 if (i == 0)
-                    strRoute = "Equipment/" + eType.ToString() + "/" + Util.ConvertToString(iIndex) + "/R";
+                    strRoute = "Equipment/" + eType.ToString() + "/" + WeaponIndex + "/R";
                 else if (i == 1)
-                    strRoute = "Equipment/" + eType.ToString() + "/" + Util.ConvertToString(iIndex) + "/L";
+                    strRoute = "Equipment/" + eType.ToString() + "/" + WeaponIndex + "/L";
                 GameObject Weapon;
 
                 if (m_WeaponPoint[i].transform.childCount > 1)

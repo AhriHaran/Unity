@@ -14,48 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: ff46c4563e6b26146b19a0dc2b29c182, type: 2}
   mSprites:
-  - name: 0_B
+  - name: 0_ITEM_GAUNTLET_Icon
     x: 0
-    y: 262
-    width: 217
-    height: 250
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: 0_C
-    x: 0
-    y: 11
-    width: 217
-    height: 250
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: 0_T
-    x: 218
-    y: 273
-    width: 218
-    height: 239
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 11
-    paddingBottom: 0
-  - name: 0_Weapon
-    x: 218
-    y: 165
+    y: 38
     width: 122
     height: 107
     borderLeft: 0
@@ -66,9 +27,61 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 5
     paddingBottom: 0
+  - name: 0_ITEM_STIGMA_BOTTOM_Icon
+    x: 123
+    y: 57
+    width: 100
+    height: 88
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: 0_ITEM_STIGMA_CENTER_Icon
+    x: 126
+    y: 168
+    width: 100
+    height: 88
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: 0_ITEM_STIGMA_TOP_Icon
+    x: 224
+    y: 79
+    width: 100
+    height: 88
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: 0_ITEM_SWORD_Icon
+    x: 0
+    y: 146
+    width: 125
+    height: 110
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: CrossHair
-    x: 437
-    y: 449
+    x: 224
+    y: 15
     width: 63
     height: 63
     borderLeft: 0

@@ -16,7 +16,7 @@ MonoBehaviour:
   mSprites:
   - name: EmptyIcon
     x: 435
-    y: 53
+    y: 565
     width: 459
     height: 459
     borderLeft: 0
@@ -27,9 +27,22 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: KohakuIcon
+    x: 0
+    y: 25
+    width: 435
+    height: 497
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: UnityChanIcon
     x: 0
-    y: 11
+    y: 523
     width: 434
     height: 501
     borderLeft: 0

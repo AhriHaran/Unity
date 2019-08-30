@@ -15,8 +15,8 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: 4b77610024fb8734f8915d20648c746f, type: 2}
   mSprites:
   - name: 0_Attack
-    x: 182
-    y: 64
+    x: 359
+    y: 163
     width: 83
     height: 93
     borderLeft: 0
@@ -51,6 +51,45 @@ MonoBehaviour:
     borderBottom: 0
     paddingLeft: 2
     paddingRight: 2
+    paddingTop: 2
+    paddingBottom: 2
+  - name: 1_Attack
+    x: 271
+    y: 168
+    width: 87
+    height: 88
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 3
+    paddingRight: 2
+    paddingTop: 1
+    paddingBottom: 2
+  - name: 1_Evasion
+    x: 271
+    y: 86
+    width: 85
+    height: 81
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 2
+    paddingTop: 2
+    paddingBottom: 0
+  - name: 1_Ultimate
+    x: 182
+    y: 66
+    width: 88
+    height: 91
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 1
+    paddingRight: 1
     paddingTop: 2
     paddingBottom: 2
   - name: ButtonBackGround

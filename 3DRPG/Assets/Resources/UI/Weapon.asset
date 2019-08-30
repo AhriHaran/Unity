@@ -14,11 +14,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 2ce43c2db1cfd0f4aab86a71c6193f60, type: 2}
   mSprites:
-  - name: 0_ITEM_GAUNTLET_Select
+  - name: 0_ITEM_GAUNTLET_Icon
+    x: 126
+    y: 149
+    width: 122
+    height: 107
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 5
+    paddingRight: 0
+    paddingTop: 5
+    paddingBottom: 0
+  - name: 0_ITEM_SWORD_Icon
     x: 0
-    y: 926
-    width: 1550
-    height: 1122
+    y: 146
+    width: 125
+    height: 110
     borderLeft: 0
     borderRight: 0
     borderTop: 0
@@ -28,8 +41,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: CrossHair
-    x: 1551
-    y: 1985
+    x: 126
+    y: 85
     width: 63
     height: 63
     borderLeft: 0

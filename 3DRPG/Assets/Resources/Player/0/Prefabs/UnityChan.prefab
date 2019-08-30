@@ -2083,7 +2083,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 100096}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.128, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400322}
@@ -2148,12 +2148,7 @@ MonoBehaviour:
   m_fRotateSpeed: 2
   m_fAniSpeed: 1.5
   m_iIndex: 0
-  m_eInput: 0
-  m_iCurKey: 0
-  m_fAttackTime: 1
-  m_fCurAttackTime: 0
-  m_fCurPressTime: 0
-  m_fPressTime: 0.7
+  m_bDie: 0
 --- !u!143 &43209543998487113
 CharacterController:
   m_ObjectHideFlags: 0

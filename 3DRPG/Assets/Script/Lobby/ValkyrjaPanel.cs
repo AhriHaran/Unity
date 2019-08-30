@@ -78,7 +78,6 @@ public class ValkyrjaPanel : MonoBehaviour
         m_GridPanel.GetComponent<UIScrollView>().ResetPosition();
         m_GridPanel.GetComponent<UIPanel>().Refresh();
 
-        GameManager.instance.DestroyModel();
         CharInfoSelect(Util.ConvertToInt(CharList[0].GetCharData(CHAR_DATA.CHAR_INDEX)));  //첫번째로 셋팅
     }
 
@@ -99,7 +98,7 @@ public class ValkyrjaPanel : MonoBehaviour
     {
         if(m_iCharIndex != iIndex)  //중복체크 방지
         {
-            
+            GameManager.instance.DestroyModel();
             m_iCharIndex = iIndex;
             GameManager.instance.CreateModel(iIndex);
             GameManager.instance.CharSelect(iIndex);    //현재 선택한 캐릭터 인덱스를 저장

@@ -219,7 +219,7 @@ public class GameManager : MonoSingleton<GameManager>
     {
         int iCurEnergy = System.Convert.ToInt32(UserInfo.instance.GetUserData(USER_INFO.USER_INFO_CUR_ENERGY));
         var MapData = EXCEL.ExcelLoad.Read("Excel/Table/Stage_Table");
-        int iStageEnergy = System.Convert.ToInt32(MapData[m_iCurSelectChar][MAP_DATA.MAP_ENERGY.ToString()]);
+        int iStageEnergy = System.Convert.ToInt32(MapData[m_iCurStage][MAP_DATA.MAP_ENERGY.ToString()]);
         //현재 남아있는 에너지 비교
         if (iCurEnergy >= iStageEnergy) //에너지 충분함
             return true;
