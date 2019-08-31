@@ -82,13 +82,20 @@ public class ItemSprite : MonoBehaviour
     private void OnClick()
     {
         //콜백 설정됨
+
+#if UNITY_EDITOR
         if (Input.GetMouseButtonDown(0))
         {
-            GameObject Object = null;
-            if (Util.RayCastHitObject(ref Object))
+            Ray ray = UICamera.mainCamera.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
-                m_CallBack?.Invoke(m_iItemIndex);   //나의 현재 아이템 인덱스
+                if (hit.collider.gameObject.name.Contains("ItemSprite"))
+                    m_CallBack?.Invoke(m_iItemIndex);   //나의 현재 아이템 인덱스
             }
         }
+#elif UNITY_ANDROID
+
+#endif
     }
 }

@@ -38,6 +38,7 @@ public class PlayerScript : MonoBehaviour
     public float m_fAniSpeed = 1.5f;    //애니메이션 속도
     public int m_iIndex;    //플레이어 캐릭터 인덱스
     public bool m_bDie = false;
+    public int m_iRange;
 
     private CharacterController m_Controller;
     private Animator m_PlayerAnimator;
@@ -60,9 +61,9 @@ public class PlayerScript : MonoBehaviour
     private KEY_INPUT m_eInput;
     private int m_iCurKey;  //현재 콤보 단계
     private float m_fCurAttackTime = 0.0f;   //현재 공격 후 걸린시간.
-    private float m_fAttackTime = 0.8f;  //공격 유지 시간
+    private float m_fAttackTime = 1.0f;  //공격 유지 시간
     private float m_fCurPressTime = 0.0f;
-    private float m_fPressTime = 0.7f;
+    private float m_fPressTime = 0.6f;
     private float m_fCurInvisible = 0.0f;
     private float m_fInvisibleTime = 0.5f;
     private float m_fCurDeathTime = 0.0f;
@@ -111,11 +112,10 @@ public class PlayerScript : MonoBehaviour
         //hp와 sp를 설정하고
 
         //버튼 키를 설정한다.
-        foreach(var v in m_ListKey)
+        foreach (var v in m_ListKey)
         {
             v.GetComponent<PlayerKeyButton>().KeySetting(m_iIndex); //키 버튼 인덱스 교체
-        }
-        
+        }   
     }
 
     public void PlayerInit(GameObject Ultimate)
@@ -131,10 +131,8 @@ public class PlayerScript : MonoBehaviour
 
         m_ListKey[0].GetComponent<UIEventTrigger>().onPress.Add(new EventDelegate(gameObject.GetComponent<PlayerScript>(), "OnPress"));
         m_ListKey[0].GetComponent<UIEventTrigger>().onRelease.Add(new EventDelegate(gameObject.GetComponent<PlayerScript>(), "OnAttack"));
-
         m_ListKey[1].GetComponent<UIEventTrigger>().onClick.Add(new EventDelegate(gameObject.GetComponent<PlayerScript>(), "OnEvasion"));
         //쿨타임 적용
-
         m_ListKey[2].GetComponent<UIEventTrigger>().onPress.Add(new EventDelegate(gameObject.GetComponent<PlayerScript>(), "OnPress"));
         m_ListKey[2].GetComponent<UIEventTrigger>().onRelease.Add(new EventDelegate(gameObject.GetComponent<PlayerScript>(), "OnUltimate"));
         //쿨타임 적용
@@ -374,13 +372,14 @@ public class PlayerScript : MonoBehaviour
     {
         //애니메이션 이벤트, 충돌 처리 등을 체크
         //여기서 콜리더 히트 체크
-        Collider[] colliders = Physics.OverlapSphere(transform.position, 2, 1 << LayerMask.NameToLayer("Enemy"));
+        Collider[] colliders = Physics.OverlapSphere(transform.position, m_iRange, 1 << LayerMask.NameToLayer("Enemy"));
 
         if(colliders.Length != 0)
         {
             int iCurChar = GameManager.instance.ReturnCurPlayer();
-            float fATK = float.Parse(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_ATK, iCurChar).ToString());
-            float fCRI = float.Parse(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_CRI, iCurChar).ToString());
+            int[] List = GameManager.instance.ReturnPlayerList();
+            float fATK = float.Parse(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_ATK, List[iCurChar]).ToString());
+            float fCRI = float.Parse(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_CRI, List[iCurChar]).ToString());
 
             for(int i = 0; i < colliders.Length; i++)
             {

@@ -89,10 +89,6 @@ public class GameManager : MonoSingleton<GameManager>
         }
         return false;
     }
-    public int[] ReturnPlayerList()
-    {
-        return m_ListCharIndex;
-    }
     public int ReturnCurSelectChar()
     {
         //내가 발키리 패널에서 선택한 캐릭터 인덱스
@@ -143,7 +139,7 @@ public class GameManager : MonoSingleton<GameManager>
     {
         if (m_SelectChar != null)
         {
-            m_SelectChar.GetComponent<WeaponPoint>().ViewWeapon(false, false);
+            ViewWeapon(false, false);
             CharPoolManager.instance.PushToPool(POOL_INDEX.POOL_USER_CHAR.ToString(), m_iCurSelectChar, m_SelectChar);
             m_SelectChar = null;
             m_SelectCharMain.transform.DetachChildren();
@@ -172,13 +168,8 @@ public class GameManager : MonoSingleton<GameManager>
         //무기 보이기
         if (m_SelectChar != null)
         {
-            int iWeapon = Util.ConvertToInt(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_WEAPON_INDEX, m_iCurSelectChar));
-            if (iWeapon >= 0)
-            {
-                ITEM_TYPE Type = (ITEM_TYPE)Util.ConvertToInt(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_WEAPON_TYPE, m_iCurSelectChar));
-                m_SelectChar.GetComponent<WeaponPoint>().WeaponSet(iWeapon, Type);
-            }
-            m_SelectChar.GetComponent<WeaponPoint>().ViewWeapon(bView, bEffect);
+            m_SelectChar.GetComponent<WeaponPoint>().enabled = bView;
+            m_SelectChar.GetComponent<WeaponPoint>().ViewEffect(bEffect);
         }
     }
 
@@ -237,11 +228,15 @@ public class GameManager : MonoSingleton<GameManager>
     public void PlayerCharChange(int iSelect)   //내가 선택한 리스트 기반이므로 0,1,2
     {
         if(iSelect >=0 && iSelect <3)
-            m_iCurGameChar = m_ListCharIndex[iSelect];
+            m_iCurGameChar = iSelect;
     }
     public int ReturnCurPlayer()
     {
         return m_iCurGameChar;  //현재 선택된 캐릭터
+    }
+    public int[] ReturnPlayerList()
+    {
+        return m_ListCharIndex;
     }
     public void ResetData()
     {

@@ -87,20 +87,6 @@ public partial class Util
         return System.Convert.ToString(Obj);
     }
 
-    //ngui raycast 오브젝트 픽킹
-    public static bool RayCastHitObject(ref GameObject pickedObject)
-    {
-        Ray ray = UICamera.mainCamera.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity))
-        {
-            pickedObject = hit.collider.gameObject;
-            return true;
-        }
-        else
-            return false;
-    }
-
     //데이터 덧셈, true면 덧셈, false면 뺄샘
     public static int SumData(object obFirst, object obSeconde, bool bSum)
     {

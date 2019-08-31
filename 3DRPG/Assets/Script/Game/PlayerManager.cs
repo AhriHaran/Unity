@@ -5,35 +5,37 @@ using UnityEngine;
 public class PlayerManager
 {
     private List<GameObject> m_ListChar = new List<GameObject>();
+    private List<PlayerScript> m_ScriptList = new List<PlayerScript>();
 
     public PlayerManager(Transform Parent, Transform Particle)
     {
         int[] iarr = GameManager.instance.ReturnPlayerList();
+        GameObject GameUI = GameObject.Find("PlayerKey");
         //초기 셋팅만해놓는다.
-        foreach (int i in iarr)
+        for(int i = 0; i < 3; i++)
         {
-            if(i != -1)
+            if(iarr[i] != -1)
             {
                 try
                 {
-                    string route = UserInfo.instance.GetCharData(CHAR_DATA.CHAR_INDEX, i).ToString();
-                    string name = UserInfo.instance.GetCharData(CHAR_DATA.CHAR_NAME, i).ToString();
+                    string route = UserInfo.instance.GetCharData(CHAR_DATA.CHAR_INDEX, iarr[i]).ToString();
+                    string name = UserInfo.instance.GetCharData(CHAR_DATA.CHAR_NAME, iarr[i]).ToString();
                     string CharRoute = "Player/" + route + "/Prefabs/" + name;
 
                     GameObject PlayerChar = ResourceLoader.CreatePrefab(CharRoute, Parent);
-                    PlayerChar.GetComponent<Animator>().runtimeAnimatorController = UserInfo.instance.GetCharAnimator(i, CHAR_ANIMATOR.CHAR_BATTLE_ANIMATOR) as RuntimeAnimatorController;
+                    PlayerChar.GetComponent<Animator>().runtimeAnimatorController = UserInfo.instance.GetCharAnimator(iarr[i], CHAR_ANIMATOR.CHAR_BATTLE_ANIMATOR) as RuntimeAnimatorController;
                     //해당 캐릭터의 배틀 애니메이터 셋팅
 
-                    int iIndex =Util.ConvertToInt(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_WEAPON_INDEX, i));
-                    ITEM_TYPE eType = (ITEM_TYPE)Util.ConvertToInt(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_WEAPON_TYPE, i));
+                    int iIndex = Util.ConvertToInt(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_WEAPON_INDEX, iarr[i]));
+                    ITEM_TYPE eType = (ITEM_TYPE)Util.ConvertToInt(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_WEAPON_TYPE, iarr[i]));
 
                     CharRoute = "Player/" + route + "/Particle/UltimateSkill";
                     GameObject Ultimate = ResourceLoader.CreatePrefab(CharRoute);
                     Ultimate.transform.SetParent(Particle, false);
                     Ultimate.SetActive(false);
 
-                    PlayerChar.GetComponent<WeaponPoint>().WeaponSet(iIndex, eType);
-                    PlayerChar.GetComponent<WeaponPoint>().ViewWeapon(true, true);
+                    PlayerChar.GetComponent<WeaponPoint>().enabled = true;
+                    PlayerChar.GetComponent<WeaponPoint>().ViewEffect(true);
                     PlayerScript script = PlayerChar.GetComponent<PlayerScript>();
                     script.enabled = true;
                     script.PlayerInit(Ultimate);
@@ -42,6 +44,7 @@ public class PlayerManager
                     //플레이어 동작 스크립트
                     PlayerChar.SetActive(false);
                     m_ListChar.Add(PlayerChar);
+                    m_ScriptList.Add(script);
                     //플레이어 캐릭터 셋팅
                     //해당 캐릭터의 파티클 임팩트
                 }
@@ -66,13 +69,11 @@ public class PlayerManager
                 m_ListChar[iCurChar].SetActive(false);
                 //캐릭터 변경 시에는 현재 캐릭터의 좌표를 기준으로 한다.
             }
-            else
-            {
-                m_ListChar[iCount].SetActive(true);
-                m_ListChar[iCount].GetComponent<PlayerScript>().PlayerSet();
-                m_ListChar[iCount].transform.position = CharPos; //포지션 셋팅
-                GameManager.instance.PlayerCharChange(iCount);
-            }
+
+            m_ListChar[iCount].SetActive(true);
+            m_ScriptList[iCount].PlayerSet();
+            m_ListChar[iCount].transform.position = CharPos; //포지션 셋팅
+            GameManager.instance.PlayerCharChange(iCount);
         }
     }
 
@@ -80,7 +81,7 @@ public class PlayerManager
     {
         for(int i = 0; i < m_ListChar.Count; i++)
         {
-            if (m_ListChar[i].activeSelf)   //하나라도 살았으면
+            if (!m_ScriptList[i].m_bDie)   //하나라도 살았으면
             {
                 return false;
             }

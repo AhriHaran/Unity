@@ -17,8 +17,6 @@ public class CharInfoButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(m_CallBack != null)
-            OnClick();
     }
 
     public void Setting(int iIndex)
@@ -28,7 +26,7 @@ public class CharInfoButton : MonoBehaviour
         transform.GetChild(0).GetComponent<UILabel>().text = strIcon;
         strIcon += m_strSprite;
         transform.GetChild(1).GetComponent<UISprite>().spriteName = strIcon;
-        //INGUIAtlas atlas = transform.GetChild(1).GetComponent<UISprite>().atlas;
+        gameObject.GetComponent<UIButton>().normalSprite = strIcon;
     }
 
     public void SetCallBack(CallBack call)
@@ -37,16 +35,9 @@ public class CharInfoButton : MonoBehaviour
     }
 
     //콜백
-    void OnClick()
+    public void OnClick()
     {
         //해당 인포메이션 버튼을 누르면 캐릭터 프리펩이 나오고 해당 인덱스를 저장한다.
-        if(Input.GetMouseButtonDown(0))
-        {
-            GameObject Object = null; 
-            if(Util.RayCastHitObject(ref Object))
-            {
-                m_CallBack(m_iCharIndex);
-            }
-        }
+        m_CallBack(m_iCharIndex);
     }
 }

@@ -83,7 +83,6 @@ public class ValkyrjaPanel : MonoBehaviour
 
     private void OnDisable()
     {
-        GameManager.instance.DestroyModel();
         m_iCharIndex = -1;
         m_GridChar.transform.DestroyChildren();
     }
@@ -98,8 +97,8 @@ public class ValkyrjaPanel : MonoBehaviour
     {
         if(m_iCharIndex != iIndex)  //중복체크 방지
         {
-            GameManager.instance.DestroyModel();
             m_iCharIndex = iIndex;
+            GameManager.instance.DestroyModel();
             GameManager.instance.CreateModel(iIndex);
             GameManager.instance.CharSelect(iIndex);    //현재 선택한 캐릭터 인덱스를 저장
 

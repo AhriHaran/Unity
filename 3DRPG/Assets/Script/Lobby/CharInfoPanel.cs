@@ -32,8 +32,8 @@ public class CharInfoPanel : MonoBehaviour
 
     private void OnEnable()
     {
-        GameManager.instance.DestroyModel();
         int iCurSelect = GameManager.instance.ReturnCurSelectChar();
+        GameManager.instance.DestroyModel();
         GameManager.instance.CreateModel(iCurSelect);
         GameManager.instance.ModelRotate(new Vector3(0, -30, 0));
         GameManager.instance.ViewWeapon(true, false);

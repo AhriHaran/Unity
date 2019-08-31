@@ -56,8 +56,6 @@ public class EnemyScript : MonoBehaviour
 
     public void TrSetting(Transform Player)
     {
-        StopAllCoroutines();
-
         m_PlayerTR = Player;
     }
 
@@ -155,7 +153,6 @@ public class EnemyScript : MonoBehaviour
 
         if (colliders.Length != 0)
         {
-            int iCurChar = GameManager.instance.ReturnCurPlayer();
             float fATK = float.Parse(m_CharData.GetEnemyData(CHAR_DATA.CHAR_ATK).ToString());
             float fCRI = float.Parse(m_CharData.GetEnemyData(CHAR_DATA.CHAR_CRI).ToString());
 
@@ -211,5 +208,18 @@ public class EnemyScript : MonoBehaviour
         Pos.y = 2;
         Item.transform.position = Pos;
         Item.SetActive(true);
+    }
+
+    public void Stop()
+    {
+        m_eCurState = ENEMY_STATE.STATE_WAIT;
+        StopAllCoroutines();
+        m_PlayerTR = null;
+    }
+
+    public void ReStart()
+    {
+        StartCoroutine("StateCheck", 0.2f);
+        StartCoroutine("StateAction");
     }
 }

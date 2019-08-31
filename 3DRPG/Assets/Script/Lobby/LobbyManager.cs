@@ -133,7 +133,7 @@ public class LobbyManager : MonoBehaviour
 
     private void OnDisable()
     {
-        PoolManager.instance.Clear();
+        CharPoolManager.instance.Clear();
         m_StackPanel.Clear();
         //해당 씬에서 생성했던 모든 풀 삭제
     }
@@ -152,7 +152,6 @@ public class LobbyManager : MonoBehaviour
                                                                      //메인으로 지정된 캐릭터 불러오기
                 m_MainChar.GetComponent<Animator>().runtimeAnimatorController = UserInfo.instance.GetCharAnimator(iMainCount,
                     CHAR_ANIMATOR.CHAR_LOBBY_ANIMATOR) as RuntimeAnimatorController;
-                m_MainChar.GetComponent<WeaponPoint>().ViewWeapon(false, false);
                 //로비에서는 아이템과 임팩트가 보일 이유는 없다.
             }
             //애니메이터 변경

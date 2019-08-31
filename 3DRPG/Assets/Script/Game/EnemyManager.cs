@@ -77,6 +77,22 @@ public class EnemyManager
         }
     }
 
+    public void Stop()
+    {
+        for (int i = 0; i < m_ListEnemyObject[m_iCurWave].Count; i++)
+        {
+            m_ListEnemyObject[m_iCurWave][i].GetComponent<EnemyScript>().Stop();
+        }
+    }
+
+    public void Start()
+    {
+        for (int i = 0; i < m_ListEnemyObject[m_iCurWave].Count; i++)
+        {
+            m_ListEnemyObject[m_iCurWave][i].GetComponent<EnemyScript>().ReStart();
+        }
+    }
+
     public void WaveClear(ref WAVE_STATE eState)
     {
         int iCount = 0;

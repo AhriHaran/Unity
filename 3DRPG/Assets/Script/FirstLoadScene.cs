@@ -70,36 +70,6 @@ public class FirstLoadScene : MonoBehaviour
             Debug.Log(WeaponData);
             JSON.JsonUtil.CreateJson(INVENTORY_TYPE.INVENTORY_WEAPON.ToString(), WeaponData);
 
-
-            //ItemInfoData[] StigmaList = new ItemInfoData[3];
-            //for (int i = 0; i < 3; i++)
-            //{
-            //    try
-            //    {
-            //        ITEM_TYPE type = ITEM_TYPE.ITEM_NONE;
-            //        if (i == 0)
-            //        {
-            //            type = ITEM_TYPE.ITEM_STIGMA_TOP;
-            //        }
-            //        else if (i == 1)
-            //        {
-            //            type = ITEM_TYPE.ITEM_STIGMA_CENTER;
-            //        }
-            //        else if (i == 2)
-            //        {
-            //            type = ITEM_TYPE.ITEM_STIGMA_BOTTOM;
-
-            //        }
-            //        StigmaList[i] = new ItemInfoData(type, 0);
-            //    }
-            //    catch (System.NullReferenceException ex)
-            //    {
-            //        Debug.Log(ex);
-            //    }
-            //}
-            //string Stigma = JSON.JsonUtil.ToJson<ItemInfoData>(StigmaList);
-            //Debug.Log(Stigma);
-            //JSON.JsonUtil.CreateJson(INVENTORY_TYPE.INVENTORY_STIGMA.ToString(), Stigma);
             ////유저의 초기 데이터들
 
             UserInfo.instance.Init();

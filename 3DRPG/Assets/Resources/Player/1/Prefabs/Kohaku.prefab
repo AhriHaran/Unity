@@ -26555,6 +26555,7 @@ MonoBehaviour:
   m_fAniSpeed: 1.5
   m_iIndex: 0
   m_bDie: 0
+  m_iRange: 3
 --- !u!143 &9056213449838929042
 CharacterController:
   m_ObjectHideFlags: 0
@@ -26580,13 +26581,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1962382155877706}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f8f346f34f5541b4eb28507b9ea9ebdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_WeaponPoint:
   - {fileID: 2110256884156907749}
+  m_iCharIndex: 1
 --- !u!1 &1962443360429344
 GameObject:
   m_ObjectHideFlags: 0
