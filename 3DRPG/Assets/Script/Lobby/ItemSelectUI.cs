@@ -70,14 +70,28 @@ public class ItemSelectUI : MonoBehaviour
     void OnDisable()
     {
         m_iCurSelectItem = -1;
+        while (m_GridChar.transform.childCount != 0)
+        {
+            GameObject game = m_GridChar.transform.GetChild(0).gameObject;
+            game.transform.SetParent(null);
+            NGUITools.Destroy(game);
+        }
+        m_GridChar.transform.DetachChildren();
     }
 
-    void ItemSelect(int iIndex)
+    void ItemSelect(int iIndex) //콜백으로 선언
     {
         //리스트 기준의 아이템 순서
         //선택 시 
         if (m_iCurSelectItem != iIndex)
         {
+            for(int i = 0; i < m_GridChar.transform.childCount; i++)
+            {
+                if (iIndex != i) //현재 선택 된 것과 다르다면
+                    m_GridChar.transform.GetChild(i).GetComponent<ItemSprite>().ButtonSelect(false);
+                //나머지 버튼들은 비 선택 처리를 해줘라
+            }
+            
             INVENTORY_TYPE eInven = GameManager.instance.ReturnInvenType();
             m_iCurSelectChar = iIndex;
 

@@ -27,38 +27,32 @@ public class CharStigmaUI : MonoBehaviour
     public void OnFinished()
     {
         int iIndex = GameManager.instance.ReturnCurSelectChar();
-        //해당 캐릭터
-        
-        int iData = Util.ConvertToInt(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_STIGMA_TOP_INDEX, iIndex));
-        string spriteName = string.Empty;
-        if(iData >= 0)
-        {
-            spriteName = Util.ConvertToString(iData) + "_T";
-            m_StigmaT.spriteName = spriteName;
-            m_StigmaTName.text = Util.ConvertToString(UserInfo.instance.GetItemForList(iData, INVENTORY_TYPE.INVENTORY_STIGMA, ITEM_DATA.ITEM_NAME)) + "(T)";
-        }
+        //현재 정보를 보려는 캐릭터
+        StigmaView(iIndex, CHAR_DATA.CHAR_STIGMA_TOP_INDEX, "_T", "(T)");
+        StigmaView(iIndex, CHAR_DATA.CHAR_STIGMA_CENTER_INDEX, "_C", "(C)");
+        StigmaView(iIndex, CHAR_DATA.CHAR_STIGMA_BOTTOM_INDEX, "_B", "(B)");
+        //onfinish가 되면 매번 셋팅
+    }
 
-        iData = Util.ConvertToInt(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_STIGMA_CENTER_INDEX, iIndex));
-        if(iData >= 0)
-        {
-            spriteName = Util.ConvertToString(iData) + "_C";
-            m_StigmaC.spriteName = spriteName;
-            m_StigmaCName.text = Util.ConvertToString(UserInfo.instance.GetItemForList(iData, INVENTORY_TYPE.INVENTORY_STIGMA, ITEM_DATA.ITEM_NAME)) + "(C)";
-        }
-
-        iData = Util.ConvertToInt(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_STIGMA_BOTTOM_INDEX, iIndex));
+    private void StigmaView(int iIndex, CHAR_DATA eType, string strType, string strName)
+    {
+        int iData = Util.ConvertToInt(UserInfo.instance.GetCharData(eType, iIndex));
+        //해당 캐릭터가 가지고있는 부위의 리스트 기반 인덱스
         if (iData >= 0)
         {
-            spriteName = Util.ConvertToString(iData) + "_B";
+            int Stigma = Util.ConvertToInt(UserInfo.instance.GetItemForList(iData, INVENTORY_TYPE.INVENTORY_STIGMA, ITEM_DATA.ITEM_INDEX));
+            //해당 리스트에 속해 있는 아이템의 실제 인덱스
+            string spriteName = Util.ConvertToString(Stigma) + strType;
             m_StigmaB.spriteName = spriteName;
-            m_StigmaBName.text = Util.ConvertToString(UserInfo.instance.GetItemForList(iData, INVENTORY_TYPE.INVENTORY_STIGMA, ITEM_DATA.ITEM_NAME)) + "(B)";
+            //스프라이트 교체
+            m_StigmaBName.text = Util.ConvertToString(UserInfo.instance.GetItemForList(iData, INVENTORY_TYPE.INVENTORY_STIGMA, ITEM_DATA.ITEM_NAME)) + strName;
+            //이름 교체
         }
         else
         {
             m_StigmaB.spriteName = "CrossHair";
             m_StigmaBName.text = "None";
         }
-        //onfinish가 되면 매번 셋팅
     }
 
     private void Start()

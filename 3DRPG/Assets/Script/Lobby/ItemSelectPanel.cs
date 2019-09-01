@@ -71,7 +71,6 @@ public class ItemSelectPanel : MonoBehaviour
 
             if (bSet)
             {
-
                 //장착했다는 의미이므로 캐릭터의 데이터를 갱신해준다.
                 m_ItemInfo.GetComponent<ItemInfoUI>().ItemInfo((int)ITEM_INFO_UI.ITEM_INFO_CUR, iCurItem);
                 m_ItemInfo.GetComponent<ItemInfoUI>().ItemInfo((int)ITEM_INFO_UI.ITEM_INFO_SELECT, -1);

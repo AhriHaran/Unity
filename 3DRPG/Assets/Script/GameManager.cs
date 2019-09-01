@@ -102,7 +102,6 @@ public class GameManager : MonoSingleton<GameManager>
     public void ItemSelect(ITEM_TYPE eType)
     {
         m_eItemType = eType;    //내가 현재 이것의 장비 장착을 요구하였다.
-
         if (m_eItemType == ITEM_TYPE.ITEM_STIGMA_TOP || m_eItemType == ITEM_TYPE.ITEM_STIGMA_CENTER || m_eItemType == ITEM_TYPE.ITEM_STIGMA_BOTTOM)
             m_eInvenType = INVENTORY_TYPE.INVENTORY_STIGMA;
         else
@@ -111,21 +110,20 @@ public class GameManager : MonoSingleton<GameManager>
     }
     public ITEM_TYPE ReturnSelectType()
     {
-        return m_eItemType;
+        return m_eItemType; //장착하려는 아이템 타입
     }
     public ITEM_TYPE ReturnSelectCharType()
     {
         //현재 선택된 캐릭터의 무기 타입을 리턴
-
         return (ITEM_TYPE)UserInfo.instance.GetCharData(CHAR_DATA.CHAR_WEAPON_TYPE, m_iCurSelectChar);
     }
     public INVENTORY_TYPE ReturnInvenType()
     {
-        return m_eInvenType;
+        return m_eInvenType;    //인벤토리 타입
     }
     public int ReturnCurSelectItem()
     {
-        return m_iCurSelectItme;
+        return m_iCurSelectItme;    //현재 선택한 아이템
     }
     public void SelectCurItem(int iIndex)
     {

@@ -45,7 +45,7 @@ public class ItemSprite : MonoBehaviour
 
     public void Setting(int iIndex, ITEM_TYPE eType, INVENTORY_TYPE eInven)
     {
-        m_iItemIndex = iIndex;
+        m_iItemIndex = iIndex;  
         m_eItemType = eType;
         m_eInvenType = eInven;
     }
@@ -54,48 +54,42 @@ public class ItemSprite : MonoBehaviour
     {
         string sprite = string.Empty;
         sprite = Util.ConvertToString(UserInfo.instance.GetItemForList(m_iItemIndex, m_eInvenType, ITEM_DATA.ITEM_INDEX)) + "_" + m_eItemType.ToString() + "_Icon";
-        //if (m_eItemType == ITEM_TYPE.ITEM_STIGMA_TOP)
-        //    sprite = Util.ConvertToString(UserInfo.instance.GetItemForList(m_iItemIndex, m_eInvenType, ITEM_DATA.ITEM_INDEX)) + "_" + m_eItemType.ToString();
-        //else if (m_eItemType == ITEM_TYPE.ITEM_STIGMA_CENTER)
-        //    sprite = Util.ConvertToString(UserInfo.instance.GetItemForList(m_iItemIndex, m_eInvenType, ITEM_DATA.ITEM_INDEX)) + "_C";
-        //else if (m_eItemType == ITEM_TYPE.ITEM_STIGMA_BOTTOM)
-        //    sprite = Util.ConvertToString(UserInfo.instance.GetItemForList(m_iItemIndex, m_eInvenType, ITEM_DATA.ITEM_INDEX)) + "_B";
-        //else
-        //    sprite = Util.ConvertToString(UserInfo.instance.GetItemForList(m_iItemIndex, m_eInvenType, ITEM_DATA.ITEM_INDEX)) + "_Weapon";
-
         m_ItemSprite.spriteName = sprite;   //스프라이트 교체
         m_ItemLabel.text = Util.ConvertToString(UserInfo.instance.GetItemForList(m_iItemIndex, m_eInvenType, ITEM_DATA.ITEM_NAME));
         //이름 교채
-
+        
         int iEquip = Util.ConvertToInt(UserInfo.instance.GetItemForList(m_iItemIndex, m_eInvenType, ITEM_DATA.ITEM_EQUIP_CHAR));
-        if(iEquip >= 0)
+        if (iEquip >= 0)
             m_Equip.gameObject.SetActive(true);
+        else
+            m_Equip.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
         ShowInfo();
-        OnClick();
     }
 
-    private void OnClick()
+    public void OnClick()
     {
-        //콜백 설정됨
+        ButtonSelect(true);
+        if (m_CallBack != null)
+            m_CallBack(m_iItemIndex);
+        //해당 패널을 클릭하였다.
+    }
 
-#if UNITY_EDITOR
-        if (Input.GetMouseButtonDown(0))
+    public void ButtonSelect(bool bClick)   //해당 버튼을 선택하였다는 가시적인 보여줌
+    {
+        if(bClick)
         {
-            Ray ray = UICamera.mainCamera.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
-            {
-                if (hit.collider.gameObject.name.Contains("ItemSprite"))
-                    m_CallBack?.Invoke(m_iItemIndex);   //나의 현재 아이템 인덱스
-            }
+            gameObject.transform.GetChild(0).GetComponent<UISprite>().spriteName = "Window05Gold";
+            gameObject.GetComponent<UIButton>().normalSprite = "Window05Gold";
         }
-#elif UNITY_ANDROID
-
-#endif
+        else
+        {
+            gameObject.transform.GetChild(0).GetComponent<UISprite>().spriteName = "Window05Grey";
+            gameObject.GetComponent<UIButton>().normalSprite = "Window05Grey";
+        }
     }
 }
