@@ -72,9 +72,12 @@ public class ItemSelectUI : MonoBehaviour
         m_iCurSelectItem = -1;
         while (m_GridChar.transform.childCount != 0)
         {
-            GameObject game = m_GridChar.transform.GetChild(0).gameObject;
-            game.transform.SetParent(null);
-            NGUITools.Destroy(game);
+            GameObject game = m_GridChar.transform.GetChild(0).gameObject ?? null;
+            if(game != null)
+            {
+                game.transform.SetParent(null);
+                NGUITools.Destroy(game);
+            }
         }
         m_GridChar.transform.DetachChildren();
     }

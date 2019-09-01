@@ -26,6 +26,5 @@ public class FollowCam : MonoBehaviour
             transform.LookAt(m_PlayerTR);
         }
     }
-
     //캐릭터를 바꿀 때나 캐릭터를 셋팅 완료 했을 경우 카메라를 그 캐릭터 기준으로 바꿔준다.
 }
