@@ -64,10 +64,13 @@ public class PlayerScript : MonoBehaviour
     private float m_fAttackTime = 1.0f;  //공격 유지 시간
     private float m_fCurPressTime = 0.0f;
     private float m_fPressTime = 0.6f;
+
+    private bool m_bUltimateReady = true;
+    private bool m_bInvincibleReady = true;
+
+
     private float m_fCurInvisible = 0.0f;
     private float m_fInvisibleTime = 0.5f;
-    private float m_fCurDeathTime = 0.0f;
-    private float m_fDeathTime = 0.5f;
 
     //플레이어의 조종에 따른 스크립트
     // Start is called before the first frame update
@@ -112,10 +115,15 @@ public class PlayerScript : MonoBehaviour
         //hp와 sp를 설정하고
 
         //버튼 키를 설정한다.
-        foreach (var v in m_ListKey)
+        for(int i = 0; i < 3; i++)
         {
-            v.GetComponent<PlayerKeyButton>().KeySetting(m_iIndex); //키 버튼 인덱스 교체
-        }   
+            m_ListKey[i].GetComponent<PlayerKeyButton>().KeySetting(m_iIndex);
+
+            if (i == (int)KEY_TYPE.KEY_EVASION)
+                m_ListKey[i].transform.GetChild(2).GetComponent<CoolTime>().CallBackSet(InvincibleCallBack);
+            else if(i == (int)KEY_TYPE.KEY_UITIMATE)
+                m_ListKey[i].transform.GetChild(2).GetComponent<CoolTime>().CallBackSet(UltimateReady);
+        }
     }
 
     public void PlayerInit(GameObject Ultimate)
@@ -129,12 +137,12 @@ public class PlayerScript : MonoBehaviour
             m_ListKey.Add(playerUI.transform.GetChild(i).gameObject);
         }
 
-        m_ListKey[0].GetComponent<UIEventTrigger>().onPress.Add(new EventDelegate(gameObject.GetComponent<PlayerScript>(), "OnPress"));
-        m_ListKey[0].GetComponent<UIEventTrigger>().onRelease.Add(new EventDelegate(gameObject.GetComponent<PlayerScript>(), "OnAttack"));
-        m_ListKey[1].GetComponent<UIEventTrigger>().onClick.Add(new EventDelegate(gameObject.GetComponent<PlayerScript>(), "OnEvasion"));
+        m_ListKey[(int)KEY_TYPE.KEY_ATTACK].GetComponent<UIEventTrigger>().onPress.Add(new EventDelegate(gameObject.GetComponent<PlayerScript>(), "OnPress"));
+        m_ListKey[(int)KEY_TYPE.KEY_ATTACK].GetComponent<UIEventTrigger>().onRelease.Add(new EventDelegate(gameObject.GetComponent<PlayerScript>(), "OnAttack"));
+        m_ListKey[(int)KEY_TYPE.KEY_EVASION].GetComponent<UIEventTrigger>().onClick.Add(new EventDelegate(gameObject.GetComponent<PlayerScript>(), "OnEvasion"));
         //쿨타임 적용
-        m_ListKey[2].GetComponent<UIEventTrigger>().onPress.Add(new EventDelegate(gameObject.GetComponent<PlayerScript>(), "OnPress"));
-        m_ListKey[2].GetComponent<UIEventTrigger>().onRelease.Add(new EventDelegate(gameObject.GetComponent<PlayerScript>(), "OnUltimate"));
+        m_ListKey[(int)KEY_TYPE.KEY_UITIMATE].GetComponent<UIEventTrigger>().onPress.Add(new EventDelegate(gameObject.GetComponent<PlayerScript>(), "OnPress"));
+        m_ListKey[(int)KEY_TYPE.KEY_UITIMATE].GetComponent<UIEventTrigger>().onRelease.Add(new EventDelegate(gameObject.GetComponent<PlayerScript>(), "OnUltimate"));
         //쿨타임 적용
 
         if (m_HpSlider == null && m_SpSlider == null)
@@ -194,16 +202,6 @@ public class PlayerScript : MonoBehaviour
     {
         if (!m_bAttack)
             KeyControll();
-
-        if(m_bDie)
-        {
-            m_fCurDeathTime += Time.deltaTime;
-            if (m_fCurDeathTime >= m_fDeathTime)
-            {
-                gameObject.SetActive(false);
-                //죽고 시체가 없어지면 콜백
-            }
-        }
     }
     
     void OnPress()
@@ -253,9 +251,19 @@ public class PlayerScript : MonoBehaviour
     void OnEvasion()
     {
         //회피 버튼, 회피 시에는 무적
-        m_PlayerAnimator.SetTrigger("Slide");
-        m_bInvincible = true;
-        StartCoroutine("CheckInvincible");
+        if(m_bInvincibleReady)
+        {
+            m_PlayerAnimator.SetTrigger("Slide");
+            m_bInvincible = true;
+            m_bInvincibleReady = false;
+            m_ListKey[(int)KEY_TYPE.KEY_EVASION].transform.GetChild(2).GetComponent<CoolTime>().OnClick();
+            StartCoroutine("CheckInvincible");
+        }
+    }
+
+    public void InvincibleCallBack()
+    {
+        m_bInvincibleReady = true;
     }
 
     void OnUltimate()
@@ -263,14 +271,16 @@ public class PlayerScript : MonoBehaviour
         //궁극기
         //SP가 특정 이상이면 궁극기 발동 하지만 SP가 특정 이하면 기본 공격 콤보
         m_bAttack = true;
-        if(m_fCurSP >= m_UltimateSkill.st_iSpendSP && m_UltimateSkill.st_eInput == m_eInput)
+        if(m_fCurSP >= m_UltimateSkill.st_iSpendSP && m_UltimateSkill.st_eInput == m_eInput && m_bUltimateReady)
         {
             //sp가 다 모이고 올바른 키 타입이면
             m_PlayerAnimator.SetTrigger("UltimateActive");
             m_fCurSP -= m_UltimateSkill.st_iSpendSP;
             m_UltimateEffect.transform.position = transform.position;
             m_UltimateEffect.gameObject.SetActive(true);
-
+            m_bUltimateReady = false;
+            m_ListKey[(int)KEY_TYPE.KEY_UITIMATE].transform.GetChild(2).GetComponent<CoolTime>().OnClick();
+            
             ResetData();
             //궁쓰면 일단 초기화
             SliderUpdate();
@@ -297,6 +307,12 @@ public class PlayerScript : MonoBehaviour
         }
         StopCoroutine("OnPressTime");
     }
+
+    public void UltimateReady()
+    {
+        m_bUltimateReady = true;
+    }
+
 
     bool CollectKeyInput()
     {
@@ -346,8 +362,8 @@ public class PlayerScript : MonoBehaviour
                 m_bInvincible = false;
                 m_fCurInvisible = 0.0f;
             }
-
         }
+        //무적 유지 시간
     }
 
     IEnumerator CheckAttackState()

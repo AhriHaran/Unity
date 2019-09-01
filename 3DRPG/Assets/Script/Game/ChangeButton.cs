@@ -6,8 +6,10 @@ public class ChangeButton : MonoBehaviour
 {
     private UISprite m_KeySprite;
     private UISprite m_KeyLockSprite;
+    private CoolTime m_CoolTime;
     private int m_iCharIndex;   //해당 캐릭터의 인덱스
     public int m_iListCount;    //해당 버튼이 상징하는 캐릭터 리스트 순서
+    public bool m_bChange = true;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -24,6 +26,8 @@ public class ChangeButton : MonoBehaviour
             m_KeySprite.spriteName = strIcon + "Icon";
             gameObject.GetComponent<UIEventTrigger>().onClick.Add(new EventDelegate(GameObject.Find("GameScene").GetComponent<GameScene>(), "ChangeChar"));
             //이벤트 트리거 셋팅
+            m_CoolTime = gameObject.GetComponentInChildren<CoolTime>();
+            m_CoolTime.CallBackSet(ChangeReady);
             gameObject.SetActive(true);
             //활성화
         }
@@ -33,13 +37,20 @@ public class ChangeButton : MonoBehaviour
         }
     }
 
-    private void Change(int iIndex)
+    public void Change(int iIndex)
     {
         //교대 해야 한다.
+        m_bChange = false;
+        m_CoolTime.OnClick();
         string strIcon = Util.ConvertToString(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_NAME, iIndex));
         m_iCharIndex = iIndex;
         m_KeySprite.spriteName = strIcon + "Icon";
         //아이콘 스프라이트 교체
+    }
+
+    public void ChangeReady()
+    {
+        m_bChange = true;
     }
 
     void Start()

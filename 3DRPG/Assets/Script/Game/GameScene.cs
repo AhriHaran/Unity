@@ -68,7 +68,7 @@ public class GameScene : MonoBehaviour
         
         m_CallBack(m_PlayerManager.GetCharTR());    //카메라 콜백 함수 선언
         m_EnemyMangaer.TrSetting(m_PlayerManager.GetCharTR()); //타겟 셋팅
-        m_EnemyMangaer.ActiveWave();    //액티브
+        //m_EnemyMangaer.ActiveWave();    //액티브
         
         PoolManager.instance.Set(POOL_INDEX.POOL_HP_ITEM.ToString(), "Prefabs/HP", 10);
         PoolManager.instance.Set(POOL_INDEX.POOL_SP_ITEM.ToString(), "Prefabs/SP", 10);
@@ -128,18 +128,21 @@ public class GameScene : MonoBehaviour
 
     public void ChangeChar()
     {
-        //캐릭터 체인지
-        m_EnemyMangaer.Stop();
-        //우선 적들을 멈춰 주고
-        int[] iarr = GameManager.instance.ReturnPlayerList();
         GameObject cur = UIEventTrigger.current.gameObject;
-        int iListIndex = cur.GetComponent<ChangeButton>().m_iListCount;
-        //해당 체인져의 버튼    
-        int iChangCha = iarr[iListIndex];   //바꾸려는 캐릭터 인덱스
-        Transform tr = m_PlayerManager.GetCharTR();
-        m_PlayerManager.PlayerSet(iListIndex, tr.position);
-        //캐릭터의 위치와 교대하고
- 
+        ChangeButton Button = cur.GetComponent<ChangeButton>();
+        if (Button.m_bChange)   //바꿔도 됨
+        {
+            //캐릭터 체인지
+            m_EnemyMangaer.Stop();
+            //우선 적들을 멈춰 주고
+            int[] iarr = GameManager.instance.ReturnPlayerList();
+            int iListIndex = Button.m_iListCount;
+            Button.Change(iarr[iListIndex]);
+            Transform tr = m_PlayerManager.GetCharTR();
+            m_PlayerManager.PlayerSet(iListIndex, tr.position);
+            //캐릭터의 위치와 교대하고
+            m_CallBack(m_PlayerManager.GetCharTR());    //카메라 콜백 함수 선언
+        }
     }
 }
 
