@@ -6,6 +6,8 @@ public class ChangeButton : MonoBehaviour
 {
     private UISprite m_KeySprite;
     private UISprite m_KeyLockSprite;
+    private UISprite m_HPSprite;
+    private UISprite m_SPSprite;
     private CoolTime m_CoolTime;
     private int m_iCharIndex;   //해당 캐릭터의 인덱스
     public int m_iListCount;    //해당 버튼이 상징하는 캐릭터 리스트 순서
@@ -14,13 +16,36 @@ public class ChangeButton : MonoBehaviour
     private void Awake()
     {
         m_KeySprite = transform.GetChild(1).GetComponent<UISprite>();
-        m_KeyLockSprite = transform.GetChild(2).GetComponent<UISprite>();
-        m_KeyLockSprite.gameObject.SetActive(false);
-        int[] iarr = GameManager.instance.ReturnPlayerList();
+        m_HPSprite = transform.GetChild(3).GetComponent<UISprite>();
+        m_SPSprite = transform.GetChild(4).GetComponent<UISprite>();
+    }
+
+    public void Change(int iIndex, int ListCount, float fHP, float fMaxHP, float fSP, float fMaxSP)
+    {
+        //교대 해야 한다.
+        //교대 할 때 해당 캐릭터의 HP만큼의 잔여분으로 표시해준다.
         
+        m_bChange = false;
+        m_CoolTime.OnClick();
+        string strIcon = Util.ConvertToString(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_NAME, iIndex));
+        m_iCharIndex = iIndex;
+        m_iListCount = ListCount;
+        m_KeySprite.spriteName = strIcon + "Icon";
+        //아이콘 스프라이트 교체
+        m_HPSprite.fillAmount = (fMaxHP - fHP) / fMaxHP;//현재 캐릭터의 남은 HP 표시
+    }
+
+    public void ChangeReady()
+    {
+        m_bChange = true;
+    }
+
+    void Start()
+    {
+        int[] iarr = GameManager.instance.ReturnPlayerList();
         m_iCharIndex = iarr[m_iListCount];
 
-        if(m_iCharIndex != -1)
+        if (m_iCharIndex != -1)
         {
             string strIcon = Util.ConvertToString(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_NAME, m_iCharIndex));
             m_KeySprite.spriteName = strIcon + "Icon";
@@ -31,31 +56,10 @@ public class ChangeButton : MonoBehaviour
             gameObject.SetActive(true);
             //활성화
         }
-        else if(m_iCharIndex == -1)
+        else if (m_iCharIndex == -1)
         {
             gameObject.SetActive(false);
         }
-    }
-
-    public void Change(int iIndex)
-    {
-        //교대 해야 한다.
-        m_bChange = false;
-        m_CoolTime.OnClick();
-        string strIcon = Util.ConvertToString(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_NAME, iIndex));
-        m_iCharIndex = iIndex;
-        m_KeySprite.spriteName = strIcon + "Icon";
-        //아이콘 스프라이트 교체
-    }
-
-    public void ChangeReady()
-    {
-        m_bChange = true;
-    }
-
-    void Start()
-    {
-        
     }
 
     // Update is called once per frame

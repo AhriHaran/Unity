@@ -87,10 +87,17 @@ public class FirstLoadScene : MonoBehaviour
     {
         if(m_bLoadComplete && m_bUserInfo)  //로딩 슬라이드가 꽉차고, 유저 데이터 불러오기가 완료 되었으면
         {
-            if(Input.GetMouseButtonDown(0)) //로딩 슬라이더가 다 차면 클릭만으로 넘어간다.
+#if UNITY_EDITOR
+            if (Input.GetMouseButtonDown(0)) //로딩 슬라이더가 다 차면 클릭만으로 넘어간다.
             {
                 async_operation.allowSceneActivation = true;
             }
+#elif UNITY_ANDROID
+            if(Input.GetTouch(0).phase == TouchPhase.Ended)
+            {
+                async_operation.allowSceneActivation = true;
+            }
+#endif
         }
     }
 

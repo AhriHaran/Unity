@@ -137,7 +137,11 @@ public class GameScene : MonoBehaviour
             //우선 적들을 멈춰 주고
             int[] iarr = GameManager.instance.ReturnPlayerList();
             int iListIndex = Button.m_iListCount;
-            Button.Change(iarr[iListIndex]);
+
+            Button.Change(iarr[iListIndex], iListIndex, m_PlayerManager.GetPlayerData(PLAYER_DATA.PLAYER_CUR_HP),
+              m_PlayerManager.GetPlayerData(PLAYER_DATA.PLAYER_MAX_HP), m_PlayerManager.GetPlayerData(PLAYER_DATA.PLAYER_CUR_SP),
+              m_PlayerManager.GetPlayerData(PLAYER_DATA.PLAYER_MAX_SP));
+
             Transform tr = m_PlayerManager.GetCharTR();
             m_PlayerManager.PlayerSet(iListIndex, tr.position);
             //캐릭터의 위치와 교대하고

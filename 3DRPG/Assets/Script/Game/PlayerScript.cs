@@ -46,10 +46,26 @@ public class PlayerScript : MonoBehaviour
     private UISlider m_HpSlider = null;
     private UISlider m_SpSlider = null;
     private UIJoystick m_Input = null;
-    private float m_fMaxHP = 0.0f; //맥스 HP
-    private float m_fCurHP = 0.0f; //현재 HP
-    private float m_fMaxSP = 0.0f; //맥스 SP
-    private float m_fCurSP = 0.0f; //현재 SP
+    public float m_fMaxHP
+    {
+        get { return m_fMaxHP; }
+        set { m_fMaxHP = 0.0f; }
+    }
+    public float m_fCurHP
+    {
+        get { return m_fCurHP; }
+        set { m_fCurHP = 0.0f; }
+    }
+    public float m_fMaxSP
+    {
+        get { return m_fMaxSP; }
+        set { m_fMaxSP = 0.0f; }
+    }
+    public float m_fCurSP
+    {
+        get { return m_fCurSP; }
+        set { m_fCurSP = 0.0f; }
+    }
 
     //공격 관련
     private List<List<st_Key>> m_ListComboKey = new List<List<st_Key>>();
@@ -59,16 +75,15 @@ public class PlayerScript : MonoBehaviour
     private bool m_bAttack;
     private bool m_bInvincible = false;
     private KEY_INPUT m_eInput;
-    private int m_iCurKey;  //현재 콤보 단계
-    private float m_fCurAttackTime = 0.0f;   //현재 공격 후 걸린시간.
-    private float m_fAttackTime = 1.0f;  //공격 유지 시간
-    private float m_fCurPressTime = 0.0f;
+    public int m_iCurKey;  //현재 콤보 단계
+    public float m_fCurAttackTime = 0.0f;   //현재 공격 후 걸린시간.
+    private float m_fAttackTime = 1.5f;  //공격 유지 시간
+    public float m_fCurPressTime = 0.0f;
     private float m_fPressTime = 0.6f;
 
     private bool m_bUltimateReady = true;
     private bool m_bInvincibleReady = true;
-
-
+    
     private float m_fCurInvisible = 0.0f;
     private float m_fInvisibleTime = 0.5f;
 
@@ -117,12 +132,27 @@ public class PlayerScript : MonoBehaviour
         //버튼 키를 설정한다.
         for(int i = 0; i < 3; i++)
         {
-            m_ListKey[i].GetComponent<PlayerKeyButton>().KeySetting(m_iIndex);
+            UIEventTrigger Event = m_ListKey[i].GetComponent<UIEventTrigger>();
+            Event.onPress.Clear();
+            Event.onClick.Clear();
+            Event.onRelease.Clear();
 
-            if (i == (int)KEY_TYPE.KEY_EVASION)
-                m_ListKey[i].transform.GetChild(2).GetComponent<CoolTime>().CallBackSet(InvincibleCallBack);
-            else if(i == (int)KEY_TYPE.KEY_UITIMATE)
-                m_ListKey[i].transform.GetChild(2).GetComponent<CoolTime>().CallBackSet(UltimateReady);
+            switch ((KEY_TYPE)i)
+            {
+                case KEY_TYPE.KEY_ATTACK:
+                    Event.onPress.Add(new EventDelegate(gameObject.GetComponent<PlayerScript>(), "OnPress"));
+                    Event.onRelease.Add(new EventDelegate(gameObject.GetComponent<PlayerScript>(), "OnAttack"));
+                    break;
+                case KEY_TYPE.KEY_EVASION:
+                    m_ListKey[i].transform.GetChild(2).GetComponent<CoolTime>().CallBackSet(InvincibleCallBack);
+                    Event.onClick.Add(new EventDelegate(gameObject.GetComponent<PlayerScript>(), "OnEvasion"));
+                    break;
+                case KEY_TYPE.KEY_UITIMATE:
+                    m_ListKey[i].transform.GetChild(2).GetComponent<CoolTime>().CallBackSet(UltimateReady);
+                    Event.onPress.Add(new EventDelegate(gameObject.GetComponent<PlayerScript>(), "OnPress"));
+                    Event.onRelease.Add(new EventDelegate(gameObject.GetComponent<PlayerScript>(), "OnUltimate"));
+                    break;
+            }
         }
     }
 
@@ -130,25 +160,15 @@ public class PlayerScript : MonoBehaviour
     {
         GameObject UI = GameObject.Find("GameUI");
         GameObject playerUI = UI.transform.GetChild(6).gameObject;
-        EventDelegate onClick = new EventDelegate(gameObject.GetComponent<PlayerScript>(), "OnClick");
-        EventDelegate onPress = new EventDelegate(gameObject.GetComponent<PlayerScript>(), "OnPress");
         for (int i = 1; i < 4; i++)
         {
             m_ListKey.Add(playerUI.transform.GetChild(i).gameObject);
         }
 
-        m_ListKey[(int)KEY_TYPE.KEY_ATTACK].GetComponent<UIEventTrigger>().onPress.Add(new EventDelegate(gameObject.GetComponent<PlayerScript>(), "OnPress"));
-        m_ListKey[(int)KEY_TYPE.KEY_ATTACK].GetComponent<UIEventTrigger>().onRelease.Add(new EventDelegate(gameObject.GetComponent<PlayerScript>(), "OnAttack"));
-        m_ListKey[(int)KEY_TYPE.KEY_EVASION].GetComponent<UIEventTrigger>().onClick.Add(new EventDelegate(gameObject.GetComponent<PlayerScript>(), "OnEvasion"));
-        //쿨타임 적용
-        m_ListKey[(int)KEY_TYPE.KEY_UITIMATE].GetComponent<UIEventTrigger>().onPress.Add(new EventDelegate(gameObject.GetComponent<PlayerScript>(), "OnPress"));
-        m_ListKey[(int)KEY_TYPE.KEY_UITIMATE].GetComponent<UIEventTrigger>().onRelease.Add(new EventDelegate(gameObject.GetComponent<PlayerScript>(), "OnUltimate"));
-        //쿨타임 적용
-
         if (m_HpSlider == null && m_SpSlider == null)
         {
             m_HpSlider = UI.transform.GetChild(1).GetComponent<UISlider>();//hp 바
-            m_SpSlider = UI.transform.GetChild(2).GetComponent<UISlider>();//sp 바
+            //m_SpSlider = UI.transform.GetChild(2).GetComponent<UISlider>();//sp 바
 
             m_fMaxHP = float.Parse(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_MAX_HP, m_iIndex).ToString());
             m_fCurHP = m_fMaxHP;
@@ -161,7 +181,7 @@ public class PlayerScript : MonoBehaviour
 
         string strExcel = "Excel/CharacterExcel/" + Util.ConvertToString(m_iIndex) + "_KeyControl";
         var Key = EXCEL.ExcelLoad.Read(strExcel);
-        string[] KeyList = Key[0]["Key"].ToString().Split(',');
+        string[] KeyList = Key[0]["Key"].ToString().Split('/');
         KeyList = KeyList[0].Split(';');
 
         m_UltimateSkill.st_iKey = (KEY_TYPE)Util.ConvertToInt(KeyList[0]);
@@ -172,7 +192,7 @@ public class PlayerScript : MonoBehaviour
         for (int i = 1; i < Key.Count; i++)
         {
             string index = Key[i]["Index"].ToString();
-            KeyList = Key[i]["Key"].ToString().Split(',');
+            KeyList = Key[i]["Key"].ToString().Split('/');
             
             List<st_Key> ListNode = new List<st_Key>();
             for (int j = 0; j < KeyList.Length; j++)

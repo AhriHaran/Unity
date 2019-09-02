@@ -2,6 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum PLAYER_DATA
+{
+    PLAYER_MAX_HP,
+    PLAYER_CUR_HP,
+    PLAYER_MAX_SP,
+    PLAYER_CUR_SP,
+}
+
 public class PlayerManager
 {
     private List<GameObject> m_ListChar = new List<GameObject>();
@@ -93,5 +101,23 @@ public class PlayerManager
     {
         int iCurChar = GameManager.instance.ReturnCurPlayer();
         return m_ListChar[iCurChar].transform;
+    }
+
+    public float GetPlayerData(PLAYER_DATA eData)
+    {
+        int iCurChar = GameManager.instance.ReturnCurPlayer();  //현재 선택된 캐릭터를 호출
+
+        switch (eData)
+        {
+            case PLAYER_DATA.PLAYER_MAX_HP:
+                return m_ScriptList[iCurChar].m_fMaxHP;
+            case PLAYER_DATA.PLAYER_CUR_HP:
+                return m_ScriptList[iCurChar].m_fCurHP;
+            case PLAYER_DATA.PLAYER_MAX_SP:
+                return m_ScriptList[iCurChar].m_fMaxSP;
+            case PLAYER_DATA.PLAYER_CUR_SP:
+                return m_ScriptList[iCurChar].m_fMaxSP;
+        }
+        return 0.0f;
     }
 }

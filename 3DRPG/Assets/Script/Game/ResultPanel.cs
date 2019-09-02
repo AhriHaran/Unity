@@ -38,7 +38,7 @@ public class ResultPanel : MonoBehaviour
         int ClearExp = Util.ConvertToInt(GameManager.instance.ReturnStageData(MAP_DATA.MAP_CLEAR_EXP));
         int ClearGold = Util.ConvertToInt(GameManager.instance.ReturnStageData(MAP_DATA.MAP_CLEAR_GOLD));
         int ClearEnergy = Util.ConvertToInt(GameManager.instance.ReturnStageData(MAP_DATA.MAP_ENERGY));
-        string [] ClearItem = Util.ConvertToString(GameManager.instance.ReturnStageData(MAP_DATA.MAP_CLEAR_ITEM)).Split(',');
+        string [] ClearItem = Util.ConvertToString(GameManager.instance.ReturnStageData(MAP_DATA.MAP_CLEAR_ITEM)).Split('/');
         //클리어 아이템들은 ;과 ,으로 구분 되어 있으니 잘 쪼개어 사용
 
         m_StageLabel.text = GameManager.instance.ReturnStage() + "Stage Clear"; //스테이지

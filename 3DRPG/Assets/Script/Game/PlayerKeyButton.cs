@@ -13,12 +13,6 @@ public class PlayerKeyButton : MonoBehaviour
         m_KeySprite = transform.GetChild(1).GetComponent<UISprite>();
     }
 
-    public void KeySetting(int iIndex)
-    {
-        string Key = Util.ConvertToString(iIndex) + "_" + m_KeyName;
-        m_KeySprite.spriteName = Key;
-    }
-
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +22,16 @@ public class PlayerKeyButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        KeyInfo();   
+    }
+
+    void KeyInfo()
+    {
+        int iIndex = GameManager.instance.ReturnCurPlayer();
+        int[] iList = GameManager.instance.ReturnPlayerList();
         
+        string Key = Util.ConvertToString(iList[iIndex]) + "_" + m_KeyName;
+        m_KeySprite.spriteName = Key;
+
     }
 }
