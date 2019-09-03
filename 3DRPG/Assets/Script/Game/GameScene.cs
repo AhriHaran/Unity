@@ -23,8 +23,6 @@ public class GameScene : MonoBehaviour
     private CallBack m_CallBack = null;
     private UIPanel m_ResultPanel;
     private UIPanel m_FailPanel;
-    private int m_iTmpIndex;
-    private bool m_bChanging =true;
 
     private void Awake()
     {
@@ -37,24 +35,6 @@ public class GameScene : MonoBehaviour
             m_arrObject[i] = transform.GetChild(i).gameObject;
         }
     }
-
-    private void Update()
-    {
-        OnSp();
-    }
-
-    private void OnSp()
-    {
-        if(Input.GetKeyUp(KeyCode.G))
-        {
-            GameObject Item = PoolManager.instance.PopFromPool(POOL_INDEX.POOL_SP_ITEM.ToString());
-            Vector3 Pos = transform.position;
-            Pos.y = 2;
-            Item.transform.position = Pos;
-            Item.SetActive(true);
-        }
-    }
-
 
     void Start()
     {
@@ -83,7 +63,7 @@ public class GameScene : MonoBehaviour
         //에너미 셋팅
 
         var vecPos = m_MapManager.ReturnEventPos();
-        m_PlayerManager.PlayerSet(0, vecPos[0], JumpEnd);  //가장 첫번째 캐릭터와, 포지션 셋팅
+        m_PlayerManager.PlayerSet(0, vecPos[0]);  //가장 첫번째 캐릭터와, 포지션 셋팅
         //스타트에서 처음 포지셔닝을 셋팅
         
         m_CallBack(m_PlayerManager.GetCharTR());    //카메라 콜백 함수 선언
@@ -95,6 +75,11 @@ public class GameScene : MonoBehaviour
 
         InvokeRepeating("WaveClear", 2.0f, 1.0f);
         InvokeRepeating("PlayerDie", 2.0f, 1.0f);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
     }
 
     void WaveClear()
@@ -145,45 +130,24 @@ public class GameScene : MonoBehaviour
     {
         GameObject cur = UIEventTrigger.current.gameObject;
         ChangeButton Button = cur.GetComponent<ChangeButton>();
-        if (Button.ChangeOK && m_bChanging)   //바꿔도 됨
+        if (Button.m_bChange)   //바꿔도 됨
         {
-            m_bChanging = false;
             //캐릭터 체인지
             m_EnemyMangaer.Stop();
             //우선 적들을 멈춰 주고
             int[] iarr = GameManager.instance.ReturnPlayerList();
-            int iCurList = GameManager.instance.ReturnCurPlayer();
-            m_iTmpIndex = Button.ListIndex;
-            m_PlayerManager.JumpStart();
-            
-            Button.Change(iarr[iCurList], iCurList, m_PlayerManager.GetPlayerData(PLAYER_DATA.PLAYER_CUR_HP),
+            int iListIndex = Button.m_iListCount;
+
+            Button.Change(iarr[iListIndex], iListIndex, m_PlayerManager.GetPlayerData(PLAYER_DATA.PLAYER_CUR_HP),
               m_PlayerManager.GetPlayerData(PLAYER_DATA.PLAYER_MAX_HP), m_PlayerManager.GetPlayerData(PLAYER_DATA.PLAYER_CUR_SP),
               m_PlayerManager.GetPlayerData(PLAYER_DATA.PLAYER_MAX_SP));
-        }
-    }
 
-    public void JumpEnd(bool bDie)
-    {
-        //점프 모션이 끝나면 호출
-        Transform tr = m_PlayerManager.GetCharTR();
-
-        if(bDie)
-        {
-            m_iTmpIndex = m_PlayerManager.DontDie();
-        }
-
-        if(m_iTmpIndex >= 0)
-        {
-            m_PlayerManager.PlayerSet(m_iTmpIndex, tr.position, JumpEnd);
+            Transform tr = m_PlayerManager.GetCharTR();
+            m_PlayerManager.PlayerSet(iListIndex, tr.position);
             //캐릭터의 위치와 교대하고
             m_EnemyMangaer.TrSetting(m_PlayerManager.GetCharTR());
             m_EnemyMangaer.Start();
             m_CallBack(m_PlayerManager.GetCharTR());    //카메라 콜백 함수 선언
-            m_bChanging = true;
-        }
-        else
-        {
-            PlayerDie();
         }
     }
 }

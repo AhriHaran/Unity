@@ -13,4 +13,8 @@ public class FailedPanel : MonoBehaviour
     }
 
     // Update is called once per frame
+    void Update()
+    {
+        
+    }
 }

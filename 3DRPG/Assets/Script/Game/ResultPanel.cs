@@ -115,4 +115,9 @@ public class ResultPanel : MonoBehaviour
         //인벤토리 업데이트
     }
 
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
 }

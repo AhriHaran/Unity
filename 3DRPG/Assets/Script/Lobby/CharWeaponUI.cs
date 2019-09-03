@@ -32,4 +32,13 @@ public class CharWeaponUI : MonoBehaviour
             m_WeaponSprite.spriteName = "CrossHair";
     }
 
+    void Start()
+    {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
 }

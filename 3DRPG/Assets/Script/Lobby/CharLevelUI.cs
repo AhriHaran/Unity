@@ -31,4 +31,16 @@ public class CharLevelUI : MonoBehaviour
         m_CharCRI.text = Util.ConvertToString(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_CRI, iIndex));
     }
 
+    void Start()
+    {
+        
+    }
+
+
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
 }

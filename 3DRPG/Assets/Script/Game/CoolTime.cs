@@ -9,6 +9,11 @@ public class CoolTime : MonoBehaviour
     private UISprite m_LockSprite;
     public float m_fCoolTime;
     // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
     private void Awake()
     {
         m_LockSprite = gameObject.GetComponent<UISprite>();
@@ -20,12 +25,11 @@ public class CoolTime : MonoBehaviour
         m_CallBack = call;
     }
 
-    public void OnClick(bool bStart)
+    public void OnClick()
     {
         //누르면 쿨타임 코루틴 호출
         gameObject.SetActive(true);
-        if(bStart)
-            StartCoroutine("StartCoolTime", m_fCoolTime);
+        StartCoroutine("StartCoolTime", m_fCoolTime);
     }
 
     IEnumerator StartCoolTime(float fCool)
@@ -44,4 +48,8 @@ public class CoolTime : MonoBehaviour
     }
     
     // Update is called once per frame
+    void Update()
+    {
+        
+    }
 }

@@ -26,4 +26,14 @@ public class CharInfoUI : MonoBehaviour
         //공격력 셋팅
     }
 
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
 }

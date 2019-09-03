@@ -23,6 +23,15 @@ public class TweenControl : MonoBehaviour
         m_Tween.enabled = false;
     }
 
+    void Start()
+    {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
 
     public void TweenStart(TWEEN_SET eTween)
     {

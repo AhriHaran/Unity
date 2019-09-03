@@ -16,6 +16,9 @@ public class StageReadyPanel : MonoBehaviour
             m_selectCharBT[i] = transform.GetChild(i + 1).GetComponent<UIButton>();
         }
     }
+    void Start()
+    {
+    }
 
     private void OnEnable()
     {
@@ -32,6 +35,19 @@ public class StageReadyPanel : MonoBehaviour
             }
         }
         m_UIPanel.Refresh();
+    }
+
+    private void OnDisable()
+    {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+    }
+    void Onclick()
+    {
+
     }
     
     public void SelectChar(string strSelect)    //내가 선택한 패널

@@ -39,6 +39,10 @@ public class ValkyrjaPanel : MonoBehaviour
         m_iCharIndex = -1;
     }
 
+    void Start()
+    {
+    }
+
     public void ButtonOnOff(bool OnOff)
     {
         //호출에 따라서 구분해준다.
@@ -83,6 +87,12 @@ public class ValkyrjaPanel : MonoBehaviour
         m_GridChar.transform.DestroyChildren();
     }
 
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+    
     void CharInfoSelect(int iIndex)
     {
         if(m_iCharIndex != iIndex)  //중복체크 방지

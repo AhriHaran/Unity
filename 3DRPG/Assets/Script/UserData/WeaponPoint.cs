@@ -39,6 +39,10 @@ public class WeaponPoint : MonoBehaviour
         }
     }
 
+    private void OnDisable()
+    {
+    }
+
     public void WeaponChange(int iIndex)
     {
         GameObject Weapon;
@@ -85,4 +89,9 @@ public class WeaponPoint : MonoBehaviour
         }
     }
 
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
 }

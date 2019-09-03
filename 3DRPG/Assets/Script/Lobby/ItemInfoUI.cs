@@ -62,4 +62,14 @@ public class ItemInfoUI : MonoBehaviour
         m_ItemInfo[3, iarrPos].text = strCRI;
     }
 
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
 }

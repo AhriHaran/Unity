@@ -6,6 +6,10 @@ public class DropItem : MonoBehaviour
 {
     public POOL_INDEX m_eItemType;
     // Start is called before the first frame update
+    void Start()
+    {
+
+    }
 
     private void OnTriggerEnter(Collider other)
     {
