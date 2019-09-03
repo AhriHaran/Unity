@@ -32,6 +32,5 @@ public class PlayerKeyButton : MonoBehaviour
         
         string Key = Util.ConvertToString(iList[iIndex]) + "_" + m_KeyName;
         m_KeySprite.spriteName = Key;
-
     }
 }

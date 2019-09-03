@@ -46,27 +46,10 @@ public class PlayerScript : MonoBehaviour
     private UISlider m_HpSlider = null;
     private UISlider m_SpSlider = null;
     private UIJoystick m_Input = null;
-    public float m_fMaxHP
-    {
-        get { return m_fMaxHP; }
-        set { m_fMaxHP = 0.0f; }
-    }
-    public float m_fCurHP
-    {
-        get { return m_fCurHP; }
-        set { m_fCurHP = 0.0f; }
-    }
-    public float m_fMaxSP
-    {
-        get { return m_fMaxSP; }
-        set { m_fMaxSP = 0.0f; }
-    }
-    public float m_fCurSP
-    {
-        get { return m_fCurSP; }
-        set { m_fCurSP = 0.0f; }
-    }
-
+    public float m_fMaxHP = 0.0f;
+    public float m_fCurHP = 0.0f;
+    public float m_fMaxSP = 0.0f;
+    public float m_fCurSP = 0.0f;
     //공격 관련
     private List<List<st_Key>> m_ListComboKey = new List<List<st_Key>>();
     private List<GameObject> m_ListKey = new List<GameObject>();
@@ -168,7 +151,7 @@ public class PlayerScript : MonoBehaviour
         if (m_HpSlider == null && m_SpSlider == null)
         {
             m_HpSlider = UI.transform.GetChild(1).GetComponent<UISlider>();//hp 바
-            //m_SpSlider = UI.transform.GetChild(2).GetComponent<UISlider>();//sp 바
+            m_SpSlider = UI.transform.GetChild(2).GetComponent<UISlider>();//sp 바
 
             m_fMaxHP = float.Parse(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_MAX_HP, m_iIndex).ToString());
             m_fCurHP = m_fMaxHP;
