@@ -480,11 +480,16 @@ MonoBehaviour:
   topType: 1
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   mAtlas: {fileID: 11400000, guid: aacaede782c338648af53a4ec70ba76b, type: 2}
 =======
   mAtlas: {fileID: 11400000, guid: 0a1b2b5221586ad46b156dcb64fd8f07, type: 2}
 >>>>>>> 03330ebe5e37c48bda015de47ac8f4f2ce7695d6
   mSpriteName: Empty
+=======
+  mAtlas: {fileID: 11400000, guid: 3951297547a727c4293d7cb8634b0fc9, type: 2}
+  mSpriteName: ButtonBackGround
+>>>>>>> parent of 03330eb... 2019_09_03_First
 =======
   mAtlas: {fileID: 11400000, guid: 3951297547a727c4293d7cb8634b0fc9, type: 2}
   mSpriteName: ButtonBackGround
@@ -1022,6 +1027,7 @@ MonoBehaviour:
   leftAnchor:
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     target: {fileID: 708675052}
 =======
     target: {fileID: 0}
@@ -1029,9 +1035,13 @@ MonoBehaviour:
 =======
     target: {fileID: 1979599788}
 >>>>>>> parent of 03330eb... 2019_09_03_First
+=======
+    target: {fileID: 1979599788}
+>>>>>>> parent of 03330eb... 2019_09_03_First
     relative: 0
     absolute: -250
   rightAnchor:
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     target: {fileID: 708675052}
@@ -1042,6 +1052,13 @@ MonoBehaviour:
   bottomAnchor:
     target: {fileID: 0}
 >>>>>>> 03330ebe5e37c48bda015de47ac8f4f2ce7695d6
+=======
+    target: {fileID: 1979599788}
+    relative: 1
+    absolute: -2
+  bottomAnchor:
+    target: {fileID: 1979599788}
+>>>>>>> parent of 03330eb... 2019_09_03_First
 =======
     target: {fileID: 1979599788}
     relative: 1
@@ -1058,10 +1075,14 @@ MonoBehaviour:
   topAnchor:
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     target: {fileID: 708675052}
 =======
     target: {fileID: 0}
 >>>>>>> 03330ebe5e37c48bda015de47ac8f4f2ce7695d6
+=======
+    target: {fileID: 1979599788}
+>>>>>>> parent of 03330eb... 2019_09_03_First
 =======
     target: {fileID: 1979599788}
 >>>>>>> parent of 03330eb... 2019_09_03_First
@@ -1992,11 +2013,16 @@ MonoBehaviour:
   topType: 1
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   mAtlas: {fileID: 11400000, guid: aacaede782c338648af53a4ec70ba76b, type: 2}
 =======
   mAtlas: {fileID: 11400000, guid: 0a1b2b5221586ad46b156dcb64fd8f07, type: 2}
 >>>>>>> 03330ebe5e37c48bda015de47ac8f4f2ce7695d6
   mSpriteName: HP
+=======
+  mAtlas: {fileID: 11400000, guid: 3951297547a727c4293d7cb8634b0fc9, type: 2}
+  mSpriteName: ButtonBackGround
+>>>>>>> parent of 03330eb... 2019_09_03_First
 =======
   mAtlas: {fileID: 11400000, guid: 3951297547a727c4293d7cb8634b0fc9, type: 2}
   mSpriteName: ButtonBackGround
@@ -2820,10 +2846,14 @@ Light:
   m_UseColorTemperature: 0
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_BoundingSphereOverride: {x: -3.11e-43, y: 4.9e-44, z: 6e-45, w: 6.7e-44}
 =======
   m_BoundingSphereOverride: {x: 0, y: 1.5405257e+30, z: 0, w: 1.5423802e+30}
 >>>>>>> 03330ebe5e37c48bda015de47ac8f4f2ce7695d6
+=======
+  m_BoundingSphereOverride: {x: 0, y: 1.12e-43, z: 1.14e-43, w: 1.15e-43}
+>>>>>>> parent of 03330eb... 2019_09_03_First
 =======
   m_BoundingSphereOverride: {x: 0, y: 1.12e-43, z: 1.14e-43, w: 1.15e-43}
 >>>>>>> parent of 03330eb... 2019_09_03_First
@@ -3619,11 +3649,16 @@ MonoBehaviour:
   topType: 1
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   mAtlas: {fileID: 11400000, guid: aacaede782c338648af53a4ec70ba76b, type: 2}
 =======
   mAtlas: {fileID: 11400000, guid: 0a1b2b5221586ad46b156dcb64fd8f07, type: 2}
 >>>>>>> 03330ebe5e37c48bda015de47ac8f4f2ce7695d6
   mSpriteName: Empty
+=======
+  mAtlas: {fileID: 11400000, guid: 3951297547a727c4293d7cb8634b0fc9, type: 2}
+  mSpriteName: ButtonBackGround
+>>>>>>> parent of 03330eb... 2019_09_03_First
 =======
   mAtlas: {fileID: 11400000, guid: 3951297547a727c4293d7cb8634b0fc9, type: 2}
   mSpriteName: ButtonBackGround
@@ -4176,11 +4211,16 @@ MonoBehaviour:
   topType: 1
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   mAtlas: {fileID: 11400000, guid: aacaede782c338648af53a4ec70ba76b, type: 2}
 =======
   mAtlas: {fileID: 11400000, guid: 0a1b2b5221586ad46b156dcb64fd8f07, type: 2}
 >>>>>>> 03330ebe5e37c48bda015de47ac8f4f2ce7695d6
   mSpriteName: SP
+=======
+  mAtlas: {fileID: 11400000, guid: 3951297547a727c4293d7cb8634b0fc9, type: 2}
+  mSpriteName: ButtonBackGround
+>>>>>>> parent of 03330eb... 2019_09_03_First
 =======
   mAtlas: {fileID: 11400000, guid: 3951297547a727c4293d7cb8634b0fc9, type: 2}
   mSpriteName: ButtonBackGround
@@ -5172,11 +5212,16 @@ MonoBehaviour:
   topType: 1
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   mAtlas: {fileID: 11400000, guid: aacaede782c338648af53a4ec70ba76b, type: 2}
 =======
   mAtlas: {fileID: 11400000, guid: 0a1b2b5221586ad46b156dcb64fd8f07, type: 2}
 >>>>>>> 03330ebe5e37c48bda015de47ac8f4f2ce7695d6
   mSpriteName: 0
+=======
+  mAtlas: {fileID: 11400000, guid: 6634411c1b60a8c4ea5506a9e5b043b6, type: 2}
+  mSpriteName: EmptyIcon
+>>>>>>> parent of 03330eb... 2019_09_03_First
 =======
   mAtlas: {fileID: 11400000, guid: 6634411c1b60a8c4ea5506a9e5b043b6, type: 2}
   mSpriteName: EmptyIcon
@@ -5673,11 +5718,16 @@ MonoBehaviour:
   topType: 1
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   mAtlas: {fileID: 11400000, guid: aacaede782c338648af53a4ec70ba76b, type: 2}
 =======
   mAtlas: {fileID: 11400000, guid: 0a1b2b5221586ad46b156dcb64fd8f07, type: 2}
 >>>>>>> 03330ebe5e37c48bda015de47ac8f4f2ce7695d6
   mSpriteName: SP
+=======
+  mAtlas: {fileID: 11400000, guid: 3951297547a727c4293d7cb8634b0fc9, type: 2}
+  mSpriteName: ButtonBackGround
+>>>>>>> parent of 03330eb... 2019_09_03_First
 =======
   mAtlas: {fileID: 11400000, guid: 3951297547a727c4293d7cb8634b0fc9, type: 2}
   mSpriteName: ButtonBackGround
@@ -5971,11 +6021,16 @@ MonoBehaviour:
   topType: 1
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   mAtlas: {fileID: 11400000, guid: aacaede782c338648af53a4ec70ba76b, type: 2}
 =======
   mAtlas: {fileID: 11400000, guid: 0a1b2b5221586ad46b156dcb64fd8f07, type: 2}
 >>>>>>> 03330ebe5e37c48bda015de47ac8f4f2ce7695d6
   mSpriteName: HP
+=======
+  mAtlas: {fileID: 11400000, guid: 3951297547a727c4293d7cb8634b0fc9, type: 2}
+  mSpriteName: ButtonBackGround
+>>>>>>> parent of 03330eb... 2019_09_03_First
 =======
   mAtlas: {fileID: 11400000, guid: 3951297547a727c4293d7cb8634b0fc9, type: 2}
   mSpriteName: ButtonBackGround
@@ -7254,11 +7309,16 @@ MonoBehaviour:
   topType: 1
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   mAtlas: {fileID: 11400000, guid: aacaede782c338648af53a4ec70ba76b, type: 2}
 =======
   mAtlas: {fileID: 11400000, guid: 0a1b2b5221586ad46b156dcb64fd8f07, type: 2}
 >>>>>>> 03330ebe5e37c48bda015de47ac8f4f2ce7695d6
   mSpriteName: 1
+=======
+  mAtlas: {fileID: 11400000, guid: 6634411c1b60a8c4ea5506a9e5b043b6, type: 2}
+  mSpriteName: EmptyIcon
+>>>>>>> parent of 03330eb... 2019_09_03_First
 =======
   mAtlas: {fileID: 11400000, guid: 6634411c1b60a8c4ea5506a9e5b043b6, type: 2}
   mSpriteName: EmptyIcon
@@ -7412,10 +7472,16 @@ GameObject:
   - component: {fileID: 5726346135941407915}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   - component: {fileID: 5726346135941407913}
   - component: {fileID: 5726346135937300813}
 =======
 >>>>>>> 03330ebe5e37c48bda015de47ac8f4f2ce7695d6
+=======
+  - component: {fileID: 5726346135941407913}
+  - component: {fileID: 5726346135937300813}
+  - component: {fileID: 5726346135941407911}
+>>>>>>> parent of 03330eb... 2019_09_03_First
 =======
   - component: {fileID: 5726346135941407913}
   - component: {fileID: 5726346135937300813}
@@ -7474,6 +7540,9 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 03330eb... 2019_09_03_First
 =======
 >>>>>>> parent of 03330eb... 2019_09_03_First
 --- !u!65 &5726346135937300813
@@ -7490,7 +7559,10 @@ BoxCollider:
   m_Size: {x: 500, y: 60, z: 0}
   m_Center: {x: 0, y: 0, z: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 03330eb... 2019_09_03_First
 --- !u!114 &5726346135941407911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7517,6 +7589,9 @@ MonoBehaviour:
   disabledSprite2D: {fileID: 0}
   pixelSnap: 0
   onClick: []
+<<<<<<< HEAD
+>>>>>>> parent of 03330eb... 2019_09_03_First
+=======
 >>>>>>> parent of 03330eb... 2019_09_03_First
 --- !u!114 &5726346135941407913
 MonoBehaviour:
@@ -7542,8 +7617,11 @@ MonoBehaviour:
   direction: 2
   mInverted: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 03330ebe5e37c48bda015de47ac8f4f2ce7695d6
+=======
+>>>>>>> parent of 03330eb... 2019_09_03_First
 =======
 >>>>>>> parent of 03330eb... 2019_09_03_First
 --- !u!114 &5726346135941407915

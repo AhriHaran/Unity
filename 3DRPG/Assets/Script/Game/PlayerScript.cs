@@ -164,14 +164,20 @@ public class PlayerScript : MonoBehaviour
             m_ListKey.Add(playerUI.transform.GetChild(i).gameObject);
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
         m_fMaxHP = float.Parse(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_MAX_HP, m_iIndex).ToString());
         m_fCurHP = m_fMaxHP;
 =======
+=======
+>>>>>>> parent of 03330eb... 2019_09_03_First
 
         if (m_HpSlider == null && m_SpSlider == null)
         {
             m_HpSlider = UI.transform.GetChild(1).GetComponent<UISlider>();//hp 바
             //m_SpSlider = UI.transform.GetChild(2).GetComponent<UISlider>();//sp 바
+<<<<<<< HEAD
+>>>>>>> parent of 03330eb... 2019_09_03_First
+=======
 >>>>>>> parent of 03330eb... 2019_09_03_First
 
             m_fMaxHP = float.Parse(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_MAX_HP, m_iIndex).ToString());
