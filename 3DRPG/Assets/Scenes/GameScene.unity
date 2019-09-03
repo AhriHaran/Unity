@@ -478,7 +478,11 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
+<<<<<<< HEAD
   mAtlas: {fileID: 11400000, guid: aacaede782c338648af53a4ec70ba76b, type: 2}
+=======
+  mAtlas: {fileID: 11400000, guid: 0a1b2b5221586ad46b156dcb64fd8f07, type: 2}
+>>>>>>> 03330ebe5e37c48bda015de47ac8f4f2ce7695d6
   mSpriteName: Empty
   mFixedAspect: 0
   mFillCenter: 1
@@ -1011,11 +1015,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leftAnchor:
+<<<<<<< HEAD
     target: {fileID: 708675052}
+=======
+    target: {fileID: 0}
+>>>>>>> 03330ebe5e37c48bda015de47ac8f4f2ce7695d6
     relative: 0
     absolute: -250
   rightAnchor:
+<<<<<<< HEAD
     target: {fileID: 708675052}
+=======
+    target: {fileID: 0}
+    relative: 1
+    absolute: -2
+  bottomAnchor:
+    target: {fileID: 0}
+>>>>>>> 03330ebe5e37c48bda015de47ac8f4f2ce7695d6
     relative: 0
     absolute: 0
   bottomAnchor:
@@ -1023,7 +1039,11 @@ MonoBehaviour:
     relative: 1
     absolute: -50
   topAnchor:
+<<<<<<< HEAD
     target: {fileID: 708675052}
+=======
+    target: {fileID: 0}
+>>>>>>> 03330ebe5e37c48bda015de47ac8f4f2ce7695d6
     relative: 1
     absolute: 25
   updateAnchors: 1
@@ -1949,7 +1969,11 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
+<<<<<<< HEAD
   mAtlas: {fileID: 11400000, guid: aacaede782c338648af53a4ec70ba76b, type: 2}
+=======
+  mAtlas: {fileID: 11400000, guid: 0a1b2b5221586ad46b156dcb64fd8f07, type: 2}
+>>>>>>> 03330ebe5e37c48bda015de47ac8f4f2ce7695d6
   mSpriteName: HP
   mFixedAspect: 0
   mFillCenter: 1
@@ -2455,7 +2479,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_iListCount: 2
-  m_bChange: 1
 --- !u!114 &661676424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2768,7 +2791,11 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
+<<<<<<< HEAD
   m_BoundingSphereOverride: {x: -3.11e-43, y: 4.9e-44, z: 6e-45, w: 6.7e-44}
+=======
+  m_BoundingSphereOverride: {x: 0, y: 1.5405257e+30, z: 0, w: 1.5423802e+30}
+>>>>>>> 03330ebe5e37c48bda015de47ac8f4f2ce7695d6
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -3559,7 +3586,11 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
+<<<<<<< HEAD
   mAtlas: {fileID: 11400000, guid: aacaede782c338648af53a4ec70ba76b, type: 2}
+=======
+  mAtlas: {fileID: 11400000, guid: 0a1b2b5221586ad46b156dcb64fd8f07, type: 2}
+>>>>>>> 03330ebe5e37c48bda015de47ac8f4f2ce7695d6
   mSpriteName: Empty
   mFixedAspect: 0
   mFillCenter: 1
@@ -4107,7 +4138,11 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
+<<<<<<< HEAD
   mAtlas: {fileID: 11400000, guid: aacaede782c338648af53a4ec70ba76b, type: 2}
+=======
+  mAtlas: {fileID: 11400000, guid: 0a1b2b5221586ad46b156dcb64fd8f07, type: 2}
+>>>>>>> 03330ebe5e37c48bda015de47ac8f4f2ce7695d6
   mSpriteName: SP
   mFixedAspect: 0
   mFillCenter: 1
@@ -4985,7 +5020,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_iListCount: 1
-  m_bChange: 1
 --- !u!114 &1447911782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5094,7 +5128,11 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
+<<<<<<< HEAD
   mAtlas: {fileID: 11400000, guid: aacaede782c338648af53a4ec70ba76b, type: 2}
+=======
+  mAtlas: {fileID: 11400000, guid: 0a1b2b5221586ad46b156dcb64fd8f07, type: 2}
+>>>>>>> 03330ebe5e37c48bda015de47ac8f4f2ce7695d6
   mSpriteName: 0
   mFixedAspect: 0
   mFillCenter: 1
@@ -5586,7 +5624,11 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
+<<<<<<< HEAD
   mAtlas: {fileID: 11400000, guid: aacaede782c338648af53a4ec70ba76b, type: 2}
+=======
+  mAtlas: {fileID: 11400000, guid: 0a1b2b5221586ad46b156dcb64fd8f07, type: 2}
+>>>>>>> 03330ebe5e37c48bda015de47ac8f4f2ce7695d6
   mSpriteName: SP
   mFixedAspect: 0
   mFillCenter: 1
@@ -5875,7 +5917,11 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
+<<<<<<< HEAD
   mAtlas: {fileID: 11400000, guid: aacaede782c338648af53a4ec70ba76b, type: 2}
+=======
+  mAtlas: {fileID: 11400000, guid: 0a1b2b5221586ad46b156dcb64fd8f07, type: 2}
+>>>>>>> 03330ebe5e37c48bda015de47ac8f4f2ce7695d6
   mSpriteName: HP
   mFixedAspect: 0
   mFillCenter: 1
@@ -6630,6 +6676,98 @@ MonoBehaviour:
   mSpriteName: ButtonBackGround
   mFixedAspect: 0
   mFillCenter: 1
+<<<<<<< HEAD
+=======
+--- !u!1 &1979599787
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1979599788}
+  - component: {fileID: 1979599793}
+  m_Layer: 8
+  m_Name: PlayerSP
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1979599788
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979599787}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -250, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 280875995}
+  - {fileID: 495482873}
+  m_Father: {fileID: 2079678276}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1979599793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979599787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  rightAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  bottomAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  topAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  updateAnchors: 1
+  mColor: {r: 0.9245283, g: 0.9245283, b: 0.9245283, a: 1}
+  mPivot: 4
+  mWidth: 500
+  mHeight: 60
+  mDepth: 0
+  mMat: {fileID: 0}
+  autoResizeBoxCollider: 1
+  hideIfOffScreen: 0
+  keepAspectRatio: 0
+  aspectRatio: 8.333333
+  mType: 0
+  mFillDirection: 4
+  mFillAmount: 1
+  mInvert: 0
+  mFlip: 0
+  mApplyGradient: 0
+  mGradientTop: {r: 1, g: 1, b: 1, a: 1}
+  mGradientBottom: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+  centerType: 1
+  leftType: 1
+  rightType: 1
+  bottomType: 1
+  topType: 1
+  mAtlas: {fileID: 11400000, guid: 506843d335c4e1144a69b40f896085e9, type: 2}
+  mSpriteName: "hp\uC5C6\uC74C"
+  mFixedAspect: 0
+  mFillCenter: 1
+>>>>>>> 03330ebe5e37c48bda015de47ac8f4f2ce7695d6
 --- !u!1 &2044713101
 GameObject:
   m_ObjectHideFlags: 0
@@ -6992,7 +7130,11 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
+<<<<<<< HEAD
   mAtlas: {fileID: 11400000, guid: aacaede782c338648af53a4ec70ba76b, type: 2}
+=======
+  mAtlas: {fileID: 11400000, guid: 0a1b2b5221586ad46b156dcb64fd8f07, type: 2}
+>>>>>>> 03330ebe5e37c48bda015de47ac8f4f2ce7695d6
   mSpriteName: 1
   mFixedAspect: 0
   mFillCenter: 1
@@ -7141,8 +7283,11 @@ GameObject:
   m_Component:
   - component: {fileID: 5726346135931194735}
   - component: {fileID: 5726346135941407915}
+<<<<<<< HEAD
   - component: {fileID: 5726346135941407913}
   - component: {fileID: 5726346135937300813}
+=======
+>>>>>>> 03330ebe5e37c48bda015de47ac8f4f2ce7695d6
   m_Layer: 8
   m_Name: PlayerHP
   m_TagString: Untagged
@@ -7194,6 +7339,7 @@ Transform:
   m_Father: {fileID: 2079678276}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!65 &5726346135937300813
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7230,6 +7376,8 @@ MonoBehaviour:
   rawValue: 1
   direction: 2
   mInverted: 0
+=======
+>>>>>>> 03330ebe5e37c48bda015de47ac8f4f2ce7695d6
 --- !u!114 &5726346135941407915
 MonoBehaviour:
   m_ObjectHideFlags: 0

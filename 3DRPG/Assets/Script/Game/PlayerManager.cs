@@ -64,7 +64,7 @@ public class PlayerManager
         }
     }
 
-    public void PlayerSet(int iCount, Vector3 CharPos)  //바꾸려는 캐릭터 인덱스, 
+    public void PlayerSet(int iCount, Vector3 CharPos, CallBack Func)  //바꾸려는 캐릭터 인덱스, 
     {
         //0,1,2 기준이며, 첫번째는 무조건 0
         int iCurChar = GameManager.instance.ReturnCurPlayer();  //현재 선택된 캐릭터를 호출
@@ -74,12 +74,12 @@ public class PlayerManager
             if(iCurChar != -1)
             {
                 CharPos = m_ListChar[iCurChar].transform.position;
-                m_ListChar[iCurChar].SetActive(false);
                 //캐릭터 변경 시에는 현재 캐릭터의 좌표를 기준으로 한다.
+                m_ListChar[iCurChar].SetActive(false);
             }
 
             m_ListChar[iCount].SetActive(true);
-            m_ScriptList[iCount].PlayerSet();
+            m_ScriptList[iCount].PlayerSet(Func);
             m_ListChar[iCount].transform.position = CharPos; //포지션 셋팅
             GameManager.instance.PlayerCharChange(iCount);
         }
@@ -89,12 +89,24 @@ public class PlayerManager
     {
         for(int i = 0; i < m_ListChar.Count; i++)
         {
-            if (!m_ScriptList[i].m_bDie)   //하나라도 살았으면
+            if (!m_ScriptList[i].Die)   //하나라도 살았으면
             {
                 return false;
             }
         }
         return true;
+    }
+
+    public int DontDie()
+    {
+        for (int i = 0; i < m_ListChar.Count; i++)
+        {
+            if (!m_ScriptList[i].Die)   //하나라도 살았으면
+            {
+                return i;   //살아있는 녀석의 인덱스를 보낸다.
+            }
+        }
+        return -1;
     }
 
     public Transform GetCharTR()
@@ -110,14 +122,20 @@ public class PlayerManager
         switch (eData)
         {
             case PLAYER_DATA.PLAYER_MAX_HP:
-                return m_ScriptList[iCurChar].m_fMaxHP;
+                return m_ScriptList[iCurChar].MaxHP;
             case PLAYER_DATA.PLAYER_CUR_HP:
-                return m_ScriptList[iCurChar].m_fCurHP;
+                return m_ScriptList[iCurChar].CurHP;
             case PLAYER_DATA.PLAYER_MAX_SP:
-                return m_ScriptList[iCurChar].m_fMaxSP;
+                return m_ScriptList[iCurChar].MaxSP;
             case PLAYER_DATA.PLAYER_CUR_SP:
-                return m_ScriptList[iCurChar].m_fMaxSP;
+                return m_ScriptList[iCurChar].CurSP;
         }
         return 0.0f;
+    }
+
+    public void JumpStart()
+    {
+        int iCurChar = GameManager.instance.ReturnCurPlayer();
+        m_ScriptList[iCurChar].JumpStart();
     }
 }

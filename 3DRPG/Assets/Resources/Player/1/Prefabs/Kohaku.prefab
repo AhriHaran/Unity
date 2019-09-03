@@ -26553,9 +26553,12 @@ MonoBehaviour:
   m_fSpeed: 5
   m_fRotateSpeed: 2
   m_fAniSpeed: 1.5
-  m_iIndex: 0
+  m_iIndex: 1
   m_bDie: 0
   m_iRange: 3
+  m_iCurKey: 0
+  m_fCurAttackTime: 0
+  m_fCurPressTime: 0
 --- !u!143 &9056213449838929042
 CharacterController:
   m_ObjectHideFlags: 0

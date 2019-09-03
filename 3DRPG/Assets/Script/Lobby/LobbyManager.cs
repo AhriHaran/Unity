@@ -125,12 +125,6 @@ public class LobbyManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnDisable()
     {
         CharPoolManager.instance.Clear();

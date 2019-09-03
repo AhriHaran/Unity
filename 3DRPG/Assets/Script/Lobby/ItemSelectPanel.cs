@@ -38,16 +38,6 @@ public class ItemSelectPanel : MonoBehaviour
         m_ItemInfo.GetComponent<TweenControl>().TweenStart(TWEEN_SET.TWEEN_REVERSE);
     }
 
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void OnClick()
     {

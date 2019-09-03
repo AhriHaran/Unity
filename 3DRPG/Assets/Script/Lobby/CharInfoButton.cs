@@ -8,16 +8,6 @@ public class CharInfoButton : MonoBehaviour
     private CallBack m_CallBack = null;
     private int m_iCharIndex = -1;  //해당 인포메이션 버튼이 가지는 캐릭터 인덱스
     private string m_strSprite = "Icon";
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
 
     public void Setting(int iIndex)
     {
