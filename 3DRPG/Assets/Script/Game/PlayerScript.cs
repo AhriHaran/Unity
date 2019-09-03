@@ -49,12 +49,6 @@ public class PlayerScript : MonoBehaviour
     private UISprite m_SPSprite = null;
     private UILabel m_SPLabel;
     private UIJoystick m_Input = null;
-<<<<<<< HEAD
-    public float m_fMaxHP = 0.0f;
-    public float m_fCurHP = 0.0f;
-    public float m_fMaxSP = 0.0f;
-    public float m_fCurSP = 0.0f;
-=======
     private float m_fMaxHP = 0.0f;
     private float m_fCurHP = 0.0f;
     private float m_fMaxSP = 0.0f;
@@ -86,8 +80,6 @@ public class PlayerScript : MonoBehaviour
         set { m_bDie = value; }
     }
 
->>>>>>> 03330ebe5e37c48bda015de47ac8f4f2ce7695d6
-    //공격 관련
     private List<List<st_Key>> m_ListComboKey = new List<List<st_Key>>();
     private List<GameObject> m_ListKey = new List<GameObject>();
     private st_Ultimate m_UltimateSkill = new st_Ultimate();
@@ -194,16 +186,8 @@ public class PlayerScript : MonoBehaviour
         {
             m_ListKey.Add(playerUI.transform.GetChild(i).gameObject);
         }
-
-<<<<<<< HEAD
-        if (m_HpSlider == null && m_SpSlider == null)
-        {
-            m_HpSlider = UI.transform.GetChild(1).GetComponent<UISlider>();//hp 바
-            m_SpSlider = UI.transform.GetChild(2).GetComponent<UISlider>();//sp 바
-=======
         m_fMaxHP = float.Parse(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_MAX_HP, m_iIndex).ToString());
         m_fCurHP = m_fMaxHP;
->>>>>>> 03330ebe5e37c48bda015de47ac8f4f2ce7695d6
 
         m_fMaxSP = float.Parse(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_MAX_SP, m_iIndex).ToString());
         m_fCurSP = 0.0f;
@@ -225,13 +209,13 @@ public class PlayerScript : MonoBehaviour
         {
             string index = Key[i]["Index"].ToString();
             KeyList = Key[i]["Key"].ToString().Split('/');
-            
+
             List<st_Key> ListNode = new List<st_Key>();
             for (int j = 0; j < KeyList.Length; j++)
             {
                 st_Key Node = new st_Key();
-                string [] NodeKey = KeyList[j].Split(';');
-    
+                string[] NodeKey = KeyList[j].Split(';');
+
                 Node.st_iIndex = j;
                 Node.st_iKey = (KEY_TYPE)Util.ConvertToInt(NodeKey[0]);
                 Node.st_eInput = (KEY_INPUT)Util.ConvertToInt(NodeKey[1]);
@@ -242,6 +226,7 @@ public class PlayerScript : MonoBehaviour
         //여기서 플레이어 키 셋팅
         m_UltimateEffect = Ultimate;
     }
+    
     
     //trail renderer
 

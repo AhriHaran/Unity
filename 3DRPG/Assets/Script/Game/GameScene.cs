@@ -176,6 +176,8 @@ public class GameScene : MonoBehaviour
         {
             m_PlayerManager.PlayerSet(m_iTmpIndex, tr.position, JumpEnd);
             //캐릭터의 위치와 교대하고
+            m_EnemyMangaer.TrSetting(m_PlayerManager.GetCharTR());
+            m_EnemyMangaer.Start();
             m_CallBack(m_PlayerManager.GetCharTR());    //카메라 콜백 함수 선언
             m_bChanging = true;
         }
