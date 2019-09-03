@@ -56,16 +56,6 @@ public class ItemSelectUI : MonoBehaviour
         m_ItemView.GetComponent<UIScrollView>().ResetPosition();
         m_ItemView.GetComponent<UIPanel>().Refresh();
     }
-    
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     void OnDisable()
     {
