@@ -14,9 +14,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: b75a82e1289f885479d0dac654ed1c4f, type: 2}
   mSprites:
+  - name: 100px-Valkyrie_Background_(MECH)
+    x: 101
+    y: 514
+    width: 100
+    height: 88
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: Attack
-    x: 829
-    y: 44
+    x: 1797
+    y: 1398
     width: 102
     height: 110
     borderLeft: 0
@@ -28,8 +41,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: CrossHair
-    x: 219
-    y: 4
+    x: 937
+    y: 1317
     width: 63
     height: 63
     borderLeft: 0
@@ -41,8 +54,8 @@ MonoBehaviour:
     paddingTop: 15
     paddingBottom: 18
   - name: EnemyHP
-    x: 0
-    y: 59
+    x: 1241
+    y: 1361
     width: 218
     height: 8
     borderLeft: 0
@@ -54,8 +67,8 @@ MonoBehaviour:
     paddingTop: 3
     paddingBottom: 4
   - name: Equipment
-    x: 1623
-    y: 914
+    x: 0
+    y: 492
     width: 100
     height: 110
     borderLeft: 0
@@ -67,8 +80,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: "hp\uAF49\uCC38"
-    x: 0
-    y: 263
+    x: 594
+    y: 1287
     width: 869
     height: 26
     borderLeft: 0
@@ -80,8 +93,8 @@ MonoBehaviour:
     paddingTop: 15
     paddingBottom: 18
   - name: "hp\uC5C6\uC74C"
-    x: 0
-    y: 236
+    x: 594
+    y: 1260
     width: 869
     height: 26
     borderLeft: 0
@@ -92,9 +105,22 @@ MonoBehaviour:
     paddingRight: 15
     paddingTop: 15
     paddingBottom: 8
+  - name: Light_Silhouette
+    x: 937
+    y: 1564
+    width: 560
+    height: 484
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: Stigmata_UI_Button
-    x: 0
-    y: 152
+    x: 285
+    y: 1230
     width: 308
     height: 83
     borderLeft: 0
@@ -106,8 +132,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Valkyrja
-    x: 1521
-    y: 914
+    x: 1900
+    y: 1398
     width: 101
     height: 110
     borderLeft: 0
@@ -119,8 +145,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Weapon_UI_Button
-    x: 0
-    y: 68
+    x: 285
+    y: 1146
     width: 308
     height: 83
     borderLeft: 0
@@ -132,8 +158,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: "\uB124\uBAA8\uCC3D"
-    x: 937
-    y: 302
+    x: 1498
+    y: 1326
     width: 298
     height: 722
     borderLeft: 0
@@ -145,8 +171,8 @@ MonoBehaviour:
     paddingTop: 24
     paddingBottom: 23
   - name: "\uB124\uBAA8\uCC3D \uD30C\uB780\uC120\uC5C6\uC74C"
-    x: 1236
-    y: 314
+    x: 0
+    y: 603
     width: 284
     height: 710
     borderLeft: 0
@@ -158,8 +184,8 @@ MonoBehaviour:
     paddingTop: 29
     paddingBottom: 30
   - name: "\uB4A4\uB85C"
-    x: 1236
-    y: 33
+    x: 1797
+    y: 1671
     width: 215
     height: 86
     borderLeft: 0
@@ -172,7 +198,7 @@ MonoBehaviour:
     paddingBottom: 20
   - name: "\uB808\uBCA8\uC5C5"
     x: 937
-    y: 108
+    y: 1381
     width: 215
     height: 96
     borderLeft: 0
@@ -184,8 +210,8 @@ MonoBehaviour:
     paddingTop: 4
     paddingBottom: 6
   - name: "\uB808\uBCA8\uC5C5b"
-    x: 937
-    y: 205
+    x: 1241
+    y: 1467
     width: 215
     height: 96
     borderLeft: 0
@@ -197,8 +223,8 @@ MonoBehaviour:
     paddingTop: 4
     paddingBottom: 8
   - name: "\uBA54\uC778\uD654\uBA74"
-    x: 309
-    y: 150
+    x: 937
+    y: 1478
     width: 303
     height: 85
     borderLeft: 0
@@ -210,8 +236,8 @@ MonoBehaviour:
     paddingTop: 10
     paddingBottom: 14
   - name: "\uBB34\uAE30"
-    x: 613
-    y: 58
+    x: 1241
+    y: 1370
     width: 215
     height: 96
     borderLeft: 0
@@ -223,8 +249,8 @@ MonoBehaviour:
     paddingTop: 10
     paddingBottom: 13
   - name: "\uBB34\uAE30b"
-    x: 1236
-    y: 217
+    x: 1797
+    y: 1952
     width: 215
     height: 96
     borderLeft: 0
@@ -236,8 +262,8 @@ MonoBehaviour:
     paddingTop: 7
     paddingBottom: 7
   - name: "\uBCC0\uACBD"
-    x: 613
-    y: 155
+    x: 1797
+    y: 1590
     width: 220
     height: 80
     borderLeft: 0
@@ -249,8 +275,8 @@ MonoBehaviour:
     paddingTop: 9
     paddingBottom: 12
   - name: "\uC131\uD754"
-    x: 937
-    y: 11
+    x: 1797
+    y: 1855
     width: 215
     height: 96
     borderLeft: 0
@@ -262,8 +288,8 @@ MonoBehaviour:
     paddingTop: 9
     paddingBottom: 8
   - name: "\uC131\uD754b"
-    x: 1236
-    y: 120
+    x: 1797
+    y: 1758
     width: 215
     height: 96
     borderLeft: 0
@@ -275,8 +301,8 @@ MonoBehaviour:
     paddingTop: 7
     paddingBottom: 8
   - name: "\uC2ED\uC790\uC120"
-    x: 309
-    y: 5
+    x: 1001
+    y: 1317
     width: 63
     height: 63
     borderLeft: 0
@@ -289,7 +315,7 @@ MonoBehaviour:
     paddingBottom: 18
   - name: "\uD30C\uB780\uCC3D"
     x: 0
-    y: 290
+    y: 1314
     width: 936
     height: 734
     borderLeft: 0
@@ -301,8 +327,8 @@ MonoBehaviour:
     paddingTop: 26
     paddingBottom: 20
   - name: "\uD574\uC81C"
-    x: 309
-    y: 69
+    x: 1797
+    y: 1509
     width: 220
     height: 80
     borderLeft: 0

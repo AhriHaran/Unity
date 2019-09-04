@@ -92,7 +92,7 @@ public class PlayerScript : MonoBehaviour
     private KEY_INPUT m_eInput;
     public int m_iCurKey;  //현재 콤보 단계
     public float m_fCurAttackTime = 0.0f;   //현재 공격 후 걸린시간.
-    private float m_fAttackTime = 1.5f;  //공격 유지 시간
+    private float m_fAttackTime = 1.0f;  //공격 유지 시간
     public float m_fCurPressTime = 0.0f;
     private float m_fPressTime = 0.6f;
 

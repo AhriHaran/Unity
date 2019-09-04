@@ -22,9 +22,12 @@ public class PlayerKeyButton : MonoBehaviour
     void KeyInfo()
     {
         int iIndex = GameManager.instance.ReturnCurPlayer();
-        int[] iList = GameManager.instance.ReturnPlayerList();
-        
-        string Key = Util.ConvertToString(iList[iIndex]) + "_" + m_KeyName;
-        m_KeySprite.spriteName = Key;
+        if(iIndex >= 0 )
+        {
+            int[] iList = GameManager.instance.ReturnPlayerList();
+
+            string Key = Util.ConvertToString(iList[iIndex]) + "_" + m_KeyName;
+            m_KeySprite.spriteName = Key;
+        }
     }
 }
