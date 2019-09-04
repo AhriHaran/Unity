@@ -21,8 +21,11 @@ public class GameScene : MonoBehaviour
     private EnemyManager m_EnemyMangaer;
     public delegate void CallBack(Transform tr);    //캐릭터 변경등의 상황에서 카메라 셋팅
     private CallBack m_CallBack = null;
+    private ChangeButton m_Change = null;
     private UIPanel m_ResultPanel;
     private UIPanel m_FailPanel;
+    private int m_iTmpIndex;
+    private bool m_bChanging =true;
 
     private void Awake()
     {
@@ -35,6 +38,24 @@ public class GameScene : MonoBehaviour
             m_arrObject[i] = transform.GetChild(i).gameObject;
         }
     }
+
+    private void Update()
+    {
+        OnSp();
+    }
+
+    private void OnSp()
+    {
+        if(Input.GetKeyUp(KeyCode.G))
+        {
+            GameObject Item = PoolManager.instance.PopFromPool(POOL_INDEX.POOL_SP_ITEM.ToString());
+            Vector3 Pos = transform.position;
+            Pos.y = 2;
+            Item.transform.position = Pos;
+            Item.SetActive(true);
+        }
+    }
+
 
     void Start()
     {
@@ -63,23 +84,18 @@ public class GameScene : MonoBehaviour
         //에너미 셋팅
 
         var vecPos = m_MapManager.ReturnEventPos();
-        m_PlayerManager.PlayerSet(0, vecPos[0]);  //가장 첫번째 캐릭터와, 포지션 셋팅
+        m_PlayerManager.PlayerSet(0, vecPos[0], JumpEnd);  //가장 첫번째 캐릭터와, 포지션 셋팅
         //스타트에서 처음 포지셔닝을 셋팅
         
         m_CallBack(m_PlayerManager.GetCharTR());    //카메라 콜백 함수 선언
         m_EnemyMangaer.TrSetting(m_PlayerManager.GetCharTR()); //타겟 셋팅
-        //m_EnemyMangaer.ActiveWave();    //액티브
+        m_EnemyMangaer.ActiveWave();    //액티브
         
         PoolManager.instance.Set(POOL_INDEX.POOL_HP_ITEM.ToString(), "Prefabs/HP", 10);
         PoolManager.instance.Set(POOL_INDEX.POOL_SP_ITEM.ToString(), "Prefabs/SP", 10);
 
         InvokeRepeating("WaveClear", 2.0f, 1.0f);
         InvokeRepeating("PlayerDie", 2.0f, 1.0f);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
     }
 
     void WaveClear()
@@ -130,24 +146,49 @@ public class GameScene : MonoBehaviour
     {
         GameObject cur = UIEventTrigger.current.gameObject;
         ChangeButton Button = cur.GetComponent<ChangeButton>();
-        if (Button.m_bChange)   //바꿔도 됨
+        if (Button.ChangeOK && m_bChanging)   //바꿔도 됨
         {
+            m_Change = Button;
+            m_bChanging = false;
             //캐릭터 체인지
             m_EnemyMangaer.Stop();
             //우선 적들을 멈춰 주고
+            m_iTmpIndex = Button.ListIndex;
+            m_PlayerManager.JumpStart();
+        }
+    }
+
+    public void JumpEnd(bool bDie)
+    {
+        //점프 모션이 끝나면 호출
+        Transform tr = m_PlayerManager.GetCharTR();
+
+        if(bDie)
+        {
+            m_EnemyMangaer.Stop();
+            m_iTmpIndex = m_PlayerManager.DontDie();
+        }
+
+        if(m_iTmpIndex >= 0)
+        {
             int[] iarr = GameManager.instance.ReturnPlayerList();
-            int iListIndex = Button.m_iListCount;
+            int iCurList = GameManager.instance.ReturnCurPlayer();
 
-            Button.Change(iarr[iListIndex], iListIndex, m_PlayerManager.GetPlayerData(PLAYER_DATA.PLAYER_CUR_HP),
-              m_PlayerManager.GetPlayerData(PLAYER_DATA.PLAYER_MAX_HP), m_PlayerManager.GetPlayerData(PLAYER_DATA.PLAYER_CUR_SP),
-              m_PlayerManager.GetPlayerData(PLAYER_DATA.PLAYER_MAX_SP));
+            m_Change.Change(iarr[iCurList], iCurList, m_PlayerManager.GetPlayerData(PLAYER_DATA.PLAYER_CUR_HP),
+  m_PlayerManager.GetPlayerData(PLAYER_DATA.PLAYER_MAX_HP), m_PlayerManager.GetPlayerData(PLAYER_DATA.PLAYER_CUR_SP),
+  m_PlayerManager.GetPlayerData(PLAYER_DATA.PLAYER_MAX_SP));
 
-            Transform tr = m_PlayerManager.GetCharTR();
-            m_PlayerManager.PlayerSet(iListIndex, tr.position);
+            m_PlayerManager.PlayerSet(m_iTmpIndex, tr.position, JumpEnd);
             //캐릭터의 위치와 교대하고
             m_EnemyMangaer.TrSetting(m_PlayerManager.GetCharTR());
             m_EnemyMangaer.Start();
             m_CallBack(m_PlayerManager.GetCharTR());    //카메라 콜백 함수 선언
+            m_bChanging = true;
+            m_Change = null;
+        }
+        else
+        {
+            PlayerDie();
         }
     }
 }

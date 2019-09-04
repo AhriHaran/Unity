@@ -13,12 +13,6 @@ public class PlayerKeyButton : MonoBehaviour
         m_KeySprite = transform.GetChild(1).GetComponent<UISprite>();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -32,6 +26,5 @@ public class PlayerKeyButton : MonoBehaviour
         
         string Key = Util.ConvertToString(iList[iIndex]) + "_" + m_KeyName;
         m_KeySprite.spriteName = Key;
-
     }
 }

@@ -21,7 +21,7 @@ public class ItemSprite : MonoBehaviour
 
     private GameObject m_Equip;
 
-    private int m_iItemIndex;
+    private int m_iItemIndex;   //리스트 기반의 인덱스
     private ITEM_TYPE m_eItemType;
     private INVENTORY_TYPE m_eInvenType;
 
@@ -31,11 +31,6 @@ public class ItemSprite : MonoBehaviour
         m_ItemLabel = transform.GetChild(3).GetComponent<UILabel>();
         m_Equip = transform.GetChild(4).gameObject;
         m_Equip.gameObject.SetActive(false);
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
     }
 
     public void SetCallBack(CallBack call)

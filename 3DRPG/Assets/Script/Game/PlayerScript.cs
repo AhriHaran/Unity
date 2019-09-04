@@ -17,6 +17,8 @@ public enum KEY_TYPE
 }
 //소모 SP
 
+public delegate void CallBack(bool bDie);
+
 public class PlayerScript : MonoBehaviour
 {
     public struct st_Key
@@ -37,39 +39,53 @@ public class PlayerScript : MonoBehaviour
     public float m_fRotateSpeed = 2.0f; //회전속도
     public float m_fAniSpeed = 1.5f;    //애니메이션 속도
     public int m_iIndex;    //플레이어 캐릭터 인덱스
-    public bool m_bDie = false;
     public int m_iRange;
 
     private CharacterController m_Controller;
     private Animator m_PlayerAnimator;
     private GameObject m_UltimateEffect;
-    private UISlider m_HpSlider = null;
-    private UISlider m_SpSlider = null;
+    private UISprite m_HPSprite = null;
+    private UILabel m_HPLabel;
+    private UISprite m_SPSprite = null;
+    private UILabel m_SPLabel;
     private UIJoystick m_Input = null;
-    public float m_fMaxHP
+    private float m_fMaxHP = 0.0f;
+    private float m_fCurHP = 0.0f;
+    private float m_fMaxSP = 0.0f;
+    private float m_fCurSP = 0.0f;
+    private bool m_bDie = false;
+    public float MaxHP
     {
         get { return m_fMaxHP; }
-        set { m_fMaxHP = 0.0f; }
+        set { m_fMaxHP = value; }
     }
-    public float m_fCurHP
+    public float CurHP
     {
         get { return m_fCurHP; }
-        set { m_fCurHP = 0.0f; }
+        set { m_fCurHP = value; }
     }
-    public float m_fMaxSP
+    public float MaxSP
     {
         get { return m_fMaxSP; }
-        set { m_fMaxSP = 0.0f; }
+        set { m_fMaxSP = value; }
     }
-    public float m_fCurSP
+    public float CurSP
     {
         get { return m_fCurSP; }
-        set { m_fCurSP = 0.0f; }
+        set { m_fCurSP = value; }
+    }
+    public bool Die
+    {
+        get { return m_bDie; }
+        set { m_bDie = value; }
     }
 
+    //공격 관련
     private List<List<st_Key>> m_ListComboKey = new List<List<st_Key>>();
     private List<GameObject> m_ListKey = new List<GameObject>();
     private st_Ultimate m_UltimateSkill = new st_Ultimate();
+
+    public CallBack m_CallBack = null;
 
     private bool m_bAttack;
     private bool m_bInvincible = false;
@@ -111,21 +127,27 @@ public class PlayerScript : MonoBehaviour
 
     public void SliderUpdate()
     {
-        float fHP = ((float)m_fCurHP / (float)m_fMaxHP);
-        float fSP = ((float)m_fCurSP / (float)m_fMaxSP);
-
-        m_HpSlider.value = fHP; //현재 HP
-        m_HpSlider.GetComponentInChildren<UILabel>().text = (m_fCurHP.ToString() + "/" + m_fMaxHP.ToString());//라벨
-        m_SpSlider.value = fSP; //현재 SP
-        m_SpSlider.GetComponentInChildren<UILabel>().text = (m_fCurSP.ToString() + "/" + m_fMaxSP.ToString());//라벨
+        m_HPSprite.fillAmount = 1.0f - ((m_fMaxHP - m_fCurHP) / m_fMaxHP);
+        m_HPLabel.text = (m_fCurHP.ToString() + "/" + m_fMaxHP.ToString());//라벨
+        m_SPSprite.fillAmount = 1.0f - ((m_fMaxSP - m_fCurSP) / m_fMaxSP);
+        m_SPLabel.text = (m_fCurSP.ToString() + "/" + m_fMaxSP.ToString());//라벨
     }
 
-    public void PlayerSet()
+    public void PlayerSet(CallBack call)
     {
-        if (m_HpSlider != null && m_SpSlider != null)
-        {
-            SliderUpdate();
-        }
+        m_CallBack = call;
+
+        GameObject UI = GameObject.Find("GameUI");
+        GameObject Value = UI.transform.GetChild(1).gameObject;
+        m_HPSprite = Value.transform.GetChild(0).GetComponent<UISprite>();//hp 바
+        m_HPLabel = Value.transform.GetChild(1).GetComponent<UILabel>(); //hp라벨
+
+        Value = UI.transform.GetChild(2).gameObject;
+        m_SPSprite = Value.transform.GetChild(0).GetComponent<UISprite>();//sp 바
+        m_SPLabel = Value.transform.GetChild(1).GetComponent<UILabel>();//sp 라벨
+
+        SliderUpdate();
+
         //hp와 sp를 설정하고
 
         //버튼 키를 설정한다.
@@ -153,6 +175,8 @@ public class PlayerScript : MonoBehaviour
                     break;
             }
         }
+        if(m_PlayerAnimator != null)
+            m_PlayerAnimator.SetTrigger("Land");
     }
 
     public void PlayerInit(GameObject Ultimate)
@@ -164,17 +188,12 @@ public class PlayerScript : MonoBehaviour
             m_ListKey.Add(playerUI.transform.GetChild(i).gameObject);
         }
 
-        if (m_HpSlider == null && m_SpSlider == null)
-        {
-            m_HpSlider = UI.transform.GetChild(1).GetComponent<UISlider>();//hp 바
-            //m_SpSlider = UI.transform.GetChild(2).GetComponent<UISlider>();//sp 바
+        m_fMaxHP = float.Parse(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_MAX_HP, m_iIndex).ToString());
+        m_fCurHP = m_fMaxHP;
 
-            m_fMaxHP = float.Parse(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_MAX_HP, m_iIndex).ToString());
-            m_fCurHP = m_fMaxHP;
+        m_fMaxSP = float.Parse(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_MAX_SP, m_iIndex).ToString());
+        m_fCurSP = 0.0f;
 
-            m_fMaxSP = float.Parse(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_MAX_SP, m_iIndex).ToString());
-            m_fCurSP = 0.0f;
-        }
         m_Input = playerUI.GetComponentInChildren<UIJoystick>();
         //초기 셋팅
 
@@ -192,13 +211,13 @@ public class PlayerScript : MonoBehaviour
         {
             string index = Key[i]["Index"].ToString();
             KeyList = Key[i]["Key"].ToString().Split('/');
-
+            
             List<st_Key> ListNode = new List<st_Key>();
             for (int j = 0; j < KeyList.Length; j++)
             {
                 st_Key Node = new st_Key();
-                string[] NodeKey = KeyList[j].Split(';');
-
+                string [] NodeKey = KeyList[j].Split(';');
+    
                 Node.st_iIndex = j;
                 Node.st_iKey = (KEY_TYPE)Util.ConvertToInt(NodeKey[0]);
                 Node.st_eInput = (KEY_INPUT)Util.ConvertToInt(NodeKey[1]);
@@ -210,12 +229,7 @@ public class PlayerScript : MonoBehaviour
         m_UltimateEffect = Ultimate;
     }
     
-    
     //trail renderer
-
-    void Start() //셋팅
-    {
-    }
 
     // Update is called once per frame
     void Update()
@@ -276,7 +290,7 @@ public class PlayerScript : MonoBehaviour
             m_PlayerAnimator.SetTrigger("Slide");
             m_bInvincible = true;
             m_bInvincibleReady = false;
-            m_ListKey[(int)KEY_TYPE.KEY_EVASION].transform.GetChild(2).GetComponent<CoolTime>().OnClick();
+            m_ListKey[(int)KEY_TYPE.KEY_EVASION].transform.GetChild(2).GetComponent<CoolTime>().OnClick(true);
             StartCoroutine("CheckInvincible");
         }
     }
@@ -296,10 +310,10 @@ public class PlayerScript : MonoBehaviour
             //sp가 다 모이고 올바른 키 타입이면
             m_PlayerAnimator.SetTrigger("UltimateActive");
             m_fCurSP -= m_UltimateSkill.st_iSpendSP;
-            m_UltimateEffect.transform.position = transform.position;
+            m_UltimateEffect.transform.SetPositionAndRotation(gameObject.transform.position, gameObject.transform.rotation * Quaternion.Euler(0, 90, 0));
             m_UltimateEffect.gameObject.SetActive(true);
             m_bUltimateReady = false;
-            m_ListKey[(int)KEY_TYPE.KEY_UITIMATE].transform.GetChild(2).GetComponent<CoolTime>().OnClick();
+            m_ListKey[(int)KEY_TYPE.KEY_UITIMATE].transform.GetChild(2).GetComponent<CoolTime>().OnClick(true);
             
             ResetData();
             //궁쓰면 일단 초기화
@@ -367,6 +381,13 @@ public class PlayerScript : MonoBehaviour
             m_PlayerAnimator.SetTrigger("Stand");
             m_PlayerAnimator.speed = m_fAniSpeed;
         }
+
+        Vector3 pos = transform.position;
+        if (pos.y > 0 || pos.y < 0)
+        {
+            pos.y = 0.1f;
+        }
+        transform.position = pos;
     }
 
     IEnumerator CheckInvincible()
@@ -481,8 +502,19 @@ public class PlayerScript : MonoBehaviour
                 m_PlayerAnimator.SetTrigger("Die");
                 ResetData();
                 StopAllCoroutines();
+                m_CallBack?.Invoke(true);   //죽으면 교체
             }
             SliderUpdate();
         }
+    }
+
+    public void JumpEnd()
+    {
+       m_CallBack?.Invoke(false);
+    }
+    
+    public void JumpStart()
+    {
+       m_PlayerAnimator?.SetTrigger("Jump");
     }
 }

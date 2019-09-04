@@ -72,7 +72,7 @@ public class EnemyManager
     {
         for(int i = 0; i < m_ListEnemyObject[m_iCurWave].Count; i++)
         {
-            if(m_ListEnemyObject[m_iCurWave][i].activeSelf) //해당 오브젝트가 살아있는 상태인가
+            if (m_ListEnemyObject[m_iCurWave][i].activeSelf) //해당 오브젝트가 살아있는 상태인가
                 m_ListEnemyObject[m_iCurWave][i].GetComponent<EnemyScript>().TrSetting(Player);
         }
     }
@@ -81,7 +81,8 @@ public class EnemyManager
     {
         for (int i = 0; i < m_ListEnemyObject[m_iCurWave].Count; i++)
         {
-            m_ListEnemyObject[m_iCurWave][i].GetComponent<EnemyScript>().Stop();
+            if (m_WaveObject[m_iCurWave].activeSelf && m_ListEnemyObject[m_iCurWave][i].activeSelf) //해당 오브젝트가 살아있는 상태인가
+                m_ListEnemyObject[m_iCurWave][i].GetComponent<EnemyScript>().Stop();
         }
     }
 
@@ -89,7 +90,8 @@ public class EnemyManager
     {
         for (int i = 0; i < m_ListEnemyObject[m_iCurWave].Count; i++)
         {
-            m_ListEnemyObject[m_iCurWave][i].GetComponent<EnemyScript>().ReStart();
+            if (m_WaveObject[m_iCurWave].activeSelf && m_ListEnemyObject[m_iCurWave][i].activeSelf) //해당 오브젝트가 살아있는 상태인가
+                m_ListEnemyObject[m_iCurWave][i].GetComponent<EnemyScript>().ReStart();
         }
     }
 

@@ -1,19 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!65 &3112091273184621975
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7194229202830899827}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 10, y: 4, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
---- !u!114 &2898258308073159433
+--- !u!114 &1602645751501392859
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -22,11 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7194229202830899827}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c6b8d396dadcd74fa86c5447623b08f, type: 3}
+  m_Script: {fileID: 11500000, guid: 962940f40a913f5438cb5f2e235150ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_iSkillIndex: 0
-  m_eProperty: 0
+  m_fMaxDemage: 100
+  m_fCriDemage: 15
+  m_fRadius: 4
 --- !u!1001 &7192692606481867459
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36,7 +24,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1858753541707952, guid: 5e34516f218eeda4a88e57f4e6fe310e, type: 3}
       propertyPath: m_Name
-      value: 0_UltimageEffect
+      value: UltimateSkill
       objectReference: {fileID: 0}
     - target: {fileID: 1858753541707952, guid: 5e34516f218eeda4a88e57f4e6fe310e, type: 3}
       propertyPath: m_IsActive
@@ -86,26 +74,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.0154
       objectReference: {fileID: 0}
-    - target: {fileID: 198114588277123842, guid: 5e34516f218eeda4a88e57f4e6fe310e,
-        type: 3}
-      propertyPath: InitialModule.startSizeY.minMaxState
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 198114588277123842, guid: 5e34516f218eeda4a88e57f4e6fe310e,
-        type: 3}
-      propertyPath: InitialModule.startSizeZ.minMaxState
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 198114588277123842, guid: 5e34516f218eeda4a88e57f4e6fe310e,
-        type: 3}
-      propertyPath: InitialModule.startRotationX.minMaxState
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 198114588277123842, guid: 5e34516f218eeda4a88e57f4e6fe310e,
-        type: 3}
-      propertyPath: InitialModule.startRotationY.minMaxState
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 198502661295548622, guid: 5e34516f218eeda4a88e57f4e6fe310e,
         type: 3}
       propertyPath: CollisionModule.enabled
@@ -116,6 +84,31 @@ PrefabInstance:
       propertyPath: CollisionModule.collisionMessages
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 198419646176832784, guid: 5e34516f218eeda4a88e57f4e6fe310e,
+        type: 3}
+      propertyPath: InitialModule.startSizeY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198419646176832784, guid: 5e34516f218eeda4a88e57f4e6fe310e,
+        type: 3}
+      propertyPath: InitialModule.startSizeZ.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198419646176832784, guid: 5e34516f218eeda4a88e57f4e6fe310e,
+        type: 3}
+      propertyPath: InitialModule.startRotationX.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198419646176832784, guid: 5e34516f218eeda4a88e57f4e6fe310e,
+        type: 3}
+      propertyPath: InitialModule.startRotationY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198419646176832784, guid: 5e34516f218eeda4a88e57f4e6fe310e,
+        type: 3}
+      propertyPath: CollisionModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 198176483637470378, guid: 5e34516f218eeda4a88e57f4e6fe310e,
         type: 3}
       propertyPath: InitialModule.startSizeY.minMaxState
@@ -135,6 +128,96 @@ PrefabInstance:
         type: 3}
       propertyPath: InitialModule.startRotationY.minMaxState
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198853030466112806, guid: 5e34516f218eeda4a88e57f4e6fe310e,
+        type: 3}
+      propertyPath: InitialModule.startSizeY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198853030466112806, guid: 5e34516f218eeda4a88e57f4e6fe310e,
+        type: 3}
+      propertyPath: InitialModule.startSizeZ.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198853030466112806, guid: 5e34516f218eeda4a88e57f4e6fe310e,
+        type: 3}
+      propertyPath: InitialModule.startRotationX.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198853030466112806, guid: 5e34516f218eeda4a88e57f4e6fe310e,
+        type: 3}
+      propertyPath: InitialModule.startRotationY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198034480073588700, guid: 5e34516f218eeda4a88e57f4e6fe310e,
+        type: 3}
+      propertyPath: InitialModule.startSizeY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198034480073588700, guid: 5e34516f218eeda4a88e57f4e6fe310e,
+        type: 3}
+      propertyPath: InitialModule.startSizeZ.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198034480073588700, guid: 5e34516f218eeda4a88e57f4e6fe310e,
+        type: 3}
+      propertyPath: InitialModule.startRotationX.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198034480073588700, guid: 5e34516f218eeda4a88e57f4e6fe310e,
+        type: 3}
+      propertyPath: InitialModule.startRotationY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198034480073588700, guid: 5e34516f218eeda4a88e57f4e6fe310e,
+        type: 3}
+      propertyPath: CollisionModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198034480073588700, guid: 5e34516f218eeda4a88e57f4e6fe310e,
+        type: 3}
+      propertyPath: CollisionModule.collisionMessages
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198114588277123842, guid: 5e34516f218eeda4a88e57f4e6fe310e,
+        type: 3}
+      propertyPath: InitialModule.startSizeY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198114588277123842, guid: 5e34516f218eeda4a88e57f4e6fe310e,
+        type: 3}
+      propertyPath: InitialModule.startSizeZ.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198114588277123842, guid: 5e34516f218eeda4a88e57f4e6fe310e,
+        type: 3}
+      propertyPath: InitialModule.startRotationX.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198114588277123842, guid: 5e34516f218eeda4a88e57f4e6fe310e,
+        type: 3}
+      propertyPath: InitialModule.startRotationY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198544595397147382, guid: 5e34516f218eeda4a88e57f4e6fe310e,
+        type: 3}
+      propertyPath: InitialModule.startSizeY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198544595397147382, guid: 5e34516f218eeda4a88e57f4e6fe310e,
+        type: 3}
+      propertyPath: InitialModule.startSizeZ.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198544595397147382, guid: 5e34516f218eeda4a88e57f4e6fe310e,
+        type: 3}
+      propertyPath: CollisionModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198544595397147382, guid: 5e34516f218eeda4a88e57f4e6fe310e,
+        type: 3}
+      propertyPath: CollisionModule.collisionMessages
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e34516f218eeda4a88e57f4e6fe310e, type: 3}

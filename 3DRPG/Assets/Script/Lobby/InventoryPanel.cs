@@ -23,21 +23,11 @@ public class InventoryPanel : MonoBehaviour
         m_iCurPannel = -1;
     }
 
-    private void Start()
-    {
-    }
-
     private void OnEnable()
     {
         //여기서 각 오브젝트에 맞게 셋팅
         ViewInventory(INVENTORY_TYPE.INVENTORY_WEAPON); //디폴트는 항상 위에 있는 웨폰
         m_iCurPannel = (int)INVENTORY_TYPE.INVENTORY_WEAPON;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void OnDisable()

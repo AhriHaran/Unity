@@ -148,22 +148,22 @@ public class EnemyScript : MonoBehaviour
 
     public void Hit()
     {
-        //여기서 콜리더 히트 체크
-        Collider[] colliders = Physics.OverlapSphere(transform.position, 2, 1 << LayerMask.NameToLayer("Player"));
+        ////여기서 콜리더 히트 체크
+        //Collider[] colliders = Physics.OverlapSphere(transform.position, 2, 1 << LayerMask.NameToLayer("Player"));
 
-        if (colliders.Length != 0)
-        {
-            float fATK = float.Parse(m_CharData.GetEnemyData(CHAR_DATA.CHAR_ATK).ToString());
-            float fCRI = float.Parse(m_CharData.GetEnemyData(CHAR_DATA.CHAR_CRI).ToString());
+        //if (colliders.Length != 0)
+        //{
+        //    float fATK = float.Parse(m_CharData.GetEnemyData(CHAR_DATA.CHAR_ATK).ToString());
+        //    float fCRI = float.Parse(m_CharData.GetEnemyData(CHAR_DATA.CHAR_CRI).ToString());
 
-            for (int i = 0; i < colliders.Length; i++)
-            {
-                PlayerScript script = colliders[i].GetComponent<PlayerScript>() ?? null;
-                if (script != null)
-                    script.Damege(fATK, fCRI);
-                //해당 함수 호출
-            }
-        }
+        //    for (int i = 0; i < colliders.Length; i++)
+        //    {
+        //        PlayerScript script = colliders[i].GetComponent<PlayerScript>() ?? null;
+        //        if (script != null)
+        //            script.Damege(fATK, fCRI);
+        //        //해당 함수 호출
+        //    }
+        //}
     }
 
     public void Damege(float fATK, float fCRI)

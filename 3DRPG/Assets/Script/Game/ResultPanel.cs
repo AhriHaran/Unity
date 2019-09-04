@@ -106,18 +106,16 @@ public class ResultPanel : MonoBehaviour
             string[] item = ClearItem[i].Split(';');
             GameObject Item = ResourceLoader.CreatePrefab("Prefabs/ItemSprite");
             Item.transform.SetParent(Grid.transform, false);
-            Item.GetComponent<ItemSprite>().Setting(Util.ConvertToInt(item[2]), (ITEM_TYPE)Util.ConvertToInt(item[0]), (INVENTORY_TYPE)Util.ConvertToInt(item[1]));
             UserInfo.instance.InventoryUpdate((ITEM_TYPE)Util.ConvertToInt(item[0]), (INVENTORY_TYPE)Util.ConvertToInt(item[1]), Util.ConvertToInt(item[2]));
+            var List = UserInfo.instance.GetInventoryList((INVENTORY_TYPE)Util.ConvertToInt(item[1]));
+            int iCount = List.Count - 1;
+            Item.GetComponent<ItemSprite>().Setting(iCount, (ITEM_TYPE)Util.ConvertToInt(item[0]), (INVENTORY_TYPE)Util.ConvertToInt(item[1]));
         }
+
         Grid.GetComponent<UIGrid>().Reposition(); //리 포지셔닝으로 그리드 재정렬
         m_ItemRoot.GetComponent<UIScrollView>().ResetPosition();
         m_ResultPanel.Refresh();
         //인벤토리 업데이트
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
