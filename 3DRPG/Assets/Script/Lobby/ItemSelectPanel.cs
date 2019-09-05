@@ -30,10 +30,6 @@ public class ItemSelectPanel : MonoBehaviour
 
     private void OnDisable()
     {
-        Vector3 vec = Camera.main.transform.position;
-        vec.x = 0;
-        Camera.main.transform.position = vec;
-
         m_ItemSelect.GetComponent<TweenControl>().TweenStart(TWEEN_SET.TWEEN_REVERSE);
         m_ItemInfo.GetComponent<TweenControl>().TweenStart(TWEEN_SET.TWEEN_REVERSE);
     }

@@ -61,7 +61,7 @@ public class GameScene : MonoBehaviour
     {
         m_CallBack = Camera.main.GetComponent<FollowCam>().CameraSet;   //카메라 셋팅 콜백
 
-        string strStage = GameManager.instance.ReturnStage(); //첫시작    
+        string strStage = Util.ConvertToString(GameManager.instance.ReturnStage()); //첫시작    
         string strFile = "Excel/StageExcel/" + strStage + "/Map_Object";  //해당스테이지의 맵 Info
         List<Dictionary<string, object>> Info = EXCEL.ExcelLoad.Read(strFile);
         strFile = "Excel/Table/Stage_Table";   //전체 맵의 table 데이터
@@ -89,7 +89,7 @@ public class GameScene : MonoBehaviour
         
         m_CallBack(m_PlayerManager.GetCharTR());    //카메라 콜백 함수 선언
         m_EnemyMangaer.TrSetting(m_PlayerManager.GetCharTR()); //타겟 셋팅
-        m_EnemyMangaer.ActiveWave();    //액티브
+        //m_EnemyMangaer.ActiveWave();    //액티브
         
         PoolManager.instance.Set(POOL_INDEX.POOL_HP_ITEM.ToString(), "Prefabs/HP", 10);
         PoolManager.instance.Set(POOL_INDEX.POOL_SP_ITEM.ToString(), "Prefabs/SP", 10);

@@ -65,7 +65,8 @@ public class InventoryPanel : MonoBehaviour
             {
                 GameObject Item = ResourceLoader.CreatePrefab("Prefabs/ItemSprite");
                 Item.transform.SetParent(m_GridChar.transform, false);
-                Item.GetComponent<ItemSprite>().Setting(i, (ITEM_TYPE)Data[i].GetItemData(ITEM_DATA.ITEM_TYPE), eType);
+                int iIndex = Util.ConvertToInt(UserInfo.instance.GetItemForList(i, eType, ITEM_DATA.ITEM_INDEX));
+                Item.GetComponent<ItemSprite>().Setting(iIndex, i, (ITEM_TYPE)Data[i].GetItemData(ITEM_DATA.ITEM_TYPE), eType);
             }
 
             m_GridChar.GetComponent<UIGrid>().Reposition(); //리 포지셔닝으로 그리드 재정렬
@@ -88,4 +89,5 @@ public class InventoryPanel : MonoBehaviour
             m_GridChar.transform.DetachChildren();
         }
     }
+
 }

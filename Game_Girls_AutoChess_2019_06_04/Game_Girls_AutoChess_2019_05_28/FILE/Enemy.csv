@@ -1,0 +1,4 @@
+1000,Guard,SMG,3,0,RES//%s//Wait.bmp,130,120,70,110,27,RES//%s//Attack.bmp,130,120,70,110,14,RES//%s//Move.bmp,130,120,70,110,51,NULL,0,0,0,0,0,RES//%s//Die.bmp,160,140,100,110,51,NULL,NULL,-1
+1001,Prowler,HG,2,0,RES//%s//Wait.bmp,120,100,60,80,40,RES//%s//Attack.bmp,120,100,60,80,14,RES//%s//Move.bmp,120,100,60,80,22,NULL,0,0,0,0,0,RES//%s//Die.bmp,130,100,70,80,44,NULL,NULL,-1
+1002,Ripper,AR,3,0,RES//%s//Wait.bmp,100,110,50,100,40,RES//%s//Attack.bmp,100,110,50,100,14,RES//%s//Move.bmp,100,110,50,100,24,NULL,0,0,0,0,0,RES//%s//Die.bmp,150,130,110,100,43,NULL,NULL,-1
+1003,Vespid,RF,4,0,RES//%s//Wait.bmp,100,110,60,100,40,RES//%s//Attack.bmp,110,110,70,100,34,RES//%s//Move.bmp,110,110,70,100,24,NULL,0,0,0,0,0,RES//%s//Die.bmp,130,130,90,100,40,NULL,NULL,-1

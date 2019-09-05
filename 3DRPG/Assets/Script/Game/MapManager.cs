@@ -41,7 +41,7 @@ public class MapManager
         //맵 셋팅 
 
         //맵 타입 설정
-        int iStage = int.Parse(GameManager.instance.ReturnStage());
+        int iStage = GameManager.instance.ReturnStage();
         //맵의 타입, 시간
         foreach(MAP_DATA E in System.Enum.GetValues(typeof(MAP_DATA)))
         {

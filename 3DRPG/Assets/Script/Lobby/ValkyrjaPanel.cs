@@ -8,7 +8,7 @@ public enum VALKYRJA_UI
     VALKYRJA_UI_INFO = VALKYRJA_UI_START,
     VALKYRJA_UI_LEVEL,
     VALKYRJA_UI_WEAPON,
-    VALKYRJA_UI_Stigma,
+    VALKYRJA_UI_STIGMA,
     VALKYRJA_UI_END
 }   //캐릭터 정보창
 
@@ -118,10 +118,21 @@ public class ValkyrjaPanel : MonoBehaviour
             }
             //장착한 무기 셋팅
 
-            int T = Util.ConvertToInt(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_STIGMA_TOP_INDEX, iIndex));
-            int C = Util.ConvertToInt(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_STIGMA_CENTER_INDEX, iIndex));
-            int B = Util.ConvertToInt(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_STIGMA_BOTTOM_INDEX, iIndex));
+            ViewStigma(iIndex, CHAR_DATA.CHAR_STIGMA_TOP_INDEX, ITEM_TYPE.ITEM_STIGMA_TOP, 0);
+            ViewStigma(iIndex, CHAR_DATA.CHAR_STIGMA_CENTER_INDEX, ITEM_TYPE.ITEM_STIGMA_CENTER, 1);
+            ViewStigma(iIndex, CHAR_DATA.CHAR_STIGMA_BOTTOM_INDEX, ITEM_TYPE.ITEM_STIGMA_BOTTOM, 2);
             //해당 아이템은 스프라이트로 처리
+        }
+    }
+
+    private void ViewStigma(int iCharIndex, CHAR_DATA Data, ITEM_TYPE eType, int Child)
+    {
+        int tmp = Util.ConvertToInt(UserInfo.instance.GetCharData(Data, iCharIndex));
+        if (tmp >= 0)
+        {
+            string strTMP = string.Empty;
+            strTMP = Util.ConvertToString(tmp) + "_" + eType.ToString() + "_Icon2";
+            m_ThisUI[(int)VALKYRJA_UI.VALKYRJA_UI_STIGMA].transform.GetChild(Child).GetComponent<UISprite>().spriteName = strTMP;
         }
     }
 }

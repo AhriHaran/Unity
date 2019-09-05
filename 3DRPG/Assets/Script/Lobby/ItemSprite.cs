@@ -21,7 +21,8 @@ public class ItemSprite : MonoBehaviour
 
     private GameObject m_Equip;
 
-    private int m_iItemIndex;   //리스트 기반의 인덱스
+    private int m_iItemIndex;   //아이템 인덱스
+    private int m_iListIndex;
     private ITEM_TYPE m_eItemType;
     private INVENTORY_TYPE m_eInvenType;
 
@@ -38,26 +39,32 @@ public class ItemSprite : MonoBehaviour
         m_CallBack = call;
     }
 
-    public void Setting(int iIndex, ITEM_TYPE eType, INVENTORY_TYPE eInven)
+    public void Setting(int iIndex, int iList, ITEM_TYPE eType, INVENTORY_TYPE eInven)
     {
-        m_iItemIndex = iIndex;  
+        m_iItemIndex = iIndex;
+        m_iListIndex = iList;
         m_eItemType = eType;
         m_eInvenType = eInven;
+
+        string sprite = m_iItemIndex + "_" + m_eItemType.ToString() + "_Icon";
+        m_ItemSprite.spriteName = sprite;   //스프라이트 교체
+        sprite = "Excel/Table/" + m_eItemType.ToString() + "_" + m_iItemIndex;
+        var List = EXCEL.ExcelLoad.Read(sprite);
+        m_ItemLabel.text = Util.ConvertToString(List[0][ITEM_DATA.ITEM_NAME.ToString()]);
+        //이름 교채
+        //아이템 인덱스 기반
     }
 
     public void ShowInfo()
     {
-        string sprite = string.Empty;
-        sprite = Util.ConvertToString(UserInfo.instance.GetItemForList(m_iItemIndex, m_eInvenType, ITEM_DATA.ITEM_INDEX)) + "_" + m_eItemType.ToString() + "_Icon";
-        m_ItemSprite.spriteName = sprite;   //스프라이트 교체
-        m_ItemLabel.text = Util.ConvertToString(UserInfo.instance.GetItemForList(m_iItemIndex, m_eInvenType, ITEM_DATA.ITEM_NAME));
-        //이름 교채
-        
-        int iEquip = Util.ConvertToInt(UserInfo.instance.GetItemForList(m_iItemIndex, m_eInvenType, ITEM_DATA.ITEM_EQUIP_CHAR));
-        if (iEquip >= 0)
-            m_Equip.gameObject.SetActive(true);
-        else
-            m_Equip.gameObject.SetActive(false);
+        if(m_iListIndex >= 0)
+        {
+            int iEquip = Util.ConvertToInt(UserInfo.instance.GetItemForList(m_iListIndex, m_eInvenType, ITEM_DATA.ITEM_EQUIP_CHAR));
+            if (iEquip >= 0)
+                m_Equip.gameObject.SetActive(true);
+            else
+                m_Equip.gameObject.SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -68,10 +75,12 @@ public class ItemSprite : MonoBehaviour
 
     public void OnClick()
     {
-        ButtonSelect(true);
-        if (m_CallBack != null)
-            m_CallBack(m_iItemIndex);
-        //해당 패널을 클릭하였다.
+        if(m_CallBack != null)
+        {
+            ButtonSelect(true);
+            m_CallBack?.Invoke(m_iItemIndex);
+            //해당 패널을 클릭하였다.
+        }
     }
 
     public void ButtonSelect(bool bClick)   //해당 버튼을 선택하였다는 가시적인 보여줌

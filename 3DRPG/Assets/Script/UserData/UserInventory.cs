@@ -53,6 +53,19 @@ public class UserInventory
         //인벤토리 아이템은 중복 획득이 가능하므로 리스트 순서 기반으로 한다.
         return m_ListInven[(int)eType][inventoryIndex].GetItemData(eIndex);
     }
+    public object GetItemForIndex(int itemIndex, INVENTORY_TYPE eType, ITEM_DATA eIndex)
+    {
+        for(int i = 0; i < m_ListInven[(int)eType].Count; i++)
+        {
+            int iIndex = Util.ConvertToInt(m_ListInven[(int)eType][i].GetItemData(ITEM_DATA.ITEM_INDEX));
+            if(iIndex == itemIndex)
+            {
+                return m_ListInven[(int)eType][i].GetItemData(eIndex);
+            }
+        }
+        return null;    
+        //아이템 인덱스 기반의 반환
+    }
     public List<ItemData> GetInventoryList(INVENTORY_TYPE eType)
     {
         return m_ListInven[(int)eType]; //전체 리스트

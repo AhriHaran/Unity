@@ -19,10 +19,10 @@ MonoBehaviour:
     y: 514
     width: 100
     height: 88
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
+    borderLeft: 10
+    borderRight: 10
+    borderTop: 10
+    borderBottom: 10
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
@@ -318,10 +318,10 @@ MonoBehaviour:
     y: 1314
     width: 936
     height: 734
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
+    borderLeft: 10
+    borderRight: 10
+    borderTop: 10
+    borderBottom: 10
     paddingLeft: 17
     paddingRight: 11
     paddingTop: 26

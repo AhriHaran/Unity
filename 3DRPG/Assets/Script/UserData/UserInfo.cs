@@ -87,6 +87,11 @@ public class UserInfo : GSingleton<UserInfo>
         //인벤토리 인덱스 순서
         return m_UserInventory.GetItemForList(inventoryIndex, eType, eIndex);
     }
+    public object GetItemForIndex(int itemIndex, INVENTORY_TYPE eType, ITEM_DATA eIndex)
+    {
+        //아이템 인덱스 순서
+        return m_UserInventory.GetItemForIndex(itemIndex, eType, eIndex);
+    }
     public List<ItemData> GetInventoryList(INVENTORY_TYPE eType)
     {
         return m_UserInventory.GetInventoryList(eType);

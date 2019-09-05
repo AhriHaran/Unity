@@ -21,9 +21,10 @@ public class LobbyManager : MonoBehaviour
 
     public UILabel m_UserLevel;
     public UILabel m_UserNickName;
-    public UISlider m_UserExpBar;
     public UILabel m_UserGold;
     public UILabel m_UserEnergy;
+    public UISprite m_UserEXP;
+    public UILabel m_UserEXPLabel;
     public Transform m_MainCharTR;
 
     private List<UIPanel> m_ListPanel = new List<UIPanel>();
@@ -76,14 +77,13 @@ public class LobbyManager : MonoBehaviour
         m_UserLevel.text += UserInfo.instance.GetUserData(USER_INFO.USER_INFO_LEVEL);       //유저 레벨
         m_UserNickName.text = UserInfo.instance.GetUserData(USER_INFO.USER_INFO_NICKNAME);  //유저 닉네임
 
-        string cur = UserInfo.instance.GetUserData(USER_INFO.USER_INFO_CUR_EXP);
-        string max = UserInfo.instance.GetUserData(USER_INFO.USER_INFO_MAX_EXP);
-        int iValue = int.Parse(cur) / int.Parse(max);
-        m_UserExpBar.value = iValue;
-        m_UserExpBar.GetComponentInChildren<UILabel>().text = (cur + "/" + max);
+        float cur = Util.ConvertToInt(UserInfo.instance.GetUserData(USER_INFO.USER_INFO_CUR_EXP));
+        float max = Util.ConvertToInt(UserInfo.instance.GetUserData(USER_INFO.USER_INFO_MAX_EXP));
+        m_UserEXP.fillAmount = 1.0f - (float)((max - cur)/ max);
+        m_UserEXPLabel.text = (cur + "/" + max);
 
-        cur = UserInfo.instance.GetUserData(USER_INFO.USER_INFO_CUR_ENERGY);
-        max = UserInfo.instance.GetUserData(USER_INFO.USER_INFO_MAX_ENERGY);
+        cur = Util.ConvertToInt(UserInfo.instance.GetUserData(USER_INFO.USER_INFO_CUR_ENERGY));
+        max = Util.ConvertToInt(UserInfo.instance.GetUserData(USER_INFO.USER_INFO_MAX_ENERGY));
         m_UserEnergy.text = (cur + "/" + max);
 
         m_UserGold.text = UserInfo.instance.GetUserData(USER_INFO.USER_INFO_GOLD);
@@ -144,6 +144,7 @@ public class LobbyManager : MonoBehaviour
                 m_MainChar.SetActive(true);
                 m_MainChar.transform.SetParent(m_MainCharTR, false); //메인 캐릭터의 하위 오브젝트로 설정
                                                                      //메인으로 지정된 캐릭터 불러오기
+                m_MainChar.GetComponent<WeaponPoint>().enabled = false;
                 m_MainChar.GetComponent<Animator>().runtimeAnimatorController = UserInfo.instance.GetCharAnimator(iMainCount,
                     CHAR_ANIMATOR.CHAR_LOBBY_ANIMATOR) as RuntimeAnimatorController;
                 //로비에서는 아이템과 임팩트가 보일 이유는 없다.
@@ -221,11 +222,19 @@ public class LobbyManager : MonoBehaviour
         }
         else if (Button == "HomeButton")
         {
+            Vector3 vec = Camera.main.transform.position;
+            vec.x = 0;
+            Camera.main.transform.position = vec;
+
             PanelOnOff(UI_PANEL_INDEX.PANEL_LOBBY);
             GameManager.instance.ResetData();
         }
         else if (Button == "BackButton")
         {
+            Vector3 vec = Camera.main.transform.position;
+            vec.x = 0;
+            Camera.main.transform.position = vec;
+
             //이전 패널
             UI_PANEL_INDEX eCur = m_eCurPanel;
             UI_PANEL_INDEX eIndex = m_StackPanel.Pop();

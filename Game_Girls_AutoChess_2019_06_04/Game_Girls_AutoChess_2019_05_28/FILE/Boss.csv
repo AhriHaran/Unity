@@ -1,0 +1,6 @@
+10000,Agent,AR,5,0,RES//%s//Wait.bmp,110,130,50,120,80,RES//%s//Attack.bmp,110,130,50,120,27,RES//%s//Move.bmp,110,130,50,120,54,NULL,0,0,0,0,0,RES//%s//Die.bmp,120,140,60,120,120,NULL,NULL,-1
+10001,Alchemist,SMG,5,0,RES//%s//Wait.bmp,130,140,60,120,54,RES//%s//Attack.bmp,140,130,80,120,54,RES//%s//Move.bmp,140,130,70,120,19,NULL,0,0,0,0,0,RES//%s//Die.bmp,140,150,70,120,127,NULL,NULL,-1
+10002,Architect,MG,5,0,RES//%s//Wait.bmp,140,130,70,120,54,RES//%s//Attack.bmp,140,130,70,120,40,RES//%s//Move.bmp,140,130,70,120,40,NULL,0,0,0,0,0,RES//%s//Die.bmp,260,140,70,120,103,NULL,NULL,-1
+10003,Dreamer,RF,5,0,RES//%s//Wait.bmp,160,140,90,130,80,RES//%s//Attack.bmp,160,140,80,130,34,RES//%s//Move.bmp,170,140,90,130,40,NULL,0,0,0,0,0,RES//%s//Die.bmp,220,160,90,130,102,NULL,NULL,-1
+10004,Gaia,RF,5,0,RES//%s//Wait.bmp,160,140,90,130,54,RES//%s//Attack.bmp,160,140,70,130,34,RES//%s//Move.bmp,160,140,70,130,54,NULL,0,0,0,0,0,RES//%s//Die.bmp,160,150,80,130,74,NULL,NULL,-1
+10005,Garm,MG,5,0,RES//%s//Wait.bmp,180,150,80,130,67,RES//%s//Attack.bmp,190,140,80,130,27,RES//%s//Move.bmp,190,160,70,110,27,NULL,0,0,0,0,0,RES//%s//Die.bmp,250,160,100,110,82,NULL,NULL,-1

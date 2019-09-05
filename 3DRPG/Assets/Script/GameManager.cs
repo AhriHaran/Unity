@@ -44,9 +44,9 @@ public class GameManager : MonoSingleton<GameManager>
     {
         m_iCurStage = iStage;   //로비에서 스테이지 선택 시 임시 저장 변수
     }
-    public string ReturnStage()
+    public int ReturnStage()
     {
-        return m_iCurStage.ToString(); //현재 시작 스테이지 리턴
+        return m_iCurStage; //현재 시작 스테이지 리턴
     }
     public void StageSelect(List<Dictionary<MAP_DATA, object>> MapData)
     {

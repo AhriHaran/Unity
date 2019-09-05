@@ -29,6 +29,8 @@ public class ItemSelectUI : MonoBehaviour
 
     private void OnEnable()
     {
+        m_CurItemName.text = "";
+        m_CurItemLevel.text = "Lv.";
         m_iCurSelectChar = GameManager.instance.ReturnCurSelectChar();    //바꾸려고 하는 캐릭터
         m_eSelectType = GameManager.instance.ReturnSelectType(); //바꾸고자 하는 것
 
@@ -47,7 +49,8 @@ public class ItemSelectUI : MonoBehaviour
                 //콜백으로 현재 선택한 아이템의 리스트 인덱스를 저장한 뒤 선택 버튼을 누르면 갱신된다.
                 GameObject Item = ResourceLoader.CreatePrefab("Prefabs/ItemSprite");
                 Item.transform.SetParent(m_GridChar.transform, false);
-                Item.GetComponent<ItemSprite>().Setting(i, (ITEM_TYPE)Data[i].GetItemData(ITEM_DATA.ITEM_TYPE), eInven);
+                int iIndex = Util.ConvertToInt(UserInfo.instance.GetItemForList(i, eInven, ITEM_DATA.ITEM_INDEX));
+                Item.GetComponent<ItemSprite>().Setting(iIndex, i, (ITEM_TYPE)Data[i].GetItemData(ITEM_DATA.ITEM_TYPE), eInven);
                 Item.GetComponent<ItemSprite>().SetCallBack(ItemSelect);
             }
         }

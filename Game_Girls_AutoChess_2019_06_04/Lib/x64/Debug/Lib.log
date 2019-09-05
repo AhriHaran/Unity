@@ -1,0 +1,55 @@
+﻿  BitMap.cpp
+c:\users\user\desktop\game_girls_autochess_2019_05_28\lib\bitmap.cpp(32): error C2664: 'HANDLE LoadImageW(HINSTANCE,LPCWSTR,UINT,int,int,UINT)': 인수 2을(를) 'const _Elem *'에서 'LPCWSTR'(으)로 변환할 수 없습니다.
+          with
+          [
+              _Elem=char
+          ]
+  c:\users\user\desktop\game_girls_autochess_2019_05_28\lib\bitmap.cpp(33): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+c:\users\user\desktop\game_girls_autochess_2019_05_28\lib\bitmap.cpp(37): error C2664: 'int MessageBoxW(HWND,LPCWSTR,LPCWSTR,UINT)': 인수 2을(를) 'const _Elem *'에서 'LPCWSTR'(으)로 변환할 수 없습니다.
+          with
+          [
+              _Elem=char
+          ]
+  c:\users\user\desktop\game_girls_autochess_2019_05_28\lib\bitmap.cpp(37): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+c:\users\user\desktop\game_girls_autochess_2019_05_28\lib\bitmap.cpp(52): warning C4244: '-=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\user\desktop\game_girls_autochess_2019_05_28\lib\bitmap.cpp(53): warning C4244: '-=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  EngineMain.cpp
+c:\users\user\desktop\game_girls_autochess_2019_05_28\lib\enginemain.cpp(32): error C2440: '=': 'const _Elem *'에서 'LPCWSTR'(으)로 변환할 수 없습니다.
+          with
+          [
+              _Elem=char
+          ]
+  c:\users\user\desktop\game_girls_autochess_2019_05_28\lib\enginemain.cpp(32): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+c:\users\user\desktop\game_girls_autochess_2019_05_28\lib\enginemain.cpp(37): error C2664: 'HWND CreateWindowExW(DWORD,LPCWSTR,LPCWSTR,DWORD,int,int,int,int,HWND,HMENU,HINSTANCE,LPVOID)': 인수 2을(를) 'const _Elem *'에서 'LPCWSTR'(으)로 변환할 수 없습니다.
+          with
+          [
+              _Elem=char
+          ]
+  c:\users\user\desktop\game_girls_autochess_2019_05_28\lib\enginemain.cpp(38): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+  Label.cpp
+c:\users\user\desktop\game_girls_autochess_2019_05_28\lib\label.cpp(18): error C2664: 'BOOL GetTextExtentPoint32W(HDC,LPCWSTR,int,LPSIZE)': 인수 2을(를) 'const _Elem *'에서 'LPCWSTR'(으)로 변환할 수 없습니다.
+          with
+          [
+              _Elem=char
+          ]
+  c:\users\user\desktop\game_girls_autochess_2019_05_28\lib\label.cpp(18): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+c:\users\user\desktop\game_girls_autochess_2019_05_28\lib\label.cpp(28): error C2664: 'int DrawTextW(HDC,LPCWSTR,int,LPRECT,UINT)': 인수 2을(를) 'const _Elem *'에서 'LPCWSTR'(으)로 변환할 수 없습니다.
+          with
+          [
+              _Elem=char
+          ]
+  c:\users\user\desktop\game_girls_autochess_2019_05_28\lib\label.cpp(29): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+  TextManager.cpp
+c:\users\user\desktop\game_girls_autochess_2019_05_28\lib\textmanager.cpp(28): error C2664: 'HFONT CreateFontW(int,int,int,int,int,DWORD,DWORD,DWORD,DWORD,DWORD,DWORD,DWORD,DWORD,LPCWSTR)': 인수 14을(를) 'const _Elem *'에서 'LPCWSTR'(으)로 변환할 수 없습니다.
+          with
+          [
+              _Elem=char
+          ]
+  c:\users\user\desktop\game_girls_autochess_2019_05_28\lib\textmanager.cpp(28): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+c:\users\user\desktop\game_girls_autochess_2019_05_28\lib\textmanager.cpp(36): error C2664: 'BOOL TextOutW(HDC,int,int,LPCWSTR,int)': 인수 4을(를) 'const _Elem *'에서 'LPCWSTR'(으)로 변환할 수 없습니다.
+          with
+          [
+              _Elem=char
+          ]
+  c:\users\user\desktop\game_girls_autochess_2019_05_28\lib\textmanager.cpp(36): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+  코드를 생성하고 있습니다...

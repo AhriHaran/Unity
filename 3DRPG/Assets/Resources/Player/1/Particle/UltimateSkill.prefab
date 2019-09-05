@@ -285,7 +285,7 @@ ParticleSystem:
         m_RotationOrder: 0
     startSizeY:
       serializedVersion: 2
-      minMaxState: 3
+      minMaxState: 0
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -338,7 +338,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeZ:
       serializedVersion: 2
-      minMaxState: 3
+      minMaxState: 0
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -391,7 +391,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotationX:
       serializedVersion: 2
-      minMaxState: 3
+      minMaxState: 0
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -444,7 +444,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotationY:
       serializedVersion: 2
-      minMaxState: 3
+      minMaxState: 0
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -3604,7 +3604,7 @@ ParticleSystem:
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
-    collisionMessages: 1
+    collisionMessages: 0
     collidesWithDynamic: 1
     interiorCollisions: 1
   TriggerModule:
@@ -9540,7 +9540,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4255137705408504}
   - component: {fileID: 114372170634009568}
-  - component: {fileID: 8071318904682490900}
   m_Layer: 0
   m_Name: UltimateSkill
   m_TagString: Untagged
@@ -9555,7 +9554,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1424984321161318}
-  m_LocalRotation: {x: -0.0000000018622992, y: 3.589748e-11, z: 0.019272313, w: 0.9998143}
+  m_LocalRotation: {x: 0.01373937, y: 0.71277475, z: 0.013514875, w: 0.70112824}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -9578,21 +9577,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DeactivateTime: 3
---- !u!114 &8071318904682490900
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1424984321161318}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c7cdc850bac7d64b925a328b880217a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_fMaxDemage: 100
-  m_fCriDemage: 20
-  m_fRadius: 3
 --- !u!1 &1430876649061764
 GameObject:
   m_ObjectHideFlags: 0
@@ -18486,7 +18470,7 @@ ParticleSystem:
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
-    collisionMessages: 1
+    collisionMessages: 0
     collidesWithDynamic: 1
     interiorCollisions: 1
   TriggerModule:

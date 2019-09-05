@@ -41,7 +41,7 @@ public class ResultPanel : MonoBehaviour
         string [] ClearItem = Util.ConvertToString(GameManager.instance.ReturnStageData(MAP_DATA.MAP_CLEAR_ITEM)).Split('/');
         //클리어 아이템들은 ;과 ,으로 구분 되어 있으니 잘 쪼개어 사용
 
-        m_StageLabel.text = GameManager.instance.ReturnStage() + "Stage Clear"; //스테이지
+        m_StageLabel.text = Util.ConvertToString(GameManager.instance.ReturnStage()) + "Stage Clear"; //스테이지
 
         //플레이어 리소스 관련
         m_PlayerResource.transform.GetChild(0).GetComponent<UILabel>().text = "+" + ClearExp.ToString();
@@ -106,10 +106,9 @@ public class ResultPanel : MonoBehaviour
             string[] item = ClearItem[i].Split(';');
             GameObject Item = ResourceLoader.CreatePrefab("Prefabs/ItemSprite");
             Item.transform.SetParent(Grid.transform, false);
+            Item.GetComponent<ItemSprite>().Setting(Util.ConvertToInt(item[2]), -1, (ITEM_TYPE)Util.ConvertToInt(item[0]), (INVENTORY_TYPE)Util.ConvertToInt(item[1]));
             UserInfo.instance.InventoryUpdate((ITEM_TYPE)Util.ConvertToInt(item[0]), (INVENTORY_TYPE)Util.ConvertToInt(item[1]), Util.ConvertToInt(item[2]));
-            var List = UserInfo.instance.GetInventoryList((INVENTORY_TYPE)Util.ConvertToInt(item[1]));
-            int iCount = List.Count - 1;
-            Item.GetComponent<ItemSprite>().Setting(iCount, (ITEM_TYPE)Util.ConvertToInt(item[0]), (INVENTORY_TYPE)Util.ConvertToInt(item[1]));
+            //업데이트
         }
 
         Grid.GetComponent<UIGrid>().Reposition(); //리 포지셔닝으로 그리드 재정렬

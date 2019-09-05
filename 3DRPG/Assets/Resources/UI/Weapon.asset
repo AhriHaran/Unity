@@ -23,10 +23,10 @@ MonoBehaviour:
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 5
-    paddingRight: 0
-    paddingTop: 5
-    paddingBottom: 0
+    paddingLeft: 20
+    paddingRight: 20
+    paddingTop: 10
+    paddingBottom: 10
   - name: 0_ITEM_SWORD_Icon
     x: 0
     y: 146
@@ -36,10 +36,10 @@ MonoBehaviour:
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
+    paddingLeft: 20
+    paddingRight: 20
+    paddingTop: 10
+    paddingBottom: 10
   - name: CrossHair
     x: 126
     y: 85
@@ -49,9 +49,9 @@ MonoBehaviour:
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 18
-    paddingRight: 18
-    paddingTop: 15
-    paddingBottom: 18
+    paddingLeft: 70
+    paddingRight: 70
+    paddingTop: 50
+    paddingBottom: 50
   mPixelSize: 1
   mReplacement: {fileID: 0}
