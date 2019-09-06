@@ -73,7 +73,7 @@ public class PlayerManager
         {
             if(iCurChar != -1)
             {
-                CharPos = m_ListChar[iCurChar].transform.position;
+                //CharPos = m_ListChar[iCurChar].transform.position;
                 //캐릭터 변경 시에는 현재 캐릭터의 좌표를 기준으로 한다.
                 m_ListChar[iCurChar].SetActive(false);
             }

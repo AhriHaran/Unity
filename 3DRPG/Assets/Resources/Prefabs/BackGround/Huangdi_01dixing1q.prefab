@@ -202,6 +202,7 @@ GameObject:
   - component: {fileID: 6112697285659647070}
   - component: {fileID: 6112697285658648222}
   - component: {fileID: 6112697285666042782}
+  - component: {fileID: 6856261094421786133}
   m_Layer: 30
   m_Name: Huangdi_01dixing1q
   m_TagString: Untagged
@@ -291,3 +292,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &6856261094421786133
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6112697285656641630}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2000, y: 1500, z: 2}
+  m_Center: {x: 0, y: 0, z: 1}

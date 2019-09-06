@@ -2146,9 +2146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_fSpeed: 5
   m_fRotateSpeed: 2
-  m_fAniSpeed: 1.5
   m_iIndex: 0
-  m_bDie: 0
   m_iRange: 2
 --- !u!143 &43209543998487113
 CharacterController:

@@ -178,7 +178,7 @@ public class GameScene : MonoBehaviour
   m_PlayerManager.GetPlayerData(PLAYER_DATA.PLAYER_MAX_HP), m_PlayerManager.GetPlayerData(PLAYER_DATA.PLAYER_CUR_SP),
   m_PlayerManager.GetPlayerData(PLAYER_DATA.PLAYER_MAX_SP));
 
-            m_PlayerManager.PlayerSet(m_iTmpIndex, tr.position, JumpEnd);
+            m_PlayerManager.PlayerSet(m_iTmpIndex, tr.localPosition, JumpEnd);
             //캐릭터의 위치와 교대하고
             m_EnemyMangaer.TrSetting(m_PlayerManager.GetCharTR());
             m_EnemyMangaer.Start();

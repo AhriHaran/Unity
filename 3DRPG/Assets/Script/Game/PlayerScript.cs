@@ -37,9 +37,9 @@ public class PlayerScript : MonoBehaviour
 
     public float m_fSpeed = 5.0f;   //이동속도
     public float m_fRotateSpeed = 2.0f; //회전속도
-    public float m_fAniSpeed = 1.5f;    //애니메이션 속도
+    //public float m_fAniSpeed = 1.0f;    //애니메이션 속도
     public int m_iIndex;    //플레이어 캐릭터 인덱스
-    public int m_iRange;
+    public int m_iRange;    //플레이어 공격 범위
 
     private CharacterController m_Controller;
     private Animator m_PlayerAnimator;
@@ -90,11 +90,11 @@ public class PlayerScript : MonoBehaviour
     private bool m_bAttack;
     private bool m_bInvincible = false;
     private KEY_INPUT m_eInput;
-    public int m_iCurKey;  //현재 콤보 단계
-    public float m_fCurAttackTime = 0.0f;   //현재 공격 후 걸린시간.
-    private float m_fAttackTime = 1.0f;  //공격 유지 시간
-    public float m_fCurPressTime = 0.0f;
+    private int m_iCurKey;  //현재 콤보 단계
+    private float m_fCurPressTime = 0.0f;
     private float m_fPressTime = 0.6f;
+    private float m_fCurAttackTime = 0.0f;
+    private float m_fAttackTime = 0.5f;
 
     private bool m_bUltimateReady = true;
     private bool m_bInvincibleReady = true;
@@ -115,7 +115,8 @@ public class PlayerScript : MonoBehaviour
         if(!m_bDie)
         {
             ResetData();
-            StartCoroutine(CheckAttackState());
+            StartCoroutine(OnAttackTime());
+            m_PlayerAnimator.applyRootMotion = true;
         }
     }
     /*  캐릭터 변경 시에 어떻게 할까 처리 해야 할 것들
@@ -257,6 +258,21 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
+    IEnumerator OnAttackTime()
+    {
+        while(true)
+        {
+            yield return null;
+            m_fCurAttackTime += Time.deltaTime;
+
+            if(m_fCurAttackTime >= m_fAttackTime)
+            {
+                m_fCurAttackTime = 0.0f;
+                m_bAttack = false;
+            }
+        }
+    }
+
     void OnAttack()
     {
         //공격 키
@@ -267,17 +283,12 @@ public class PlayerScript : MonoBehaviour
             //제대로 클릭 하였다.
             m_PlayerAnimator.SetBool("Attack", true);
             m_PlayerAnimator.SetInteger("ComboCount", m_iCurKey);
-            m_fCurAttackTime = 0.0f;    //콤보 성공시 초기화
             m_fCurPressTime = 0.0f;
             m_iCurKey++;
         }
         else
         {
-            m_fCurAttackTime = m_fAttackTime;    //콤보 성공시 초기화
-            m_fCurPressTime = 0.0f;
-            m_iCurKey = 0;
-            m_PlayerAnimator.SetBool("Attack", false);
-            m_PlayerAnimator.SetInteger("ComboCount", m_iCurKey);
+            ResetData();
         }
         StopCoroutine("OnPressTime");
     }
@@ -326,17 +337,12 @@ public class PlayerScript : MonoBehaviour
                 //제대로 클릭 하였다.
                 m_PlayerAnimator.SetBool("Ultimate", true);
                 m_PlayerAnimator.SetInteger("ComboCount", m_iCurKey);
-                m_fCurAttackTime = 0.0f;    //콤보 성공시 초기화
                 m_fCurPressTime = 0.0f;
                 m_iCurKey++;
             }
             else
             {
-                m_fCurAttackTime = m_fAttackTime;    //콤보 실패
-                m_fCurPressTime = 0.0f;
-                m_iCurKey = 0;
-                m_PlayerAnimator.SetBool("Ultimate", false);
-                m_PlayerAnimator.SetInteger("ComboCount", m_iCurKey);
+                ResetData();
             }
         }
         StopCoroutine("OnPressTime");
@@ -346,7 +352,6 @@ public class PlayerScript : MonoBehaviour
     {
         m_bUltimateReady = true;
     }
-
 
     bool CollectKeyInput()
     {
@@ -371,7 +376,7 @@ public class PlayerScript : MonoBehaviour
         if (Input != Vector2.zero)
         {
             m_PlayerAnimator.SetTrigger("Run");
-            m_PlayerAnimator.speed = m_fAniSpeed;
+            //m_PlayerAnimator.speed = m_fAniSpeed;
             var Angle = new Vector3(transform.eulerAngles.x, Mathf.Atan2(Input.x, Input.y) * Mathf.Rad2Deg, transform.eulerAngles.z);
             transform.eulerAngles = Angle;
             m_Controller.Move(transform.forward * m_fSpeed * Time.deltaTime);
@@ -379,7 +384,7 @@ public class PlayerScript : MonoBehaviour
         else
         {
             m_PlayerAnimator.SetTrigger("Stand");
-            m_PlayerAnimator.speed = m_fAniSpeed;
+            //m_PlayerAnimator.speed = m_fAniSpeed;
         }
 
         Vector3 pos = transform.position;
@@ -405,24 +410,6 @@ public class PlayerScript : MonoBehaviour
             }
         }
         //무적 유지 시간
-    }
-
-    IEnumerator CheckAttackState()
-    {
-        while(!m_bDie)
-        {
-            yield return null;
-
-            if(m_bAttack)
-            {
-                m_fCurAttackTime += Time.deltaTime;
-                if(m_fCurAttackTime >= m_fAttackTime)   //모든 게 초기화
-                {
-                    ResetData();
-                }
-            }
-            
-        }
     }
 
     public void Hit()
@@ -469,13 +456,11 @@ public class PlayerScript : MonoBehaviour
 
     public void ResetData()
     {
-        m_bAttack = false;
         m_eInput = KEY_INPUT.KEY_NONE;
         m_PlayerAnimator.SetBool("Attack", false);
         m_PlayerAnimator.SetBool("Ultimate", false);
         m_iCurKey = 0;
         m_PlayerAnimator.SetInteger("ComboCount", m_iCurKey);
-        m_fCurAttackTime = 0.0f;
         m_fCurPressTime = 0.0f;
     }
 
@@ -516,5 +501,12 @@ public class PlayerScript : MonoBehaviour
     public void JumpStart()
     {
        m_PlayerAnimator?.SetTrigger("Jump");
+    }
+
+    public void AnimationEnd()
+    {
+        //현재 애니메이션이 끝남
+        if(!m_bAttack)
+            ResetData();
     }
 }

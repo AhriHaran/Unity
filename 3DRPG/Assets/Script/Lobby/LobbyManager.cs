@@ -145,8 +145,9 @@ public class LobbyManager : MonoBehaviour
                 m_MainChar.transform.SetParent(m_MainCharTR, false); //메인 캐릭터의 하위 오브젝트로 설정
                                                                      //메인으로 지정된 캐릭터 불러오기
                 m_MainChar.GetComponent<WeaponPoint>().enabled = false;
-                m_MainChar.GetComponent<Animator>().runtimeAnimatorController = UserInfo.instance.GetCharAnimator(iMainCount,
-                    CHAR_ANIMATOR.CHAR_LOBBY_ANIMATOR) as RuntimeAnimatorController;
+                Animator anime = m_MainChar.GetComponent<Animator>();
+                anime.runtimeAnimatorController = UserInfo.instance.GetCharAnimator(iMainCount, CHAR_ANIMATOR.CHAR_LOBBY_ANIMATOR) as RuntimeAnimatorController;
+                anime.applyRootMotion = false;
                 //로비에서는 아이템과 임팩트가 보일 이유는 없다.
             }
             //애니메이터 변경
