@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1701065083379976713}
   - component: {fileID: 8650019692757723761}
   m_Layer: 10
-  m_Name: Brute Warrior
+  m_Name: 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67,8 +67,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ac07e312a1e6ba4a83014379b10162b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_eCurState: 0
-  m_fAttackArea: 5
 --- !u!195 &1701065083379976713
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -83,7 +81,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 4
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1

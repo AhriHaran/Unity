@@ -25,9 +25,9 @@ public class EnemyScript : MonoBehaviour
     private float m_fMaxHP = 0.0f; //맥스 HP
     private float m_fCurHP = 0.0f; //현재 HP
 
-    public ENEMY_STATE m_eCurState = ENEMY_STATE.STATE_WAIT; //적의 현재 스테이트
-    public float m_fAttackArea = 7.0f;  //적과 나의 거리
-    int m_iIndex = 0;
+    private ENEMY_STATE m_eCurState = ENEMY_STATE.STATE_WAIT; //적의 현재 스테이트
+    private float m_fAttackArea = 4.0f;  //적과 나의 거리
+    private int m_iIndex = 0;
     //에너미 움직임을 담당하는 자체 스크립트
     // Start is called before the first frame update
 
@@ -149,21 +149,21 @@ public class EnemyScript : MonoBehaviour
     public void Hit()
     {
         ////여기서 콜리더 히트 체크
-        //Collider[] colliders = Physics.OverlapSphere(transform.position, 2, 1 << LayerMask.NameToLayer("Player"));
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 2, 1 << LayerMask.NameToLayer("Player"));
 
-        //if (colliders.Length != 0)
-        //{
-        //    float fATK = float.Parse(m_CharData.GetEnemyData(CHAR_DATA.CHAR_ATK).ToString());
-        //    float fCRI = float.Parse(m_CharData.GetEnemyData(CHAR_DATA.CHAR_CRI).ToString());
+        if (colliders.Length != 0)
+        {
+            float fATK = float.Parse(m_CharData.GetEnemyData(CHAR_DATA.CHAR_ATK).ToString());
+            float fCRI = float.Parse(m_CharData.GetEnemyData(CHAR_DATA.CHAR_CRI).ToString());
 
-        //    for (int i = 0; i < colliders.Length; i++)
-        //    {
-        //        PlayerScript script = colliders[i].GetComponent<PlayerScript>() ?? null;
-        //        if (script != null)
-        //            script.Damege(fATK, fCRI);
-        //        //해당 함수 호출
-        //    }
-        //}
+            for (int i = 0; i < colliders.Length; i++)
+            {
+                PlayerScript script = colliders[i].GetComponent<PlayerScript>() ?? null;
+                if (script != null)
+                    script.Damege(fATK, fCRI);
+                //해당 함수 호출
+            }
+        }
     }
 
     public void Damege(float fATK, float fCRI)

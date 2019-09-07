@@ -134,6 +134,10 @@ public class ValkyrjaPanel : MonoBehaviour
             strTMP = Util.ConvertToString(tmp) + "_" + eType.ToString() + "_Icon2";
             m_ThisUI[(int)VALKYRJA_UI.VALKYRJA_UI_STIGMA].transform.GetChild(Child).GetComponent<UISprite>().spriteName = strTMP;
         }
+        else
+        {
+            m_ThisUI[(int)VALKYRJA_UI.VALKYRJA_UI_STIGMA].transform.GetChild(Child).GetComponent<UISprite>().spriteName = "CrossHair";
+        }
     }
 }
 

@@ -134,6 +134,11 @@ public class PlayerScript : MonoBehaviour
         m_SPLabel.text = (m_fCurSP.ToString() + "/" + m_fMaxSP.ToString());//라벨
     }
 
+    public void PlayerTRSet(Vector3 Pos, Quaternion Qua)
+    {
+        gameObject.transform.SetPositionAndRotation(Pos, Qua);
+    }
+
     public void PlayerSet(CallBack call)
     {
         m_CallBack = call;
@@ -193,7 +198,7 @@ public class PlayerScript : MonoBehaviour
         m_fCurHP = m_fMaxHP;
 
         m_fMaxSP = float.Parse(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_MAX_SP, m_iIndex).ToString());
-        m_fCurSP = 0.0f;
+        m_fCurSP = m_fMaxSP;
 
         m_Input = playerUI.GetComponentInChildren<UIJoystick>();
         //초기 셋팅

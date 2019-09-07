@@ -84,12 +84,12 @@ public class GameScene : MonoBehaviour
         //에너미 셋팅
 
         var vecPos = m_MapManager.ReturnEventPos();
-        m_PlayerManager.PlayerSet(0, vecPos[0], JumpEnd);  //가장 첫번째 캐릭터와, 포지션 셋팅
+        m_PlayerManager.PlayerSet(0, vecPos[0], Quaternion.identity, JumpEnd);  //가장 첫번째 캐릭터와, 포지션 셋팅
         //스타트에서 처음 포지셔닝을 셋팅
         
         m_CallBack(m_PlayerManager.GetCharTR());    //카메라 콜백 함수 선언
         m_EnemyMangaer.TrSetting(m_PlayerManager.GetCharTR()); //타겟 셋팅
-        //m_EnemyMangaer.ActiveWave();    //액티브
+        m_EnemyMangaer.ActiveWave();    //액티브
         
         PoolManager.instance.Set(POOL_INDEX.POOL_HP_ITEM.ToString(), "Prefabs/HP", 10);
         PoolManager.instance.Set(POOL_INDEX.POOL_SP_ITEM.ToString(), "Prefabs/SP", 10);
@@ -174,11 +174,25 @@ public class GameScene : MonoBehaviour
             int[] iarr = GameManager.instance.ReturnPlayerList();
             int iCurList = GameManager.instance.ReturnCurPlayer();
 
+            if(m_Change == null)
+            {
+                GameObject UI = GameObject.Find("GameUI").transform.Find("PlayerKey").gameObject;
+                for(int i = 0; i < 2; i++)
+                {
+                    GameObject Button = UI.transform.GetChild(i + 4).gameObject;
+                    if(Button.activeSelf)
+                    {
+                        m_Change = Button.GetComponent<ChangeButton>();
+                        break;
+                    }
+                }
+            }
+            
             m_Change.Change(iarr[iCurList], iCurList, m_PlayerManager.GetPlayerData(PLAYER_DATA.PLAYER_CUR_HP),
   m_PlayerManager.GetPlayerData(PLAYER_DATA.PLAYER_MAX_HP), m_PlayerManager.GetPlayerData(PLAYER_DATA.PLAYER_CUR_SP),
   m_PlayerManager.GetPlayerData(PLAYER_DATA.PLAYER_MAX_SP));
 
-            m_PlayerManager.PlayerSet(m_iTmpIndex, tr.localPosition, JumpEnd);
+            m_PlayerManager.PlayerSet(m_iTmpIndex, tr.position, tr.rotation, JumpEnd);
             //캐릭터의 위치와 교대하고
             m_EnemyMangaer.TrSetting(m_PlayerManager.GetCharTR());
             m_EnemyMangaer.Start();

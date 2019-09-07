@@ -33,7 +33,6 @@ public class CharObjectPool : MonoBehaviour
         item.transform.SetParent(Parent, false);
         item.transform.localRotation = Quaternion.identity;
         item.transform.localPosition = Vector3.zero;
-        item.transform.localScale = Vector3.one;
         //로컬 트랜스폼 리셋
         item.transform.rotation = Quaternion.identity;
         item.transform.position = Vector3.zero;
@@ -79,7 +78,8 @@ public class CharObjectPool : MonoBehaviour
     {
         //크리에이트
         CharObject Item = new CharObject();
-        Item.st_Object = ResourceLoader.CreatePrefab(m_strName, parent);
+        Item.st_Object = ResourceLoader.CreatePrefab(m_strName);
+        Item.st_Object.transform.SetParent(parent, false);
         //무기관련 정보가 있다면 셋팅
         Item.st_Object.SetActive(false);
         Item.st_Index = m_iCurIndex;

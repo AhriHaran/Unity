@@ -30,7 +30,8 @@ public class PlayerManager
                     string name = UserInfo.instance.GetCharData(CHAR_DATA.CHAR_NAME, iarr[i]).ToString();
                     string CharRoute = "Player/" + route + "/Prefabs/" + name;
 
-                    GameObject PlayerChar = ResourceLoader.CreatePrefab(CharRoute, Parent);
+                    GameObject PlayerChar = ResourceLoader.CreatePrefab(CharRoute);
+                    PlayerChar.transform.SetParent(Parent);
                     PlayerChar.GetComponent<Animator>().runtimeAnimatorController = UserInfo.instance.GetCharAnimator(iarr[i], CHAR_ANIMATOR.CHAR_BATTLE_ANIMATOR) as RuntimeAnimatorController;
                     //해당 캐릭터의 배틀 애니메이터 셋팅
 
@@ -64,24 +65,26 @@ public class PlayerManager
         }
     }
 
-    public void PlayerSet(int iCount, Vector3 CharPos, CallBack Func)  //바꾸려는 캐릭터 인덱스, 
+    public void PlayerSet(int iCount, Vector3 CharPos, Quaternion Qua, CallBack Func)  //바꾸려는 캐릭터 인덱스, 
     {
         //0,1,2 기준이며, 첫번째는 무조건 0
         int iCurChar = GameManager.instance.ReturnCurPlayer();  //현재 선택된 캐릭터를 호출
         //세 명의 캐릭터 중 가장 첫번째는 0번째 캐릭터 부터 호출된다.
         if(iCurChar != iCount) //현재 메인 캐릭터랑 다른 경우
         {
-            if(iCurChar != -1)
+            if (iCurChar != -1)
             {
-                //CharPos = m_ListChar[iCurChar].transform.position;
+                Transform tr = m_ScriptList[iCurChar].gameObject.GetComponent<Transform>();
                 //캐릭터 변경 시에는 현재 캐릭터의 좌표를 기준으로 한다.
+                Qua = tr.rotation;
+                CharPos = tr.position;
                 m_ListChar[iCurChar].SetActive(false);
             }
-
+            
+            m_ScriptList[iCount].PlayerTRSet(CharPos, Qua);
+            GameManager.instance.PlayerCharChange(iCount);
             m_ListChar[iCount].SetActive(true);
             m_ScriptList[iCount].PlayerSet(Func);
-            m_ListChar[iCount].transform.position = CharPos; //포지션 셋팅
-            GameManager.instance.PlayerCharChange(iCount);
         }
     }
 
