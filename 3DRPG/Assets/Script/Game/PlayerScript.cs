@@ -195,10 +195,10 @@ public class PlayerScript : MonoBehaviour
         }
 
         m_fMaxHP = float.Parse(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_MAX_HP, m_iIndex).ToString());
-        m_fCurHP = 100.0f;
+        m_fCurHP = m_fMaxHP;
 
         m_fMaxSP = float.Parse(UserInfo.instance.GetCharData(CHAR_DATA.CHAR_MAX_SP, m_iIndex).ToString());
-        m_fCurSP = 0.0f;
+        m_fCurSP = m_fMaxSP;
 
         m_Input = playerUI.GetComponentInChildren<UIJoystick>();
         //초기 셋팅
