@@ -166,8 +166,10 @@ public class GameManager : MonoSingleton<GameManager>
         //무기 보이기
         if (m_SelectChar != null)
         {
-            m_SelectChar.GetComponent<WeaponPoint>().enabled = bView;
-            m_SelectChar.GetComponent<WeaponPoint>().ViewEffect(bEffect);
+            WeaponPoint Point = m_SelectChar.GetComponent<WeaponPoint>();
+            Point.enabled = bView;
+            Point.WeaponView(bView);
+            Point.ViewEffect(bEffect);
         }
     }
 

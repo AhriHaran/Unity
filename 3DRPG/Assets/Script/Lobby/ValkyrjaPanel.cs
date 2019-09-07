@@ -90,6 +90,7 @@ public class ValkyrjaPanel : MonoBehaviour
             m_iCharIndex = iIndex;
             GameManager.instance.DestroyModel();
             GameManager.instance.CreateModel(iIndex);
+            GameManager.instance.ViewWeapon(false, false);
             GameManager.instance.CharSelect(iIndex);    //현재 선택한 캐릭터 인덱스를 저장
 
             //현재 선택된 캐릭터의 정보를 표시

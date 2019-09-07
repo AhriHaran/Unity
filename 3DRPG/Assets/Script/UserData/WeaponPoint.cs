@@ -39,6 +39,14 @@ public class WeaponPoint : MonoBehaviour
         }
     }
 
+    public void WeaponView(bool bView)
+    {
+        for (int i = 0; i < m_WeaponPoint.Count; i++)
+        {
+            m_WeaponPoint[i].SetActive(bView);
+        }
+    }
+
     public void WeaponChange(int iIndex)
     {
         GameObject Weapon;
