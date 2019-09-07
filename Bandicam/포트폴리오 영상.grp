@@ -1,0 +1,970 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GRP Version="2.0.0.5" Mode="0" TemplateObjectCnt="0" ChargeKey="��å~�dXU��O�᳉\�
+��">
+    <GrTxtBrushArr Size="1">
+        <GrTxtBrush Type="0" GradientType="0" Color="ffffffff" GradientColor1="ff000000" GradientColor2="ff000000" KeepRate="false" Alpha="255" IgnoreBgColor="false"/>
+    </GrTxtBrushArr>
+    <GrTxtOutlineArr Size="1">
+        <GrTxtOutline Color="ff000000" Ratio="0.10000000000000001"/>
+    </GrTxtOutlineArr>
+    <GrTxtShadowArr Size="6">
+        <GrTxtShadow Color="00000000" ThickRatio="0.14999999999999999" Shadow_Type2="4"/>
+        <GrTxtShadow Color="ff000000" ThickRatio="0.14999999999999999" Shadow_Type2="4"/>
+        <GrTxtShadow Color="bf000000" ThickRatio="0.14999999999999999" Shadow_Type2="4"/>
+        <GrTxtShadow Color="7f000000" ThickRatio="0.14999999999999999" Shadow_Type2="4"/>
+        <GrTxtShadow Color="7fffffff" ThickRatio="0.14999999999999999" Shadow_Type2="4"/>
+        <GrTxtShadow Color="00fcffff" ThickRatio="0.14999999999999999" Shadow_Type2="4"/>
+    </GrTxtShadowArr>
+    <GrTimelineViewMode Mode="13" output_width="1280" output_height="720"/>
+    <GrEncodingPath Path="C:\Users\Administrator\Documents\GOMMixPro\"/>
+    <GrVideoArr Size="4">
+        <GrVideo>
+            <GrVideoData FileName="C:\Users\Administrator\Documents\GitHub\Unity\Bandicam\bandicam 2019-09-07 12-26-20-397.mp4" SegStart="0" SegEnd="2070" Mute="false" Volume="1" Tempo="1"/>
+            <GrVideoColorAdjust/>
+            <GrVideoFilter VideoColor="0" VideoColorType="0" VideoEffect="0" VideoEffectValue="20" FilterDynamicType="0"/>
+            <GrVideoTextureAdjust/>
+        </GrVideo>
+        <GrVideo>
+            <GrVideoData FileName="C:\Users\Administrator\Documents\GitHub\Unity\Bandicam\bandicam 2019-09-07 12-27-00-405.mp4" SegStart="0" SegEnd="1830" Mute="false" Volume="1" Tempo="1"/>
+            <GrVideoColorAdjust/>
+            <GrVideoFilter VideoColor="0" VideoColorType="0" VideoEffect="0" VideoEffectValue="20" FilterDynamicType="0"/>
+            <GrVideoTextureAdjust/>
+        </GrVideo>
+        <GrVideo>
+            <GrVideoData FileName="C:\Users\Administrator\Documents\GitHub\Unity\Bandicam\bandicam 2019-09-07 12-30-50-862.mp4" SegStart="0" SegEnd="1600" Mute="false" Volume="1" Tempo="1"/>
+            <GrVideoColorAdjust/>
+            <GrVideoFilter VideoColor="0" VideoColorType="0" VideoEffect="0" VideoEffectValue="20" FilterDynamicType="0"/>
+            <GrVideoTextureAdjust/>
+        </GrVideo>
+        <GrVideo>
+            <GrVideoData FileName="C:\Users\Administrator\Documents\GitHub\Unity\Bandicam\bandicam 2019-09-07 12-46-02-707.mp4" SegStart="0" SegEnd="2866" Mute="false" Volume="1" Tempo="1"/>
+            <GrVideoColorAdjust/>
+            <GrVideoFilter VideoColor="0" VideoColorType="0" VideoEffect="0" VideoEffectValue="20" FilterDynamicType="0"/>
+            <GrVideoTextureAdjust/>
+        </GrVideo>
+    </GrVideoArr>
+    <GrObjArr Size="24">
+        <GrObj Type="4">
+            <GrTxtData Title="안녕하십니까, 이번 유니티 3D 게임을 제작하게 된
+ 정재영 이라고 합니다." GrEffectType="0" BackEffectType="1001" FirstEffectTime="100" BackEffectTime="50" FrontEaseType="3" BackEaseType="103" ApplyAll="0" Align="1" StartSeg="0" TotalSeg="220" VideoIndex="0" EffectListID="1" PosX="52.34375" PosY="79.444443" bTemplateObject="0" TemplateObjectID="-1" BrushType="0" GradientType="0" PlaceHolderType="0" Color="7f000000" splunk="T_B1,T_BE4" Tempo="1"/>
+            <GrTxtAttArr Size="42">
+                <GrTxtAtt Code="50504" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="0" OutlineID="0"/>
+                <GrTxtAtt Code="45397" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="0" OutlineID="0"/>
+                <GrTxtAtt Code="54616" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="0" OutlineID="0"/>
+                <GrTxtAtt Code="49901" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="0" OutlineID="0"/>
+                <GrTxtAtt Code="45768" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="0" OutlineID="0"/>
+                <GrTxtAtt Code="44620" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="0" OutlineID="0"/>
+                <GrTxtAtt Code="44" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="0" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="0" OutlineID="0"/>
+                <GrTxtAtt Code="51060" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="0" OutlineID="0"/>
+                <GrTxtAtt Code="48264" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="0" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="0" OutlineID="0"/>
+                <GrTxtAtt Code="50976" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="0" OutlineID="0"/>
+                <GrTxtAtt Code="45768" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="0" OutlineID="0"/>
+                <GrTxtAtt Code="54000" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="0" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="0" OutlineID="0"/>
+                <GrTxtAtt Code="51" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="0" OutlineID="0"/>
+                <GrTxtAtt Code="68" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="0" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="0" OutlineID="0"/>
+                <GrTxtAtt Code="44172" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="0" OutlineID="0"/>
+                <GrTxtAtt Code="51076" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="0" OutlineID="0"/>
+                <GrTxtAtt Code="51012" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="0" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="0" OutlineID="0"/>
+                <GrTxtAtt Code="51228" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="0" OutlineID="0"/>
+                <GrTxtAtt Code="51089" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="0" OutlineID="0"/>
+                <GrTxtAtt Code="54616" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="0" OutlineID="0"/>
+                <GrTxtAtt Code="44172" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="0" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="0" OutlineID="0"/>
+                <GrTxtAtt Code="46108" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="0" OutlineID="0"/>
+                <GrTxtAtt Code="13" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="0" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="0" OutlineID="0"/>
+                <GrTxtAtt Code="51221" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="0" OutlineID="0"/>
+                <GrTxtAtt Code="51116" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="0" OutlineID="0"/>
+                <GrTxtAtt Code="50689" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="0" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="0" OutlineID="0"/>
+                <GrTxtAtt Code="51060" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="0" OutlineID="0"/>
+                <GrTxtAtt Code="46972" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="0" OutlineID="0"/>
+                <GrTxtAtt Code="44256" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="0" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="0" OutlineID="0"/>
+                <GrTxtAtt Code="54633" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="0" OutlineID="0"/>
+                <GrTxtAtt Code="45768" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="0" OutlineID="0"/>
+                <GrTxtAtt Code="45796" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="0" OutlineID="0"/>
+                <GrTxtAtt Code="46" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="0" OutlineID="0"/>
+            </GrTxtAttArr>
+        </GrObj>
+        <GrObj Type="4">
+            <GrTxtData Title="이번 게임은 mihoyo에서 제작하고 모바일로 서비스 중인 
+&apos;붕괴 3rd&apos;를 모티브로 제작하였습니다." GrEffectType="0" BackEffectType="1001" FirstEffectTime="100" BackEffectTime="50" FrontEaseType="3" BackEaseType="103" ApplyAll="0" Align="1" StartSeg="280" TotalSeg="530" VideoIndex="0" EffectListID="2" PosX="50.625004" PosY="79.027779" bTemplateObject="0" TemplateObjectID="-1" BrushType="0" GradientType="0" PlaceHolderType="0" Color="7f000000" splunk="T_B1,T_BE4" Tempo="1"/>
+            <GrTxtAttArr Size="57">
+                <GrTxtAtt Code="51060" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="48264" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44172" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51076" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51008" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="109" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="105" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="104" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="111" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="121" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="111" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="50640" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="49436" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51228" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51089" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="54616" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44256" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="47784" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="48148" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51068" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="47196" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="49436" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="48708" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="49828" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51473" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51064" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="13" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="39" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="48533" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44340" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="114" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="100" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="39" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="47484" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="47784" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="54000" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="48652" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="47196" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51228" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51089" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="54616" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="50688" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="49845" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45768" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45796" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="46" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+            </GrTxtAttArr>
+        </GrObj>
+        <GrObj Type="4">
+            <GrTxtData Title="게임을 시작하면 로비 UI가 나옵니다." GrEffectType="0" BackEffectType="1001" FirstEffectTime="80" BackEffectTime="50" FrontEaseType="3" BackEaseType="103" ApplyAll="0" Align="1" StartSeg="1130" TotalSeg="80" VideoIndex="0" EffectListID="3" PosX="50.625004" PosY="79.027779" bTemplateObject="0" TemplateObjectID="-1" BrushType="0" GradientType="0" PlaceHolderType="0" Color="7f000000" splunk="T_B1,T_BE4" Tempo="1"/>
+            <GrTxtAttArr Size="21">
+                <GrTxtAtt Code="44172" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51076" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51012" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="49884" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51089" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="54616" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="47732" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="47196" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="48708" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="85" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="73" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44032" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45208" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="50741" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45768" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45796" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="46" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+            </GrTxtAttArr>
+        </GrObj>
+        <GrObj Type="4">
+            <GrTxtData Title="로비는 &apos;붕괴 3rd&apos;의 함교를 모티브로 하고 있으며, 
+공격(스테이지), 발키리(캐릭터 관리), 인벤토리(무기, 성흔)
+으로 구성됩니다." GrEffectType="0" BackEffectType="1001" FirstEffectTime="80" BackEffectTime="50" FrontEaseType="3" BackEaseType="103" ApplyAll="0" Align="1" StartSeg="1320" TotalSeg="200" VideoIndex="0" EffectListID="5" PosX="51.718746" PosY="78.611115" bTemplateObject="0" TemplateObjectID="-1" BrushType="0" GradientType="0" PlaceHolderType="0" Color="7f000000" splunk="T_B1,T_BE4" Tempo="1"/>
+            <GrTxtAttArr Size="77">
+                <GrTxtAtt Code="47196" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="48708" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45716" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="39" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="48533" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44340" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="114" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="100" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="39" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51032" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="54632" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44368" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="47484" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="47784" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="54000" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="48652" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="47196" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="54616" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44256" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51080" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51004" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="47728" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="13" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44277" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44201" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="40" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="49828" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="53580" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51060" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51648" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="41" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="48156" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="53412" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="47532" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="40" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="52880" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="47533" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="53552" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44288" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="47532" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="41" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51064" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="48292" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="53664" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="47532" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="40" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="47924" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44592" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="49457" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="55124" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="41" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="13" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51004" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="47196" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44396" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="49457" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="46121" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45768" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45796" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="46" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+            </GrTxtAttArr>
+        </GrObj>
+        <GrObj Type="4">
+            <GrTxtData Title="현재는 게임 데이터가 존재하며, 데이터는 JSON과 Excel Table
+기반으로 관리하고 있습니다." GrEffectType="0" BackEffectType="1001" FirstEffectTime="80" BackEffectTime="50" FrontEaseType="3" BackEaseType="103" ApplyAll="0" Align="1" StartSeg="1710" TotalSeg="200" VideoIndex="0" EffectListID="6" PosX="50.625004" PosY="79.027779" bTemplateObject="0" TemplateObjectID="-1" BrushType="0" GradientType="0" PlaceHolderType="0" Color="7f000000" splunk="T_B1,T_BE4" Tempo="1"/>
+            <GrTxtAttArr Size="56">
+                <GrTxtAtt Code="54788" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51116" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45716" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44172" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51076" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45936" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51060" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="53552" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44032" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51316" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51116" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="54616" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="47728" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45936" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51060" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="53552" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45716" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="74" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="83" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="79" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="78" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44284" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="69" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="120" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="99" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="101" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="108" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="84" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="97" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="98" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="108" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="101" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="13" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44592" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="48152" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51004" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="47196" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44288" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="47532" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="54616" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44256" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51080" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="49845" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45768" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45796" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="46" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+            </GrTxtAttArr>
+        </GrObj>
+        <GrObj Type="4">
+            <GrTxtData Title="JSON 기반의 플레이어 테이블을 삭제하고 게임을 시작하겠습니다." GrEffectType="0" BackEffectType="1001" FirstEffectTime="80" BackEffectTime="50" FrontEaseType="3" BackEaseType="103" ApplyAll="0" Align="1" StartSeg="0" TotalSeg="140" VideoIndex="1" EffectListID="7" PosX="50.625004" PosY="79.027779" bTemplateObject="0" TemplateObjectID="-1" BrushType="0" GradientType="0" PlaceHolderType="0" Color="7f000000" splunk="T_B1,T_BE4" Tempo="1"/>
+            <GrTxtAttArr Size="36">
+                <GrTxtAtt Code="74" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="83" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="79" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="78" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44592" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="48152" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51032" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="54540" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="47112" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51060" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="50612" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="53580" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51060" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="48660" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51012" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="49325" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51228" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="54616" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44256" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44172" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51076" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51012" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="49884" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51089" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="54616" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44192" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="49845" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45768" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45796" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="46" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+            </GrTxtAttArr>
+        </GrObj>
+        <GrObj Type="4">
+            <GrTxtData Title="JSON 기반의 플레이어 데이터가 없다면 이렇게 닉네임을 입력받고
+새로운 플레이어 데이터를 제작하게 됩니다." GrEffectType="0" BackEffectType="1001" FirstEffectTime="80" BackEffectTime="50" FrontEaseType="3" BackEaseType="103" ApplyAll="0" Align="1" StartSeg="260" TotalSeg="160" VideoIndex="1" EffectListID="8" PosX="50.625004" PosY="79.027779" bTemplateObject="0" TemplateObjectID="-1" BrushType="0" GradientType="0" PlaceHolderType="0" Color="7f000000" splunk="T_B1,T_BE4" Tempo="1"/>
+            <GrTxtAttArr Size="60">
+                <GrTxtAtt Code="74" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="83" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="79" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="78" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44592" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="48152" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51032" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="54540" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="47112" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51060" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="50612" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45936" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51060" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="53552" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44032" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="50630" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45796" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="47732" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51060" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="47111" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44172" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45769" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45348" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51076" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51012" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51077" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="47141" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="48155" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44256" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="13" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="49352" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="47196" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="50868" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="54540" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="47112" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51060" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="50612" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45936" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51060" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="53552" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="47484" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51228" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51089" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="54616" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44172" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="46121" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45768" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45796" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="46" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+            </GrTxtAttArr>
+        </GrObj>
+        <GrObj Type="4">
+            <GrTxtData Title="플레이어의 데이터는 크게 네 가지로 구성됩니다." GrEffectType="0" BackEffectType="1001" FirstEffectTime="80" BackEffectTime="50" FrontEaseType="3" BackEaseType="103" ApplyAll="0" Align="1" StartSeg="520" TotalSeg="90" VideoIndex="1" EffectListID="9" PosX="50.625004" PosY="79.027779" bTemplateObject="0" TemplateObjectID="-1" BrushType="0" GradientType="0" PlaceHolderType="0" Color="7f000000" splunk="T_B1,T_BE4" Tempo="1"/>
+            <GrTxtAttArr Size="26">
+                <GrTxtAtt Code="54540" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="47112" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51060" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="50612" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51032" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45936" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51060" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="53552" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45716" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="53356" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44172" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45348" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44032" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51648" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="47196" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44396" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="49457" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="46121" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45768" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45796" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="46" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+            </GrTxtAttArr>
+        </GrObj>
+        <GrObj Type="4">
+            <GrTxtData Title="유저의 자체 데이터 : 닉네임, 현재 레벨, 현재 경험치, 
+현재 소지 중인 재화(에너지, 골드 등)" GrEffectType="0" BackEffectType="1001" FirstEffectTime="80" BackEffectTime="50" FrontEaseType="3" BackEaseType="103" ApplyAll="0" Align="1" StartSeg="700" TotalSeg="140" VideoIndex="1" EffectListID="10" PosX="50.156246" PosY="78.611115" bTemplateObject="0" TemplateObjectID="-1" BrushType="0" GradientType="0" PlaceHolderType="0" Color="7f000000" splunk="T_B1,T_BE4" Tempo="1"/>
+            <GrTxtAttArr Size="56">
+                <GrTxtAtt Code="50976" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51200" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51032" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51088" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="52404" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45936" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51060" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="53552" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="58" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45769" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45348" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51076" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="54788" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51116" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="47112" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="48296" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="54788" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51116" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44221" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="54744" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="52824" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="13" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="54788" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51116" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="49548" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51648" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51473" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51064" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51116" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="54868" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="40" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="50640" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45320" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51648" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44264" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="46300" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="46321" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="41" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+            </GrTxtAttArr>
+        </GrObj>
+        <GrObj Type="4">
+            <GrTxtData Title="유저가 가지고 있는 캐릭터 데이터 : 캐릭터의 인덱스, 현재 레벨, 현재 경험치
+장착 중인 장비 인덱스" GrEffectType="0" BackEffectType="1001" FirstEffectTime="80" BackEffectTime="50" FrontEaseType="3" BackEaseType="103" ApplyAll="0" Align="1" StartSeg="890" TotalSeg="140" VideoIndex="1" EffectListID="11" PosX="52.187504" PosY="78.611115" bTemplateObject="0" TemplateObjectID="-1" BrushType="0" GradientType="0" PlaceHolderType="0" Color="7f000000" splunk="T_B1,T_BE4" Tempo="1"/>
+            <GrTxtAttArr Size="57">
+                <GrTxtAtt Code="50976" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51200" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44032" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44032" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51648" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44256" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51080" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45716" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="52880" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="47533" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="53552" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45936" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51060" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="53552" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="58" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="52880" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="47533" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="53552" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51032" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51064" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45937" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="49828" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="54788" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51116" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="47112" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="48296" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="54788" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51116" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44221" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="54744" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="52824" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="13" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51109" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="52265" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51473" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51064" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51109" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="48708" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51064" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45937" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="49828" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+            </GrTxtAttArr>
+        </GrObj>
+        <GrObj Type="4">
+            <GrTxtData Title="유저가 가지고 있는 장비 데이터 : 장비의 인덱스, 해당 장비를 장착
+중인 캐릭터 인덱스 등" GrEffectType="0" BackEffectType="1001" FirstEffectTime="80" BackEffectTime="50" FrontEaseType="3" BackEaseType="103" ApplyAll="0" Align="1" StartSeg="1090" TotalSeg="140" VideoIndex="1" EffectListID="12" PosX="51.25" PosY="78.611115" bTemplateObject="0" TemplateObjectID="-1" BrushType="0" GradientType="0" PlaceHolderType="0" Color="7f000000" splunk="T_B1,T_BE4" Tempo="1"/>
+            <GrTxtAttArr Size="51">
+                <GrTxtAtt Code="50976" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51200" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44032" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44032" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51648" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44256" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51080" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45716" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51109" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="48708" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45936" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51060" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="53552" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="58" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51109" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="48708" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51032" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51064" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45937" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="49828" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="54644" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45817" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51109" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="48708" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="47484" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51109" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="52265" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="13" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51473" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51064" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="52880" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="47533" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="53552" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51064" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45937" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="49828" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="46321" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+            </GrTxtAttArr>
+        </GrObj>
+        <GrObj Type="4">
+            <GrTxtData Title="유저가 가지고 있는 성흔 데이터 : 성흔의 인덱스, 해당 성흔을 장착
+중인 캐릭터 인덱스 등" GrEffectType="0" BackEffectType="1001" FirstEffectTime="80" BackEffectTime="50" FrontEaseType="3" BackEaseType="103" ApplyAll="0" Align="1" StartSeg="1280" TotalSeg="140" VideoIndex="1" EffectListID="13" PosX="51.25" PosY="78.611115" bTemplateObject="0" TemplateObjectID="-1" BrushType="0" GradientType="0" PlaceHolderType="0" Color="7f000000" splunk="T_B1,T_BE4" Tempo="1"/>
+            <GrTxtAttArr Size="51">
+                <GrTxtAtt Code="50976" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51200" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44032" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44032" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51648" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44256" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51080" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45716" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="49457" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="55124" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45936" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51060" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="53552" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="58" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="49457" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="55124" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51032" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51064" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45937" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="49828" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="54644" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45817" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="49457" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="55124" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51012" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51109" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="52265" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="13" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51473" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51064" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="52880" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="47533" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="53552" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51064" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45937" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="49828" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="46321" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+            </GrTxtAttArr>
+        </GrObj>
+        <GrObj Type="5">
+            <GrImgData Path="C:\Users\Administrator\Documents\Bandicam\bandicam 2019-09-07 14-05-26-648.jpg" Width="100" Height="45" KeepRate="1" Position="-1" GrEffectType="0" BackEffectType="1001" FirstEffectTime="100" BackEffectTime="50" FrontEaseType="3" BackEaseType="103" StartSeg="700" TotalSeg="140" VideoIndex="1" EffectListID="14" PosX="50" PosY="44.861111" bTemplateObject="0" TemplateObjectID="-1" bImgCustomColor="0" clrImgCustomColor="ffffffff" eCustomShapeType="0" nCustomShapeLineWidth="10" eCustomRectLineStartAnimationType="0" bCustomRectLineEndAnimationType="0" bCustomShapeFlipLR="0" bCustomShapeFlipTB="0" nCustomShapeSlope="36" Line_eBrushType="0" Line_clsSolidcolor="ffffffff" Line_clrGradientColor1="ffffffff" Line_clrGradientColor2="ffffbb00" Line_eGradientType="0" Fill_eBrushType="0" Fill_clsSolidcolor="00ffffff" Fill_clrGradientColor1="ffffffff" Fill_clrGradientColor2="ffffbb00" Fill_eGradientType="0" Fill_ImagePathPatten="" Fill_KeepRate="false" CropX="0" CropY="0" CropWidth="0" CropHeight="0" splunk="L_B1,L_BE4" Tempo="1"/>
+        </GrObj>
+        <GrObj Type="5">
+            <GrImgData Path="C:\Users\Administrator\Documents\Bandicam\bandicam 2019-09-07 14-06-30-658.jpg" Width="58" Height="63" KeepRate="1" Position="-1" GrEffectType="0" BackEffectType="1001" FirstEffectTime="100" BackEffectTime="50" FrontEaseType="3" BackEaseType="103" StartSeg="890" TotalSeg="140" VideoIndex="1" EffectListID="15" PosX="49.921875" PosY="36.527779" bTemplateObject="0" TemplateObjectID="-1" bImgCustomColor="0" clrImgCustomColor="ffffffff" eCustomShapeType="0" nCustomShapeLineWidth="10" eCustomRectLineStartAnimationType="0" bCustomRectLineEndAnimationType="0" bCustomShapeFlipLR="0" bCustomShapeFlipTB="0" nCustomShapeSlope="36" Line_eBrushType="0" Line_clsSolidcolor="ffffffff" Line_clrGradientColor1="ffffffff" Line_clrGradientColor2="ffffbb00" Line_eGradientType="0" Fill_eBrushType="0" Fill_clsSolidcolor="00ffffff" Fill_clrGradientColor1="ffffffff" Fill_clrGradientColor2="ffffbb00" Fill_eGradientType="0" Fill_ImagePathPatten="" Fill_KeepRate="false" CropX="0" CropY="0" CropWidth="0" CropHeight="0" splunk="L_B1,L_BE4" Tempo="1"/>
+        </GrObj>
+        <GrObj Type="5">
+            <GrImgData Path="C:\Users\Administrator\Documents\Bandicam\bandicam 2019-09-07 14-07-05-744.jpg" Width="82" Height="66" KeepRate="1" Position="-1" GrEffectType="0" BackEffectType="1001" FirstEffectTime="100" BackEffectTime="50" FrontEaseType="3" BackEaseType="103" StartSeg="1090" TotalSeg="140" VideoIndex="1" EffectListID="16" PosX="50.546871" PosY="36.666668" bTemplateObject="0" TemplateObjectID="-1" bImgCustomColor="0" clrImgCustomColor="ffffffff" eCustomShapeType="0" nCustomShapeLineWidth="10" eCustomRectLineStartAnimationType="0" bCustomRectLineEndAnimationType="0" bCustomShapeFlipLR="0" bCustomShapeFlipTB="0" nCustomShapeSlope="36" Line_eBrushType="0" Line_clsSolidcolor="ffffffff" Line_clrGradientColor1="ffffffff" Line_clrGradientColor2="ffffbb00" Line_eGradientType="0" Fill_eBrushType="0" Fill_clsSolidcolor="00ffffff" Fill_clrGradientColor1="ffffffff" Fill_clrGradientColor2="ffffbb00" Fill_eGradientType="0" Fill_ImagePathPatten="" Fill_KeepRate="false" CropX="0" CropY="0" CropWidth="0" CropHeight="0" splunk="L_B1,L_BE4" Tempo="1"/>
+        </GrObj>
+        <GrObj Type="5">
+            <GrImgData Path="C:\Users\Administrator\Documents\Bandicam\bandicam 2019-09-07 14-07-28-058.jpg" Width="100" Height="56" KeepRate="1" Position="-1" GrEffectType="0" BackEffectType="1001" FirstEffectTime="100" BackEffectTime="50" FrontEaseType="3" BackEaseType="103" StartSeg="1280" TotalSeg="140" VideoIndex="1" EffectListID="17" PosX="49.921875" PosY="38.194447" bTemplateObject="0" TemplateObjectID="-1" bImgCustomColor="0" clrImgCustomColor="ffffffff" eCustomShapeType="0" nCustomShapeLineWidth="10" eCustomRectLineStartAnimationType="0" bCustomRectLineEndAnimationType="0" bCustomShapeFlipLR="0" bCustomShapeFlipTB="0" nCustomShapeSlope="36" Line_eBrushType="0" Line_clsSolidcolor="ffffffff" Line_clrGradientColor1="ffffffff" Line_clrGradientColor2="ffffbb00" Line_eGradientType="0" Fill_eBrushType="0" Fill_clsSolidcolor="00ffffff" Fill_clrGradientColor1="ffffffff" Fill_clrGradientColor2="ffffbb00" Fill_eGradientType="0" Fill_ImagePathPatten="" Fill_KeepRate="false" CropX="0" CropY="0" CropWidth="0" CropHeight="0" splunk="L_B1,L_BE4" Tempo="1"/>
+        </GrObj>
+        <GrObj Type="4">
+            <GrTxtData Title="이외의 레벨 당 스테이터스 등의 데이터는 모두 Excel 데이터
+ 테이블 형식의 .csv 파일을통해서 관리하고 있습니다." GrEffectType="0" BackEffectType="1001" FirstEffectTime="80" BackEffectTime="50" FrontEaseType="3" BackEaseType="103" ApplyAll="0" Align="1" StartSeg="1470" TotalSeg="360" VideoIndex="1" EffectListID="18" PosX="49.453125" PosY="81.666664" bTemplateObject="0" TemplateObjectID="-1" BrushType="0" GradientType="0" PlaceHolderType="0" Color="7f000000" splunk="T_B1,T_BE4" Tempo="1"/>
+            <GrTxtAttArr Size="67">
+                <GrTxtAtt Code="51060" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="50808" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51032" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="47112" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="48296" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45817" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="49828" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="53580" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51060" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="53552" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="49828" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="46321" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51032" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45936" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51060" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="53552" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45716" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="47784" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="46160" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="69" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="120" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="99" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="101" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="108" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45936" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51060" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="53552" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="13" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="53580" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51060" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="48660" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="54805" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="49885" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51032" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="46" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="99" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="115" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="118" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="54028" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51068" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51012" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="53685" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="54644" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="49436" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44288" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="47532" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="54616" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44256" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51080" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="49845" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45768" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45796" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="46" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+            </GrTxtAttArr>
+        </GrObj>
+        <GrObj Type="5">
+            <GrImgData Path="C:\Users\Administrator\Documents\Bandicam\bandicam 2019-09-07 14-15-32-701.jpg" Width="100" Height="24" KeepRate="1" Position="-1" GrEffectType="0" BackEffectType="1001" FirstEffectTime="100" BackEffectTime="50" FrontEaseType="3" BackEaseType="103" StartSeg="1470" TotalSeg="170" VideoIndex="1" EffectListID="19" PosX="49.84375" PosY="22.916666" bTemplateObject="0" TemplateObjectID="-1" bImgCustomColor="0" clrImgCustomColor="ffffffff" eCustomShapeType="0" nCustomShapeLineWidth="10" eCustomRectLineStartAnimationType="0" bCustomRectLineEndAnimationType="0" bCustomShapeFlipLR="0" bCustomShapeFlipTB="0" nCustomShapeSlope="36" Line_eBrushType="0" Line_clsSolidcolor="ffffffff" Line_clrGradientColor1="ffffffff" Line_clrGradientColor2="ffffbb00" Line_eGradientType="0" Fill_eBrushType="0" Fill_clsSolidcolor="00ffffff" Fill_clrGradientColor1="ffffffff" Fill_clrGradientColor2="ffffbb00" Fill_eGradientType="0" Fill_ImagePathPatten="" Fill_KeepRate="false" CropX="0" CropY="0" CropWidth="0" CropHeight="0" splunk="L_B1,L_BE4" Tempo="1"/>
+        </GrObj>
+        <GrObj Type="5">
+            <GrImgData Path="C:\Users\Administrator\Documents\Bandicam\bandicam 2019-09-07 14-14-58-189.jpg" Width="101" Height="24" KeepRate="1" Position="-1" GrEffectType="0" BackEffectType="1001" FirstEffectTime="100" BackEffectTime="50" FrontEaseType="3" BackEaseType="103" StartSeg="1640" TotalSeg="190" VideoIndex="1" EffectListID="20" PosX="49.53125" PosY="52.638889" bTemplateObject="0" TemplateObjectID="-1" bImgCustomColor="0" clrImgCustomColor="ffffffff" eCustomShapeType="0" nCustomShapeLineWidth="10" eCustomRectLineStartAnimationType="0" bCustomRectLineEndAnimationType="0" bCustomShapeFlipLR="0" bCustomShapeFlipTB="0" nCustomShapeSlope="36" Line_eBrushType="0" Line_clsSolidcolor="ffffffff" Line_clrGradientColor1="ffffffff" Line_clrGradientColor2="ffffbb00" Line_eGradientType="0" Fill_eBrushType="0" Fill_clsSolidcolor="00ffffff" Fill_clrGradientColor1="ffffffff" Fill_clrGradientColor2="ffffbb00" Fill_eGradientType="0" Fill_ImagePathPatten="" Fill_KeepRate="false" CropX="0" CropY="0" CropWidth="0" CropHeight="0" splunk="L_B1,L_BE4" Tempo="1"/>
+        </GrObj>
+        <GrObj Type="4">
+            <GrTxtData Title="로비의 기능을 하나 하나 살펴보도록 하겠습니다." GrEffectType="0" BackEffectType="1001" FirstEffectTime="80" BackEffectTime="50" FrontEaseType="3" BackEaseType="103" ApplyAll="0" Align="1" StartSeg="100" TotalSeg="100" VideoIndex="2" EffectListID="21" PosX="49.453125" PosY="81.666664" bTemplateObject="0" TemplateObjectID="-1" BrushType="0" GradientType="0" PlaceHolderType="0" Color="7f000000" splunk="T_B1,T_BE4" Tempo="1"/>
+            <GrTxtAttArr Size="26">
+                <GrTxtAtt Code="47196" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="48708" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51032" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44592" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45733" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51012" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="54616" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45208" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="54616" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45208" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="49332" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="54196" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="48372" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="46020" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="47197" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="54616" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44192" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="49845" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45768" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45796" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="46" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+            </GrTxtAttArr>
+        </GrObj>
+        <GrObj Type="4">
+            <GrTxtData Title="해당 기능은 내가 현재 가지고 있는 캐릭터들을 볼 수 있습니다. 
+현재는 두 명의 캐릭터가 존재합니다." GrEffectType="0" BackEffectType="1001" FirstEffectTime="80" BackEffectTime="50" FrontEaseType="3" BackEaseType="103" ApplyAll="0" Align="1" StartSeg="400" TotalSeg="170" VideoIndex="2" EffectListID="24" PosX="49.453125" PosY="81.666664" bTemplateObject="0" TemplateObjectID="-1" BrushType="0" GradientType="0" PlaceHolderType="0" Color="7f000000" splunk="T_B1,T_BE4" Tempo="1"/>
+            <GrTxtAttArr Size="57">
+                <GrTxtAtt Code="54644" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45817" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44592" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45733" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51008" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45236" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44032" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="54788" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51116" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44032" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51648" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44256" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51080" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45716" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="52880" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="47533" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="53552" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="46308" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51012" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="48380" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="49688" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51080" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="49845" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45768" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45796" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="46" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="13" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="54788" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51116" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45716" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="46160" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="47749" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51032" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="52880" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="47533" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="53552" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44032" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51316" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51116" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="54633" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45768" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45796" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="46" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+            </GrTxtAttArr>
+        </GrObj>
+        <GrObj Type="4">
+            <GrTxtData Title="먼저 발키리 패널을 먼저 살펴보겠습니다." GrEffectType="0" BackEffectType="1001" FirstEffectTime="80" BackEffectTime="50" FrontEaseType="3" BackEaseType="103" ApplyAll="0" Align="1" StartSeg="240" TotalSeg="100" VideoIndex="2" EffectListID="25" PosX="49.453125" PosY="81.666664" bTemplateObject="0" TemplateObjectID="-1" BrushType="0" GradientType="0" PlaceHolderType="0" Color="7f000000" splunk="T_B1,T_BE4" Tempo="1"/>
+            <GrTxtAttArr Size="22">
+                <GrTxtAtt Code="47676" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51200" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="48156" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="53412" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="47532" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="54056" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45328" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51012" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="47676" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51200" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="49332" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="54196" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="48372" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44192" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="49845" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45768" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="45796" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="46" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+            </GrTxtAttArr>
+        </GrObj>
+        <GrObj Type="4">
+            <GrTxtData Title="격투가 컨셉의 UnityChan 캐릭터" GrEffectType="0" BackEffectType="1001" FirstEffectTime="80" BackEffectTime="50" FrontEaseType="3" BackEaseType="103" ApplyAll="0" Align="1" StartSeg="700" TotalSeg="310" VideoIndex="2" EffectListID="26" PosX="49.453125" PosY="81.666664" bTemplateObject="0" TemplateObjectID="-1" BrushType="0" GradientType="0" PlaceHolderType="0" Color="7f000000" splunk="T_B1,T_BE4" Tempo="1"/>
+            <GrTxtAttArr Size="21">
+                <GrTxtAtt Code="44201" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="53804" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="44032" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="52968" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="49481" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51032" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="85" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="110" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="105" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="116" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="121" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="67" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="104" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="97" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="110" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="52880" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="47533" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="53552" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+            </GrTxtAttArr>
+        </GrObj>
+        <GrObj Type="4">
+            <GrTxtData Title="검사 컨셉의 Kohaku 캐릭터" GrEffectType="0" BackEffectType="1001" FirstEffectTime="80" BackEffectTime="50" FrontEaseType="3" BackEaseType="103" ApplyAll="0" Align="1" StartSeg="1180" TotalSeg="310" VideoIndex="2" EffectListID="27" PosX="49.453125" PosY="81.666664" bTemplateObject="0" TemplateObjectID="-1" BrushType="0" GradientType="0" PlaceHolderType="0" Color="7f000000" splunk="T_B1,T_BE4" Tempo="1"/>
+            <GrTxtAttArr Size="17">
+                <GrTxtAtt Code="44160" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="49324" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="52968" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="49481" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="51032" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="75" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="111" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="104" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="97" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="107" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="117" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="52880" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="47533" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+                <GrTxtAtt Code="53552" FontSize="40" FontStyle="0" FaceName="Sandoll GothicNeo1Unicode 08 Eb" BrushID="0" ShadowID="5" OutlineID="0"/>
+            </GrTxtAttArr>
+        </GrObj>
+    </GrObjArr>
+    <GrAudioArr Size="0"/>
+    <GrEffectArr Size="0"/>
+</GRP>
