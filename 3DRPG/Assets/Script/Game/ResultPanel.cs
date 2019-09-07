@@ -41,7 +41,7 @@ public class ResultPanel : MonoBehaviour
         string [] ClearItem = Util.ConvertToString(GameManager.instance.ReturnStageData(MAP_DATA.MAP_CLEAR_ITEM)).Split('/');
         //클리어 아이템들은 ;과 ,으로 구분 되어 있으니 잘 쪼개어 사용
 
-        m_StageLabel.text = Util.ConvertToString(GameManager.instance.ReturnStage()) + "Stage Clear"; //스테이지
+        m_StageLabel.text = Util.ConvertToString(GameManager.instance.ReturnStage() + 1) + "Stage Clear"; //스테이지
 
         //플레이어 리소스 관련
         m_PlayerResource.transform.GetChild(0).GetComponent<UILabel>().text = "+" + ClearExp.ToString();

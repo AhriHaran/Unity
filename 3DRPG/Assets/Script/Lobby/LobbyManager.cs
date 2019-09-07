@@ -239,6 +239,7 @@ public class LobbyManager : MonoBehaviour
             //이전 패널
             UI_PANEL_INDEX eCur = m_eCurPanel;
             UI_PANEL_INDEX eIndex = m_StackPanel.Pop();
+
             PanelOnOff(eIndex, false);
             if (eCur == UI_PANEL_INDEX.PANEL_ITEM_SELECT) //현재 패널이 아이템 셀렉이고 이전 패널로 돌아간다면?
             {
@@ -277,7 +278,8 @@ public class LobbyManager : MonoBehaviour
             if (GameManager.instance.CharSelectComplete(int.Parse(m_strCharSelect)))
             {
                 m_ListPanel[(int)UI_PANEL_INDEX.PANEL_STAGE_READY].GetComponent<StageReadyPanel>().SelectChar(m_strCharSelect);
-                PanelOnOff(UI_PANEL_INDEX.PANEL_STAGE_READY);
+                PanelOnOff(UI_PANEL_INDEX.PANEL_STAGE_READY, false);
+                m_StackPanel.Pop();
             }
         }
         else if (Button == "StageStart")

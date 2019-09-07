@@ -41,21 +41,7 @@ public class GameScene : MonoBehaviour
 
     private void Update()
     {
-        OnSp();
     }
-
-    private void OnSp()
-    {
-        if(Input.GetKeyUp(KeyCode.G))
-        {
-            GameObject Item = PoolManager.instance.PopFromPool(POOL_INDEX.POOL_SP_ITEM.ToString());
-            Vector3 Pos = transform.position;
-            Pos.y = 2;
-            Item.transform.position = Pos;
-            Item.SetActive(true);
-        }
-    }
-
 
     void Start()
     {

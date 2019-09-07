@@ -40,13 +40,19 @@ public class StageReadyPanel : MonoBehaviour
         int[] iarr = GameManager.instance.ReturnPlayerList();
         for (int i = 0; i < 3; i++)
         {
-            if(iarr[i] != -1)
+            if(iarr[i] >= 0)
             {
                 string strName = UserInfo.instance.GetCharData(CHAR_DATA.CHAR_NAME, iarr[i]) as string;
                 m_selectCharBT[i].GetComponentInChildren<UILabel>().text = strName;
                 strName += m_strSprite;
                 m_selectCharBT[i].GetComponentInChildren<UISprite>().spriteName = strName;
                 m_selectCharBT[i].normalSprite = strName;
+            }
+            else
+            {
+                m_selectCharBT[i].GetComponentInChildren<UILabel>().text = "Name";
+                m_selectCharBT[i].GetComponentInChildren<UISprite>().spriteName = "EmptySelect";
+                m_selectCharBT[i].normalSprite = "EmptySelect";
             }
         }
 

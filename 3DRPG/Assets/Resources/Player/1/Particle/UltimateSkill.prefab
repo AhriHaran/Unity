@@ -9540,6 +9540,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4255137705408504}
   - component: {fileID: 114372170634009568}
+  - component: {fileID: 8054731851518579539}
   m_Layer: 0
   m_Name: UltimateSkill
   m_TagString: Untagged
@@ -9577,6 +9578,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DeactivateTime: 3
+--- !u!114 &8054731851518579539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1424984321161318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c7cdc850bac7d64b925a328b880217a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_fMaxDemage: 100
+  m_fCriDemage: 15
+  m_fRadius: 3
 --- !u!1 &1430876649061764
 GameObject:
   m_ObjectHideFlags: 0
