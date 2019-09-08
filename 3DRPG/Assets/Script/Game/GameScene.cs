@@ -140,7 +140,9 @@ public class GameScene : MonoBehaviour
             m_EnemyMangaer.Stop();
             //우선 적들을 멈춰 주고
             m_iTmpIndex = Button.ListIndex;
+            //버튼의 인덱스를 저장한 다음
             m_PlayerManager.JumpStart();
+            //점프 액션 수행
         }
     }
 
@@ -151,6 +153,7 @@ public class GameScene : MonoBehaviour
 
         if(bDie)
         {
+            //캐릭터가 죽었을 시에는 현재 남아있는 캐릭터 중 하나로 자동 교체된다.
             m_EnemyMangaer.Stop();
             m_iTmpIndex = m_PlayerManager.DontDie();
         }
@@ -177,12 +180,16 @@ public class GameScene : MonoBehaviour
             m_Change.Change(iarr[iCurList], iCurList, m_PlayerManager.GetPlayerData(PLAYER_DATA.PLAYER_CUR_HP),
   m_PlayerManager.GetPlayerData(PLAYER_DATA.PLAYER_MAX_HP), m_PlayerManager.GetPlayerData(PLAYER_DATA.PLAYER_CUR_SP),
   m_PlayerManager.GetPlayerData(PLAYER_DATA.PLAYER_MAX_SP));
+            //캐릭터 버튼 체인지 및 쿨타임 실행
 
             m_PlayerManager.PlayerSet(m_iTmpIndex, tr.position, tr.rotation, JumpEnd);
             //캐릭터의 위치와 교대하고
             m_EnemyMangaer.TrSetting(m_PlayerManager.GetCharTR());
+            //에너미의 타겟을 새로 설정하고
             m_EnemyMangaer.Start();
-            m_CallBack(m_PlayerManager.GetCharTR());    //카메라 콜백 함수 선언
+            //코루틴 스타트
+            m_CallBack(m_PlayerManager.GetCharTR());   
+            //카메라 콜백 함수 재선언
             m_bChanging = true;
             m_Change = null;
         }
@@ -192,9 +199,3 @@ public class GameScene : MonoBehaviour
         }
     }
 }
-
-/*
- * 아이템 드랍
- * 유저가 죽을 때 처리
- * 궁극기
- */

@@ -45,7 +45,6 @@ public class LoadScene : MonoBehaviour
             else
             {
                 LoadSlider.value = Mathf.Lerp(LoadSlider.value, async_operation.progress, timer);
-                //매스 공통 수학 함수, 시간에 따라서 슬라이드 밸류와, 싱크 프로그레스 사이를 보간하기 위해서
                 if (LoadSlider.value >= async_operation.progress)
                 {
                     timer = 0f;
