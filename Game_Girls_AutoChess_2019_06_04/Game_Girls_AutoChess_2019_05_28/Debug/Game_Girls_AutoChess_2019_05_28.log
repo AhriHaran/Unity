@@ -1,6 +1,51 @@
-﻿  GameScene.cpp
+﻿  Anime.cpp
+  Character.cpp
+c:\users\3d07\documents\github\unity\game_girls_autochess_2019_06_04\game_girls_autochess_2019_05_28\character.cpp(135): warning C4244: '*=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\3d07\documents\github\unity\game_girls_autochess_2019_06_04\game_girls_autochess_2019_05_28\character.cpp(139): warning C4244: '*=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\3d07\documents\github\unity\game_girls_autochess_2019_06_04\game_girls_autochess_2019_05_28\character.cpp(70): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(1774): note: 'sprintf' 선언을 참조하십시오.
+c:\users\3d07\documents\github\unity\game_girls_autochess_2019_06_04\game_girls_autochess_2019_05_28\character.cpp(97): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(1774): note: 'sprintf' 선언을 참조하십시오.
+c:\users\3d07\documents\github\unity\game_girls_autochess_2019_06_04\game_girls_autochess_2019_05_28\character.cpp(110): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(1774): note: 'sprintf' 선언을 참조하십시오.
+c:\users\3d07\documents\github\unity\game_girls_autochess_2019_06_04\game_girls_autochess_2019_05_28\character.cpp(188): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(1774): note: 'sprintf' 선언을 참조하십시오.
+c:\users\3d07\documents\github\unity\game_girls_autochess_2019_06_04\game_girls_autochess_2019_05_28\character.cpp(430): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  EnemyManager.cpp
+c:\users\3d07\documents\github\unity\game_girls_autochess_2019_06_04\game_girls_autochess_2019_05_28\enemymanager.cpp(53): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(1774): note: 'sprintf' 선언을 참조하십시오.
+c:\users\3d07\documents\github\unity\game_girls_autochess_2019_06_04\game_girls_autochess_2019_05_28\enemymanager.cpp(66): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(1774): note: 'sprintf' 선언을 참조하십시오.
+  Gage.cpp
+c:\users\3d07\documents\github\unity\game_girls_autochess_2019_06_04\game_girls_autochess_2019_05_28\gage.cpp(29): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\3d07\documents\github\unity\game_girls_autochess_2019_06_04\game_girls_autochess_2019_05_28\gage.cpp(34): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  GameScene.cpp
 c:\users\3d07\documents\github\unity\game_girls_autochess_2019_06_04\game_girls_autochess_2019_05_28\gamescene.cpp(324): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(1774): note: 'sprintf' 선언을 참조하십시오.
 c:\users\3d07\documents\github\unity\game_girls_autochess_2019_06_04\game_girls_autochess_2019_05_28\gamescene.cpp(328): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(1774): note: 'sprintf' 선언을 참조하십시오.
+  MapManager.cpp
+  Player.cpp
+  Skill.cpp
+  StoreManager.cpp
+  TitleScene.cpp
+c:\users\3d07\documents\github\unity\game_girls_autochess_2019_06_04\game_girls_autochess_2019_05_28\titlescene.cpp(25): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\3d07\documents\github\unity\game_girls_autochess_2019_06_04\game_girls_autochess_2019_05_28\titlescene.cpp(26): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  WinMain.cpp
+  코드를 생성하고 있습니다...
+  LINK : C:\Users\3D07\Documents\GitHub\Unity\Game_Girls_AutoChess_2019_06_04\Game_Girls_AutoChess_2019_05_28\Debug\Game_Girls_AutoChess_2019_05_28.exe을(를) 찾을 수 없거나 마지막 증분 링크에 의해 빌드되지 않았습니다. 전체 링크를 수행하고 있습니다.
+Lib.lib(BitMap.obj) : warning LNK4099: 'Lib.pdb' PDB를 'Lib.lib(BitMap.obj)' 또는 'C:\Users\3D07\Documents\GitHub\Unity\Game_Girls_AutoChess_2019_06_04\Game_Girls_AutoChess_2019_05_28\Debug\Lib.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+Lib.lib(boolButton.obj) : warning LNK4099: 'Lib.pdb' PDB를 'Lib.lib(boolButton.obj)' 또는 'C:\Users\3D07\Documents\GitHub\Unity\Game_Girls_AutoChess_2019_06_04\Game_Girls_AutoChess_2019_05_28\Debug\Lib.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+Lib.lib(Button.obj) : warning LNK4099: 'Lib.pdb' PDB를 'Lib.lib(Button.obj)' 또는 'C:\Users\3D07\Documents\GitHub\Unity\Game_Girls_AutoChess_2019_06_04\Game_Girls_AutoChess_2019_05_28\Debug\Lib.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+Lib.lib(EngineMain.obj) : warning LNK4099: 'Lib.pdb' PDB를 'Lib.lib(EngineMain.obj)' 또는 'C:\Users\3D07\Documents\GitHub\Unity\Game_Girls_AutoChess_2019_06_04\Game_Girls_AutoChess_2019_05_28\Debug\Lib.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+Lib.lib(InputManager.obj) : warning LNK4099: 'Lib.pdb' PDB를 'Lib.lib(InputManager.obj)' 또는 'C:\Users\3D07\Documents\GitHub\Unity\Game_Girls_AutoChess_2019_06_04\Game_Girls_AutoChess_2019_05_28\Debug\Lib.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+Lib.lib(Label.obj) : warning LNK4099: 'Lib.pdb' PDB를 'Lib.lib(Label.obj)' 또는 'C:\Users\3D07\Documents\GitHub\Unity\Game_Girls_AutoChess_2019_06_04\Game_Girls_AutoChess_2019_05_28\Debug\Lib.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+Lib.lib(POINT.obj) : warning LNK4099: 'Lib.pdb' PDB를 'Lib.lib(POINT.obj)' 또는 'C:\Users\3D07\Documents\GitHub\Unity\Game_Girls_AutoChess_2019_06_04\Game_Girls_AutoChess_2019_05_28\Debug\Lib.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+Lib.lib(ResoucesManager.obj) : warning LNK4099: 'Lib.pdb' PDB를 'Lib.lib(ResoucesManager.obj)' 또는 'C:\Users\3D07\Documents\GitHub\Unity\Game_Girls_AutoChess_2019_06_04\Game_Girls_AutoChess_2019_05_28\Debug\Lib.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+Lib.lib(Scene.obj) : warning LNK4099: 'Lib.pdb' PDB를 'Lib.lib(Scene.obj)' 또는 'C:\Users\3D07\Documents\GitHub\Unity\Game_Girls_AutoChess_2019_06_04\Game_Girls_AutoChess_2019_05_28\Debug\Lib.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+Lib.lib(SceneManager.obj) : warning LNK4099: 'Lib.pdb' PDB를 'Lib.lib(SceneManager.obj)' 또는 'C:\Users\3D07\Documents\GitHub\Unity\Game_Girls_AutoChess_2019_06_04\Game_Girls_AutoChess_2019_05_28\Debug\Lib.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+Lib.lib(TextManager.obj) : warning LNK4099: 'Lib.pdb' PDB를 'Lib.lib(TextManager.obj)' 또는 'C:\Users\3D07\Documents\GitHub\Unity\Game_Girls_AutoChess_2019_06_04\Game_Girls_AutoChess_2019_05_28\Debug\Lib.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+Lib.lib(TimeManager.obj) : warning LNK4099: 'Lib.pdb' PDB를 'Lib.lib(TimeManager.obj)' 또는 'C:\Users\3D07\Documents\GitHub\Unity\Game_Girls_AutoChess_2019_06_04\Game_Girls_AutoChess_2019_05_28\Debug\Lib.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+Lib.lib(UIManager.obj) : warning LNK4099: 'Lib.pdb' PDB를 'Lib.lib(UIManager.obj)' 또는 'C:\Users\3D07\Documents\GitHub\Unity\Game_Girls_AutoChess_2019_06_04\Game_Girls_AutoChess_2019_05_28\Debug\Lib.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+Lib.lib(UIObject.obj) : warning LNK4099: 'Lib.pdb' PDB를 'Lib.lib(UIObject.obj)' 또는 'C:\Users\3D07\Documents\GitHub\Unity\Game_Girls_AutoChess_2019_06_04\Game_Girls_AutoChess_2019_05_28\Debug\Lib.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
   Game_Girls_AutoChess_2019_05_28.vcxproj -> C:\Users\3D07\Documents\GitHub\Unity\Game_Girls_AutoChess_2019_06_04\Game_Girls_AutoChess_2019_05_28\Debug\Game_Girls_AutoChess_2019_05_28.exe
