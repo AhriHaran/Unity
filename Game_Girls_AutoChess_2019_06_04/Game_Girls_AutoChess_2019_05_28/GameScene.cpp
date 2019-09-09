@@ -344,13 +344,13 @@ void GameScene::Release()
 	m_cStore.Release();
 	m_cEManger.Release();
 	Player::GetInstance()->Release();
-	delete m_cTipButton;
 }
 
 
 GameScene::~GameScene()
 {
 	MapManager::GetInstance()->Release();
+	delete m_cTipButton;
 }
 
 /*

@@ -1,36 +1,6 @@
-﻿  Anime.cpp
-  Character.cpp
-\\c-01-pc\프로그래밍반공유폴더\[ncs] 2019 게임프로그래밍 전문가 양성과정\정재영\3. 게임 그래픽 프로그래밍(2d)\학습과제\game_girls_autochess_2019_06_04\game_girls_autochess_2019_05_28\character.cpp(135): warning C4244: '*=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-\\c-01-pc\프로그래밍반공유폴더\[ncs] 2019 게임프로그래밍 전문가 양성과정\정재영\3. 게임 그래픽 프로그래밍(2d)\학습과제\game_girls_autochess_2019_06_04\game_girls_autochess_2019_05_28\character.cpp(139): warning C4244: '*=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-\\c-01-pc\프로그래밍반공유폴더\[ncs] 2019 게임프로그래밍 전문가 양성과정\정재영\3. 게임 그래픽 프로그래밍(2d)\학습과제\game_girls_autochess_2019_06_04\game_girls_autochess_2019_05_28\character.cpp(70): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+﻿  GameScene.cpp
+c:\users\3d07\documents\github\unity\game_girls_autochess_2019_06_04\game_girls_autochess_2019_05_28\gamescene.cpp(324): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(1774): note: 'sprintf' 선언을 참조하십시오.
-\\c-01-pc\프로그래밍반공유폴더\[ncs] 2019 게임프로그래밍 전문가 양성과정\정재영\3. 게임 그래픽 프로그래밍(2d)\학습과제\game_girls_autochess_2019_06_04\game_girls_autochess_2019_05_28\character.cpp(97): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\3d07\documents\github\unity\game_girls_autochess_2019_06_04\game_girls_autochess_2019_05_28\gamescene.cpp(328): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(1774): note: 'sprintf' 선언을 참조하십시오.
-\\c-01-pc\프로그래밍반공유폴더\[ncs] 2019 게임프로그래밍 전문가 양성과정\정재영\3. 게임 그래픽 프로그래밍(2d)\학습과제\game_girls_autochess_2019_06_04\game_girls_autochess_2019_05_28\character.cpp(110): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(1774): note: 'sprintf' 선언을 참조하십시오.
-\\c-01-pc\프로그래밍반공유폴더\[ncs] 2019 게임프로그래밍 전문가 양성과정\정재영\3. 게임 그래픽 프로그래밍(2d)\학습과제\game_girls_autochess_2019_06_04\game_girls_autochess_2019_05_28\character.cpp(188): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(1774): note: 'sprintf' 선언을 참조하십시오.
-\\c-01-pc\프로그래밍반공유폴더\[ncs] 2019 게임프로그래밍 전문가 양성과정\정재영\3. 게임 그래픽 프로그래밍(2d)\학습과제\game_girls_autochess_2019_06_04\game_girls_autochess_2019_05_28\character.cpp(430): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  EnemyManager.cpp
-\\c-01-pc\프로그래밍반공유폴더\[ncs] 2019 게임프로그래밍 전문가 양성과정\정재영\3. 게임 그래픽 프로그래밍(2d)\학습과제\game_girls_autochess_2019_06_04\game_girls_autochess_2019_05_28\enemymanager.cpp(53): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(1774): note: 'sprintf' 선언을 참조하십시오.
-\\c-01-pc\프로그래밍반공유폴더\[ncs] 2019 게임프로그래밍 전문가 양성과정\정재영\3. 게임 그래픽 프로그래밍(2d)\학습과제\game_girls_autochess_2019_06_04\game_girls_autochess_2019_05_28\enemymanager.cpp(66): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(1774): note: 'sprintf' 선언을 참조하십시오.
-  Gage.cpp
-\\c-01-pc\프로그래밍반공유폴더\[ncs] 2019 게임프로그래밍 전문가 양성과정\정재영\3. 게임 그래픽 프로그래밍(2d)\학습과제\game_girls_autochess_2019_06_04\game_girls_autochess_2019_05_28\gage.cpp(29): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-\\c-01-pc\프로그래밍반공유폴더\[ncs] 2019 게임프로그래밍 전문가 양성과정\정재영\3. 게임 그래픽 프로그래밍(2d)\학습과제\game_girls_autochess_2019_06_04\game_girls_autochess_2019_05_28\gage.cpp(34): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  GameScene.cpp
-\\c-01-pc\프로그래밍반공유폴더\[ncs] 2019 게임프로그래밍 전문가 양성과정\정재영\3. 게임 그래픽 프로그래밍(2d)\학습과제\game_girls_autochess_2019_06_04\game_girls_autochess_2019_05_28\gamescene.cpp(324): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(1774): note: 'sprintf' 선언을 참조하십시오.
-\\c-01-pc\프로그래밍반공유폴더\[ncs] 2019 게임프로그래밍 전문가 양성과정\정재영\3. 게임 그래픽 프로그래밍(2d)\학습과제\game_girls_autochess_2019_06_04\game_girls_autochess_2019_05_28\gamescene.cpp(328): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(1774): note: 'sprintf' 선언을 참조하십시오.
-  MapManager.cpp
-  Player.cpp
-  Skill.cpp
-  StoreManager.cpp
-  TitleScene.cpp
-\\c-01-pc\프로그래밍반공유폴더\[ncs] 2019 게임프로그래밍 전문가 양성과정\정재영\3. 게임 그래픽 프로그래밍(2d)\학습과제\game_girls_autochess_2019_06_04\game_girls_autochess_2019_05_28\titlescene.cpp(25): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-\\c-01-pc\프로그래밍반공유폴더\[ncs] 2019 게임프로그래밍 전문가 양성과정\정재영\3. 게임 그래픽 프로그래밍(2d)\학습과제\game_girls_autochess_2019_06_04\game_girls_autochess_2019_05_28\titlescene.cpp(26): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  WinMain.cpp
-  코드를 생성하고 있습니다...
-  Game_Girls_AutoChess_2019_05_28.vcxproj -> \\C-01-pc\프로그래밍반공유폴더\[NCS] 2019 게임프로그래밍 전문가 양성과정\정재영\3. 게임 그래픽 프로그래밍(2D)\학습과제\Game_Girls_AutoChess_2019_06_04\Debug\Game_Girls_AutoChess_2019_05_28.exe
+  Game_Girls_AutoChess_2019_05_28.vcxproj -> C:\Users\3D07\Documents\GitHub\Unity\Game_Girls_AutoChess_2019_06_04\Game_Girls_AutoChess_2019_05_28\Debug\Game_Girls_AutoChess_2019_05_28.exe
