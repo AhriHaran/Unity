@@ -4,8 +4,8 @@ using UnityEngine;
 
 public enum ITEM_INFO_UI
 {
-    ITEM_INFO_CUR,
-    ITEM_INFO_SELECT,
+    ITEM_INFO_CUR,      //현재 장착한 아이템
+    ITEM_INFO_SELECT,   //바꾸려는 아이템
 }
 
 public class ItemInfoUI : MonoBehaviour

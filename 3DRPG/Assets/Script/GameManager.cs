@@ -7,32 +7,36 @@ public class GameManager : MonoSingleton<GameManager>
     /// <summary>
     /// 캐릭터 관련 인자들
     /// </summary>
-    private int[] m_ListCharIndex;      //내가 선택한 캐릭터 인덱스들
-    private int m_iCurSelectChar = -1;   //캐릭터 선택 단계에서 내가 선택한 캐릭터
-    private int m_iCurGameChar = -1;     //게임 속에서 내가 현재 선택한 캐릭터
+    private int[] m_ListCharIndex;              //내가 선택한 캐릭터 인덱스들
+    private int m_iCurSelectChar { get; set; }  //캐릭터 선택 단계에서 내가 선택한 캐릭터
+    private int m_iCurGameChar { get; set; }    //게임 속에서 내가 현재 선택한 캐릭터
     private GameObject m_SelectCharMain = null;
-    private GameObject m_SelectChar = null;    //내가 선택한 캐릭터의 프리팹
+    private GameObject m_SelectChar = null;     //내가 선택한 캐릭터의 프리팹
 
-/// <summary>
-/// 맵 관련 인자들
-/// </summary>
-    private int m_iCurStage = -1;       //현재 선택한 스테이지
+    /// <summary>
+    /// 맵 관련 인자들
+    /// </summary>
+    private int m_iCurStage { get; set; }       //현재 선택한 스테이지
     public List<Dictionary<MAP_DATA, object>> m_ListMapData = new List<Dictionary<MAP_DATA, object>>();
 
     /// <summary>
     /// 아이템 장착에 관련된 인자들
     /// </summary>
-    private int m_iCurSelectItme = -1;
-    private ITEM_TYPE m_eItemType;
-    private INVENTORY_TYPE m_eInvenType;
+    private int m_iCurSelectItme { get; set; }
+    private ITEM_TYPE m_eItemType { get; set; }
+    private INVENTORY_TYPE m_eInvenType { get; set; }
+    private bool m_bReleas{get;set;}
 
-
+    /// <summary>
+    /// 초기화
+    /// </summary>
     public void Init()
     {
         m_ListCharIndex = new int[] { -1, -1, -1 };   //3개
         m_iCurGameChar = -1;
         m_iCurSelectChar = -1;
         m_iCurSelectItme = -1;
+        m_iCurStage = -1;
         m_SelectCharMain = GameObject.Find("SelectCharModel");
     }
 
@@ -123,11 +127,19 @@ public class GameManager : MonoSingleton<GameManager>
     }
     public int ReturnCurSelectItem()
     {
-        return m_iCurSelectItme;    //현재 선택한 아이템
+        return m_iCurSelectItme;    //현재 선택한 아이템 리턴
+    }
+    public bool ReturnCurItemEqipType()
+    {
+        return m_bReleas;   //현재 선택한 장비를 벗을것인가?
     }
     public void SelectCurItem(int iIndex)
     {
-        m_iCurSelectItme = iIndex;
+        m_iCurSelectItme = iIndex;  //현재 선택한 아이템 인덱스
+    }
+    public void SelectCurItemEqipType(bool bRelease)
+    {
+        m_bReleas = bRelease;   //장비를 벗을 것이다.
     }
 
     /// <summary>

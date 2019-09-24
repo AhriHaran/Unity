@@ -38,7 +38,8 @@ public class ItemSelectPanel : MonoBehaviour
     public void OnClick()
     {
         //버튼 클릭은 여기서 처리
-        int iCurItem = GameManager.instance.ReturnCurSelectItem();
+        int iCurItem = GameManager.instance.ReturnCurSelectItem();      //장착하려는 장비의 인벤토리 인덱스
+
         if (iCurItem >= 0)  //선택한 것이 있으며
         {
             int iSelectChar = GameManager.instance.ReturnCurSelectChar();   //장착할 캐릭터 리턴
@@ -56,50 +57,62 @@ public class ItemSelectPanel : MonoBehaviour
                 eData = CHAR_DATA.CHAR_WEAPON_INDEX;
             //아이템 타입에 따른 데이터 갱신
 
-            int iWeaponEquip = Util.ConvertToInt(UserInfo.instance.GetItemForList(iCurItem, eInven, ITEM_DATA.ITEM_EQUIP_CHAR));  
+            int iList = Util.ConvertToInt(UserInfo.instance.GetItemIndexForList(iCurItem, eInven));
+            int iWeaponEquipChar = Util.ConvertToInt(UserInfo.instance.GetItemForList(iList, eInven, ITEM_DATA.ITEM_EQUIP_CHAR));  
             //해당 아이템을 장착한 캐릭터가 있는가?
             int iSelectWeapon = Util.ConvertToInt(UserInfo.instance.GetCharData(eData, iSelectChar));
-            //무언가 장착한 것이 있는가?
+            //바꾸려는 캐릭터가 무언가를 장착한 것이 있는가?
 
-            bool bSet = false;
-
-            if (iWeaponEquip != iSelectWeapon) //중복 장착이 아니지만
-                bSet = true;
-            else if(iWeaponEquip < 0 && iSelectWeapon < 0) //만약 둘 다 처음 장착이라는 특수한 상황이라면
-                bSet = true;
-
-            if (bSet)
+            bool bRelese = GameManager.instance.ReturnCurItemEqipType();    //장비 장착인가 해제인가
+            if (bRelese && iSelectWeapon == iList) //장착 해제
             {
-                //장착했다는 의미이므로 캐릭터의 데이터를 갱신해준다.
+                m_ItemInfo.GetComponent<ItemInfoUI>().ItemInfo((int)ITEM_INFO_UI.ITEM_INFO_CUR, -1);
+                m_ItemInfo.GetComponent<ItemInfoUI>().ItemInfo((int)ITEM_INFO_UI.ITEM_INFO_SELECT, -1);
+
+                UserInfo.instance.CharUpdate(eData, -1, iSelectChar); 
+                //해당 아이템을 해제할 캐릭터
+                UserInfo.instance.InventoryUpdate(eInven, iCurItem, ITEM_DATA.ITEM_EQUIP_CHAR, -1);   
+                //아이템 또한 해당 캐릭터가 해제했다는 것을 알린다
+                UserInfo.instance.ItemUpdateForChar(eInven, iCurItem, false);    
+                //해당 아이템 기준으로 능력치 업데이트
+
+                UserInfo.instance.UserCharSave();
+                UserInfo.instance.UserInvenSave();
+                //세이브 데이터
+            }
+            else if(!bRelese && iSelectWeapon != iList)  //장착 한다.
+            {
                 m_ItemInfo.GetComponent<ItemInfoUI>().ItemInfo((int)ITEM_INFO_UI.ITEM_INFO_CUR, iCurItem);
                 m_ItemInfo.GetComponent<ItemInfoUI>().ItemInfo((int)ITEM_INFO_UI.ITEM_INFO_SELECT, -1);
-                //장착 했으니 정보를 갱신해주고
 
-                //해당 아이템을 장착한 캐릭터가 있다. 그렇다면 두명의 데이터를 교환 해준다.
-                if(iWeaponEquip >= 0) 
+                if (iWeaponEquipChar >= 0)  //해당 아이템을 장착한 캐릭터가 있는가?, 아이템 교체
                 {
-                    UserInfo.instance.CharUpdate(eData, iSelectWeapon, iWeaponEquip);
+                    UserInfo.instance.CharUpdate(eData, iSelectWeapon, iWeaponEquipChar);
                     //해당 아이템을 장착한 캐릭터는 현재 캐릭터의 장비를 이어 받고
-                    if(iSelectWeapon >= 0)   //해당 캐릭터가 무언가를 장착한 상태라면
+
+                    if (iSelectWeapon >= 0)   //해당 캐릭터가 무언가를 장착한 상태라면
                     {
-                        UserInfo.instance.InventoryUpdate(eInven, iSelectWeapon, ITEM_DATA.ITEM_EQUIP_CHAR, iWeaponEquip);
+                        UserInfo.instance.InventoryUpdate(eInven, iSelectWeapon, ITEM_DATA.ITEM_EQUIP_CHAR, iWeaponEquipChar);
                         //현재 캐릭터의 장비 또한, 해당 아이템을 장착한 캐릭터로 갱신된다.
                         UserInfo.instance.ItemUpdateForChar(eInven, iSelectWeapon, true);
                         //그에따라서 바뀐 장비 만큼의 능력치가 업데이트 된다.
                     }
                     else
                     {
-                        //해당 캐릭터가 장착한 아이템이 없을 시에는 아이템이 빼진 것이기에 아이템의 능력치만큼 뺴준다.
                         UserInfo.instance.ItemUpdateForChar(eInven, iCurItem, false);
+                        //해당 캐릭터가 장착한 아이템이 없을 시에는 아이템이 빼진 것이기에 아이템의 능력치만큼 뺴준다.
                     }
                 }
+
                 UserInfo.instance.CharUpdate(eData, iCurItem, iSelectChar);  //해당 아이템을 장착할 캐릭터
                 UserInfo.instance.InventoryUpdate(eInven, iCurItem, ITEM_DATA.ITEM_EQUIP_CHAR, iSelectChar);   //아이템 또한 해당 캐릭터가 장착했다는 것을 알린다
                 UserInfo.instance.ItemUpdateForChar(eInven, iCurItem, true);    //해당 아이템 기준으로 능력치 업데이트
+
                 UserInfo.instance.UserCharSave();
                 UserInfo.instance.UserInvenSave();
-                //세이브 데이터
             }
+            GameManager.instance.SelectCurItemEqipType(false);
+            m_ItemSelect.GetComponent<ItemSelectUI>().ResetList();
             //아이템 중복 장착을 피해주고, 현재 누군가 장착 중인 아이템이라면 해당 캐릭터에게 빼주고 새로 장착 시켜준다.
         }
         //데이터 갱신

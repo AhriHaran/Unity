@@ -22,8 +22,7 @@ public class UserInventory
         {
             m_ListInven[i] = new List<ItemData>();
         }
-
-
+        
         //JSON 데이터와 테이블 데이터를 통해서 셋팅
         //UserStigmaData, UserWeaponData -> Json
         if(JSON.JsonUtil.FileCheck(INVENTORY_TYPE.INVENTORY_WEAPON.ToString()))
@@ -53,18 +52,17 @@ public class UserInventory
         //인벤토리 아이템은 중복 획득이 가능하므로 리스트 순서 기반으로 한다.
         return m_ListInven[(int)eType][inventoryIndex].GetItemData(eIndex);
     }
-    public object GetItemForIndex(int itemIndex, INVENTORY_TYPE eType, ITEM_DATA eIndex)
+    public int GetItemIndexForList(int itemIndex, INVENTORY_TYPE eType)
     {
-        for(int i = 0; i < m_ListInven[(int)eType].Count; i++)
+        for (int i = 0; i < m_ListInven[(int)eType].Count; i++)
         {
             int iIndex = Util.ConvertToInt(m_ListInven[(int)eType][i].GetItemData(ITEM_DATA.ITEM_INDEX));
-            if(iIndex == itemIndex)
+            if (iIndex == itemIndex)
             {
-                return m_ListInven[(int)eType][i].GetItemData(eIndex);
+                return i;
             }
         }
-        return null;    
-        //아이템 인덱스 기반의 반환
+        return -1;
     }
     public List<ItemData> GetInventoryList(INVENTORY_TYPE eType)
     {
@@ -85,7 +83,7 @@ public class UserInventory
     }
     public void InventoryUpdate(INVENTORY_TYPE eInven, int itemIndex, ITEM_DATA eData, object UpdateData)
     {
-        //기존 아이템 업데이트, 레벨 업 등
+        //기존 아이템 업데이트, 레벨 업 등->리스트 기반
         m_ListInven[(int)eInven][itemIndex].ItemUpdate(eData, UpdateData);
     }
     public void ItemUpdateForChar(INVENTORY_TYPE eInven, int itemIndex, bool bUpgrade)
