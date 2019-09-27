@@ -1,0 +1,4 @@
+﻿  Static.cpp
+c:\users\c-01\desktop\chapter13\static\static.cpp(68): error C2352: 'A::StringPrint': 비정적 멤버 함수를 잘못 호출했습니다.
+  c:\users\c-01\desktop\chapter13\static\static.cpp(57): note: 'A::StringPrint' 선언을 참조하십시오.
+c:\users\c-01\desktop\chapter13\static\static.cpp(75): warning C4326: 'main'의 반환 형식이 'int'이어야 하는데 'void'입니다.

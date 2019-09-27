@@ -1,0 +1,4 @@
+﻿  Exception.cpp
+d:\development\ppt\국비\게임자료구조와 알고리즘\강의용코드\chapter14\exception\exception.cpp(22): warning C4326: 'main'의 반환 형식이 'int'이어야 하는데 'void'입니다.
+d:\development\ppt\국비\게임자료구조와 알고리즘\강의용코드\chapter14\exception\exception.cpp(32): warning C4101: 'k' :참조되지 않은 지역 변수입니다.
+  Exception.vcxproj -> D:\Development\PPT\국비\게임자료구조와 알고리즘\강의용코드\Chapter14\Debug\Exception.exe

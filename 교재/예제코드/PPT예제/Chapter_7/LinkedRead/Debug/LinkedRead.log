@@ -1,0 +1,4 @@
+﻿  LinkedRead.cpp
+\\c-01-pc\프로그래밍반공유폴더\[ncs] 2019 게임프로그래밍 전문가 양성과정\[ncs학습교재]\1_게임구조와 알고리즘\예제코드\ppt예제\chapter_7\linkedread\linkedread.cpp(22): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(1274): note: 'scanf' 선언을 참조하십시오.
+  LinkedRead.vcxproj -> \\C-01-pc\프로그래밍반공유폴더\[NCS] 2019 게임프로그래밍 전문가 양성과정\[NCS학습교재]\1_게임구조와 알고리즘\예제코드\PPT예제\Chapter_7\LinkedRead\Debug\LinkedRead.exe

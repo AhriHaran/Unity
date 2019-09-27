@@ -1,0 +1,3 @@
+﻿  Vector.cpp
+c:\users\ogn13\desktop\chapter15\chapter15\vector.cpp(167): warning C4326: 'main'의 반환 형식이 'int'이어야 하는데 'void'입니다.
+  Chapter15.vcxproj -> C:\Users\OGN13\Desktop\Chapter15\Debug\Chapter15.exe
